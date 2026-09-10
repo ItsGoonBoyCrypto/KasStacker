@@ -1,0 +1,64 @@
+---
+// Joins matrix.json (which rows/columns to show) against components.json.
+import components from '@data/components.json';
+import matrix from '@data/matrix.json';
+import MaturityBadge from './MaturityBadge.astro';
+
+const labels: Record<string, string> = {
+  layer: 'Layer',
+  network: 'Network',
+  stateModel: 'State model',
+  composability: 'Composability',
+  tokenSupport: 'Token support',
+  maturity: 'Maturity',
+  bestFor: 'Best for',
+};
+
+type Cell =
+  | { kind: 'maturity'; maturity: string | null }
+  | { kind: 'chips'; items: string[] }
+  | { kind: 'text'; value: string | null };
+
+const byId = Object.fromEntries(components.map((c) => [c.id, c]));
+const rows = matrix.rows
+  .map((id) => byId[id])
+  .filter(Boolean)
+  .map((c) => {
+    const record = c as unknown as Record<string, unknown>;
+    const cells: Cell[] = matrix.columns.map((col) => {
+      if (col === 'maturity') return { kind: 'maturity', maturity: c.maturity };
+      if (col === 'bestFor') return { kind: 'chips', items: (c.bestFor ?? []) as string[] };
+      const v = record[col];
+      return { kind: 'text', value: v == null ? null : String(v) };
+    });
+    return { c, cells };
+  });
+---
+<div class="table-scroll">
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Component</th>
+        {matrix.columns.map((col) => <th>{labels[col] ?? col}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(({ c, cells }) => (
+        <tr>
+          <td><a href={`/stack/${c.id}`}>{c.name}</a></td>
+          {cells.map((cell) => (
+            <td>
+              {cell.kind === 'maturity' && <MaturityBadge maturity={cell.maturity} />}
+              {cell.kind === 'chips' &&
+                (cell.items.length > 0
+                  ? <span class="chips">{cell.items.map((b) => <span class="chip">{b}</span>)}</span>
+                  : <span class="null">—</span>)}
+              {cell.kind === 'text' &&
+                (cell.value == null ? <span class="null">unverified</span> : cell.value)}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

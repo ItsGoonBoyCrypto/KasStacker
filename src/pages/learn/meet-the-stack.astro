@@ -1,0 +1,63 @@
+---
+import Base from '@layouts/Base.astro';
+import MaturityBadge from '@components/MaturityBadge.astro';
+import components from '@data/components.json';
+
+// bottom-up tour order
+const order = ['kaspa-script', 'silverscript', 'argent', 'kcc-20', 'vprogs'];
+const cards = order.map((id) => components.find((c) => c.id === id)!);
+---
+<Base
+  title="Meet the stack — KasStacker"
+  description="The five pieces of Kaspa's programmability stack, each in one sentence and one analogy — no jargon without a translation."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · stop 3 of 5</p>
+      <h1>Meet the stack</h1>
+      <p class="lede">
+        Bottom to top: each layer exists to make the one below it usable.
+        One sentence, one analogy, and an honest maturity badge each.
+      </p>
+    </header>
+
+    <div class="cards">
+      {cards.map((c) => (
+        <a class="card" href={`/stack/${c.id}`}>
+          <div class="top">
+            <h2>{c.name}</h2>
+            <MaturityBadge maturity={c.maturity} />
+          </div>
+          <p class="plain">{c.plain}</p>
+          <p class="ana">{c.analogy}</p>
+          <span class="go">Full page →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="next-link"><a class="btn btn-primary" href="/learn/how-it-fits-together">Next: How it fits together →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .cards { display: grid; gap: 14px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 20px 22px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .card:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .card h2 { font-size: 1.05rem; }
+  .plain { color: var(--muted); font-size: 0.93rem; margin: 0; max-width: 62ch; }
+  .ana { color: var(--muted); font-size: 0.88rem; font-style: italic; margin: 0; border-left: 2px solid var(--teal-dim); padding-left: 12px; }
+  .go { color: var(--teal-bright); font-size: 0.83rem; font-weight: 600; }
+</style>

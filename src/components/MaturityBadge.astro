@@ -1,0 +1,31 @@
+---
+// Renders the site-wide maturity scale. `null` renders as "unverified" —
+// per the data rules, unknown values are shown, never guessed.
+interface Props { maturity: string | null }
+const { maturity } = Astro.props;
+const known = ['roadmap', 'experimental', 'testnet', 'pre-audit', 'audited', 'production', 'legacy'];
+const m = maturity && known.includes(maturity) ? maturity : null;
+const cls = m ? `b-${m.replace('-', '')}` : 'b-unverified';
+---
+<span class:list={['badge', cls]}>{m ?? 'unverified'}</span>
+
+<style>
+  .badge {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    padding: 4px 12px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .b-roadmap { color: var(--m-roadmap); border-color: var(--m-roadmap); }
+  .b-experimental { color: var(--m-experimental); border-color: var(--m-experimental); }
+  .b-testnet { color: var(--m-testnet); border-color: var(--m-testnet); }
+  .b-preaudit { color: var(--m-preaudit); border-color: var(--m-preaudit); }
+  .b-audited { color: var(--m-audited); border-color: var(--m-audited); }
+  .b-production { color: var(--teal-ink); border-color: var(--m-production); background: var(--m-production); }
+  .b-legacy { color: var(--m-legacy); border-color: var(--border); text-decoration: line-through; }
+  .b-unverified { color: var(--faint); border-color: var(--border); border-style: dashed; }
+</style>

@@ -1,0 +1,94 @@
+---
+// The homepage centerpiece: the Kaspa programmability stack, every box a link.
+---
+<figure class="diagram">
+  <svg
+    viewBox="0 0 760 400"
+    role="img"
+    aria-label="The Kaspa stack: consensus at the bottom, Kaspa Script and Covenants above it, Silverscript compiles to that, Argent builds on Silverscript, and apps such as KCC-20 tokens sit on top. vProgs is a dashed roadmap box beside the stack."
+  >
+    <!-- Apps row -->
+    <rect x="36" y="20" width="430" height="56" rx="8" class="row r5" />
+    <a href="/stack/kcc-20"><rect x="46" y="30" width="112" height="36" rx="6" class="chip-box" /><text x="102" y="52" text-anchor="middle" class="t-chip">KCC-20</text></a>
+    <a href="/learn/how-it-fits-together"><rect x="168" y="30" width="140" height="36" rx="6" class="chip-box" /><text x="238" y="52" text-anchor="middle" class="t-chip">vaults · escrow</text></a>
+    <a href="/compare"><rect x="318" y="30" width="138" height="36" rx="6" class="chip-box" /><text x="387" y="52" text-anchor="middle" class="t-chip">your project</text></a>
+
+    <!-- Argent -->
+    <a href="/stack/argent">
+      <rect x="36" y="96" width="430" height="56" rx="8" class="row r4" />
+      <text x="56" y="121" class="t-name">Argent</text>
+      <text x="56" y="139" class="t-sub">app language · actors + ICC</text>
+    </a>
+
+    <!-- Silverscript -->
+    <a href="/stack/silverscript">
+      <rect x="36" y="172" width="430" height="56" rx="8" class="row r3" />
+      <text x="56" y="197" class="t-name">Silverscript</text>
+      <text x="56" y="215" class="t-sub">covenant language</text>
+    </a>
+
+    <!-- Kaspa Script + Covenants -->
+    <a href="/stack/kaspa-script">
+      <rect x="36" y="248" width="430" height="56" rx="8" class="row r2" />
+      <text x="56" y="273" class="t-name">Kaspa Script + Covenants++</text>
+      <text x="56" y="291" class="t-sub">KIP-17 lineage · KIP-20 covenant ids · tx v1 · inline ZK</text>
+    </a>
+
+    <!-- Consensus -->
+    <a href="/learn/kaspa-in-60-seconds">
+      <rect x="36" y="324" width="430" height="56" rx="8" class="row r1" />
+      <text x="56" y="349" class="t-name">Kaspa consensus</text>
+      <text x="56" y="367" class="t-sub">GHOSTDAG · blockDAG · proof of work</text>
+    </a>
+
+    <!-- interlayer ticks -->
+    <line x1="251" y1="76" x2="251" y2="94" class="tick" />
+    <line x1="251" y1="152" x2="251" y2="170" class="tick" />
+    <line x1="251" y1="228" x2="251" y2="246" class="tick" />
+    <text x="261" y="242" class="t-note">compiles to</text>
+    <line x1="251" y1="304" x2="251" y2="322" class="tick" />
+
+    <!-- vProgs roadmap -->
+    <a href="/stack/vprogs">
+      <rect x="516" y="248" width="208" height="56" rx="8" class="roadmap" />
+      <text x="536" y="273" class="t-name dim">vProgs / CDAG</text>
+      <text x="536" y="291" class="t-sub">roadmap — native DAG programs</text>
+    </a>
+    <line x1="466" y1="276" x2="514" y2="276" class="dotted" />
+  </svg>
+  <figcaption>
+    Each layer rests on the one below: apps compile through Argent and Silverscript down to Kaspa Script,
+    and consensus enforces the result. vProgs is the research track for native DAG programs.
+    Click any box to open its page.
+  </figcaption>
+</figure>
+
+<style>
+  .diagram {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 24px 16px 12px;
+    overflow-x: auto;
+  }
+  .diagram svg { max-width: 100%; height: auto; min-width: 620px; display: block; margin: 0 auto; }
+  figcaption { color: var(--faint); font-size: 0.82rem; text-align: center; margin-top: 10px; padding: 0 12px; }
+  .row { stroke: var(--teal-dim); }
+  .r1 { fill: color-mix(in srgb, var(--teal) 22%, transparent); }
+  .r2 { fill: color-mix(in srgb, var(--teal) 17%, transparent); }
+  .r3 { fill: color-mix(in srgb, var(--teal) 13%, transparent); }
+  .r4 { fill: color-mix(in srgb, var(--teal) 9%, transparent); }
+  .r5 { fill: color-mix(in srgb, var(--teal) 5%, transparent); }
+  .chip-box { fill: color-mix(in srgb, var(--teal) 14%, transparent); stroke: var(--teal-dim); }
+  .roadmap { fill: none; stroke: var(--faint); stroke-dasharray: 5 4; }
+  .tick { stroke: var(--faint); }
+  .dotted { stroke: var(--faint); stroke-dasharray: 2 4; }
+  .t-name { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; fill: var(--text); }
+  .t-name.dim { fill: var(--muted); }
+  .t-sub { font-family: 'Instrument Sans', sans-serif; font-size: 11px; fill: var(--muted); }
+  .t-chip { font-family: 'Sora', sans-serif; font-size: 12px; fill: var(--text); }
+  .t-note { font-family: 'Instrument Sans', sans-serif; font-size: 10px; fill: var(--faint); }
+  svg a:hover rect { stroke: var(--teal); }
+  svg a:hover .t-name, svg a:hover .t-chip { fill: var(--teal-bright); }
+</style>

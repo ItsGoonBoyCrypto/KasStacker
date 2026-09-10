@@ -1,0 +1,97 @@
+---
+import Base from '@layouts/Base.astro';
+
+const stops = [
+  {
+    href: '/learn/kaspa-in-60-seconds',
+    title: 'Kaspa in 60 seconds',
+    blurb: 'What Kaspa is, why it is fast, and why for years it could only move money — not make promises about it.',
+  },
+  {
+    href: '/learn/what-toccata-changed',
+    title: 'What Toccata changed',
+    blurb: 'The 2026 upgrade that taught Kaspa to enforce rules: covenants, chain-checked tokens, and zero-knowledge verification.',
+  },
+  {
+    href: '/learn/meet-the-stack',
+    title: 'Meet the stack',
+    blurb: 'The five pieces — consensus, Script + Covenants, Silverscript, Argent, KCC-20 — each in one sentence and one analogy.',
+  },
+  {
+    href: '/learn/how-it-fits-together',
+    title: 'How it fits together',
+    blurb: 'Follow one real vault from an idea, through a covenant, to coins on mainnet no one can move against the rules.',
+  },
+  {
+    href: '/learn/faq',
+    title: 'Questions everyone asks',
+    blurb: 'Is this like Ethereum smart contracts? What is audited? Where would I actually start?',
+  },
+];
+---
+<Base
+  title="Learn — KasStacker"
+  description="A guided tour of Kaspa's programmability stack for people who don't write code — from 'what is Kaspa' to 'how a covenant protects coins'."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn</p>
+      <h1>The 5-minute tour</h1>
+      <p class="lede">
+        Five short stops, in order, written for people who don't write code.
+        Every technical term is explained the first time it appears — plain language first, precision second.
+      </p>
+    </header>
+    <ol class="stops">
+      {stops.map((s, i) => (
+        <li>
+          <a href={s.href}>
+            <span class="n">{i + 1}</span>
+            <span class="body">
+              <span class="t">{s.title}</span>
+              <span class="b">{s.blurb}</span>
+            </span>
+            <span class="go">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 28px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.05rem; }
+  .stops { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .stops a {
+    display: grid;
+    grid-template-columns: 44px 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 16px 18px;
+    color: var(--text);
+  }
+  .stops a:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .n {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--teal);
+    background: var(--surface2);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .body { display: flex; flex-direction: column; gap: 2px; }
+  .t { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.98rem; }
+  .b { color: var(--muted); font-size: 0.88rem; }
+  .go { color: var(--teal-bright); font-weight: 600; }
+</style>

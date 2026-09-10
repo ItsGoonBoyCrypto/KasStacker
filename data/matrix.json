@@ -1,0 +1,4 @@
+{
+  "columns": ["layer", "network", "stateModel", "composability", "tokenSupport", "maturity", "bestFor"],
+  "rows": ["kaspa-script", "silverscript", "argent", "kcc-20", "vprogs"]
+}

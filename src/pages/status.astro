@@ -1,0 +1,72 @@
+---
+import Base from '@layouts/Base.astro';
+import MaturityBadge from '@components/MaturityBadge.astro';
+import components from '@data/components.json';
+import status from '@data/status.json';
+
+type RepoStatus = {
+  latestTag: string | null;
+  latestTagDate: string | null;
+  lastCommit: string;
+  openIssues: number;
+  stars: number;
+  archived: boolean;
+};
+const repos = status.repos as Record<string, RepoStatus>;
+const generated = new Date(status.generatedAt).toISOString().replace('T', ' ').slice(0, 16);
+const day = (iso: string | null) => (iso ? iso.slice(0, 10) : null);
+---
+<Base
+  title="Status — KasStacker"
+  description="Live status board for the Kaspa stack: latest tags, last commits, and maturity — fetched daily from the GitHub API."
+>
+  <div class="wrap">
+    <header class="head">
+      <p class="eyebrow">Status</p>
+      <h1>The board</h1>
+      <p class="lede">
+        Fetched from the GitHub API by a daily workflow that fails loudly on any error —
+        stale data is never silently committed. Last refresh: <code>{generated} UTC</code>.
+      </p>
+    </header>
+    <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Component</th><th>Maturity</th><th>Repository</th><th>Latest tag</th>
+            <th>Tagged</th><th>Last push</th><th>Stars</th><th>Open issues</th>
+          </tr>
+        </thead>
+        <tbody>
+          {components.map((c) => {
+            const s = c.repo ? repos[c.repo] : null;
+            return (
+              <tr>
+                <td><a href={`/stack/${c.id}`}>{c.name}</a></td>
+                <td><MaturityBadge maturity={c.maturity} /></td>
+                <td>{c.repo ? <a href={`https://github.com/${c.repo}`} rel="noopener">{c.repo}</a> : <span class="null">none public / unconfirmed</span>}</td>
+                <td class="num">{s ? (s.latestTag ?? <span class="null">no release</span>) : <span class="null">—</span>}</td>
+                <td class="num">{s?.latestTagDate ? day(s.latestTagDate) : <span class="null">—</span>}</td>
+                <td class="num">{s ? day(s.lastCommit) : <span class="null">—</span>}</td>
+                <td class="num">{s ? s.stars : <span class="null">—</span>}</td>
+                <td class="num">{s ? s.openIssues : <span class="null">—</span>}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      A component without a repository row either has no public repo (vProgs is a roadmap item) or its
+      canonical location is not yet confirmed (KCC-20's written spec) — per the site's rules, that is
+      shown rather than guessed.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 28px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+  .note { color: var(--faint); font-size: 0.85rem; margin-top: 16px; max-width: 70ch; }
+</style>

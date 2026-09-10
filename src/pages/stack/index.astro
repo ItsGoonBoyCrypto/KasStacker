@@ -1,0 +1,64 @@
+---
+import Base from '@layouts/Base.astro';
+import MaturityBadge from '@components/MaturityBadge.astro';
+import components from '@data/components.json';
+---
+<Base
+  title="The Stack — KasStacker"
+  description="Every component of Kaspa's programmability stack: what it is, what it's for, and how mature it really is."
+>
+  <div class="wrap">
+    <header class="head">
+      <p class="eyebrow">The Stack</p>
+      <h1>Five pieces, one system</h1>
+      <p class="lede">
+        From the consensus rules at the bottom to the tokens people actually hold —
+        each card opens the full page: plain-English explanation, limits, and live status.
+      </p>
+    </header>
+    <div class="grid">
+      {components.map((c) => (
+        <a class="card" href={`/stack/${c.id}`}>
+          <div class="top">
+            <h2>{c.name}</h2>
+            <MaturityBadge maturity={c.maturity} />
+          </div>
+          <p class="plain">{c.plain}</p>
+          <p class="ana">{c.analogy}</p>
+          <span class="go">Read more →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 28px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.05rem; max-width: 58ch; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 22px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .card h2 { font-size: 1.05rem; }
+  .plain { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  .ana {
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-style: italic;
+    margin: 0;
+    border-left: 2px solid var(--teal-dim);
+    padding-left: 12px;
+  }
+  .go { margin-top: auto; padding-top: 8px; color: var(--teal-bright); font-size: 0.84rem; font-weight: 600; }
+</style>

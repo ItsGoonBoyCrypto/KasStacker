@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 180" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FE8D5"/>
+      <stop offset="1" stop-color="#2FBFAE"/>
+    </linearGradient>
+  </defs>
+  <line x1="62" y1="92" x2="97" y2="57" stroke="#49D9C4" stroke-width="7" stroke-linecap="round"/>
+  <line x1="62" y1="92" x2="97" y2="127" stroke="#49D9C4" stroke-width="7" stroke-linecap="round"/>
+  <polygon points="61,22 52.5,36.7 35.5,36.7 27,22 35.5,7.3 52.5,7.3" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="58,57 51,69.1 37,69.1 30,57 37,44.9 51,44.9" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="62,92 53,107.6 35,107.6 26,92 35,76.4 53,76.4" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="58,127 51,139.1 37,139.1 30,127 37,114.9 51,114.9" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="60,160 52,173.9 36,173.9 28,160 36,146.1 52,146.1" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="118,52 112,62.4 100,62.4 94,52 100,41.6 112,41.6" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="118,132 112,142.4 100,142.4 94,132 100,121.6 112,121.6" fill="url(#g)" stroke="url(#g)" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="44" cy="40" r="4" fill="#7FE8D8"/>
+  <circle cx="44" cy="74" r="4" fill="#7FE8D8"/>
+  <circle cx="44" cy="111" r="4" fill="#7FE8D8"/>
+  <circle cx="44" cy="144" r="4" fill="#7FE8D8"/>
+  <circle cx="62" cy="92" r="5" fill="#7FE8D8"/>
+</svg>

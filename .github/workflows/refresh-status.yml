@@ -1,0 +1,44 @@
+name: Refresh status
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # fetch-status.mjs throws on any non-200, failing this job loudly —
+      # stale data is never silently committed.
+      - run: node scripts/fetch-status.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if changed
+        id: commit
+        run: |
+          if git diff --quiet data/status.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name 'kasstacker-bot'
+            git config user.email 'actions@users.noreply.github.com'
+            git add data/status.json
+            git commit -m 'chore(status): daily refresh'
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  # A GITHUB_TOKEN push does not trigger the on:push deploy, so call it explicitly.
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

@@ -1,0 +1,96 @@
+---
+import Base from '@layouts/Base.astro';
+import StackDiagram from '@components/StackDiagram.astro';
+import StatusStrip from '@components/StatusStrip.astro';
+---
+<Base
+  title="KasStacker — Understand the Kaspa stack"
+  description="What Kaspa covenants, Silverscript, Argent and KCC-20 actually do, how they fit together, and where to start building. Plain language first."
+>
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">The Kaspa programmability stack, explained</p>
+      <h1>Understand the <em>Kaspa stack</em>.</h1>
+      <p class="lede">
+        Kaspa can now enforce rules on money, not just move it. KasStacker explains what
+        covenants, Silverscript, Argent and KCC-20 actually do — and how they fit together —
+        in plain language first, precision second.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/learn">Start the 5-minute tour</a>
+        <a class="btn btn-ghost" href="/stack">Explore the stack →</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">The big picture</p>
+        <h2>How the pieces fit</h2>
+      </div>
+      <StackDiagram />
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">Three doors</p>
+        <h2>Where do you want to go?</h2>
+      </div>
+      <div class="doors">
+        <a class="door" href="/learn">
+          <h3>Learn</h3>
+          <p>New to all of this? A guided tour from "what is Kaspa" to "how a covenant protects your coins". No jargon without an explanation.</p>
+          <span class="go">Take the tour →</span>
+        </a>
+        <a class="door" href="/compare">
+          <h3>Compare</h3>
+          <p>The full matrix: layer by layer, what each component can and can't do, with honest maturity badges on every row.</p>
+          <span class="go">See the matrix →</span>
+        </a>
+        <a class="door" href="/stack">
+          <h3>The Stack</h3>
+          <p>One page per component — what it is, what problem it solves, what it can't do, and every official link that matters.</p>
+          <span class="go">Browse components →</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">Live from the repos</p>
+        <h2>Status right now</h2>
+        <p class="sec-sub">Pulled daily from the GitHub API — never hand-written, never silently stale.</p>
+      </div>
+      <StatusStrip />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .hero { padding: 76px 0 8px; }
+  .hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3.1rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 10px 0 16px;
+    max-width: 20ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--teal); }
+  .lede { font-size: 1.12rem; color: var(--muted); max-width: 56ch; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .doors { grid-template-columns: 1fr; } }
+  .door {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 22px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .door:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .door h3 { font-size: 1.05rem; }
+  .door p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  .door .go { margin-top: auto; padding-top: 10px; color: var(--teal-bright); font-size: 0.85rem; font-weight: 600; }
+</style>

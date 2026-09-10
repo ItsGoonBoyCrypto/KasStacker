@@ -1,0 +1,158 @@
+---
+import Base from '@layouts/Base.astro';
+import MaturityBadge from '@components/MaturityBadge.astro';
+import components from '@data/components.json';
+import status from '@data/status.json';
+
+export function getStaticPaths() {
+  return components.map((c) => ({ params: { id: c.id } }));
+}
+
+const { id } = Astro.params;
+const c = components.find((x) => x.id === id)!;
+const siblings = components.filter((x) => x.id !== id);
+
+type RepoStatus = { latestTag: string | null; lastCommit: string; openIssues: number; stars: number; archived: boolean };
+const repo = c.repo ? (status.repos as Record<string, RepoStatus>)[c.repo] : null;
+
+const facts: [string, string | null][] = [
+  ['Layer', c.layer],
+  ['Network', c.network],
+  ['State model', c.stateModel],
+  ['Composability', c.composability],
+  ['Token support', c.tokenSupport],
+  ['Since', c.since],
+  ['On mainnet', c.mainnet == null ? null : c.mainnet ? 'yes' : 'no'],
+];
+const links: [string, string | null][] = [
+  ['Repository', c.repo ? `https://github.com/${c.repo}` : null],
+  ['Docs', c.docs],
+  ['Playground / explorer', c.playground],
+];
+---
+<Base title={`${c.name} — KasStacker`} description={c.tagline}>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">{c.layer}</p>
+      <div class="title-row">
+        <h1>{c.name}</h1>
+        <MaturityBadge maturity={c.maturity} />
+      </div>
+      <p class="tagline">{c.tagline}</p>
+    </header>
+
+    <section class="first">
+      <h2>In plain English</h2>
+      <p>{c.plain}</p>
+      <blockquote>{c.analogy}</blockquote>
+    </section>
+
+    <section>
+      <h2>At a glance</h2>
+      <dl class="facts">
+        {facts.map(([k, v]) => (
+          <div class="fact">
+            <dt>{k}</dt>
+            <dd>{v ?? <span class="null">unverified</span>}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <div class="two">
+      <section class="half good">
+        <h2>Best for</h2>
+        {c.bestFor.length > 0
+          ? <ul>{c.bestFor.map((b) => <li>{b}</li>)}</ul>
+          : <p class="null">Nothing yet — see "not for".</p>}
+      </section>
+      <section class="half bad">
+        <h2>What it can't do</h2>
+        <ul>{c.notFor.map((n) => <li>{n}</li>)}</ul>
+      </section>
+    </div>
+
+    {repo && (
+      <section>
+        <h2>Live status</h2>
+        <p class="src">From the GitHub API for <code>{c.repo}</code>, refreshed daily.</p>
+        <div class="repo-row">
+          <span class="stat"><b>{repo.latestTag ?? 'no release'}</b> latest tag</span>
+          <span class="stat"><b>{new Date(repo.lastCommit).toISOString().slice(0, 10)}</b> last push</span>
+          <span class="stat"><b class="num">{repo.stars}</b> stars</span>
+          <span class="stat"><b class="num">{repo.openIssues}</b> open issues</span>
+          {repo.archived && <span class="stat warn"><b>archived</b></span>}
+        </div>
+      </section>
+    )}
+
+    <section>
+      <h2>When to choose it over…</h2>
+      <ul class="sibs">
+        {siblings.map((s) => (
+          <li><a href={`/stack/${s.id}`}>{s.name}</a> — {s.tagline.toLowerCase()}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Links</h2>
+      <ul class="links">
+        {links.map(([k, v]) =>
+          v ? <li><a href={v} rel="noopener">{k}</a> <span class="url">{v.replace('https://', '')}</span></li> : null
+        )}
+        {links.every(([, v]) => !v) && <li class="null">No public links verified yet.</li>}
+      </ul>
+      <p class="src">
+        The deep-dive guide for this component is in progress. The essentials above are held to the site's
+        data rules: unknown values render as "unverified", never guesses.
+      </p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 6px; }
+  .title-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 8px 0 10px; }
+  .head h1 { font-size: 2rem; font-weight: 700; }
+  .tagline { color: var(--muted); font-size: 1.05rem; }
+  section { margin-top: 44px; }
+  section.first { margin-top: 28px; }
+  h2 { font-size: 1.25rem; margin-bottom: 12px; }
+  blockquote {
+    margin: 0;
+    border-left: 2px solid var(--teal-dim);
+    padding: 2px 0 2px 16px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin: 0; }
+  .fact { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 8px; padding: 12px 14px; }
+  dt { font-family: 'Sora', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+  dd { margin: 4px 0 0; font-size: 0.9rem; color: var(--text); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .two { grid-template-columns: 1fr; } }
+  .half { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 18px 20px; margin-top: 44px; }
+  .half h2 { font-size: 1rem; }
+  .half ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
+  .half li { margin-bottom: 6px; }
+  .good h2 { color: var(--m-audited); }
+  .bad h2 { color: var(--m-preaudit); }
+  .repo-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .stat b { color: var(--text); font-weight: 600; margin-right: 6px; }
+  .stat .num { font-variant-numeric: tabular-nums; }
+  .stat.warn b { color: var(--m-experimental); }
+  .sibs, .links { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.94rem; }
+  .sibs li, .links li { margin-bottom: 8px; }
+  .links { list-style: none; padding-left: 0; }
+  .url { color: var(--faint); font-size: 0.8rem; margin-left: 8px; }
+  .src { color: var(--faint); font-size: 0.85rem; }
+</style>

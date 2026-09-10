@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-09-10T17:48:47.625Z",
+  "repos": {
+    "kaspanet/rusty-kaspa": {
+      "latestTag": "v2.0.1",
+      "latestTagDate": "2026-06-15T19:10:50Z",
+      "lastCommit": "2026-09-08T04:08:18Z",
+      "openIssues": 220,
+      "stars": 846,
+      "archived": false
+    },
+    "kaspanet/silverscript": {
+      "latestTag": "v1.0.0",
+      "latestTagDate": "2026-09-09T16:47:25Z",
+      "lastCommit": "2026-09-09T16:48:12Z",
+      "openIssues": 35,
+      "stars": 56,
+      "archived": false
+    },
+    "argent-lang/argent": {
+      "latestTag": null,
+      "latestTagDate": null,
+      "lastCommit": "2026-09-10T13:47:00Z",
+      "openIssues": 1,
+      "stars": 25,
+      "archived": false
+    }
+  }
+}

@@ -1,0 +1,43 @@
+---
+// Vector recreation of the KasStacker mark: a blockDAG column of hexagons
+// forming a "K" — committed teal, reads on both themes.
+interface Props { size?: number }
+const { size = 26 } = Astro.props;
+const h = Math.round((size * 180) / 128);
+
+// flat-top hexagon points around (cx, cy) with radius r
+const hex = (cx: number, cy: number, r: number) => {
+  const v = 0.866 * r;
+  return [
+    [cx + r, cy], [cx + r / 2, cy + v], [cx - r / 2, cy + v],
+    [cx - r, cy], [cx - r / 2, cy - v], [cx + r / 2, cy - v],
+  ].map((p) => p.map((n) => Math.round(n * 10) / 10).join(',')).join(' ');
+};
+const column = [
+  hex(44, 22, 17), hex(44, 57, 14), hex(44, 92, 18), hex(44, 127, 14), hex(44, 160, 16),
+];
+const branches = [hex(106, 52, 12), hex(106, 132, 12)];
+---
+<svg width={size} height={h} viewBox="0 0 128 180" role="img" aria-label="KasStacker logo" fill="none">
+  <defs>
+    <linearGradient id="ksg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FE8D5" />
+      <stop offset="1" stop-color="#2FBFAE" />
+    </linearGradient>
+  </defs>
+  <line x1="62" y1="92" x2="97" y2="57" stroke="#49D9C4" stroke-width="5" stroke-linecap="round" />
+  <line x1="62" y1="92" x2="97" y2="127" stroke="#49D9C4" stroke-width="5" stroke-linecap="round" />
+  {column.map((p) => (
+    <polygon points={p} fill="url(#ksg)" stroke="url(#ksg)" stroke-width="3" stroke-linejoin="round" />
+  ))}
+  {branches.map((p) => (
+    <polygon points={p} fill="url(#ksg)" stroke="url(#ksg)" stroke-width="3" stroke-linejoin="round" />
+  ))}
+  <circle cx="44" cy="40" r="3.5" fill="#7FE8D8" />
+  <circle cx="44" cy="74" r="3.5" fill="#7FE8D8" />
+  <circle cx="44" cy="111" r="3.5" fill="#7FE8D8" />
+  <circle cx="44" cy="144" r="3.5" fill="#7FE8D8" />
+  <circle cx="62" cy="92" r="4.5" fill="#7FE8D8" />
+  <circle cx="95" cy="59" r="3" fill="#7FE8D8" />
+  <circle cx="95" cy="125" r="3" fill="#7FE8D8" />
+</svg>

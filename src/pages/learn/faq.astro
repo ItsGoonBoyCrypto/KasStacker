@@ -1,0 +1,98 @@
+---
+import Base from '@layouts/Base.astro';
+
+const faqs = [
+  {
+    q: 'Is this like Ethereum smart contracts?',
+    a: 'Same goal — programmable rules on-chain — different shape. Ethereum runs programs against big shared account balances. Kaspa covenants attach rules directly to specific coins (UTXOs): smaller and stricter per contract, but the rules travel with the money itself and inherit Kaspa\'s speed and proof-of-work security.',
+  },
+  {
+    q: 'Do I need to understand covenants to hold KAS?',
+    a: 'No. Plain sending and receiving is unchanged. The stack matters when you want more than transfer: vaults, escrow, tokens with chain-enforced rules — or when you want to judge a project that claims to use them.',
+  },
+  {
+    q: 'What is actually audited?',
+    a: 'As of this site\'s last review: Silverscript hit v1.0.0 on 2026-09-09 but names no external audit and its own security policy still calls it experimental. Argent has no tagged release at all. The status board tracks this daily — and any project\'s "audited" claim deserves a named auditor and a date before you believe it.',
+  },
+  {
+    q: 'What is KCC-20, in one line?',
+    a: 'Tokens whose supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper to trust. They are live and traded on mainnet while the written standard is still being consolidated.',
+  },
+  {
+    q: 'What are vProgs, and can I use them?',
+    a: 'Not yet — vProgs (native programs living in the DAG) are the research track, the roadmap beyond covenants. Anyone selling you a "vProg" today is early by definition.',
+  },
+  {
+    q: 'Where would I actually start building?',
+    a: 'Kascov.io lets you try covenant code with zero installation, and Silverscript is the language most things are written in today. A full build guide with tested commands is this site\'s next section to ship.',
+  },
+];
+---
+<Base
+  title="FAQ — KasStacker"
+  description="Straight answers to the questions everyone asks about Kaspa covenants, Silverscript, KCC-20 and what is actually audited."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · stop 5 of 5</p>
+      <h1>Questions everyone asks</h1>
+    </header>
+
+    <div class="faqs">
+      {faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+
+    <div class="finish panel">
+      <h2>That's the tour.</h2>
+      <p>
+        You now know more about Kaspa's programmability stack than most of crypto Twitter.
+        From here: the <a href="/compare">comparison matrix</a> for the details, the
+        <a href="/stack">component pages</a> for depth, or the <a href="/status">status board</a>
+        to see what moved today.
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+  .faqs { display: grid; gap: 10px; }
+  details {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 0 20px;
+  }
+  details[open] { border-color: var(--teal-dim); }
+  summary {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 0.97rem;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 28px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--teal);
+    font-weight: 600;
+  }
+  details[open] summary::after { content: '–'; }
+  details p { color: var(--muted); font-size: 0.94rem; margin: 0 0 18px; max-width: 62ch; }
+  .finish { margin-top: 36px; }
+  .finish h2 { font-size: 1.15rem; margin-bottom: 8px; }
+  .finish p { color: var(--muted); margin: 0; }
+</style>

@@ -1,0 +1,71 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title="What Toccata changed — KasStacker"
+  description="The 2026 Kaspa upgrade in plain language: covenants, chain-enforced tokens, and zero-knowledge verification — what each actually means."
+>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">Learn · stop 2 of 5</p>
+      <h1>What Toccata changed</h1>
+    </header>
+
+    <p>
+      <strong>Toccata is the 2026 upgrade that taught Kaspa to enforce rules on money, not just move it.</strong>
+      Before it, the chain could answer one question: "does this signature match?" After it, the chain can
+      check a whole contract's worth of conditions before letting coins move.
+    </p>
+
+    <div class="ba">
+      <div class="col before">
+        <h3>Before</h3>
+        <ul>
+          <li>Send and receive coins</li>
+          <li>Multi-signature wallets</li>
+          <li>Token balances kept by <em>off-chain</em> bookkeepers</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <h3>After</h3>
+        <ul>
+          <li><strong>Covenants</strong> — rules attached to coins that every future spend must satisfy</li>
+          <li><strong>Chain-enforced tokens</strong> — the KCC-20 approach: supply and transfer rules checked by consensus itself</li>
+          <li><strong>Inline zero-knowledge verification</strong> — the chain can check a cryptographic proof that something happened, without seeing the details</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The new words, translated</h2>
+    <ul>
+      <li><strong>Covenant</strong> — a lock on coins that dictates how they're allowed to move <em>next</em>. Not advice, not a bookkeeper's note: consensus rejects any spend that breaks it.</li>
+      <li><strong>Lineage (KIP-17)</strong> — a covenant can prove where its coins came from, so rules can follow coins across many transactions.</li>
+      <li><strong>Covenant ID (KIP-20)</strong> — a stable identity for a covenant, so one contract can own things and be found again.</li>
+      <li><strong>Inline ZK (KIP-16)</strong> — zero-knowledge proof checking, live on mainnet since 2026-06-30.</li>
+    </ul>
+
+    <blockquote>
+      Before Toccata, Kaspa was a very fast cash register. After Toccata, it's a cash register that can
+      also hold escrow, run a vault, and issue tokens — with the rules built into the machine.
+    </blockquote>
+
+    <div class="next-link"><a class="btn btn-primary" href="/learn/meet-the-stack">Next: Meet the stack →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  @media (max-width: 640px) { .ba { grid-template-columns: 1fr; } }
+  .col { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 10px; padding: 18px 20px; }
+  .col h3 {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .before h3 { color: var(--faint); }
+  .after h3 { color: var(--teal); }
+  .col ul { margin: 0; padding-left: 18px; }
+</style>

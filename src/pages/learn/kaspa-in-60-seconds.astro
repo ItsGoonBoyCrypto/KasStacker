@@ -1,0 +1,45 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title="Kaspa in 60 seconds — KasStacker"
+  description="What Kaspa is, why it's fast, and why for years it could only move money — the one-minute foundation for everything else."
+>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">Learn · stop 1 of 5</p>
+      <h1>Kaspa in 60 seconds</h1>
+    </header>
+
+    <p><strong>Kaspa is digital cash secured by proof of work, like Bitcoin — but built to be fast.</strong></p>
+
+    <p>
+      Most blockchains make one block at a time and throw away ties. Kaspa keeps every block and weaves
+      them into a <strong>blockDAG</strong> — a braid instead of a single chain — ordered by a protocol
+      called <strong>GHOSTDAG</strong>. The practical result: blocks arrive many times per second and
+      payments confirm in seconds, while keeping Bitcoin-style proof-of-work security.
+    </p>
+
+    <blockquote>
+      A chain is a single-lane road; a blockDAG is a motorway where every lane's traffic still ends up
+      in one agreed order.
+    </blockquote>
+
+    <h2>The catch — until 2026</h2>
+    <p>
+      For years Kaspa's scripting was deliberately minimal. It could verify <em>who</em> owns coins and
+      move them, but it couldn't enforce <em>conditions</em> on how coins move next. No vaults, no
+      chain-enforced tokens, no on-chain agreements — money only.
+    </p>
+    <p>
+      That is what the <strong>Toccata upgrade</strong> changed, and it's why this site exists.
+    </p>
+
+    <div class="next-link"><a class="btn btn-primary" href="/learn/what-toccata-changed">Next: What Toccata changed →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+</style>

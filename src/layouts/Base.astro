@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const nav = [
+  { href: '/learn', label: 'Learn' },
+  { href: '/stack', label: 'The Stack' },
+  { href: '/compare', label: 'Compare' },
+  { href: '/status', label: 'Status' },
+];
+const path = Astro.url.pathname.replace(/\/$/, '');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Chakra+Petch:wght@600;700&display=swap"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap bar">
+        <a href="/" class="home" aria-label="KasStacker home">
+          <Logo size={26} />
+          <span class="wordmark">Kas<em>Stacker</em></span>
+        </a>
+        <nav aria-label="Main">
+          {nav.map((n) => (
+            <a href={n.href} class:list={{ active: path === n.href || path.startsWith(n.href + '/') }}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap foot">
+        <div>
+          <Logo size={20} />
+          <span class="wordmark small">Kas<em>Stacker</em></span>
+        </div>
+        <p>
+          An independent guide to Kaspa's programmability stack. Complements
+          <a href="https://docs.kaspa.org/toccata" rel="noopener">docs.kaspa.org/toccata</a> and
+          <a href="https://kascov.io" rel="noopener">kascov.io</a> — every maturity claim is sourced and dated;
+          unverified fields are shown as unverified, never guessed.
+        </p>
+        <p class="fine">
+          <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">Source on GitHub</a>
+          · Status data refreshes daily from the GitHub API.
+        </p>
+      </div>
+    </footer>
+
+    <style>
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        height: 62px;
+      }
+      .home { display: flex; align-items: center; gap: 10px; color: var(--text); }
+      .home:hover { text-decoration: none; }
+      .wordmark {
+        font-family: 'Chakra Petch', 'Sora', sans-serif;
+        font-weight: 700;
+        font-size: 1.08rem;
+        letter-spacing: 0.01em;
+      }
+      .wordmark em { font-style: normal; color: var(--teal); }
+      .wordmark.small { font-size: 0.9rem; }
+      nav { display: flex; gap: 4px; }
+      nav a {
+        font-family: 'Sora', sans-serif;
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--muted);
+        padding: 7px 12px;
+        border-radius: 7px;
+      }
+      nav a:hover { color: var(--text); text-decoration: none; background: var(--surface2); }
+      nav a.active { color: var(--teal); }
+      main { min-height: 60vh; padding-bottom: 96px; }
+      .site-footer { border-top: 1px solid var(--border-soft); background: var(--surface); }
+      .foot { padding: 36px 24px 44px; }
+      .foot > div { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+      .foot p { color: var(--muted); font-size: 0.88rem; max-width: 72ch; }
+      .foot .fine { color: var(--faint); font-size: 0.8rem; margin-bottom: 0; }
+      @media (max-width: 560px) {
+        nav a { padding: 7px 8px; font-size: 0.78rem; }
+      }
+    </style>
+  </body>
+</html>

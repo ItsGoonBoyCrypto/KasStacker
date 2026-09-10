@@ -1,0 +1,110 @@
+---
+import Base from '@layouts/Base.astro';
+
+const steps = [
+  {
+    layer: 'You',
+    title: 'Start with a rule worth enforcing',
+    body: '"These coins can only be withdrawn after a 24-hour delay, and only to my address — no matter who steals my keys tonight." That sentence is a vault.',
+  },
+  {
+    layer: 'Silverscript',
+    title: 'Write the rule as code',
+    body: 'A few dozen lines describing the allowed state changes: old state + your request + the transaction\'s facts → the new state that\'s permitted. Nothing else is.',
+  },
+  {
+    layer: 'Kaspa Script',
+    title: 'The compiler machines the lock',
+    body: 'Silverscript compiles your rule down to Kaspa Script — the raw covenant the chain understands. You never hand-wire this layer, the compiler does.',
+  },
+  {
+    layer: 'Kaspa consensus',
+    title: 'Deposit — the rule becomes physics',
+    body: 'You send coins into the covenant. From this moment the rule isn\'t a promise or a company policy: every node on the network checks it on every spend attempt.',
+  },
+  {
+    layer: 'Kaspa consensus',
+    title: 'A thief tries — and the chain says no',
+    body: 'Someone with your stolen keys broadcasts an instant withdrawal. The spend breaks the delay rule, so consensus rejects the transaction like a coin that doesn\'t fit the slot. It never happened.',
+  },
+  {
+    layer: 'Explorer',
+    title: 'Anyone can verify it',
+    body: 'The covenant, its rules and its history are public. An explorer like kascov.io shows the vault sitting there, enforcing itself, with no company in the loop.',
+  },
+];
+---
+<Base
+  title="How it fits together — KasStacker"
+  description="Follow one real vault from an idea, through Silverscript and Kaspa Script, to coins on mainnet that no one can move against the rules."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · stop 4 of 5</p>
+      <h1>How it fits together</h1>
+      <p class="lede">
+        One story, top of the stack to the bottom: a vault that protects coins even from a thief
+        holding your keys. Every layer you met at the last stop does one job here.
+      </p>
+    </header>
+
+    <ol class="flow">
+      {steps.map((s, i) => (
+        <li>
+          <div class="marker">
+            <span class="n">{i + 1}</span>
+            {i < steps.length - 1 && <span class="line" aria-hidden="true"></span>}
+          </div>
+          <div class="body">
+            <span class="layer">{s.layer}</span>
+            <h2>{s.title}</h2>
+            <p>{s.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <p class="note">
+      Multi-contract apps follow the same story with one extra chapter: <a href="/stack/argent">Argent</a>
+      wires several covenants into one application before everything compiles down.
+    </p>
+
+    <div class="next-link"><a class="btn btn-primary" href="/learn/faq">Next: Questions everyone asks →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 30px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .flow { list-style: none; margin: 0; padding: 0; }
+  .flow li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; }
+  .marker { display: flex; flex-direction: column; align-items: center; }
+  .n {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--teal);
+    background: var(--surface2);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .line { width: 2px; flex: 1; background: var(--border); margin: 6px 0; }
+  .body { padding-bottom: 34px; }
+  .layer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .body h2 { font-size: 1.1rem; margin: 4px 0 8px; }
+  .body p { color: var(--muted); font-size: 0.95rem; margin: 0; max-width: 60ch; }
+  .note { color: var(--faint); font-size: 0.9rem; margin-top: 8px; }
+</style>
