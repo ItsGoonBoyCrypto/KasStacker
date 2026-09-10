@@ -22,9 +22,14 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm build
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=kasstacker
+      # Deploys as the restricted `kasstacker` user, which owns only
+      # /var/www/kasstacker — CI never holds anything with wider access.
+      - name: Deploy to server
+        env:
+          DEPLOY_KEY: ${{ secrets.KASSTACKER_DEPLOY_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 178.105.167.184 >> ~/.ssh/known_hosts
+          rsync -az --delete --chmod=D755,F644 dist/ kasstacker@178.105.167.184:/var/www/kasstacker/

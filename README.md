@@ -36,6 +36,13 @@ pnpm build      # static build to dist/
 
 ## Deploy
 
-Pushes to `main` build and deploy via GitHub Actions → Cloudflare Pages (project `kasstacker`).
-Requires repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
-`refresh-status.yml` re-fetches repo status daily at 06:00 UTC and redeploys when it changed.
+Hosted on the Hetzner box at 178.105.167.184 (same server as dagmate.org), nginx vhost
+`deploy/nginx-kasstacker.conf` serving `/var/www/kasstacker`. Deploys run as the restricted
+`kasstacker` user, which owns only that directory — never root.
+
+- **CI:** every push to `main` builds and rsyncs `dist/` (needs repo secret
+  `KASSTACKER_DEPLOY_KEY` — the private half of the key in the server's
+  `/home/kasstacker/.ssh/authorized_keys`).
+- **Manual:** `deploy/deploy.sh` does the same from a dev machine.
+- `refresh-status.yml` re-fetches repo status daily at 06:00 UTC and redeploys when it changed.
+- TLS: `certbot --nginx -d kasstacker.org -d www.kasstacker.org` once DNS points at the box.
