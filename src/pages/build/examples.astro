@@ -1,0 +1,112 @@
+---
+import Base from '@layouts/Base.astro';
+import status from '@data/status.json';
+
+type RepoStatus = { lastCommit: string };
+const repos = status.repos as Record<string, RepoStatus>;
+const push = (slug: string) => repos[slug] ? repos[slug].lastCommit.slice(0, 10) : null;
+
+const rows = [
+  {
+    name: 'Silverscript test examples',
+    layer: 'Silverscript',
+    shows: 'Small single-purpose contracts — the shortest real code in the ecosystem',
+    url: 'https://github.com/kaspanet/silverscript/tree/master/silverscript-lang/tests/examples',
+    repo: 'kaspanet/silverscript',
+  },
+  {
+    name: 'KCC20 book',
+    layer: 'Silverscript / KCC-20',
+    shows: 'The token patterns: how covenant-native tokens are actually built',
+    url: 'https://kaspanet.github.io/silverscript/kcc20-book/',
+    repo: 'kaspanet/silverscript',
+  },
+  {
+    name: 'Argent: tickets',
+    layer: 'Argent',
+    shows: 'Actor ownership and state transitions — issue and transfer a ticket',
+    url: 'https://github.com/argent-lang/argent/tree/master/examples',
+    repo: 'argent-lang/argent',
+  },
+  {
+    name: 'Argent: stones & toy_chess',
+    layer: 'Argent',
+    shows: 'Coordinated multi-actor games; actor enums',
+    url: 'https://github.com/argent-lang/argent/tree/master/examples',
+    repo: 'argent-lang/argent',
+  },
+  {
+    name: 'Argent: ICC patterns',
+    layer: 'Argent',
+    shows: 'Closed and open inter-covenant communication — a KCC-20 asset with a minter',
+    url: 'https://github.com/argent-lang/argent/tree/master/examples',
+    repo: 'argent-lang/argent',
+  },
+  {
+    name: 'Argent playground',
+    layer: 'Argent',
+    shows: 'Client-side usage of built artifacts',
+    url: 'https://github.com/argent-lang/argent-playground',
+    repo: null,
+  },
+];
+---
+<Base
+  title="Examples worth reading — KasStacker"
+  description="The official Kaspa covenant examples, from 12-line contracts to multi-actor ICC apps — with what each one actually demonstrates."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Build · 4 of 4</p>
+      <h1>Examples worth reading</h1>
+      <p class="lede">
+        Reading order that matches the stack: single contracts first, token patterns second,
+        multi-actor apps last. "Last push" comes from the daily status data.
+      </p>
+    </header>
+
+    <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr><th>Example</th><th>Layer</th><th>What it demonstrates</th><th>Last push</th></tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td><a href={r.url} rel="noopener">{r.name}</a></td>
+              <td>{r.layer}</td>
+              <td>{r.shows}</td>
+              <td class="num">{r.repo && push(r.repo) ? push(r.repo) : <span class="null">—</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">
+      Curation policy: official repositories only, verified to exist on 2026-09-10.
+      Community projects may join this table with clear labelling once the site's review
+      process for them is set.
+    </p>
+
+    <div class="finish panel">
+      <h2>That's the build path.</h2>
+      <p>
+        Toolchain → first covenant → testnet → the examples. When something here goes stale,
+        the <a href="/status">status board</a> usually shows it first — and the
+        <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">site repo</a>
+        takes corrections.
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .note { color: var(--faint); font-size: 0.85rem; margin-top: 16px; }
+  .finish { margin-top: 28px; }
+  .finish h2 { font-size: 1.1rem; margin-bottom: 8px; }
+  .finish p { color: var(--muted); margin: 0; }
+</style>

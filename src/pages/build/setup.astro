@@ -1,0 +1,65 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title="Toolchain setup — KasStacker"
+  description="Install the Silverscript compiler and debugger and the Argent toolchain — or skip installation entirely with kascov.io."
+>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">Build · 1 of 4</p>
+      <h1>Toolchain setup</h1>
+    </header>
+
+    <p>
+      <strong>Zero-install first:</strong> <a href="https://kascov.io" rel="noopener">kascov.io</a>
+      runs covenant code in the browser — the fastest way to try the language before
+      installing anything.
+    </p>
+
+    <h2>Silverscript (the covenant language)</h2>
+    <p>You need a Rust toolchain (<a href="https://rustup.rs" rel="noopener">rustup.rs</a>). Then:</p>
+    <pre><code>git clone https://github.com/kaspanet/silverscript
+cd silverscript
+cargo test -p silverscript-lang</code></pre>
+    <p>Compile a contract with <code>silverc</code>:</p>
+    <pre><code>cargo run -p silverscript-lang --bin silverc -- contract.sil
+cargo run -p silverscript-lang --bin silverc -- contract.sil -o artifact.json</code></pre>
+    <p>And step through a contract in the CLI debugger:</p>
+    <pre><code>cargo run -p cli-debugger -- silverscript-lang/tests/examples/if_statement.sil \
+  --function hello --ctor-arg 3 --ctor-arg 10 --arg 1 --arg 2</code></pre>
+    <p>
+      The repo's own docs from here: the
+      <a href="https://github.com/kaspanet/silverscript/blob/master/docs/TUTORIAL.md" rel="noopener">tutorial</a>,
+      the <a href="https://github.com/kaspanet/silverscript/blob/master/docs/DECL.md" rel="noopener">covenant declaration spec</a>,
+      and the <a href="https://kaspanet.github.io/silverscript/kcc20-book/" rel="noopener">KCC20 book</a>
+      for token patterns.
+    </p>
+
+    <h2>Argent (the app language)</h2>
+    <pre><code>git clone https://github.com/argent-lang/argent
+cd argent
+./check.sh</code></pre>
+    <p>Build one of the in-repo example apps and inspect the result:</p>
+    <pre><code>cargo run -- build examples/tickets.ag --out examples/build/tickets
+cargo run --bin argentc -- inspect examples/build/tickets</code></pre>
+    <p>
+      Honest caveat, checked 2026-09-10: Argent has no tagged release and describes itself as
+      not yet release-ready — set it up to prototype, not to hold funds.
+    </p>
+
+    <p class="verified">
+      All commands above are verbatim from the two repositories' READMEs, checked 2026-09-10.
+      A container-tested end-to-end run is planned alongside deeper guides; until then, expect
+      the usual Rust first-build wait on <code>cargo test</code>.
+    </p>
+
+    <div class="next-link"><a class="btn btn-primary" href="/build/first-covenant">Next: Your first covenant →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+  .verified { color: var(--faint); font-size: 0.85rem; border-top: 1px solid var(--border-soft); padding-top: 14px; margin-top: 28px; }
+</style>

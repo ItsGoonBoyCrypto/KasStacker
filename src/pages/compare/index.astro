@@ -16,10 +16,18 @@ import ComparisonMatrix from '@components/ComparisonMatrix.astro';
       </p>
     </header>
     <ComparisonMatrix />
-    <p class="note">
-      Head-to-head pages (Silverscript vs Argent, L1 covenants in depth) are on the roadmap —
-      the matrix is the source of truth they will build on.
-    </p>
+    <div class="h2h">
+      <a class="panel" href="/compare/silverscript-vs-argent">
+        <h2>Silverscript vs Argent</h2>
+        <p>One contract vs many actors — when each layer is the right call.</p>
+        <span class="go">Read the head-to-head →</span>
+      </a>
+      <a class="panel" href="/decide">
+        <h2>Still torn?</h2>
+        <p>Three questions that point you at a layer, with the reasons attached.</p>
+        <span class="go">Open the decision guide →</span>
+      </a>
+    </div>
   </div>
 </Base>
 
@@ -27,5 +35,11 @@ import ComparisonMatrix from '@components/ComparisonMatrix.astro';
   .head { padding: 56px 0 28px; }
   .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
   .lede { color: var(--muted); font-size: 1.05rem; max-width: 60ch; }
-  .note { color: var(--faint); font-size: 0.85rem; margin-top: 16px; }
+  .h2h { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  @media (max-width: 680px) { .h2h { grid-template-columns: 1fr; } }
+  .h2h a { color: var(--text); display: flex; flex-direction: column; gap: 6px; }
+  .h2h a:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .h2h h2 { font-size: 1rem; }
+  .h2h p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .h2h .go { margin-top: auto; padding-top: 6px; color: var(--teal-bright); font-size: 0.84rem; font-weight: 600; }
 </style>

@@ -1,0 +1,199 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title="What should I use? — KasStacker"
+  description="Three questions that point you at the right layer of the Kaspa stack — with an honest 'why not the others' every time."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Decide</p>
+      <h1>What should I use?</h1>
+      <p class="lede">
+        Three questions. The recommendation updates as you answer, and always says
+        why the other layers lost.
+      </p>
+    </header>
+
+    <form id="quiz">
+      <fieldset>
+        <legend>1 · What are you building?</legend>
+        <div class="opts" data-q="what">
+          <label><input type="radio" name="what" value="vault" /> A vault or time-lock</label>
+          <label><input type="radio" name="what" value="escrow" /> Escrow or a swap</label>
+          <label><input type="radio" name="what" value="token" /> A fungible token</label>
+          <label><input type="radio" name="what" value="app" /> An app — game, marketplace, ticketing</label>
+          <label><input type="radio" name="what" value="defi" /> Heavy DeFi — AMM, lending, order book</label>
+          <label><input type="radio" name="what" value="unsure" /> Not sure yet</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · Do several contracts need to talk to each other atomically?</legend>
+        <div class="opts" data-q="multi">
+          <label><input type="radio" name="multi" value="yes" /> Yes</label>
+          <label><input type="radio" name="multi" value="no" /> No</label>
+          <label><input type="radio" name="multi" value="unsure" /> Unsure</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Does it need account-style mutable state or heavy compute?</legend>
+        <div class="opts" data-q="heavy">
+          <label><input type="radio" name="heavy" value="yes" /> Yes</label>
+          <label><input type="radio" name="heavy" value="no" /> No</label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div id="result" hidden>
+      <div class="verdict panel">
+        <p class="eyebrow">Recommendation</p>
+        <h2 id="r-title"></h2>
+        <p id="r-body"></p>
+        <a id="r-link" class="btn btn-primary" href="/stack">Read the full page →</a>
+      </div>
+      <div class="whynot panel">
+        <h3>Why not the others</h3>
+        <ul id="r-why"></ul>
+      </div>
+    </div>
+
+    <noscript>
+      <p class="panel">
+        This guide needs JavaScript. Without it, the short version: vaults, escrow and simple
+        tokens → <a href="/stack/silverscript">Silverscript</a>; several contracts working
+        together → <a href="/stack/argent">Argent</a>; chain-enforced tokens →
+        <a href="/stack/kcc-20">KCC-20</a>. The <a href="/compare">matrix</a> has the rest.
+      </p>
+    </noscript>
+  </div>
+
+  <script>
+    const results: Record<string, { title: string; body: string; link: string | null; why: string[] }> = {
+      silverscript: {
+        title: 'Silverscript',
+        body: 'A single-contract covenant is exactly its shape: you describe the allowed state changes, the compiler produces the covenant, and the chain enforces it. v1.0.0 is out (2026-09-09) but names no external audit yet — treat real funds accordingly.',
+        link: '/stack/silverscript',
+        why: [
+          'Raw Kaspa Script — you’d be wiring by hand what the compiler does for you.',
+          'Argent — built for several actors talking to each other; one contract doesn’t need it (and it has no tagged release yet).',
+          'KCC-20 — that’s the token pattern, not a general contract language.',
+        ],
+      },
+      kcc20: {
+        title: 'KCC-20 (built with Silverscript)',
+        body: 'Covenant-native tokens: supply and transfer rules checked by consensus itself, no indexer to trust. The token patterns are written in Silverscript, and the KCC20 book documents them. Note the written standard is still consolidating.',
+        link: '/stack/kcc-20',
+        why: [
+          'Plain Silverscript — you’d be reinventing the token patterns the KCC20 book already gives you.',
+          'Argent — only needed if the token is one actor among several in a bigger app.',
+        ],
+      },
+      argent: {
+        title: 'Argent',
+        body: 'Several contracts working together atomically is exactly what Argent’s actors + ICC exist for. One honest caveat, dated 2026-09-10: it has no tagged release and calls itself not release-ready — right for prototypes, not yet for production funds.',
+        link: '/stack/argent',
+        why: [
+          'Silverscript alone — its model is N:M within ONE contract; cross-contract wiring by hand is the pain Argent removes.',
+          'Waiting for vProgs — that’s a research track with no timeline, not a plan.',
+        ],
+      },
+      beyond: {
+        title: 'Beyond the L1 stack — today',
+        body: 'Account-style mutable state or heavy compute is the one thing UTXO covenants genuinely don’t do. Today that workload wants an EVM-style environment (this site doesn’t cover those yet); on Kaspa itself, that capability is the vProgs research track. If you can reshape the design into per-coin rules, Silverscript comes back into play.',
+        link: '/stack/vprogs',
+        why: [
+          'Silverscript / Argent — covenants attach rules to specific coins; they don’t give you a big shared mutable store or heavy loops.',
+          'KCC-20 — token rules, not general compute.',
+        ],
+      },
+      compare: {
+        title: 'Start with the side-by-side',
+        body: 'Not sure is a fine answer — the matrix shows every layer’s state model, composability and honest maturity in one table, and each Learn stop is a two-minute read.',
+        link: null,
+        why: [
+          'Any specific pick now would be a guess — and this site doesn’t guess.',
+        ],
+      },
+    };
+
+    const form = document.getElementById('quiz') as HTMLFormElement;
+    const box = document.getElementById('result')!;
+
+    function decide(what: string | null, multi: string | null, heavy: string | null): string | null {
+      if (!what && !multi && !heavy) return null;
+      if (heavy === 'yes') return 'beyond';
+      if (multi === 'yes') return 'argent';
+      if (what === 'token') return 'kcc20';
+      if (what === 'vault' || what === 'escrow') return 'silverscript';
+      if (what === 'defi') return heavy === 'no' && multi === 'no' ? 'silverscript' : 'beyond';
+      if (what === 'app') return multi === 'no' ? 'silverscript' : 'compare';
+      if (what === 'unsure' || multi === 'unsure') return 'compare';
+      return null;
+    }
+
+    form.addEventListener('change', () => {
+      const data = new FormData(form);
+      const key = decide(
+        data.get('what') as string | null,
+        data.get('multi') as string | null,
+        data.get('heavy') as string | null,
+      );
+      if (!key) { box.hidden = true; return; }
+      const r = results[key];
+      (document.getElementById('r-title') as HTMLElement).textContent = r.title;
+      (document.getElementById('r-body') as HTMLElement).textContent = r.body;
+      const link = document.getElementById('r-link') as HTMLAnchorElement;
+      if (r.link) { link.href = r.link; link.hidden = false; } else { link.hidden = true; }
+      const why = document.getElementById('r-why') as HTMLElement;
+      why.innerHTML = '';
+      for (const w of r.why) { const li = document.createElement('li'); li.textContent = w; why.appendChild(li); }
+      if (key === 'compare') {
+        const li = document.createElement('li');
+        const a = document.createElement('a'); a.href = '/compare'; a.textContent = 'Open the comparison matrix →';
+        li.appendChild(a); why.appendChild(li);
+      }
+      box.hidden = false;
+    });
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  fieldset { border: none; margin: 0 0 26px; padding: 0; }
+  legend {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opts label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .opts label:hover { border-color: var(--teal-dim); color: var(--text); }
+  .opts label:has(input:checked) {
+    border-color: var(--teal);
+    color: var(--text);
+    background: var(--surface2);
+  }
+  .opts input { accent-color: var(--teal); margin: 0; }
+  #result { display: grid; gap: 14px; margin-top: 10px; }
+  .verdict h2 { font-size: 1.3rem; margin: 6px 0 10px; }
+  .verdict p { color: var(--muted); max-width: 62ch; }
+  .whynot h3 { font-size: 0.95rem; margin-bottom: 8px; }
+  .whynot ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.9rem; }
+  .whynot li { margin-bottom: 6px; }
+</style>

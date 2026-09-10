@@ -1,0 +1,88 @@
+---
+import Base from '@layouts/Base.astro';
+import MaturityBadge from '@components/MaturityBadge.astro';
+
+const rows: [string, string, string][] = [
+  ['What it is', 'A covenant language: one contract, its state, its rules', 'An app language on top: several actors (covenants) wired together'],
+  ['Unit of thought', 'The contract — old state + args + tx facts → allowed new state', 'The actor — entries that end in `become`, talking via ICC'],
+  ['Composability', 'N:M within one contract; covenant-id ownership', 'Actors + ICC — atomic cross-contract interaction'],
+  ['Compiles to', 'Kaspa Script directly', 'Silverscript, then Kaspa Script'],
+  ['Release state', 'v1.0.0 tagged 2026-09-09 — no external audit named', 'No tagged release; self-described "not yet release-ready"'],
+  ['Pinned dependency', '—', 'Pins Silverscript to a pre-1.0 revision, not the release'],
+  ['Tooling', 'silverc compiler + CLI debugger; kascov.io playground', 'argentc build/inspect; examples in-repo (tickets, stones, ICC patterns)'],
+  ['Right for', 'Vaults, escrow, tokens, single-actor state machines', 'Multi-contract apps: ticketing, games, marketplace flows'],
+  ['Wrong for', 'Cross-contract apps wired by hand', 'Production funds today; anything one contract can do alone'],
+];
+---
+<Base
+  title="Silverscript vs Argent — KasStacker"
+  description="One contract vs many actors: when each layer is the right call, with release states dated and sourced."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Compare</p>
+      <h1>Silverscript vs Argent</h1>
+      <p class="lede">
+        Not rivals — a layer and the layer above it. The real question is whether your
+        app is <em>one</em> contract or <em>several that must talk</em>.
+      </p>
+      <div class="badges">
+        <span class="pair"><b>Silverscript</b> <MaturityBadge maturity="pre-audit" /></span>
+        <span class="pair"><b>Argent</b> <MaturityBadge maturity="experimental" /></span>
+      </div>
+    </header>
+
+    <div class="table-scroll">
+      <table class="data">
+        <thead>
+          <tr><th></th><th>Silverscript</th><th>Argent</th></tr>
+        </thead>
+        <tbody>
+          {rows.map(([k, s, a]) => (
+            <tr><td>{k}</td><td>{s}</td><td>{a}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <section class="verdicts">
+      <div class="panel">
+        <h2>Pick Silverscript when…</h2>
+        <p>
+          The whole design fits in one contract's state machine: a vault, an escrow, a token,
+          a lock. That's most covenant projects today, and it's the layer with a tagged
+          release, a tutorial, a debugger, and the KCC20 book behind it.
+        </p>
+        <a href="/stack/silverscript">Silverscript in full →</a>
+      </div>
+      <div class="panel">
+        <h2>Pick Argent when…</h2>
+        <p>
+          The design is genuinely several contracts interacting atomically — tickets and their
+          venue, players and a game, a token and its minter. Prototype there today with the
+          in-repo examples; treat production as blocked until it ships a release
+          (checked 2026-09-10).
+        </p>
+        <a href="/stack/argent">Argent in full →</a>
+      </div>
+    </section>
+
+    <p class="note">
+      Facts on this page were checked against both repositories on 2026-09-10; release states
+      also update daily on the <a href="/status">status board</a>.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.05rem; max-width: 58ch; }
+  .badges { display: flex; gap: 22px; margin-top: 16px; flex-wrap: wrap; }
+  .pair { display: flex; align-items: center; gap: 8px; font-family: 'Sora', sans-serif; font-size: 0.9rem; }
+  .verdicts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  @media (max-width: 680px) { .verdicts { grid-template-columns: 1fr; } }
+  .verdicts h2 { font-size: 1.05rem; margin-bottom: 8px; }
+  .verdicts p { color: var(--muted); font-size: 0.93rem; }
+  .note { color: var(--faint); font-size: 0.85rem; margin-top: 20px; }
+</style>

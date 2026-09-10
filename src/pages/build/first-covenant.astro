@@ -1,0 +1,71 @@
+---
+import Base from '@layouts/Base.astro';
+import Gloss from '@components/Gloss.astro';
+---
+<Base
+  title="Your first covenant — KasStacker"
+  description="A 12-line Silverscript contract from the official tutorial, explained line by line, compiled, and stepped through."
+>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">Build · 2 of 4</p>
+      <h1>Your first covenant</h1>
+    </header>
+
+    <p>
+      This is <code>SimpleCovenant</code>, verbatim from the official
+      <a href="https://github.com/kaspanet/silverscript/blob/master/docs/TUTORIAL.md" rel="noopener">Silverscript tutorial</a>.
+      Twelve lines that already do something real: coins locked by it can <em>only ever</em> be
+      sent to one predetermined recipient.
+    </p>
+
+    <pre><code>pragma silverscript ^0.1.0;
+
+contract SimpleCovenant(pubkey recipient) &#123;
+    entry spend() &#123;
+        byte[36] recipientScriptPubKey = new ScriptPubKeyP2PK(recipient);
+        require(tx.outputs[0].scriptPubKey == byte[](recipientScriptPubKey));
+    &#125;
+&#125;</code></pre>
+
+    <h2>What each piece does</h2>
+    <ul>
+      <li><strong><code>contract SimpleCovenant(pubkey recipient)</code></strong> — the constructor argument bakes the recipient into the <Gloss term="covenant">covenant</Gloss> when it's created. It can never change.</li>
+      <li><strong><code>entry spend()</code></strong> — the one <Gloss term="entry">entry</Gloss>: the only way these coins move.</li>
+      <li><strong><code>tx.outputs[0].scriptPubKey</code></strong> — transaction introspection: the contract examines the spending transaction itself.</li>
+      <li><strong><code>require(…)</code></strong> — the rule. If output 0 doesn't pay the baked-in recipient, consensus rejects the whole transaction. There is no appeal.</li>
+    </ul>
+
+    <h2>Compile it</h2>
+    <p>Save the contract as <code>simple.sil</code> in your Silverscript checkout, then:</p>
+    <pre><code>cargo run -p silverscript-lang --bin silverc -- simple.sil -o artifact.json</code></pre>
+    <p>
+      The artifact is your compiled covenant. Constructor arguments are supplied as JSON —
+      for example <code>[&#123; "kind": "int", "value": 100 &#125;]</code> for an integer parameter.
+    </p>
+
+    <h2>Step through it</h2>
+    <p>The repo ships a CLI debugger that runs entries against arguments so you can watch a rule pass or fail:</p>
+    <pre><code>cargo run -p cli-debugger -- silverscript-lang/tests/examples/if_statement.sil \
+  --function hello --ctor-arg 3 --ctor-arg 10 --arg 1 --arg 2</code></pre>
+    <p>Point it at your own <code>simple.sil</code> and an entry once you've compiled it.</p>
+
+    <h2>Getting it on-chain</h2>
+    <p>
+      Deployment means funding an address whose script is your compiled covenant, then spending
+      it with a <Gloss term="witness">witness</Gloss> that satisfies the entry — on
+      <a href="/build/testnet">testnet-10</a> first, always. The official tutorial focuses on the
+      language rather than deployment tooling (checked 2026-09-10), so the practical paths today
+      are the <a href="https://kascov.io" rel="noopener">kascov.io</a> playground and the patterns
+      in the <a href="https://kaspanet.github.io/silverscript/kcc20-book/" rel="noopener">KCC20 book</a>.
+      A full deploy-and-spend walkthrough lands here as the tooling settles.
+    </p>
+
+    <div class="next-link"><a class="btn btn-primary" href="/build/testnet">Next: Testnet →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+</style>

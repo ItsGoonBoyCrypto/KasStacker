@@ -1,0 +1,66 @@
+---
+import Base from '@layouts/Base.astro';
+
+const guides = [
+  { href: '/build/setup', title: 'Toolchain setup', blurb: 'Rust, the Silverscript compiler and debugger, Argent — or the zero-install route via kascov.io.' },
+  { href: '/build/first-covenant', title: 'Your first covenant', blurb: 'A 12-line contract from the official tutorial, compiled and stepped through in the debugger.' },
+  { href: '/build/testnet', title: 'Testnet', blurb: 'testnet-10: funding an address, node endpoints, and where to see your covenant on an explorer.' },
+  { href: '/build/examples', title: 'Examples worth reading', blurb: 'The official example contracts and apps, from single covenants to multi-actor ICC patterns.' },
+];
+---
+<Base
+  title="Build — KasStacker"
+  description="From zero to a compiled Kaspa covenant: toolchain setup, a first contract, testnet, and the examples worth reading."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Build</p>
+      <h1>From reading to shipping</h1>
+      <p class="lede">
+        Four short guides in order. Every command on these pages is taken verbatim from the
+        official repositories and was checked against them on 2026-09-10 — anything this
+        site couldn't verify is labelled, not guessed.
+      </p>
+    </header>
+    <ol class="stops">
+      {guides.map((g, i) => (
+        <li>
+          <a href={g.href}>
+            <span class="n">{i + 1}</span>
+            <span class="body"><span class="t">{g.title}</span><span class="b">{g.blurb}</span></span>
+            <span class="go">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 28px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .stops { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .stops a {
+    display: grid;
+    grid-template-columns: 44px 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 16px 18px;
+    color: var(--text);
+  }
+  .stops a:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .n {
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.9rem;
+    color: var(--teal); background: var(--surface2);
+    border: 1px solid var(--border-soft); border-radius: 8px;
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  }
+  .body { display: flex; flex-direction: column; gap: 2px; }
+  .t { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.98rem; }
+  .b { color: var(--muted); font-size: 0.88rem; }
+  .go { color: var(--teal-bright); font-weight: 600; }
+</style>

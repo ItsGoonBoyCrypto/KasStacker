@@ -22,6 +22,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm build
+      - run: node scripts/check-content.mjs
       # Deploys as the restricted `kasstacker` user, which owns only
       # /var/www/kasstacker — CI never holds anything with wider access.
       - name: Deploy to server
@@ -33,3 +34,20 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H 178.105.167.184 >> ~/.ssh/known_hosts
           rsync -az --delete --chmod=D755,F644 dist/ kasstacker@178.105.167.184:/var/www/kasstacker/
+
+  # Informational: fails visibly if perf/a11y drop below 0.95, but never blocks the deploy job.
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: .lighthouserc.json
+          uploadArtifacts: true

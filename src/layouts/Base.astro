@@ -11,6 +11,8 @@ const nav = [
   { href: '/learn', label: 'Learn' },
   { href: '/stack', label: 'The Stack' },
   { href: '/compare', label: 'Compare' },
+  { href: '/decide', label: 'Decide' },
+  { href: '/build', label: 'Build' },
   { href: '/status', label: 'Status' },
 ];
 const path = Astro.url.pathname.replace(/\/$/, '');
@@ -62,7 +64,8 @@ const path = Astro.url.pathname.replace(/\/$/, '');
           unverified fields are shown as unverified, never guessed.
         </p>
         <p class="fine">
-          <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">Source on GitHub</a>
+          <a href="/glossary">Glossary</a>
+          · <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">Source on GitHub</a>
           · Status data refreshes daily from the GitHub API.
         </p>
       </div>

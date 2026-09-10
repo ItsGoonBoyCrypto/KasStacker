@@ -1,0 +1,46 @@
+---
+import Base from '@layouts/Base.astro';
+import glossary from '@data/glossary.json';
+
+const entries = [...glossary].sort((a, b) => a.term.localeCompare(b.term));
+---
+<Base
+  title="Glossary — KasStacker"
+  description="Every term of the Kaspa programmability stack, defined in one paragraph each — covenant, lineage proof, ICC, KCC-20, and the rest."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Glossary</p>
+      <h1>The words, defined</h1>
+      <p class="lede">
+        One short paragraph each. Terms underlined with dots elsewhere on the site
+        link back here.
+      </p>
+    </header>
+    <dl class="terms">
+      {entries.map((g) => (
+        <div class="entry" id={g.id}>
+          <dt>{g.term}</dt>
+          <dd>{g.def}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .terms { margin: 0; display: grid; gap: 10px; }
+  .entry {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 14px 18px;
+    scroll-margin-top: 80px;
+  }
+  .entry:target { border-color: var(--teal); }
+  dt { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.95rem; }
+  dd { margin: 4px 0 0; color: var(--muted); font-size: 0.92rem; max-width: 66ch; }
+</style>

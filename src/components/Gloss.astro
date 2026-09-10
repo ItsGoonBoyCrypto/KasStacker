@@ -1,0 +1,48 @@
+---
+// Inline glossary term: hover (or focus) shows the definition, click goes to
+// the glossary entry. Use on a term's FIRST appearance on a page.
+import glossary from '@data/glossary.json';
+
+interface Props { term: string }
+const { term } = Astro.props;
+const entry = glossary.find((g) => g.id === term);
+if (!entry) throw new Error(`Gloss: unknown glossary id "${term}"`);
+---
+<span class="gloss-wrap">
+  <a class="gloss" href={`/glossary#${entry.id}`} aria-describedby={`tip-${entry.id}`}><slot /></a>
+  <span class="tip" role="tooltip" id={`tip-${entry.id}`}>
+    <b>{entry.term}</b>
+    {entry.def}
+  </span>
+</span>
+
+<style>
+  .gloss-wrap { position: relative; }
+  .gloss {
+    color: inherit;
+    text-decoration: underline dotted var(--teal);
+    text-underline-offset: 3px;
+    cursor: help;
+  }
+  .gloss:hover, .gloss:focus-visible { color: var(--teal-bright); text-decoration-style: solid; }
+  .tip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    width: min(320px, 80vw);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--muted);
+    z-index: 20;
+    display: none;
+  }
+  .tip b { display: block; color: var(--text); font-family: 'Sora', sans-serif; font-size: 0.8rem; margin-bottom: 2px; }
+  .gloss-wrap:hover .tip, .gloss:focus-visible + .tip { display: block; }
+  @media (hover: none) { .tip { display: none !important; } }
+</style>

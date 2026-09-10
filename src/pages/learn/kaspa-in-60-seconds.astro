@@ -1,5 +1,6 @@
 ---
 import Base from '@layouts/Base.astro';
+import Gloss from '@components/Gloss.astro';
 ---
 <Base
   title="Kaspa in 60 seconds — KasStacker"
@@ -15,8 +16,8 @@ import Base from '@layouts/Base.astro';
 
     <p>
       Most blockchains make one block at a time and throw away ties. Kaspa keeps every block and weaves
-      them into a <strong>blockDAG</strong> — a braid instead of a single chain — ordered by a protocol
-      called <strong>GHOSTDAG</strong>. The practical result: blocks arrive many times per second and
+      them into a <strong><Gloss term="blockdag">blockDAG</Gloss></strong> — a braid instead of a single chain — ordered by a protocol
+      called <strong><Gloss term="ghostdag">GHOSTDAG</Gloss></strong>. The practical result: blocks arrive many times per second and
       payments confirm in seconds, while keeping Bitcoin-style proof-of-work security.
     </p>
 

@@ -1,0 +1,68 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title="Testnet — KasStacker"
+  description="testnet-10: getting test KAS, connecting to a node, and seeing your covenant on an explorer — before anything touches real money."
+>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">Build · 3 of 4</p>
+      <h1>Testnet</h1>
+    </header>
+
+    <p>
+      <strong>Everything gets proven on testnet-10 before it touches real money.</strong>
+      That's not a suggestion — it's how every serious covenant project on Kaspa works, and
+      test KAS is free.
+    </p>
+
+    <h2>The network</h2>
+    <p>
+      The current public test network for covenant work is <strong>testnet-10</strong>. It runs
+      the same post-Toccata rules as mainnet, so a covenant proven there behaves the same with
+      real funds.
+    </p>
+
+    <h2>Test funds</h2>
+    <p>
+      The community faucet at <a href="https://faucet.kaspanet.io" rel="noopener">faucet.kaspanet.io</a>
+      dispenses test KAS (it sits behind a bot-check, so open it in a normal browser). If it's
+      dry or down, the developer channels of the Kaspa Discord are the reliable fallback.
+    </p>
+
+    <h2>Connecting a node</h2>
+    <p>
+      Run your own <a href="https://github.com/kaspanet/rusty-kaspa" rel="noopener">rusty-kaspa</a>
+      node with <code>--testnet</code>, or use the public node network's resolver endpoints,
+      which follow this wRPC pattern:
+    </p>
+    <pre><code>https://&lt;resolver&gt;/v2/kaspa/testnet-10/tls/wrpc/borsh</code></pre>
+    <p>
+      Wallets that support custom RPC (KasWare among them) can be pointed at a testnet
+      endpoint the same way.
+    </p>
+
+    <h2>Seeing your work</h2>
+    <p>
+      <a href="https://kascov.io" rel="noopener">kascov.io</a> serves testnet-10 as well as
+      mainnet — covenants, KCC-20 holdings and trades are all inspectable there, which is how
+      you verify a deploy did what you meant.
+    </p>
+
+    <p class="verified">
+      Checked 2026-09-10: kascov.io responds and serves testnet-10; the faucet exists behind
+      bot protection (couldn't be exercised by this site's checker); the resolver URL pattern is
+      as documented for the public node network. Anything that stops being true shows up in the
+      site's link checks.
+    </p>
+
+    <div class="next-link"><a class="btn btn-primary" href="/build/examples">Next: Examples worth reading →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+  .verified { color: var(--faint); font-size: 0.85rem; border-top: 1px solid var(--border-soft); padding-top: 14px; margin-top: 28px; }
+</style>
