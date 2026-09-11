@@ -12,7 +12,7 @@ const live = [
     url: 'https://dagmate.org',
     layer: 'Covenants',
     shows: 'Chess for KAS stakes — match escrow is a covenant with a trustless timeout forfeit, proven on testnet-10 before mainnet',
-    origin: 'maintainer',
+    origin: 'community',
     verified: 'live on mainnet',
   },
   {
@@ -20,7 +20,7 @@ const live = [
     url: 'https://daggertrade.com',
     layer: 'Covenants · KCC-20',
     shows: 'Telegram trading platform for covenant-native tokens across the L1 venues — KCC-20 trades verifiable on kascov',
-    origin: 'maintainer',
+    origin: 'community',
     verified: 'live on mainnet',
   },
   {
@@ -28,7 +28,7 @@ const live = [
     url: 'https://daggertrade.com/sphere',
     layer: 'KCC-20 · forensics',
     shows: 'Live holder maps for every KCC-20 token — bubbles sized by share of supply, funding-cluster detection, deployer tags. Read-only by design',
-    origin: 'maintainer',
+    origin: 'community',
     verified: 'live · free access code from the Dagger bot (/sphere) · checked 2026-09-12',
   },
   {
@@ -171,10 +171,9 @@ const underReview = [
       <h1>Examples worth reading</h1>
       <p class="lede">
         Two lists: things running on Kaspa you can point at, and code you can learn from.
-        Every entry is verified before it appears, and origins are always labelled —
-        <span class="origin o-official">official</span>,
-        <span class="origin o-community">community</span>,
-        <span class="origin o-maintainer">maintainer</span> (built by the person who runs this site).
+        Every entry is verified before it appears, and origins are labelled —
+        <span class="origin o-official">official</span> or
+        <span class="origin o-community">community</span>.
         Nothing here is paid placement, ever.
       </p>
     </header>
@@ -249,7 +248,8 @@ const underReview = [
         <li>It must teach a layer of the stack; this is a learning site, not a directory.</li>
         <li>Alive: listed repositories are watched by the daily status data, and community contracts are re-checked against the current compiler weekly by
           <a href="https://github.com/ItsGoonBoyCrypto/KasStacker/actions/workflows/verify-community-examples.yml" rel="noopener">this site's CI</a>.</li>
-        <li>Origin always labelled; maintainer projects are marked as such.</li>
+        <li>Origin always labelled. In full disclosure: this site is maintained by the builder of
+          Dagger, DAGmate and DagSphere — they pass the same verification bar as every other entry.</li>
         <li>No paid placement. Suggest an entry via
           <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">the site repo</a>.</li>
       </ul>
@@ -276,7 +276,6 @@ const underReview = [
   }
   .o-official { color: var(--teal); border-color: var(--teal); }
   .o-community { color: var(--m-testnet); border-color: var(--m-testnet); }
-  .o-maintainer { color: var(--m-experimental); border-color: var(--m-experimental); }
   .o-ecosystem { color: var(--muted); border-color: var(--border); }
   .row-links { display: flex; gap: 12px; margin-top: 4px; }
   .row-links a { font-size: 0.82rem; }
