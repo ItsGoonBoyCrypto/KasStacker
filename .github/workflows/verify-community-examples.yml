@@ -1,0 +1,45 @@
+name: Verify community examples
+
+# Every community repo listed on /build/examples gets its Silverscript
+# contracts checked against the current compiler in a fresh container:
+# full compile where possible, parse (--ast-only) where constructor args
+# are needed and none are shipped. A repo whose contracts stop parsing
+# goes red — and comes off the page until fixed.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 7 * * 1' # Mondays, after verify-build-commands
+
+jobs:
+  compile-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Build silverc once
+        run: |
+          git clone --depth 1 https://github.com/kaspanet/silverscript
+          cd silverscript
+          cargo build -p silverscript-lang --bin silverc
+      - name: Check each candidate repo
+        run: |
+          SILVERC="$PWD/silverscript/target/debug/silverc"
+          REPOS="trillskillz/OpenSilver La-Gauffre/KaspaRocket-Silverscript-Contract ko-sign/kosign K100bet/contracts Knitser/kasmelt-snapshot volkanglm/toccata-covenant-tools"
+          overall=0
+          for repo in $REPOS; do
+            dir="cand/$(echo "$repo" | tr '/' '_')"
+            git clone --depth 1 "https://github.com/$repo" "$dir" -q
+            total=0; compiled=0; parsed=0; failed=0
+            while IFS= read -r sil; do
+              total=$((total+1))
+              if "$SILVERC" "$sil" -c > /dev/null 2>&1; then
+                compiled=$((compiled+1))
+              elif "$SILVERC" "$sil" --ast-only > /dev/null 2>&1; then
+                parsed=$((parsed+1))
+              else
+                failed=$((failed+1)); echo "  FAIL $sil"
+              fi
+            done < <(find "$dir" -name '*.sil' -not -path '*/node_modules/*')
+            echo "$repo: $total .sil — $compiled compile, $parsed parse-only, $failed fail"
+            if [ "$total" -gt 0 ] && [ "$failed" -eq "$total" ]; then overall=1; fi
+          done
+          exit $overall
