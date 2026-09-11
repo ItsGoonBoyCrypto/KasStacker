@@ -32,7 +32,10 @@ jobs:
               }
           }
           EOF
-          cargo run -p silverscript-lang --bin silverc -- simple.sil -o artifact.json
+          # A contract with constructor parameters needs --constructor-args
+          # (portable ABI JSON; pubkeys are byte arrays of the type's length).
+          python3 -c "import json; print(json.dumps([{'kind': 'bytes', 'value': [0]*32}]))" > args.json
+          cargo run -p silverscript-lang --bin silverc -- simple.sil --constructor-args args.json -o artifact.json
           test -s artifact.json && echo "artifact written: $(wc -c < artifact.json) bytes"
       - name: Run the CLI debugger example
         working-directory: silverscript
