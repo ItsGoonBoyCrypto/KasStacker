@@ -143,6 +143,14 @@ const community: {
     repo: null,
     verified: '3/3 parse vs v1.0.0',
   },
+  {
+    name: 'kcc20-live',
+    layer: 'Argent · KCC-20',
+    shows: 'The first third-party Argent contract this site has verified — a KCC-20 token in .ag, with offline Rust transaction examples',
+    url: 'https://github.com/Manyfestation/kcc20-live',
+    repo: null,
+    verified: 'builds with argentc in CI (re-checked weekly)',
+  },
 ];
 
 const underReview = [
@@ -150,7 +158,6 @@ const underReview = [
   { name: 'kosign (covenant multisig)', why: 'written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated' },
   { name: 'K100bet contracts & kasmelt-snapshot', why: 'same v1.0.0 syntax drift as above' },
   { name: 'Portrait', why: 'pattern library with its own covenant language — checking its emitted Silverscript next' },
-  { name: 'kcc20-live', why: 'third-party Argent contract — argentc build check queued' },
   { name: 'Enclave wallet', why: 'covenant vaults live, but its stated source repository does not resolve' },
 ];
 ---
