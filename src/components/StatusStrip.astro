@@ -26,29 +26,38 @@ const rows = components
   .map((c) => ({ c, s: repos[c.repo as string] }));
 const generated = new Date(status.generatedAt).toISOString().slice(0, 10);
 ---
-<div class="strip" role="list" aria-label="Live component status">
+<ul class="strip" aria-label="Live component status">
   {rows.map(({ c, s }) => (
-    <a role="listitem" class="cell" href={`/stack/${c.id}`}>
-      <span class="name">{c.name}</span>
-      <span class="fact">{s.latestTag ?? 'no release'}</span>
-      <span class="fact dim">updated {ago(s.lastCommit)}</span>
-      <MaturityBadge maturity={c.maturity} />
-    </a>
+    <li>
+      <a class="cell" href={`/stack/${c.id}`}>
+        <span class="name">{c.name}</span>
+        <span class="fact">{s.latestTag ?? 'no release'}</span>
+        <span class="fact dim">updated {ago(s.lastCommit)}</span>
+        <MaturityBadge maturity={c.maturity} />
+      </a>
+    </li>
   ))}
-  <div class="cell meta">
-    <span class="fact dim">from the GitHub API</span>
-    <span class="fact dim">refreshed {generated}</span>
-    <a href="/status">full status board →</a>
-  </div>
-</div>
+  <li>
+    <div class="cell meta">
+      <span class="fact dim">from the GitHub API</span>
+      <span class="fact dim">refreshed {generated}</span>
+      <a href="/status">full status board →</a>
+    </div>
+  </li>
+</ul>
 
 <style>
   .strip {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
+  .strip li { display: flex; }
   .cell {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

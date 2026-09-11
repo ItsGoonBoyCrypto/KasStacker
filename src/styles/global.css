@@ -7,7 +7,7 @@
   --border-soft: #182530;
   --text: #E8F1EE;
   --muted: #8FA6A0;
-  --faint: #5F736E;
+  --faint: #7B8D85; /* ≥4.5:1 on both --bg and --surface (WCAG AA) */
   --teal: #70C7BA;
   --teal-bright: #49EACB;
   --teal-dim: #2A4A44;
@@ -34,9 +34,9 @@
     --border-soft: #DFEAE6;
     --text: #122420;
     --muted: #47605A;
-    --faint: #7A918B;
-    --teal: #1E9C87;
-    --teal-bright: #0E8A74;
+    --faint: #5C6E68;      /* ≥4.5:1 on white surface (WCAG AA) */
+    --teal: #157A69;       /* used as small text (eyebrows) — must clear AA on light */
+    --teal-bright: #0B7361;
     --teal-dim: #BFE0D8;
     --teal-ink: #FFFFFF;
     --indigo: #5D6FCB;
@@ -81,6 +81,16 @@ p { margin: 0 0 1em; max-width: 68ch; }
 
 a { color: var(--teal-bright); text-decoration: none; }
 a:hover, a:focus-visible { text-decoration: underline; }
+/* Links inside running text must not rely on color alone (WCAG / Lighthouse
+   link-in-text-block) — standalone links (nav, cards, buttons) stay clean. */
+p a, li a, dd a, figcaption a, blockquote a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--teal-bright) 55%, transparent);
+  text-underline-offset: 3px;
+}
+p a:hover, li a:hover, dd a:hover, figcaption a:hover, blockquote a:hover {
+  text-decoration-color: var(--teal-bright);
+}
 :focus-visible { outline: 2px solid var(--teal-bright); outline-offset: 2px; }
 
 code, pre {
