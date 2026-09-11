@@ -37,11 +37,20 @@ contract SimpleCovenant(pubkey recipient) &#123;
     </ul>
 
     <h2>Compile it</h2>
-    <p>Save the contract as <code>simple.sil</code> in your Silverscript checkout, then:</p>
-    <pre><code>cargo run -p silverscript-lang --bin silverc -- simple.sil -o artifact.json</code></pre>
     <p>
-      The artifact is your compiled covenant. Constructor arguments are supplied as JSON —
-      for example <code>[&#123; "kind": "int", "value": 100 &#125;]</code> for an integer parameter.
+      Save the contract as <code>simple.sil</code> in your Silverscript checkout. Because the
+      contract takes a constructor parameter (the recipient), the compiler needs a value for it —
+      supplied as a JSON file in the portable ABI format, where a pubkey is a 32-byte array.
+      A zero key is fine for a first compile:
+    </p>
+    <pre><code>python3 -c "import json; print(json.dumps([&#123;'kind': 'bytes', 'value': [0]*32&#125;]))" &gt; args.json
+cargo run -p silverscript-lang --bin silverc -- simple.sil --constructor-args args.json -o artifact.json</code></pre>
+    <p>
+      The artifact is your compiled covenant. Omitting <code>--constructor-args</code> on a
+      contract that has parameters fails with
+      <code>constructor argument count mismatch</code> — the full format for every argument
+      kind is in the repo's
+      <a href="https://github.com/kaspanet/silverscript/blob/master/docs/CONSTRUCTOR_ARGS.md" rel="noopener">CONSTRUCTOR_ARGS.md</a>.
     </p>
 
     <h2>Step through it</h2>
