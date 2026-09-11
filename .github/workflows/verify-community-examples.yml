@@ -1,10 +1,9 @@
 name: Verify community examples
 
-# Every community repo listed on /build/examples gets its Silverscript
-# contracts checked against the current compiler in a fresh container:
-# full compile where possible, parse (--ast-only) where constructor args
-# are needed and none are shipped. A repo whose contracts stop parsing
-# goes red — and comes off the page until fixed.
+# LISTED repos (on /build/examples) must stay clean — a failure here means the
+# page is wrong and goes red. WATCH repos are the under-review set: they are
+# re-checked and reported every week so we notice the moment one updates to
+# current Silverscript, but they never fail the job.
 on:
   workflow_dispatch:
   schedule:
@@ -22,28 +21,52 @@ jobs:
           workspaces: silverscript
       - name: Build silverc once
         run: cd silverscript && cargo build -p silverscript-lang --bin silverc
-      - name: Check each candidate repo
+      - name: Check repos
         run: |
           SILVERC="$PWD/silverscript/target/debug/silverc"
-          REPOS="trillskillz/OpenSilver La-Gauffre/KaspaRocket-Silverscript-Contract ko-sign/kosign K100bet/contracts Knitser/kasmelt-snapshot volkanglm/toccata-covenant-tools"
-          overall=0
-          for repo in $REPOS; do
-            dir="cand/$(echo "$repo" | tr '/' '_')"
-            git clone --depth 1 "https://github.com/$repo" "$dir" -q
-            total=0; compiled=0; parsed=0; failed=0
+          LISTED="La-Gauffre/KaspaRocket-Silverscript-Contract volkanglm/toccata-covenant-tools"
+          WATCH="trillskillz/OpenSilver ko-sign/kosign K100bet/contracts Knitser/kasmelt-snapshot"
+          check_repo() { # $1 repo slug; echoes "compiled parsed failed total"
+            dir="cand/$(echo "$1" | tr '/' '_')"
+            git clone --depth 1 "https://github.com/$1" "$dir" -q
+            local total=0 compiled=0 parsed=0 failed=0
             while IFS= read -r sil; do
               total=$((total+1))
-              if "$SILVERC" "$sil" -c > /dev/null 2>&1; then
-                compiled=$((compiled+1))
-              elif "$SILVERC" "$sil" --ast-only > /dev/null 2>&1; then
-                parsed=$((parsed+1))
-              else
-                failed=$((failed+1))
-                echo "  FAIL $sil"
-                "$SILVERC" "$sil" --ast-only 2>&1 | head -2 | sed 's/^/       /'
+              if "$SILVERC" "$sil" -c > /dev/null 2>&1; then compiled=$((compiled+1))
+              elif "$SILVERC" "$sil" --ast-only > /dev/null 2>&1; then parsed=$((parsed+1))
+              else failed=$((failed+1)); echo "  FAIL $sil" >&2
               fi
             done < <(find "$dir" -name '*.sil' -not -path '*/node_modules/*')
-            echo "$repo: $total .sil — $compiled compile, $parsed parse-only, $failed fail"
-            if [ "$total" -gt 0 ] && [ "$failed" -eq "$total" ]; then overall=1; fi
+            echo "$compiled $parsed $failed $total"
+          }
+          overall=0
+          echo "== LISTED (must be clean) =="
+          for repo in $LISTED; do
+            read -r c p f t <<< "$(check_repo "$repo")"
+            echo "$repo: $t .sil — $c compile, $p parse-only, $f fail"
+            if [ "$f" -gt 0 ]; then overall=1; fi
+          done
+          echo "== WATCH (report-only; a repo going clean here is ready to list) =="
+          for repo in $WATCH; do
+            read -r c p f t <<< "$(check_repo "$repo")"
+            echo "$repo: $t .sil — $c compile, $p parse-only, $f fail"
           done
           exit $overall
+
+  # Report-only: the first known third-party Argent contract. Goes green when
+  # argentc builds it — that is the signal to move kcc20-live onto the page.
+  argent-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    continue-on-error: true
+    steps:
+      - name: Clone argent + candidate
+        run: |
+          git clone --depth 1 https://github.com/argent-lang/argent
+          git clone --depth 1 https://github.com/Manyfestation/kcc20-live
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: argent
+      - name: Build the candidate's contract with argentc
+        working-directory: argent
+        run: cargo run -- build ../kcc20-live/contracts/kcc20.ag --out /tmp/kcc20-live-build
