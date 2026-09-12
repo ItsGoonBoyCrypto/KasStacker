@@ -1,6 +1,7 @@
 ---
 import Base from '@layouts/Base.astro';
 import MaturityBadge from '@components/MaturityBadge.astro';
+import Exhibits from '@components/Exhibits.astro';
 import components from '@data/components.json';
 import status from '@data/status.json';
 
@@ -46,6 +47,8 @@ const links: [string, string | null][] = [
       <p>{c.plain}</p>
       <blockquote>{c.analogy}</blockquote>
     </section>
+
+    {c.id === 'kcc-20' && <Exhibits />}
 
     <section>
       <h2>At a glance</h2>

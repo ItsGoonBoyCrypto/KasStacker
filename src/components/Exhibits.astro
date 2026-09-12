@@ -1,0 +1,61 @@
+---
+// "Covenants in the wild": a few real mainnet token actions, fetched daily
+// at build time from kcc20.info (never at runtime). Renders nothing if the
+// data file is missing or empty — pages must not depend on it.
+import exhibits from '@data/exhibits.json';
+
+const items = (exhibits.items ?? []) as {
+  txId: string; kind: string; ticker: string; name: string; amount: string; decimals: number; timestamp: number;
+}[];
+const fetched = new Date(exhibits.generatedAt).toISOString().slice(0, 10);
+const fmtAmount = (raw: string, dec: number) => {
+  const n = Number(raw) / 10 ** dec;
+  return Number.isFinite(n) ? n.toLocaleString('en-US', { maximumFractionDigits: 2 }) : raw;
+};
+const kindIcon: Record<string, string> = { buy: '🟢', sell: '🔴', transfer: '↔️', mint: '✨', launch: '🚀' };
+---
+{items.length > 0 && (
+  <aside class="exhibits">
+    <p class="x-label">Not theory — seen on mainnet</p>
+    <ul>
+      {items.map((i) => (
+        <li>
+          <span class="x-kind">{kindIcon[i.kind] ?? '·'} {i.kind.toUpperCase()}</span>
+          <span class="x-what">{fmtAmount(i.amount, i.decimals)} <b>${i.ticker}</b> <span class="x-name">({i.name})</span></span>
+          <a href={`https://explorer.kaspa.org/txs/${i.txId}`} rel="noopener">see the transaction →</a>
+        </li>
+      ))}
+    </ul>
+    <p class="x-src">
+      Real covenant-token activity, fetched {fetched} from the keyless
+      <a href="https://kcc20.info" rel="noopener">kcc20.info</a> indexer at build time.
+    </p>
+  </aside>
+)}
+
+<style>
+  .exhibits {
+    margin-top: 36px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--m-audited);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .x-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--m-audited);
+    margin: 0 0 10px;
+  }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  li { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-size: 0.9rem; color: var(--muted); }
+  .x-kind { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--text); white-space: nowrap; }
+  .x-what b { color: var(--text); }
+  .x-name { color: var(--faint); }
+  li a { font-size: 0.82rem; margin-left: auto; white-space: nowrap; }
+  .x-src { margin: 12px 0 0; color: var(--faint); font-size: 0.78rem; }
+</style>
