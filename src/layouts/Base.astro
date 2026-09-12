@@ -65,6 +65,9 @@ const path = Astro.url.pathname.replace(/\/$/, '');
           {nav.map((n) => (
             <a href={n.href} class:list={{ active: path === n.href || path.startsWith(n.href + '/') }}>{n.label}</a>
           ))}
+          <button id="search-open" type="button" aria-label="Search the site">
+            <span aria-hidden="true">🔍</span><kbd>Ctrl K</kbd>
+          </button>
         </nav>
       </div>
     </header>
@@ -72,6 +75,45 @@ const path = Astro.url.pathname.replace(/\/$/, '');
     <main>
       <slot />
     </main>
+
+    <dialog id="search-dlg" aria-label="Site search">
+      <div id="search-box"></div>
+      <p class="search-hint">Esc to close</p>
+    </dialog>
+
+    <script>
+      const dlg = document.getElementById('search-dlg') as HTMLDialogElement;
+      let ready = false;
+      const load = (tag: 'link' | 'script', attrs: Record<string, string>) =>
+        new Promise<void>((resolve, reject) => {
+          const el = document.createElement(tag);
+          Object.assign(el, attrs);
+          el.onload = () => resolve();
+          el.onerror = () => reject(new Error('pagefind assets missing'));
+          document.head.appendChild(el);
+        });
+      const open = async () => {
+        dlg.showModal();
+        if (!ready) {
+          try {
+            await load('link', { rel: 'stylesheet', href: '/pagefind/pagefind-ui.css' });
+            await load('script', { src: '/pagefind/pagefind-ui.js' });
+            // @ts-expect-error PagefindUI is provided by the loaded script
+            new PagefindUI({ element: '#search-box', showSubResults: true, showImages: false });
+            ready = true;
+          } catch {
+            document.getElementById('search-box')!.textContent =
+              'Search index not available in dev — it is built with the site.';
+          }
+        }
+        dlg.querySelector('input')?.focus();
+      };
+      document.getElementById('search-open')?.addEventListener('click', open);
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); dlg.open ? dlg.close() : open(); }
+      });
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+    </script>
 
     <footer class="site-footer">
       <div class="wrap foot">
@@ -130,6 +172,51 @@ const path = Astro.url.pathname.replace(/\/$/, '');
       }
       nav a:hover { color: var(--text); text-decoration: none; background: var(--surface2); }
       nav a.active { color: var(--teal); }
+      #search-open {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: var(--surface2);
+        border: 1px solid var(--border-soft);
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        margin-left: 8px;
+        cursor: pointer;
+      }
+      #search-open:hover { border-color: var(--teal-dim); color: var(--text); }
+      #search-open kbd {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.64rem;
+        color: var(--faint);
+        border: 1px solid var(--border-soft);
+        border-radius: 4px;
+        padding: 1px 5px;
+      }
+      @media (max-width: 720px) { #search-open kbd { display: none; } }
+      #search-dlg {
+        width: min(640px, 92vw);
+        max-height: 76vh;
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 20px;
+        box-shadow: var(--shadow);
+      }
+      #search-dlg::backdrop { background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(2px); }
+      .search-hint { color: var(--faint); font-size: 0.75rem; margin: 10px 0 0; }
+      #search-dlg {
+        --pagefind-ui-primary: var(--teal-bright);
+        --pagefind-ui-text: var(--text);
+        --pagefind-ui-background: var(--surface);
+        --pagefind-ui-border: var(--border);
+        --pagefind-ui-tag: var(--surface2);
+        --pagefind-ui-border-width: 1px;
+        --pagefind-ui-border-radius: 8px;
+        --pagefind-ui-font: 'Instrument Sans', sans-serif;
+      }
       main { min-height: 60vh; padding-bottom: 96px; }
       .site-footer { border-top: 1px solid var(--border-soft); background: var(--surface); }
       .foot { padding: 36px 24px 44px; }
