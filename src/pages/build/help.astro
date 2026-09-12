@@ -1,0 +1,92 @@
+---
+import Base from '@layouts/Base.astro';
+
+const places = [
+  {
+    name: 'The official repositories',
+    blurb: 'Issues and discussions on the code itself — maintainers read these. For Silverscript questions bring the compiler error verbatim; for Argent, remember it has no release yet.',
+    links: [
+      ['silverscript issues', 'https://github.com/kaspanet/silverscript/issues'],
+      ['argent issues', 'https://github.com/argent-lang/argent/issues'],
+      ['KCCs discussions', 'https://github.com/kaspanet/kccs'],
+    ],
+  },
+  {
+    name: 'The Kaspa developer community',
+    blurb: 'The development channels of the official Kaspa community are where covenant builders actually hang out — reachable from the official site (invite links rot, so we link the source).',
+    links: [['kaspa.org → community', 'https://kaspa.org']],
+  },
+  {
+    name: 'Zero-install experimenting',
+    blurb: 'Stuck on setup? kascov.io runs covenant code in the browser, and the starter template compiles on the first try in CI — clone it and compare against your checkout.',
+    links: [
+      ['kascov.io', 'https://kascov.io'],
+      ['kasstacker-starter', 'https://github.com/ItsGoonBoyCrypto/kasstacker-starter'],
+    ],
+  },
+  {
+    name: 'This site',
+    blurb: 'Found something wrong or stale on KasStacker, or want an example listed? Open an issue — corrections ship fast, and every claim here is supposed to be checkable.',
+    links: [['KasStacker repo', 'https://github.com/ItsGoonBoyCrypto/KasStacker']],
+  },
+];
+---
+<Base
+  title="Get help — KasStacker"
+  description="Where Kaspa covenant builders actually get unstuck: the right repos, the community channels, and zero-install fallbacks."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Build · when you're stuck</p>
+      <h1>Get help</h1>
+      <p class="lede">
+        Everyone gets stuck — post-Toccata tooling is young and moving. These are the places
+        where questions actually get answered, roughly in the order to try them.
+      </p>
+    </header>
+
+    <div class="places">
+      {places.map((p, i) => (
+        <div class="place panel">
+          <h2><span class="n">{i + 1}</span> {p.name}</h2>
+          <p>{p.blurb}</p>
+          <div class="links">
+            {p.links.map(([label, href]) => <a href={href} rel="noopener">{label} →</a>)}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="tip">
+      One habit that gets faster answers everywhere: say what you ran, what you expected, and
+      paste the exact error. The <a href="/glossary">glossary</a> helps you name things precisely.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .places { display: grid; gap: 14px; }
+  .place h2 { font-size: 1.02rem; display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .place .n {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--teal);
+    background: var(--surface2);
+    border: 1px solid var(--border-soft);
+    border-radius: 7px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .place p { color: var(--muted); font-size: 0.93rem; margin: 0 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  .links a { font-size: 0.88rem; font-weight: 600; }
+  .tip { color: var(--faint); font-size: 0.9rem; margin-top: 24px; }
+</style>
