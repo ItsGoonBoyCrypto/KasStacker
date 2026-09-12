@@ -1,0 +1,228 @@
+---
+import Base from '@layouts/Base.astro';
+---
+<Base
+  title="Break a covenant — KasStacker"
+  description="Play the attacker against a real, compiling Kaspa covenant — press the button, watch consensus reject the spend, and learn why the rule is the lock."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · stop 5 of 6 · interactive</p>
+      <h1>Try to break a covenant</h1>
+      <p class="lede">
+        This is the real <code>SimpleCovenant</code> from the official tutorial — the same twelve
+        lines this site compiles in CI every week. Coins are locked by it, and the recipient baked
+        in at creation is <b>you</b>. Play the thief. Press the buttons.
+      </p>
+    </header>
+
+    <section class="sim">
+      <div class="code-panel">
+        <p class="panel-label">The contract — exactly as written</p>
+        <pre><code>pragma silverscript ^0.1.0;
+
+contract SimpleCovenant(pubkey recipient) &#123;
+    entry spend() &#123;
+        <span id="ln-decl">byte[36] recipientScriptPubKey = new ScriptPubKeyP2PK(recipient);</span>
+        <span id="ln-require">require(tx.outputs[0].scriptPubKey == byte[](recipientScriptPubKey));</span>
+    &#125;
+&#125;</code></pre>
+      </div>
+
+      <div class="attempts">
+        <p class="panel-label">Build a spend and broadcast it</p>
+        <div class="btns">
+          <button class="attempt" data-try="steal">🦹 Thief: send the coins to the thief's address</button>
+          <button class="attempt" data-try="stealhome">🦹 Thief: send the coins to <em>your</em> address</button>
+          <button class="attempt" data-try="honest">🙂 You: withdraw to your address</button>
+          <button class="attempt" data-try="split">🤔 Thief: output 0 to you… plus an output 1 to the thief</button>
+        </div>
+      </div>
+
+      <div id="stage" class="stage" hidden>
+        <div class="tx">
+          <p class="panel-label">The transaction on the wire</p>
+          <div class="tx-flow">
+            <div class="box in">vault UTXO<br /><span>100 KAS · locked by SimpleCovenant</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="outs">
+              <div class="box out" id="out0"></div>
+              <div class="box out" id="out1" hidden></div>
+            </div>
+          </div>
+        </div>
+        <div class="check">
+          <p class="panel-label">Every node now runs <code>entry spend()</code></p>
+          <p class="check-line" id="check-line"></p>
+          <div class="verdict" id="verdict"></div>
+          <p class="lesson" id="lesson"></p>
+        </div>
+      </div>
+
+      <div class="takeaway panel" id="takeaway" hidden>
+        <h2>What you just learned</h2>
+        <ul>
+          <li><strong>The chain enforces exactly what is written — nothing more, nothing less.</strong> A rejected spend isn't refused; it simply never becomes a transaction.</li>
+          <li><strong>This covenant never checks who signs.</strong> A thief can spend it — straight into your address. The rule is the lock, not the key.</li>
+          <li><strong>You may have found the hole:</strong> these twelve lines constrain only output&nbsp;0's destination — not the amounts, not the other outputs. That's fine for a tutorial and fatal for a vault. Production covenants pin amounts, outputs and lineage — which is why every component page here has a "what it can't do" section, and why audits exist.</li>
+        </ul>
+        <p>
+          Want the rules-behind-the-rules? The <a href="/build/first-covenant">build guide</a> compiles
+          this exact contract, and the <a href="https://kaspanet.github.io/silverscript/kcc20-book/" rel="noopener">KCC20 book</a>
+          shows what hardened covenants look like.
+        </p>
+      </div>
+    </section>
+
+    <div class="next-link"><a class="btn btn-primary" href="/learn/faq">Next: Questions everyone asks →</a></div>
+  </div>
+
+  <script>
+    type Try = {
+      out0: string; out0Class: string; out1?: string;
+      pass: boolean; check: string; lesson: string;
+    };
+    const tries: Record<string, Try> = {
+      steal: {
+        out0: 'output 0 → 🦹 thief\'s address\n100 KAS',
+        out0Class: 'bad',
+        pass: false,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — the output pays the thief, not the baked-in recipient.',
+        lesson: 'REJECTED by consensus. Not "refused" — the network treats it like a coin that doesn\'t fit the slot. With your keys stolen and the network against them, the thief still cannot move these coins anywhere but your address.',
+      },
+      stealhome: {
+        out0: 'output 0 → 🙂 YOUR address\n100 KAS',
+        out0Class: 'good',
+        pass: true,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — yes: output 0 pays the recipient baked in at creation.',
+        lesson: 'ACCEPTED — the thief just spent your vault… straight into your pocket. Read the contract again: it never checks who signs. It checks where the money goes. The rule is the lock, not the key.',
+      },
+      honest: {
+        out0: 'output 0 → 🙂 YOUR address\n100 KAS',
+        out0Class: 'good',
+        pass: true,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — yes.',
+        lesson: 'ACCEPTED — the ordinary path. The same rule that blocked the thief lets you through, because the rule only ever cared about the destination.',
+      },
+      split: {
+        out0: 'output 0 → 🙂 YOUR address\n1 KAS',
+        out0Class: 'good',
+        out1: 'output 1 → 🦹 thief\'s address\n99 KAS',
+        pass: true,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — yes… and that is the only thing these twelve lines ever check.',
+        lesson: 'ACCEPTED — you found the hole. Nothing here constrains amounts or other outputs, so a tutorial contract makes a terrible vault. The chain enforced exactly what was written; the writing was the weakness. This is why production covenants pin amounts and outputs — and why audits matter.',
+      },
+    };
+
+    const stage = document.getElementById('stage')!;
+    const out0 = document.getElementById('out0')!;
+    const out1 = document.getElementById('out1')!;
+    const checkLine = document.getElementById('check-line')!;
+    const verdict = document.getElementById('verdict')!;
+    const lesson = document.getElementById('lesson')!;
+    const takeaway = document.getElementById('takeaway')!;
+    const requireLine = document.getElementById('ln-require')!;
+    let tried = new Set<string>();
+
+    document.querySelectorAll<HTMLButtonElement>('.attempt').forEach((b) => {
+      b.addEventListener('click', () => {
+        const t = tries[b.dataset.try!];
+        stage.hidden = false;
+        out0.textContent = '';
+        t.out0.split('\n').forEach((s, i) => { if (i) out0.appendChild(document.createElement('br')); out0.appendChild(document.createTextNode(s)); });
+        out0.className = `box out ${t.out0Class}`;
+        if (t.out1) {
+          out1.hidden = false;
+          out1.textContent = '';
+          t.out1.split('\n').forEach((s, i) => { if (i) out1.appendChild(document.createElement('br')); out1.appendChild(document.createTextNode(s)); });
+          out1.className = 'box out bad';
+        } else { out1.hidden = true; }
+        checkLine.textContent = t.check;
+        verdict.textContent = t.pass ? '✓ ACCEPTED — the transaction is real' : '✗ REJECTED — the transaction never existed';
+        verdict.className = `verdict ${t.pass ? 'ok' : 'no'}`;
+        lesson.textContent = t.lesson;
+        requireLine.classList.remove('flash-ok', 'flash-no');
+        void (requireLine as HTMLElement).offsetWidth; // restart animation
+        requireLine.classList.add(t.pass ? 'flash-ok' : 'flash-no');
+        document.querySelectorAll('.attempt').forEach((x) => x.classList.remove('active'));
+        b.classList.add('active');
+        tried.add(b.dataset.try!);
+        if (tried.size >= 3) takeaway.hidden = false;
+        stage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.03rem; }
+  .panel-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 8px;
+  }
+  .sim { display: grid; gap: 18px; }
+  .code-panel pre { margin: 0; }
+  #ln-require { display: inline-block; border-radius: 4px; padding: 0 4px; margin: 0 -4px; }
+  .flash-ok { animation: flok 1.2s ease; }
+  .flash-no { animation: flno 1.2s ease; }
+  @keyframes flok { 0%, 60% { background: color-mix(in srgb, var(--m-audited) 30%, transparent); } 100% { background: transparent; } }
+  @keyframes flno { 0%, 60% { background: color-mix(in srgb, var(--m-preaudit) 35%, transparent); } 100% { background: transparent; } }
+  .btns { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .btns { grid-template-columns: 1fr 1fr; } }
+  .attempt {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.92rem;
+    text-align: left;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+  }
+  .attempt:hover { border-color: var(--teal-dim); }
+  .attempt.active { border-color: var(--teal); }
+  .stage { display: grid; gap: 16px; }
+  .tx-flow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .box span { color: var(--faint); font-size: 0.76rem; }
+  .box.good { border-color: var(--m-audited); }
+  .box.bad { border-color: var(--m-preaudit); }
+  .arrow { color: var(--faint); font-size: 1.2rem; }
+  .outs { display: grid; gap: 8px; }
+  .check-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .verdict {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .verdict.ok { color: var(--m-audited); border: 1px solid var(--m-audited); }
+  .verdict.no { color: var(--m-preaudit); border: 1px solid var(--m-preaudit); }
+  .lesson { color: var(--muted); font-size: 0.95rem; margin: 12px 0 0; max-width: 62ch; }
+  .takeaway h2 { font-size: 1.1rem; margin-bottom: 10px; }
+  .takeaway ul { margin: 0 0 12px; padding-left: 18px; color: var(--muted); font-size: 0.93rem; }
+  .takeaway li { margin-bottom: 8px; }
+  .takeaway p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+</style>
