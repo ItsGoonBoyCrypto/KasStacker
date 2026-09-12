@@ -67,27 +67,91 @@
       "featured": true
     }
   ],
-  "venues": {
-    "shows": "Live covenant token venues — KaspaRocket also publishes its contracts",
-    "links": [
-      ["KRON", "https://kron.technology"],
-      ["KaspaRocket", "https://kasparocket.fun"],
-      ["Zealous", "https://zealousswap.com"],
-      ["KForge", "https://kforge.xyz"],
-      ["KaspaKaha", "https://kaspakaha.com"],
-      ["KaspaCom", "https://kaspa.com"]
-    ],
-    "verified": "trading live on chain · links checked 2026-09-12"
-  },
-  "explorers": {
-    "shows": "Where to watch covenants live on mainnet",
-    "links": [
-      ["kascov.io", "https://kascov.io"],
-      ["covenants.kaspa.com", "https://covenants.kaspa.com"],
-      ["kcc20.info", "https://kcc20.info"]
-    ],
-    "verified": "all three responding · checked 2026-09-11"
-  },
+  "venues": [
+    {
+      "name": "KRON",
+      "url": "https://kron.technology",
+      "icon": "💱",
+      "layer": "Covenants · KCC-20",
+      "tagline": "Kaspa's L1 DEX + launchpad",
+      "shows": "Swap KCC-20 tokens against a permanently-locked AMM, or launch your own on a rug-proof bonding curve — live charts per token.",
+      "verified": "live on mainnet · trading verified on chain"
+    },
+    {
+      "name": "KaspaRocket",
+      "url": "https://kasparocket.fun",
+      "icon": "🚀",
+      "layer": "Silverscript · KCC-20",
+      "tagline": "Fair-launch tokens on a curve",
+      "shows": "Tokens climb a dual-phase bonding curve, then graduate to a constant-product AMM — and the venue publishes its Silverscript contracts.",
+      "verified": "live · contracts published + parse-checked weekly in CI"
+    },
+    {
+      "name": "Zealous Swap",
+      "url": "https://zealousswap.com",
+      "icon": "🌊",
+      "layer": "Covenants · KCC-20",
+      "tagline": "The sustainable-liquidity DEX",
+      "shows": "Protocol-owned liquidity, an insurance fund and NFT-based fees — a DEX with launchpad built for the long game.",
+      "verified": "trading verified on chain · reviewed 2026-09-12"
+    },
+    {
+      "name": "KForge",
+      "url": "https://kforge.xyz",
+      "icon": "⚒️",
+      "layer": "Covenants · KCC-20",
+      "tagline": "Forge a token, watch it graduate",
+      "shows": "A launchpad and DEX built entirely from Kaspa covenants — the script holding the funds enforces the price.",
+      "verified": "trading verified on chain (testnet-10) · reviewed 2026-09-12"
+    },
+    {
+      "name": "KaspaKaha",
+      "url": "https://kaspakaha.com",
+      "icon": "🌀",
+      "layer": "Covenants · KCC-20",
+      "tagline": "The covenant AMM",
+      "shows": "Pool-based AMM swaps where the covenant itself is the market maker — build a trade, sign it, the pool enforces the price.",
+      "verified": "buy + sell verified on chain (testnet-10)"
+    },
+    {
+      "name": "KaspaCom",
+      "url": "https://kaspa.com",
+      "icon": "🏪",
+      "layer": "Covenants · KCC-20",
+      "tagline": "The Kaspa marketplace hub",
+      "shows": "Tokens, NFTs, domains and a KCC20 covenant marketplace — plus its own covenant explorer at covenants.kaspa.com.",
+      "verified": "KCC20 marketplace live on mainnet"
+    }
+  ],
+  "explorers": [
+    {
+      "name": "kascov.io",
+      "url": "https://kascov.io",
+      "icon": "🔭",
+      "layer": "Covenants · KCC-20",
+      "tagline": "Covenant explorer + zero-install playground",
+      "shows": "Browse live covenants, KCC-20 holdings and trades — and try covenant code right in the browser, nothing to install.",
+      "verified": "serving mainnet + testnet-10"
+    },
+    {
+      "name": "KaspaCom Covenant Explorer",
+      "url": "https://covenants.kaspa.com",
+      "icon": "🧭",
+      "layer": "Covenants · KCC-20",
+      "tagline": "Covenant activity made visible",
+      "shows": "KCC20 listings, trades, transactions and UTXOs in one place — the marketplace hub's own window onto the chain.",
+      "verified": "live on mainnet"
+    },
+    {
+      "name": "kcc20.info",
+      "url": "https://kcc20.info",
+      "icon": "📡",
+      "layer": "Covenants · KCC-20",
+      "tagline": "The keyless covenant indexer",
+      "shows": "Public JSON for tokens, holders, balances, covenant events and signing data — no API key, local-first, validated from a Kaspa node.",
+      "verified": "in daily use by this site — the mainnet exhibits come from its API"
+    }
+  ],
   "underReview": [
     { "name": "OpenSilver (22-pattern library)", "why": "written pre-v1.0.0 — 21 of 25 contracts no longer parse against the current compiler; listed when updated" },
     { "name": "kosign (covenant multisig)", "why": "written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated" },

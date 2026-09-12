@@ -2,10 +2,22 @@
 import Base from '@layouts/Base.astro';
 import eco from '@data/ecosystem.json';
 
-const projects = eco.projects;
-const groups = [
-  { title: 'L1 trading venues', ...eco.venues },
-  { title: 'Covenant explorers & indexers', ...eco.explorers },
+const sections = [
+  {
+    title: null,
+    sub: null,
+    items: eco.projects,
+  },
+  {
+    title: 'The trading venues',
+    sub: 'Six live venues, all covenant-native — between them, more shipped covenant code than the rest of the ecosystem combined.',
+    items: eco.venues,
+  },
+  {
+    title: 'Explorers & indexers',
+    sub: 'Where covenant activity becomes visible — and queryable.',
+    items: eco.explorers,
+  },
 ];
 ---
 <Base
@@ -24,35 +36,32 @@ const groups = [
       </p>
     </header>
 
-    <div class="grid">
-      {projects.map((p) => (
-        <a class="card" href={p.url} rel="noopener">
-          <div class="top">
-            <span class="icon" aria-hidden="true">{p.icon}</span>
-            <div class="names">
-              <h2>{p.name}</h2>
-              <p class="tagline">{p.tagline}</p>
-            </div>
-            <span class="layer">{p.layer}</span>
+    {sections.map((s) => (
+      <section class="eco-section">
+        {s.title && (
+          <div class="sec-head">
+            <h2 class="sec-title">{s.title}</h2>
+            {s.sub && <p class="sec-sub">{s.sub}</p>}
           </div>
-          <p class="shows">{p.shows}</p>
-          <p class="verify">✓ {p.verified}</p>
-        </a>
-      ))}
-    </div>
-
-    <section class="groups">
-      {groups.map((g) => (
-        <div class="group panel">
-          <h2>{g.title}</h2>
-          <p>{g.shows}</p>
-          <div class="glinks">
-            {g.links.map(([label, href]) => <a href={href} rel="noopener">{label}</a>)}
-          </div>
-          <p class="verify">✓ {g.verified}</p>
+        )}
+        <div class="grid">
+          {s.items.map((p) => (
+            <a class="card" href={p.url} rel="noopener">
+              <div class="top">
+                <span class="icon" aria-hidden="true">{p.icon}</span>
+                <div class="names">
+                  <h3>{p.name}</h3>
+                  <p class="tagline">{p.tagline}</p>
+                </div>
+                <span class="layer">{p.layer}</span>
+              </div>
+              <p class="shows">{p.shows}</p>
+              <p class="verify">✓ {p.verified}</p>
+            </a>
+          ))}
         </div>
-      ))}
-    </section>
+      </section>
+    ))}
 
     <section>
       <h2 class="sec-title">Currently under review</h2>
@@ -120,7 +129,10 @@ const groups = [
   .top { display: flex; align-items: flex-start; gap: 12px; }
   .icon { font-size: 1.7rem; line-height: 1; }
   .names { min-width: 0; }
-  .card h2 { font-size: 1.1rem; font-weight: 700; }
+  .eco-section { margin-top: 8px; }
+  .eco-section + .eco-section { margin-top: 44px; }
+  .eco-section .sec-head { margin-bottom: 16px; }
+  .card h3 { font-size: 1.1rem; font-weight: 700; }
   .tagline { color: var(--teal); font-size: 0.85rem; font-weight: 600; margin: 2px 0 0; font-family: 'Sora', sans-serif; }
   .layer {
     margin-left: auto;
@@ -134,14 +146,7 @@ const groups = [
   }
   .shows { color: var(--muted); font-size: 0.93rem; margin: 0; }
   .verify { margin: auto 0 0; color: var(--m-audited); font-size: 0.78rem; }
-  .groups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
-  @media (max-width: 760px) { .groups { grid-template-columns: 1fr; } }
-  .group h2 { font-size: 1rem; margin-bottom: 6px; }
-  .group p { color: var(--muted); font-size: 0.9rem; margin: 0 0 10px; }
-  .glinks { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 10px; }
-  .glinks a { font-weight: 600; font-size: 0.9rem; }
-  .group .verify { margin: 0; }
-  .sec-title { font-size: 1.15rem; margin-bottom: 12px; }
+  .sec-title { font-size: 1.3rem; }
   .review { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
   .review li { margin-bottom: 6px; }
   .review b { color: var(--text); }
