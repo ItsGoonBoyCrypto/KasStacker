@@ -3,6 +3,7 @@ import Base from '@layouts/Base.astro';
 import MaturityBadge from '@components/MaturityBadge.astro';
 import components from '@data/components.json';
 import status from '@data/status.json';
+import chain from '@data/chainstats.json';
 
 type RepoStatus = {
   latestTag: string | null;
@@ -15,58 +16,140 @@ type RepoStatus = {
 const repos = status.repos as Record<string, RepoStatus>;
 const generated = new Date(status.generatedAt).toISOString().replace('T', ' ').slice(0, 16);
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : null);
+
+// --- chain pulse ---
+const fmt = (n: number | null) => (n == null ? '—' : n.toLocaleString('en-US'));
+const tiles = [
+  { label: 'Covenants created', value: fmt(chain.totals.covenantsCreated), sub: 'genesis events, all time' },
+  { label: 'State transitions', value: fmt(chain.totals.transitions), sub: 'covenants doing their job' },
+  { label: 'Live KCC-20 tokens', value: fmt(chain.tokens.live), sub: `of ${fmt(chain.tokens.total)} ever created` },
+  { label: 'Covenant burns', value: fmt(chain.totals.burns), sub: 'lifecycles completed' },
+];
+const pts = chain.series.points;
+const maxEvents = Math.max(1, ...pts.map((p) => p.events));
+const CW = 720, CH = 120, GAP = 3;
+const bw = pts.length ? (CW - GAP * (pts.length - 1)) / pts.length : 0;
+const bars = pts.map((p, i) => ({
+  x: i * (bw + GAP),
+  h: Math.max(p.events > 0 ? 2 : 0, (p.events / maxEvents) * CH),
+  events: p.events,
+  date: new Date(p.t).toISOString().slice(5, 10),
+}));
+const chainFetched = new Date(chain.generatedAt).toISOString().slice(0, 10);
+const totalWindow = pts.reduce((a, p) => a + p.events, 0);
 ---
 <Base
-  title="Status — KasStacker"
-  description="Live status board for the Kaspa stack: latest tags, last commits, and maturity — fetched daily from the GitHub API."
+  title="State of the stack — KasStacker"
+  description="Covenant adoption on Kaspa mainnet in numbers — covenants created, transitions, live KCC-20 tokens — plus the health of every repo in the stack."
 >
   <div class="wrap">
     <header class="head">
       <p class="eyebrow">Status</p>
-      <h1>The board</h1>
+      <h1>State of the stack</h1>
       <p class="lede">
-        Fetched from the GitHub API by a daily workflow that fails loudly on any error —
-        stale data is never silently committed. Last refresh: <code>{generated} UTC</code>.
+        Adoption in numbers, straight from the chain — then the health of every repository.
+        Nothing on this page is typed by hand: chain data refreshes daily from the keyless
+        <a href="https://kcc20.info" rel="noopener">kcc20.info</a> indexer, repo data from the GitHub API.
       </p>
     </header>
-    <div class="table-scroll">
-      <table class="data">
-        <thead>
-          <tr>
-            <th>Component</th><th>Maturity</th><th>Repository</th><th>Latest tag</th>
-            <th>Tagged</th><th>Last push</th><th>Stars</th><th>Open issues</th>
-          </tr>
-        </thead>
-        <tbody>
-          {components.map((c) => {
-            const s = c.repo ? repos[c.repo] : null;
-            return (
-              <tr>
-                <td><a href={`/stack/${c.id}`}>{c.name}</a></td>
-                <td><MaturityBadge maturity={c.maturity} /></td>
-                <td>{c.repo ? <a href={`https://github.com/${c.repo}`} rel="noopener">{c.repo}</a> : <span class="null">none public / unconfirmed</span>}</td>
-                <td class="num">{s ? (s.latestTag ?? <span class="null">no release</span>) : <span class="null">—</span>}</td>
-                <td class="num">{s?.latestTagDate ? day(s.latestTagDate) : <span class="null">—</span>}</td>
-                <td class="num">{s ? day(s.lastCommit) : <span class="null">—</span>}</td>
-                <td class="num">{s ? s.stars : <span class="null">—</span>}</td>
-                <td class="num">{s ? s.openIssues : <span class="null">—</span>}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-    <p class="note">
-      A component without a repository row either has no public repo (vProgs is a roadmap item) or its
-      canonical location is not yet confirmed (KCC-20's written spec) — per the site's rules, that is
-      shown rather than guessed.
-    </p>
+
+    <section>
+      <div class="tiles">
+        {tiles.map((t) => (
+          <div class="tile">
+            <span class="t-value">{t.value}</span>
+            <span class="t-label">{t.label}</span>
+            <span class="t-sub">{t.sub}</span>
+          </div>
+        ))}
+      </div>
+
+      <figure class="chart panel">
+        <figcaption>
+          <b>Covenant events, last 30 days</b> — {totalWindow.toLocaleString('en-US')} in the window · fetched {chainFetched}
+        </figcaption>
+        <svg viewBox={`0 0 ${CW} ${CH + 24}`} role="img" aria-label={`Daily covenant events on Kaspa mainnet over the last 30 days, peaking at ${maxEvents} in a day.`}>
+          {bars.map((b) => (
+            <rect x={b.x} y={CH - b.h} width={bw} height={b.h} rx="2" class="bar">
+              <title>{b.date}: {b.events} events</title>
+            </rect>
+          ))}
+          <line x1="0" y1={CH + 0.5} x2={CW} y2={CH + 0.5} class="axis" />
+          {bars.length > 0 && (
+            <>
+              <text x="0" y={CH + 17} class="tick-label">{bars[0].date}</text>
+              <text x={CW} y={CH + 17} text-anchor="end" class="tick-label">{bars[bars.length - 1].date}</text>
+            </>
+          )}
+        </svg>
+      </figure>
+    </section>
+
+    <section>
+      <h2 class="board-title">The repo board</h2>
+      <p class="board-sub">Fetched daily by a workflow that fails loudly — stale data is never silently committed. Last refresh: <code>{generated} UTC</code>.</p>
+      <div class="table-scroll">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Component</th><th>Maturity</th><th>Repository</th><th>Latest tag</th>
+              <th>Tagged</th><th>Last push</th><th>Stars</th><th>Open issues</th>
+            </tr>
+          </thead>
+          <tbody>
+            {components.map((c) => {
+              const s = c.repo ? repos[c.repo] : null;
+              return (
+                <tr>
+                  <td><a href={`/stack/${c.id}`}>{c.name}</a></td>
+                  <td><MaturityBadge maturity={c.maturity} /></td>
+                  <td>{c.repo ? <a href={`https://github.com/${c.repo}`} rel="noopener">{c.repo}</a> : <span class="null">none public / unconfirmed</span>}</td>
+                  <td class="num">{s ? (s.latestTag ?? <span class="null">no release</span>) : <span class="null">—</span>}</td>
+                  <td class="num">{s?.latestTagDate ? day(s.latestTagDate) : <span class="null">—</span>}</td>
+                  <td class="num">{s ? day(s.lastCommit) : <span class="null">—</span>}</td>
+                  <td class="num">{s ? s.stars : <span class="null">—</span>}</td>
+                  <td class="num">{s ? s.openIssues : <span class="null">—</span>}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="note">
+        A component without a repository row either has no public repo (vProgs is a roadmap item) or its
+        canonical location is not yet confirmed — per the site's rules, that is shown rather than guessed.
+      </p>
+    </section>
   </div>
 </Base>
 
 <style>
   .head { padding: 56px 0 28px; }
-  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
-  .lede { color: var(--muted); font-size: 1.02rem; max-width: 62ch; }
+  .head h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); font-weight: 800; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; max-width: 68ch; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .tile {
+    background: linear-gradient(160deg, color-mix(in srgb, var(--teal) 7%, var(--surface)), var(--surface) 55%);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .t-value { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--teal); font-variant-numeric: tabular-nums; }
+  .t-label { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.85rem; }
+  .t-sub { color: var(--faint); font-size: 0.76rem; }
+  .chart { margin: 14px 0 0; padding: 18px 20px; }
+  .chart figcaption { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+  .chart figcaption b { color: var(--text); font-family: 'Sora', sans-serif; }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .bar { fill: var(--teal); opacity: 0.85; }
+  .bar:hover { opacity: 1; fill: var(--teal-bright); }
+  .axis { stroke: var(--border); }
+  .tick-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--faint); }
+  section + section { margin-top: 48px; }
+  .board-title { font-size: 1.3rem; margin-bottom: 6px; }
+  .board-sub { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; }
   .note { color: var(--faint); font-size: 0.85rem; margin-top: 16px; max-width: 70ch; }
 </style>

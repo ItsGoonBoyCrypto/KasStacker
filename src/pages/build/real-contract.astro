@@ -1,0 +1,118 @@
+---
+import Base from '@layouts/Base.astro';
+import Gloss from '@components/Gloss.astro';
+---
+<Base
+  title="Read a real contract — KasStacker"
+  description="A guided read of KaspaRocket's live limit-order escrow — a production Kaspa covenant, annotated: the fee guard, the immutability guard, and the attack it blocks."
+>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">Build · deep dive</p>
+      <h1>Read a real contract</h1>
+      <p class="lede">
+        Tutorials teach the mechanism; production code teaches the paranoia. This is a guided read of
+        <a href="https://github.com/La-Gauffre/KaspaRocket-Silverscript-Contract/blob/main/Escrow_buy_token.sil" rel="noopener"><code>Escrow_buy_token.sil</code></a> —
+        the limit-order escrow published by the KaspaRocket venue, parse-checked against current
+        Silverscript weekly by this site's CI. Every snippet below is verbatim.
+      </p>
+    </header>
+
+    <h2>The idea in one breath</h2>
+    <p>
+      A buyer locks KAS in the <Gloss term="covenant">covenant</Gloss> with a fixed price per token.
+      <em>Anyone</em> holding the right KCC-20 tokens can fill the order — fully or partially — and the
+      covenant itself pays them the KAS, sends the tokens to the buyer, takes the platform's 0.3% fee,
+      and persists with the remaining order size. No operator in the loop, ever.
+    </p>
+
+    <h2>1 · Parameters are baked, then guarded</h2>
+    <pre><code>// Immutability guard: economic parameters must never change.
+function checkImmutable(State prev, State next) &#123;
+    require(next.creator_pk    == prev.creator_pk);
+    require(next.buyer_pk      == prev.buyer_pk);
+    require(next.kas_per_token == prev.kas_per_token);
+    require(next.token_id      == prev.token_id);
+    require(next.fee_recipient == prev.fee_recipient);
+&#125;</code></pre>
+    <p>
+      A partial fill creates a <em>new</em> escrow UTXO carrying the remaining order — a
+      <Gloss term="transition">transition</Gloss>. This guard makes every transition re-prove that
+      the economics didn't move: nobody can "fill" an order while quietly rewriting its price.
+      Remember the <a href="/learn/try-it">hole in the tutorial contract</a>? This is what closing
+      holes looks like.
+    </p>
+
+    <h2>2 · The fee is law, not policy</h2>
+    <pre><code>// Platform fee: 3 / 1000 = 0.3% of the KAS flow per fill.
+int constant FEE_NUM = 3;
+int constant FEE_DEN = 1000;
+
+function checkFeeOutput(State prev, int feeOutIndex, int kas_amount) &#123;
+    int fee = (kas_amount * FEE_NUM) / FEE_DEN;
+    require(fee > 0);
+    require(tx.outputs[feeOutIndex].value >= fee);
+    require(tx.outputs[feeOutIndex].scriptPubKey == byte[](prev.fee_recipient));
+&#125;</code></pre>
+    <p>
+      The venue's revenue isn't collected by a server — the covenant refuses any fill that doesn't
+      pay the fee output. A business model enforced by consensus. Note <code>require(fee &gt; 0)</code>:
+      integer division means a tiny fill could round the fee to zero, so dust-sized fee-dodging fills
+      are simply not transactions.
+    </p>
+
+    <h2>3 · The attack they block — in their own words</h2>
+    <pre><code>// ── Protection against "Double-Spend via LP_AMM" attack ──
+//
+// Attack scenario blocked:
+//   An attacker performs an LP_AMM buy swap that sends tokens to buyer_pk
+//   in the same transaction, then claims this satisfies the escrow —
+//   without bringing any tokens themselves.
+//
+// Defense:
+//   The contract scans ALL KCC20 inputs and only counts those with
+//   identifierType ≠ 0x02 (non-covenant). Protocol vaults (LP_AMM, other
+//   escrows) are type 0x02 and are excluded from the tally.</code></pre>
+    <p>
+      Kaspa transactions are atomic across many contracts — which cuts both ways. An attacker could
+      bundle an AMM swap and an escrow fill into one transaction and try to count the <em>same</em>
+      tokens twice. The defense uses <Gloss term="covenant-id">covenant identity</Gloss>: token UTXOs
+      owned by other covenants (type <code>0x02</code>) don't count as "your" tokens. Composability
+      preserved, double-counting dead.
+    </p>
+
+    <h2>4 · One output slot per escrow</h2>
+    <pre><code>// Canonical constraint: buyer_kcc20_out_idx == escrow_out_idx + 1
+//   Tying the buyer output to escrow_out_idx + 1 makes it unique per escrow,
+//   preventing aliasing attacks where multiple escrows share the same buyer
+//   output (which would allow draining multiple escrows for the price of one fill).</code></pre>
+    <p>
+      If two escrows in one transaction could both point at the same "tokens to buyer" output, one
+      delivery could drain them both. Pinning each escrow's buyer output to its own slot kills the
+      aliasing. This is the <Gloss term="n-m-pattern">N:M</Gloss> world's version of double-entry
+      bookkeeping.
+    </p>
+
+    <h2>What to take away</h2>
+    <ul>
+      <li><strong>Production covenants are mostly guards.</strong> Overflow bounds, immutability checks, canonical indices, fee floors — the happy path is a fraction of the code.</li>
+      <li><strong>Atomicity is a feature and an attack surface.</strong> Anything that can happen in your transaction will be used against your contract.</li>
+      <li><strong>The chain enforces exactly what's written.</strong> Same lesson as <a href="/learn/try-it">breaking the tutorial contract</a> — here you see what it costs to write it right.</li>
+    </ul>
+    <p class="verified">
+      Honesty note: this is the venue's own published code with a pinned compiler revision; no
+      external audit of it is named that this site knows of. Read it to learn, verify before you
+      trust. Full file, tests and the LP AMM it defends against:
+      <a href="https://github.com/La-Gauffre/KaspaRocket-Silverscript-Contract" rel="noopener">the repository</a>.
+    </p>
+
+    <div class="next-link"><a class="btn btn-primary" href="/build/examples">More code worth reading →</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 800; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .verified { color: var(--faint); font-size: 0.88rem; border-top: 1px solid var(--border-soft); padding-top: 14px; margin-top: 24px; }
+</style>

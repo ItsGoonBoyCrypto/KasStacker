@@ -1,0 +1,66 @@
+---
+import Base from '@layouts/Base.astro';
+import changelog from '@data/changelog.json';
+
+const kinds: Record<string, string> = {
+  stack: 'THE STACK',
+  ecosystem: 'ECOSYSTEM',
+  finding: 'FINDING',
+  site: 'THIS SITE',
+};
+const entries = [...changelog].sort((a, b) => b.date.localeCompare(a.date));
+---
+<Base
+  title="What moved — KasStacker"
+  description="The Kaspa programmability stack's changelog: releases, findings and ecosystem shifts — dated, sourced, and available as RSS."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Changelog</p>
+      <h1>What moved</h1>
+      <p class="lede">
+        Releases, findings and ecosystem shifts, dated as they happened. Follow along by
+        <a href="/rss.xml">RSS</a> — new entries land whenever something actually moves,
+        not on a content schedule.
+      </p>
+    </header>
+
+    <ol class="log">
+      {entries.map((e) => (
+        <li>
+          <div class="meta">
+            <time datetime={e.date}>{e.date}</time>
+            <span class={`kind k-${e.kind}`}>{kinds[e.kind] ?? e.kind.toUpperCase()}</span>
+          </div>
+          <h2>{e.title}</h2>
+          <p>{e.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 30px; }
+  .head h1 { font-size: 2rem; font-weight: 800; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; }
+  .log li { border-left: 2px solid var(--teal-dim); padding-left: 18px; }
+  .meta { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  time { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--faint); }
+  .kind {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-radius: 999px;
+    padding: 2px 9px;
+    border: 1px solid;
+  }
+  .k-stack { color: var(--teal); border-color: var(--teal); }
+  .k-ecosystem { color: var(--m-testnet); border-color: var(--m-testnet); }
+  .k-finding { color: var(--m-experimental); border-color: var(--m-experimental); }
+  .k-site { color: var(--faint); border-color: var(--border); }
+  .log h2 { font-size: 1.08rem; font-weight: 700; margin-bottom: 6px; }
+  .log p { color: var(--muted); font-size: 0.94rem; margin: 0; max-width: 66ch; }
+</style>

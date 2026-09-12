@@ -54,6 +54,7 @@ const path = Astro.url.pathname.replace(/\/$/, '');
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="KasStacker — What moved" href="/rss.xml" />
   </head>
   <body>
     <header class="site-header">
@@ -130,8 +131,10 @@ const path = Astro.url.pathname.replace(/\/$/, '');
         </p>
         <p class="fine">
           <a href="/glossary">Glossary</a>
+          · <a href="/changelog">What moved</a>
+          · <a href="/rss.xml">RSS</a>
           · <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">Source on GitHub</a>
-          · Status data refreshes daily from the GitHub API.
+          · Data refreshes daily from the chain and the GitHub API.
         </p>
       </div>
     </footer>

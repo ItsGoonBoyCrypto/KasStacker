@@ -12,6 +12,7 @@
     "fetch-status": "node scripts/fetch-status.mjs"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/chakra-petch": "^5.3.0",
     "@fontsource/instrument-sans": "^5.3.0",

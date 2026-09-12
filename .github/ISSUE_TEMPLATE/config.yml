@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: The site itself
+    url: https://kasstacker.org
+    about: The Kaspa programmability stack, explained and verified.

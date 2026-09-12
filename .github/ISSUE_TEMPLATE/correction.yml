@@ -1,0 +1,27 @@
+name: Report something wrong or stale
+description: A fact, number, command or link on kasstacker.org that isn't right
+title: "[fix] "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every claim on the site is supposed to be checkable — if one isn't, that's a bug
+        and corrections ship fast.
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      placeholder: e.g. kasstacker.org/build/testnet
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What's wrong?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source for the correct information (if you have one)

@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-09-12",
+    "kind": "site",
+    "title": "State of the stack: live adoption numbers",
+    "body": "The status page now leads with chain data refreshed daily from the keyless kcc20.info indexer — covenants created, state transitions, live KCC-20 tokens, and a 30-day activity chart. Plus: every trading venue, explorer and indexer now has its own ecosystem card."
+  },
+  {
+    "date": "2026-09-12",
+    "kind": "ecosystem",
+    "title": "kcc20-live: the first verified third-party Argent contract",
+    "body": "A KCC-20 token written in Argent (.ag) by a third party builds cleanly with argentc in this site's CI — the first community Argent contract we have been able to verify. Argent itself still has no tagged release."
+  },
+  {
+    "date": "2026-09-11",
+    "kind": "finding",
+    "title": "Silverscript v1.0.0 quietly broke most pre-1.0 community contracts",
+    "body": "Compile-checking every known community contract library against v1.0.0 in fresh containers: OpenSilver (21 of 25 contracts), kosign, K100bet and kasmelt-snapshot — all written pre-release — no longer parse. Stateless contract styles survived; stateful ones did not. These repos are on the under-review list until they update, and the weekly re-check will notice the moment one does."
+  },
+  {
+    "date": "2026-09-11",
+    "kind": "stack",
+    "title": "KCC-20's draft specification has a home: kccs.dev",
+    "body": "Kaspa Calls for Conventions (kaspanet/kccs) hosts the draft fungible-token covenant specification, the covenant ABI and authority schemes. The KCC-20 component page now links it, and the spec repo is watched by the daily status data."
+  },
+  {
+    "date": "2026-09-09",
+    "kind": "stack",
+    "title": "Silverscript v1.0.0 released — no external audit named",
+    "body": "The covenant language hit its first tagged release, adding Groth16 and RISC Zero proof verifiers that lower to the KIP-16 opcode live on mainnet. Its own security policy still calls the project experimental, and no external audit has been named — maturity on this site remains pre-audit."
+  },
+  {
+    "date": "2026-06-30",
+    "kind": "stack",
+    "title": "Toccata's inline ZK verification live on mainnet",
+    "body": "KIP-16's OpZkPrecompile went live: Kaspa script can verify zero-knowledge proofs directly, meaning a covenant can require a valid proof before coins move."
+  }
+]

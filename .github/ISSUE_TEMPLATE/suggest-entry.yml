@@ -1,0 +1,51 @@
+name: Suggest an ecosystem entry
+description: Propose a project, venue, explorer or code example for kasstacker.org
+title: "[entry] "
+labels: ["entry-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! The bar (from the listing policy): public code or on-chain proof, it must
+        teach or demonstrate the stack, and it gets verified before it appears. No paid
+        placement — suggesting your own project is welcome, just say so below.
+  - type: input
+    id: name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Link (repo, site, or on-chain proof)
+      description: A repository anyone can read, or something checkable on chain (kascov / covenants.kaspa.com / kcc20.info)
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Which layer of the stack does it use?
+      multiple: true
+      options:
+        - Kaspa Script / Covenants
+        - Silverscript
+        - Argent
+        - KCC-20
+        - Explorer / indexer / tooling
+    validations:
+      required: true
+  - type: textarea
+    id: shows
+    attributes:
+      label: What does it demonstrate?
+      description: One or two sentences — what would a reader learn from it?
+    validations:
+      required: true
+  - type: input
+    id: affiliation
+    attributes:
+      label: Your affiliation with the project (if any)
+      description: "e.g. 'I built it', 'team member', 'none — just a fan'"
+    validations:
+      required: true

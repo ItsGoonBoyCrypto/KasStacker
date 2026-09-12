@@ -49,13 +49,23 @@ for (const c of components) {
     if (u) urls.add(u);
   }
 }
+const check = async (url) => {
+  const res = await fetch(url, { method: 'HEAD', redirect: 'follow', headers: { 'User-Agent': 'kasstacker-linkcheck' } });
+  // Some hosts reject HEAD; retry those with GET before judging.
+  return res.status === 405 || res.status === 404
+    ? (await fetch(url, { redirect: 'follow', headers: { 'User-Agent': 'kasstacker-linkcheck' } })).status
+    : res.status;
+};
 for (const url of urls) {
   try {
-    const res = await fetch(url, { method: 'HEAD', redirect: 'follow', headers: { 'User-Agent': 'kasstacker-linkcheck' } });
-    // Some hosts reject HEAD; retry those with GET before judging.
-    const status = res.status === 405 || res.status === 404
-      ? (await fetch(url, { redirect: 'follow', headers: { 'User-Agent': 'kasstacker-linkcheck' } })).status
-      : res.status;
+    let status;
+    try {
+      status = await check(url);
+    } catch {
+      // One retry: a transient network error must not block a deploy on its own.
+      await new Promise((r) => setTimeout(r, 2000));
+      status = await check(url);
+    }
     if (status === 403) warn(`${url} -> 403 (bot protection?) — verify by hand occasionally`);
     else if (status >= 400) fail(`${url} -> ${status}`);
     else console.log(`ok   ${url} -> ${status}`);
