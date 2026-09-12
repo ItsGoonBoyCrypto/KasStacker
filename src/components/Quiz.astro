@@ -1,0 +1,104 @@
+---
+// Checkpoint quiz for a Learn stop. Instant feedback with the "why" either
+// way; a stop counts as done once every question has been answered (this is
+// a learning site, not an exam). Completion is a per-browser nicety in
+// localStorage ('ks-quiz') and the page works fine without storage.
+import quiz from '@data/quiz.json';
+
+interface Props { page: keyof typeof quiz }
+const { page } = Astro.props;
+const questions = quiz[page];
+---
+<section class="quiz" data-quiz={page} data-count={questions.length}>
+  <p class="q-label">Checkpoint — {questions.length} quick questions</p>
+  {questions.map((question, qi) => (
+    <div class="q" data-q={qi}>
+      <p class="q-text">{question.q}</p>
+      <div class="opts">
+        {question.options.map((opt, oi) => (
+          <button type="button" class="opt" data-oi={oi} data-correct={oi === question.correct ? '1' : '0'}>{opt}</button>
+        ))}
+      </div>
+      <p class="why" hidden>{question.why}</p>
+    </div>
+  ))}
+  <p class="q-done" hidden>✓ Checkpoint done — progress saved in this browser. <a href="/learn/complete">See your tour result →</a></p>
+</section>
+
+<script>
+  const KEY = 'ks-quiz';
+  document.querySelectorAll<HTMLElement>('[data-quiz]').forEach((qz) => {
+    const total = Number(qz.dataset.count);
+    let answered = 0;
+    qz.querySelectorAll<HTMLElement>('.q').forEach((q) => {
+      const why = q.querySelector<HTMLElement>('.why')!;
+      let done = false;
+      q.querySelectorAll<HTMLButtonElement>('.opt').forEach((opt) => {
+        opt.addEventListener('click', () => {
+          if (!done) { done = true; answered++; }
+          q.querySelectorAll<HTMLButtonElement>('.opt').forEach((o) => {
+            o.disabled = true;
+            if (o.dataset.correct === '1') o.classList.add('right');
+          });
+          if (opt.dataset.correct !== '1') opt.classList.add('wrong');
+          why.hidden = false;
+          if (answered >= total) {
+            qz.querySelector<HTMLElement>('.q-done')!.hidden = false;
+            try {
+              const s = JSON.parse(localStorage.getItem(KEY) ?? '{}');
+              s[qz.dataset.quiz!] = true;
+              localStorage.setItem(KEY, JSON.stringify(s));
+            } catch { /* per-viewer nicety only */ }
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .quiz {
+    margin-top: 44px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--teal);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: grid;
+    gap: 18px;
+  }
+  .q-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0;
+  }
+  .q-text { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.97rem; margin: 0 0 10px; }
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.9rem;
+    text-align: left;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+  }
+  .opt:hover:not(:disabled) { color: var(--text); border-color: var(--teal-dim); }
+  .opt:disabled { cursor: default; opacity: 0.75; }
+  .opt.right { border-color: var(--m-audited); color: var(--text); opacity: 1; }
+  .opt.wrong { border-color: var(--m-preaudit); }
+  .why {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    border-left: 2px solid var(--teal-dim);
+    padding-left: 12px;
+  }
+  .q-done { margin: 0; color: var(--m-audited); font-size: 0.9rem; }
+</style>

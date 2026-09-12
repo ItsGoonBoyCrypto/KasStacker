@@ -1,0 +1,106 @@
+{
+  "kaspa-in-60-seconds": [
+    {
+      "q": "What is a blockDAG?",
+      "options": [
+        "A braid of parallel blocks that are all kept and put in one agreed order",
+        "A chain that throws away blocks which arrive at the same time",
+        "A database maintained by the Kaspa foundation"
+      ],
+      "correct": 0,
+      "why": "Kaspa keeps every block and lets GHOSTDAG order them — that's why it can run many blocks per second without giving up proof-of-work security."
+    },
+    {
+      "q": "Before the Toccata upgrade, Kaspa could…",
+      "options": [
+        "run full smart contracts",
+        "verify signatures and move coins — money only",
+        "host an EVM"
+      ],
+      "correct": 1,
+      "why": "Kaspa's scripting was deliberately minimal: it verified who owns coins and moved them. Conditions on how coins move next came with Toccata."
+    }
+  ],
+  "what-toccata-changed": [
+    {
+      "q": "What is a covenant?",
+      "options": [
+        "A promise a project makes in its whitepaper",
+        "An entry in an indexer's database",
+        "A rule attached to coins that consensus itself enforces"
+      ],
+      "correct": 2,
+      "why": "Not advice, not bookkeeping: any spend that breaks the rule is rejected by every node. The rule travels with the money."
+    },
+    {
+      "q": "A spend that breaks a covenant rule is…",
+      "options": [
+        "not a transaction at all — consensus rejects it",
+        "refunded after a review period",
+        "flagged for moderators to decide"
+      ],
+      "correct": 0,
+      "why": "There is no appeal process because there is nothing to appeal — the network treats it like a coin that doesn't fit the slot."
+    },
+    {
+      "q": "Inline ZK verification (KIP-16) lets the chain…",
+      "options": [
+        "hide everyone's balances by default",
+        "check a cryptographic proof that something happened, without seeing the details",
+        "mine blocks faster"
+      ],
+      "correct": 1,
+      "why": "A covenant can require a valid zero-knowledge proof before coins move — live on mainnet since 2026-06-30."
+    }
+  ],
+  "meet-the-stack": [
+    {
+      "q": "Silverscript compiles down to…",
+      "options": ["EVM bytecode", "Kaspa Script — the raw covenant", "Python"],
+      "correct": 1,
+      "why": "You describe the allowed state changes; the compiler produces the covenant the chain understands. You never wire the raw script by hand."
+    },
+    {
+      "q": "Argent is the right layer when…",
+      "options": [
+        "you need one simple vault",
+        "you want a token counted by indexers",
+        "several contracts must act together atomically"
+      ],
+      "correct": 2,
+      "why": "Actors + ICC exist exactly for multi-contract apps. One contract alone is Silverscript territory — and Argent has no tagged release yet."
+    },
+    {
+      "q": "vProgs today are…",
+      "options": [
+        "live on mainnet",
+        "a research roadmap — nothing to build with yet",
+        "an app store for Kaspa"
+      ],
+      "correct": 1,
+      "why": "Native DAG programs are the research track beyond covenants. Anyone selling you a vProg today is early by definition."
+    }
+  ],
+  "how-it-fits-together": [
+    {
+      "q": "After you deposit into a covenant vault, who checks the rule?",
+      "options": [
+        "The vault company's servers",
+        "Only your own wallet app",
+        "Every node on the network, on every spend attempt"
+      ],
+      "correct": 2,
+      "why": "That's the whole point: the rule stops being a policy and becomes physics — no company in the loop."
+    },
+    {
+      "q": "A thief who steals your keys can…",
+      "options": [
+        "only move the coins where the covenant rule allows",
+        "take everything instantly",
+        "freeze your account"
+      ],
+      "correct": 0,
+      "why": "The rule is the lock, not the key. You can press this button yourself on the next stop of the tour."
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+---
+import Base from '@layouts/Base.astro';
+import Logo from '@components/Logo.astro';
+
+const shareText = encodeURIComponent(
+  'The Kaspa stack finally makes sense — covenants, Silverscript, Argent, KCC-20. Free 6-stop tour, no signup:',
+);
+const shareUrl = encodeURIComponent('https://kasstacker.org/learn');
+---
+<Base
+  title="Tour result — KasStacker"
+  description="Your Kaspa stack tour result — checkpoints cleared across the six stops."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn</p>
+      <h1>Your tour result</h1>
+    </header>
+
+    <div id="pending" class="panel">
+      <p class="big">Checkpoints are waiting for you.</p>
+      <p class="sub">Answer the checkpoint questions on each stop and this page turns into your result. Remaining:</p>
+      <ul id="remaining" class="rem"></ul>
+      <a class="btn btn-primary" href="/learn">Back to the tour →</a>
+    </div>
+
+    <div id="done" class="cert" hidden>
+      <div class="mark"><Logo size={64} /></div>
+      <p class="c-eyebrow">All checkpoints cleared</p>
+      <h2>You understand the Kaspa stack.</h2>
+      <p class="c-sub">
+        blockDAG → covenants → Silverscript → Argent → KCC-20. You now know more about Kaspa's
+        programmability than most of crypto — and you can prove any of it, because everything on
+        this site is verified and sourced.
+      </p>
+      <div class="c-actions">
+        <a class="btn btn-primary" href={`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`} rel="noopener">Share on X</a>
+        <button class="btn btn-ghost" id="copy-link" type="button">Copy the tour link</button>
+        <a class="btn btn-ghost" href="/build">Now build something →</a>
+      </div>
+      <p class="copied" id="copied" hidden>Link copied.</p>
+    </div>
+  </div>
+
+  <script>
+    const stopNames: Record<string, string> = {
+      'kaspa-in-60-seconds': 'Kaspa in 60 seconds',
+      'what-toccata-changed': 'What Toccata changed',
+      'meet-the-stack': 'Meet the stack',
+      'how-it-fits-together': 'How it fits together',
+    };
+    const ids = Object.keys(stopNames);
+    let state: Record<string, boolean> = {};
+    try { state = JSON.parse(localStorage.getItem('ks-quiz') ?? '{}'); } catch { /* fine */ }
+    const missing = ids.filter((id) => !state[id]);
+    if (missing.length === 0) {
+      document.getElementById('pending')!.hidden = true;
+      document.getElementById('done')!.hidden = false;
+    } else {
+      const ul = document.getElementById('remaining')!;
+      missing.forEach((id) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `/learn/${id}`;
+        a.textContent = stopNames[id];
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+    }
+    document.getElementById('copy-link')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('https://kasstacker.org/learn');
+        document.getElementById('copied')!.hidden = false;
+      } catch { /* clipboard unavailable */ }
+    });
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+  .big { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 1.1rem; margin: 0 0 8px; }
+  .sub { color: var(--muted); font-size: 0.95rem; }
+  .rem { margin: 0 0 18px; padding-left: 18px; color: var(--muted); }
+  .rem li { margin-bottom: 6px; }
+  .cert {
+    background: radial-gradient(600px 400px at 30% 20%, color-mix(in srgb, var(--teal) 10%, transparent), transparent),
+      var(--surface);
+    border: 1px solid var(--teal-dim);
+    border-radius: 14px;
+    padding: 40px 36px;
+    text-align: center;
+  }
+  .mark { display: flex; justify-content: center; margin-bottom: 14px; }
+  .c-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 8px;
+  }
+  .cert h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 12px; }
+  .c-sub { color: var(--muted); font-size: 0.97rem; max-width: 54ch; margin: 0 auto 22px; }
+  .c-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .copied { color: var(--m-audited); font-size: 0.85rem; margin: 12px 0 0; }
+</style>

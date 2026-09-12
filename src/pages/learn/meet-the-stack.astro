@@ -1,5 +1,6 @@
 ---
 import Base from '@layouts/Base.astro';
+import Quiz from '@components/Quiz.astro';
 import MaturityBadge from '@components/MaturityBadge.astro';
 import components from '@data/components.json';
 
@@ -34,6 +35,8 @@ const cards = order.map((id) => components.find((c) => c.id === id)!);
         </a>
       ))}
     </div>
+
+    <Quiz page="meet-the-stack" />
 
     <div class="next-link"><a class="btn btn-primary" href="/learn/how-it-fits-together">Next: How it fits together →</a></div>
   </div>
