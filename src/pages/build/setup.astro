@@ -1,5 +1,6 @@
 ---
 import Base from '@layouts/Base.astro';
+import Checklist from '@components/Checklist.astro';
 ---
 <Base
   title="Toolchain setup — KasStacker"
@@ -56,6 +57,7 @@ cargo run --bin argentc -- inspect examples/build/tickets</code></pre>
       on <code>cargo test</code>.
     </p>
 
+    <Checklist page="setup" />
     <div class="next-link"><a class="btn btn-primary" href="/build/first-covenant">Next: Your first covenant →</a></div>
   </div>
 </Base>

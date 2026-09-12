@@ -1,6 +1,7 @@
 ---
 import Base from '@layouts/Base.astro';
 import Gloss from '@components/Gloss.astro';
+import Checklist from '@components/Checklist.astro';
 ---
 <Base
   title="Your first covenant — KasStacker"
@@ -70,6 +71,7 @@ cargo run -p silverscript-lang --bin silverc -- simple.sil --constructor-args ar
       A full deploy-and-spend walkthrough lands here as the tooling settles.
     </p>
 
+    <Checklist page="first-covenant" />
     <div class="next-link"><a class="btn btn-primary" href="/build/testnet">Next: Testnet →</a></div>
   </div>
 </Base>

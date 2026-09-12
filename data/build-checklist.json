@@ -1,0 +1,20 @@
+{
+  "setup": [
+    { "id": "rust-toolchain", "label": "Rust toolchain installed (rustup)" },
+    { "id": "silverscript-tests", "label": "Silverscript cloned and cargo test -p silverscript-lang is green" },
+    { "id": "argent-built", "label": "Argent cloned and ./check.sh passes" }
+  ],
+  "first-covenant": [
+    { "id": "wrote-simple", "label": "Saved simple.sil in your checkout" },
+    { "id": "compiled-artifact", "label": "Compiled it — artifact.json exists" },
+    { "id": "ran-debugger", "label": "Stepped a contract in the CLI debugger" }
+  ],
+  "testnet": [
+    { "id": "got-test-kas", "label": "Got testnet-10 KAS from the faucet" },
+    { "id": "connected-node", "label": "Connected to a testnet-10 node (own or resolver)" },
+    { "id": "found-on-explorer", "label": "Looked something up on kascov.io" }
+  ],
+  "examples": [
+    { "id": "read-example", "label": "Read one real contract end to end" }
+  ]
+}

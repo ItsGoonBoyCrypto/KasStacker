@@ -1,0 +1,72 @@
+---
+// Per-page slice of the zero-to-first-covenant track. Ticks persist in
+// localStorage ('ks-build-progress') — per-browser convenience only, and the
+// page must work identically with storage unavailable.
+import checklist from '@data/build-checklist.json';
+
+interface Props { page: keyof typeof checklist }
+const { page } = Astro.props;
+const items = checklist[page];
+---
+<div class="checklist" data-checklist>
+  <p class="cl-label">Your progress on this step</p>
+  {items.map((i) => (
+    <label class="cl-item">
+      <input type="checkbox" data-progress-id={i.id} />
+      <span>{i.label}</span>
+    </label>
+  ))}
+</div>
+
+<script>
+  const KEY = 'ks-build-progress';
+  const read = (): Record<string, boolean> => {
+    try { return JSON.parse(localStorage.getItem(KEY) ?? '{}'); } catch { return {}; }
+  };
+  const write = (state: Record<string, boolean>) => {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* per-viewer nicety only */ }
+  };
+  const state = read();
+  document.querySelectorAll<HTMLInputElement>('[data-progress-id]').forEach((box) => {
+    box.checked = !!state[box.dataset.progressId!];
+    box.addEventListener('change', () => {
+      const s = read();
+      if (box.checked) s[box.dataset.progressId!] = true;
+      else delete s[box.dataset.progressId!];
+      write(s);
+    });
+  });
+</script>
+
+<style>
+  .checklist {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--teal);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 36px;
+    display: grid;
+    gap: 10px;
+  }
+  .cl-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0;
+  }
+  .cl-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.93rem;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .cl-item:hover span { color: var(--text); }
+  .cl-item input { accent-color: var(--teal); margin: 0; flex: none; }
+  .cl-item input:checked + span { color: var(--text); }
+</style>

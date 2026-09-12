@@ -1,5 +1,6 @@
 ---
 import Base from '@layouts/Base.astro';
+import Checklist from '@components/Checklist.astro';
 import status from '@data/status.json';
 
 type RepoStatus = { lastCommit: string };
@@ -248,6 +249,8 @@ const underReview = [
         {underReview.map((r) => <li><b>{r.name}</b> — {r.why}</li>)}
       </ul>
     </section>
+
+    <Checklist page="examples" />
 
     <section class="policy panel">
       <h2>How something gets listed</h2>
