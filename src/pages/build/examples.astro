@@ -7,86 +7,6 @@ type RepoStatus = { lastCommit: string };
 const repos = status.repos as Record<string, RepoStatus>;
 const push = (slug: string) => repos[slug] ? repos[slug].lastCommit.slice(0, 10) : null;
 
-const live = [
-  {
-    name: 'DAGmate',
-    url: 'https://dagmate.org',
-    layer: 'Covenants',
-    shows: 'Chess for KAS stakes — match escrow is a covenant with a trustless timeout forfeit, proven on testnet-10 before mainnet',
-    origin: 'community',
-    verified: 'live on mainnet',
-  },
-  {
-    name: 'Dagger',
-    url: 'https://daggertrade.com',
-    layer: 'Covenants · KCC-20',
-    shows: 'Telegram trading platform for covenant-native tokens across the L1 venues — KCC-20 trades verifiable on kascov',
-    origin: 'community',
-    verified: 'live on mainnet',
-  },
-  {
-    name: 'DagSphere',
-    url: 'https://daggertrade.com/sphere',
-    layer: 'KCC-20 · forensics',
-    shows: 'Live holder maps for every KCC-20 token — bubbles sized by share of supply, funding-cluster detection, deployer tags. Read-only by design',
-    origin: 'community',
-    verified: 'live · free access code from the Dagger bot (/sphere) · checked 2026-09-12',
-  },
-  {
-    name: 'Koracle',
-    url: 'https://koracle.xyz',
-    layer: 'Covenants · oracle',
-    shows: 'A named, accountable oracle: BIP340-signed attestations settling into covenants and hashlocks — with its own four-tier honesty labels',
-    origin: 'community',
-    verified: 'reviewed 2026-09-11 · signed feeds live',
-  },
-  {
-    name: 'Warda Protocol',
-    url: 'https://www.wardaprotocol.com/',
-    layer: 'Covenants',
-    shows: 'Spending limits for AI agents enforced by consensus, not software — a spend outside the cap simply is not a transaction',
-    origin: 'community',
-    verified: 'reviewed 2026-09-11 · testnet-10, unaudited by its own statement · open source',
-  },
-  {
-    name: 'Kaspire wallet',
-    url: 'https://kaspire.kaslab.space',
-    layer: 'Covenants · KCC-20',
-    shows: 'A covenant-ready wallet: KCC-20 discovery and operations built on the Silverscript template, mainnet + testnet-10',
-    origin: 'community',
-    verified: 'reviewed 2026-09-11 · open source',
-  },
-  {
-    name: 'L1 trading venues',
-    url: null,
-    layer: 'Covenants · KCC-20',
-    shows: 'Live covenant token venues — KaspaRocket also publishes its contracts (below)',
-    links: [
-      ['KRON', 'https://kron.technology'],
-      ['KaspaRocket', 'https://kasparocket.fun'],
-      ['Zealous', 'https://zealousswap.com'],
-      ['KForge', 'https://kforge.xyz'],
-      ['KaspaKaha', 'https://kaspakaha.com'],
-      ['KaspaCom', 'https://kaspa.com'],
-    ] as [string, string][],
-    origin: 'ecosystem',
-    verified: 'trading live on chain · links checked 2026-09-12',
-  },
-  {
-    name: 'Covenant explorers & indexers',
-    url: null,
-    layer: 'Covenants · KCC-20',
-    shows: 'Where to watch covenants live on mainnet',
-    links: [
-      ['kascov.io', 'https://kascov.io'],
-      ['covenants.kaspa.com', 'https://covenants.kaspa.com'],
-      ['kcc20.info', 'https://kcc20.info'],
-    ] as [string, string][],
-    origin: 'ecosystem',
-    verified: 'all three responding · checked 2026-09-11',
-  },
-];
-
 const official = [
   {
     name: 'Silverscript test examples',
@@ -128,14 +48,17 @@ const official = [
     repo: null,
     verified: 'official repo',
   },
+  {
+    name: 'kasstacker-starter',
+    layer: 'Silverscript',
+    shows: 'This site’s template: SimpleCovenant + args + compile script, working on the first try',
+    url: 'https://github.com/ItsGoonBoyCrypto/kasstacker-starter',
+    repo: null,
+    verified: 'its own CI re-proves the compile weekly',
+  },
 ];
 
-// Filled from the verify-community-examples workflow results — every row
-// below was checked against current silverc in a fresh container before
-// being listed, and is re-checked weekly.
-const community: {
-  name: string; layer: string; shows: string; url: string; repo: string | null; verified: string;
-}[] = [
+const community = [
   {
     name: 'KaspaRocket venue contracts',
     layer: 'Silverscript',
@@ -161,118 +84,75 @@ const community: {
     verified: 'builds with argentc in CI (re-checked weekly)',
   },
 ];
-
-const underReview = [
-  { name: 'OpenSilver (22-pattern library)', why: 'written pre-v1.0.0 — 21 of 25 contracts no longer parse against the current compiler; listed when updated' },
-  { name: 'kosign (covenant multisig)', why: 'written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated' },
-  { name: 'K100bet contracts & kasmelt-snapshot', why: 'same v1.0.0 syntax drift as above' },
-  { name: 'Portrait', why: 'pattern library with its own covenant language — checking its emitted Silverscript next' },
-  { name: 'Enclave wallet', why: 'covenant vaults live, but its stated source repository does not resolve' },
-];
 ---
 <Base
-  title="Examples worth reading — KasStacker"
-  description="Live covenant apps on Kaspa and the code worth reading — every entry verified before listing, origins always labelled."
+  title="Code worth reading — KasStacker"
+  description="The covenant code worth learning from — official examples and CI-verified community contracts, every entry checked before listing."
 >
   <div class="wrap">
     <header class="head">
       <p class="eyebrow">Build · 4 of 4</p>
-      <h1>Examples worth reading</h1>
+      <h1>Code worth reading</h1>
       <p class="lede">
-        Two lists: things running on Kaspa you can point at, and code you can learn from.
-        Every entry is verified before it appears, and origins are labelled —
-        <span class="origin o-official">official</span> or
-        <span class="origin o-community">community</span>.
-        Nothing here is paid placement, ever.
+        Reading order that matches the stack: single contracts first, token patterns second,
+        multi-actor apps last. Every community entry was compile- or parse-checked against the
+        current compiler before listing, and is re-checked weekly.
+      </p>
+      <p class="eco-push">
+        ⭐ Looking for the <b>live projects</b> built on this stack — the apps, the oracle, the venues?
+        They have their own page now: <a href="/ecosystem">the ecosystem →</a>
       </p>
     </header>
 
-    <section>
-      <h2>Live on Kaspa</h2>
-      <div class="table-scroll">
-        <table class="data">
-          <thead><tr><th>Project</th><th>Layer</th><th>What it demonstrates</th><th>Origin</th><th>Verification</th></tr></thead>
-          <tbody>
-            {live.map((r) => (
-              <tr>
-                <td>{r.url ? <a href={r.url} rel="noopener">{r.name}</a> : r.name}</td>
-                <td>{r.layer}</td>
-                <td>
-                  {r.shows}
-                  {'links' in r && r.links && (
-                    <span class="row-links">
-                      {r.links.map(([label, href]) => <a href={href} rel="noopener">{label}</a>)}
-                    </span>
-                  )}
-                </td>
-                <td><span class={`origin o-${r.origin}`}>{r.origin}</span></td>
-                <td class="v">{r.verified}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Example</th><th>Layer</th><th>What it demonstrates</th><th>Last push</th><th>Verification</th></tr></thead>
+        <tbody>
+          {official.map((r) => (
+            <tr>
+              <td><a href={r.url} rel="noopener">{r.name}</a> <span class="origin o-official">official</span></td>
+              <td>{r.layer}</td>
+              <td>{r.shows}</td>
+              <td class="num">{r.repo && push(r.repo) ? push(r.repo) : <span class="null">—</span>}</td>
+              <td class="v">{r.verified}</td>
+            </tr>
+          ))}
+          {community.map((r) => (
+            <tr>
+              <td><a href={r.url} rel="noopener">{r.name}</a> <span class="origin o-community">community</span></td>
+              <td>{r.layer}</td>
+              <td>{r.shows}</td>
+              <td class="num">{r.repo && push(r.repo) ? push(r.repo) : <span class="null">—</span>}</td>
+              <td class="v">{r.verified}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
 
-    <section>
-      <h2>Code to read</h2>
-      <div class="table-scroll">
-        <table class="data">
-          <thead><tr><th>Example</th><th>Layer</th><th>What it demonstrates</th><th>Last push</th><th>Verification</th></tr></thead>
-          <tbody>
-            {official.map((r) => (
-              <tr>
-                <td><a href={r.url} rel="noopener">{r.name}</a> <span class="origin o-official">official</span></td>
-                <td>{r.layer}</td>
-                <td>{r.shows}</td>
-                <td class="num">{r.repo && push(r.repo) ? push(r.repo) : <span class="null">—</span>}</td>
-                <td class="v">{r.verified}</td>
-              </tr>
-            ))}
-            {community.map((r) => (
-              <tr>
-                <td><a href={r.url} rel="noopener">{r.name}</a> <span class="origin o-community">community</span></td>
-                <td>{r.layer}</td>
-                <td>{r.shows}</td>
-                <td class="num">{r.repo && push(r.repo) ? push(r.repo) : <span class="null">—</span>}</td>
-                <td class="v">{r.verified}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section>
-      <h2>Currently under review</h2>
-      <ul class="review">
-        {underReview.map((r) => <li><b>{r.name}</b> — {r.why}</li>)}
-      </ul>
-    </section>
+    <p class="note">
+      Listing policy, the under-review queue, and everything running live on chain:
+      <a href="/ecosystem">the ecosystem page</a>.
+    </p>
 
     <Checklist page="examples" />
-
-    <section class="policy panel">
-      <h2>How something gets listed</h2>
-      <ul>
-        <li>Public code, or proof anyone can check on chain — no "trust us" entries.</li>
-        <li>It must teach a layer of the stack; this is a learning site, not a directory.</li>
-        <li>Alive: listed repositories are watched by the daily status data, and community contracts are re-checked against the current compiler weekly by
-          <a href="https://github.com/ItsGoonBoyCrypto/KasStacker/actions/workflows/verify-community-examples.yml" rel="noopener">this site's CI</a>.</li>
-        <li>Origin always labelled — official or community.</li>
-        <li>No paid placement. Suggest an entry via
-          <a href="https://github.com/ItsGoonBoyCrypto/KasStacker" rel="noopener">the site repo</a>.</li>
-      </ul>
-    </section>
   </div>
 </Base>
 
 <style>
   .head { padding: 56px 0 26px; }
   .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
-  .lede { color: var(--muted); font-size: 1.02rem; max-width: 72ch; }
-  section { margin-top: 40px; }
-  h2 { font-size: 1.25rem; margin-bottom: 14px; }
+  .lede { color: var(--muted); font-size: 1.02rem; max-width: 70ch; }
+  .eco-push {
+    background: var(--surface);
+    border: 1px solid var(--teal-dim);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-top: 16px;
+  }
+  .eco-push b { color: var(--text); }
   .v { font-size: 0.8rem; }
   .origin {
     font-family: 'Sora', sans-serif;
@@ -286,12 +166,5 @@ const underReview = [
   }
   .o-official { color: var(--teal); border-color: var(--teal); }
   .o-community { color: var(--m-testnet); border-color: var(--m-testnet); }
-  .o-ecosystem { color: var(--muted); border-color: var(--border); }
-  .row-links { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 4px; }
-  .row-links a { font-size: 0.82rem; }
-  .review { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
-  .review li { margin-bottom: 6px; }
-  .review b { color: var(--text); }
-  .policy ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
-  .policy li { margin-bottom: 7px; }
+  .note { color: var(--faint); font-size: 0.88rem; margin-top: 16px; }
 </style>

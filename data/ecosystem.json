@@ -1,0 +1,98 @@
+{
+  "projects": [
+    {
+      "name": "DAGmate",
+      "url": "https://dagmate.org",
+      "icon": "♟️",
+      "layer": "Covenants",
+      "tagline": "Chess for KAS stakes",
+      "shows": "Match escrow is a covenant with a trustless timeout forfeit — proven on testnet-10, then mainnet. The chain enforces the win.",
+      "origin": "community",
+      "verified": "live on mainnet",
+      "featured": true
+    },
+    {
+      "name": "Dagger",
+      "url": "https://daggertrade.com",
+      "icon": "🗡️",
+      "layer": "Covenants · KCC-20",
+      "tagline": "Telegram trading for covenant tokens",
+      "shows": "Trades KCC-20 tokens across the L1 venues from a Telegram bot — every trade verifiable on kascov.",
+      "origin": "community",
+      "verified": "live on mainnet",
+      "featured": true
+    },
+    {
+      "name": "Koracle",
+      "url": "https://koracle.xyz",
+      "icon": "🔮",
+      "layer": "Covenants · oracle",
+      "tagline": "The accountable oracle",
+      "shows": "A named oracle signing facts with BIP340 and settling them into covenants and hashlocks — with its own four-tier honesty labels.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-11 · signed feeds live",
+      "featured": true
+    },
+    {
+      "name": "Warda Protocol",
+      "url": "https://www.wardaprotocol.com/",
+      "icon": "🤖",
+      "layer": "Covenants",
+      "tagline": "Spending limits for AI agents",
+      "shows": "An agent's budget compiled into the coin's script: a spend outside the cap is not refused — it is not a transaction.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-11 · testnet-10, unaudited by its own statement · open source",
+      "featured": true
+    },
+    {
+      "name": "Kaspire wallet",
+      "url": "https://kaspire.kaslab.space",
+      "icon": "👛",
+      "layer": "Covenants · KCC-20",
+      "tagline": "The covenant-ready wallet",
+      "shows": "KCC-20 discovery and operations built on the Silverscript template — mainnet and testnet-10.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-11 · open source",
+      "featured": true
+    },
+    {
+      "name": "DagSphere",
+      "url": "https://daggertrade.com/sphere",
+      "icon": "🫧",
+      "layer": "KCC-20 · forensics",
+      "tagline": "See who really holds it",
+      "shows": "Live holder maps for every KCC-20 token — bubbles by share of supply, funding-cluster detection, deployer tags. Read-only by design.",
+      "origin": "community",
+      "verified": "live · free access code from the Dagger bot (/sphere) · checked 2026-09-12",
+      "featured": true
+    }
+  ],
+  "venues": {
+    "shows": "Live covenant token venues — KaspaRocket also publishes its contracts",
+    "links": [
+      ["KRON", "https://kron.technology"],
+      ["KaspaRocket", "https://kasparocket.fun"],
+      ["Zealous", "https://zealousswap.com"],
+      ["KForge", "https://kforge.xyz"],
+      ["KaspaKaha", "https://kaspakaha.com"],
+      ["KaspaCom", "https://kaspa.com"]
+    ],
+    "verified": "trading live on chain · links checked 2026-09-12"
+  },
+  "explorers": {
+    "shows": "Where to watch covenants live on mainnet",
+    "links": [
+      ["kascov.io", "https://kascov.io"],
+      ["covenants.kaspa.com", "https://covenants.kaspa.com"],
+      ["kcc20.info", "https://kcc20.info"]
+    ],
+    "verified": "all three responding · checked 2026-09-11"
+  },
+  "underReview": [
+    { "name": "OpenSilver (22-pattern library)", "why": "written pre-v1.0.0 — 21 of 25 contracts no longer parse against the current compiler; listed when updated" },
+    { "name": "kosign (covenant multisig)", "why": "written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated" },
+    { "name": "K100bet contracts & kasmelt-snapshot", "why": "same v1.0.0 syntax drift as above" },
+    { "name": "Portrait", "why": "pattern library with its own covenant language — checking its emitted Silverscript next" },
+    { "name": "Enclave wallet", "why": "covenant vaults live, but its stated source repository does not resolve" }
+  ]
+}
