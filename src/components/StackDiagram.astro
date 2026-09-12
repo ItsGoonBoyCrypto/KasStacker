@@ -1,7 +1,14 @@
 ---
 // The homepage centerpiece: the Kaspa programmability stack, every box a link.
+// Scenario mode lights a path down the layers with step narration.
 ---
 <figure class="diagram">
+  <div class="scenarios" aria-label="Watch a scenario travel the stack">
+    <span class="sc-label">Watch it work:</span>
+    <button class="sc" data-sc="token">🪙 Launch a token</button>
+    <button class="sc" data-sc="vault">🔒 Build a vault</button>
+    <button class="sc" data-sc="app">🎮 Build an app</button>
+  </div>
   <svg
     viewBox="0 0 760 400"
     role="img"
@@ -9,33 +16,33 @@
   >
     <!-- Apps row -->
     <rect x="36" y="20" width="430" height="56" rx="8" class="row r5" />
-    <a href="/stack/kcc-20"><rect x="46" y="30" width="112" height="36" rx="6" class="chip-box" /><text x="102" y="52" text-anchor="middle" class="t-chip">KCC-20</text></a>
-    <a href="/learn/how-it-fits-together"><rect x="168" y="30" width="140" height="36" rx="6" class="chip-box" /><text x="238" y="52" text-anchor="middle" class="t-chip">vaults · escrow</text></a>
-    <a href="/compare"><rect x="318" y="30" width="138" height="36" rx="6" class="chip-box" /><text x="387" y="52" text-anchor="middle" class="t-chip">your project</text></a>
+    <a id="sd-kcc20" href="/stack/kcc-20"><rect x="46" y="30" width="112" height="36" rx="6" class="chip-box" /><text x="102" y="52" text-anchor="middle" class="t-chip">KCC-20</text></a>
+    <a id="sd-vaults" href="/learn/how-it-fits-together"><rect x="168" y="30" width="140" height="36" rx="6" class="chip-box" /><text x="238" y="52" text-anchor="middle" class="t-chip">vaults · escrow</text></a>
+    <a id="sd-project" href="/compare"><rect x="318" y="30" width="138" height="36" rx="6" class="chip-box" /><text x="387" y="52" text-anchor="middle" class="t-chip">your project</text></a>
 
     <!-- Argent -->
-    <a href="/stack/argent">
+    <a id="sd-argent" href="/stack/argent">
       <rect x="36" y="96" width="430" height="56" rx="8" class="row r4" />
       <text x="56" y="121" class="t-name">Argent</text>
       <text x="56" y="139" class="t-sub">app language · actors + ICC</text>
     </a>
 
     <!-- Silverscript -->
-    <a href="/stack/silverscript">
+    <a id="sd-silver" href="/stack/silverscript">
       <rect x="36" y="172" width="430" height="56" rx="8" class="row r3" />
       <text x="56" y="197" class="t-name">Silverscript</text>
       <text x="56" y="215" class="t-sub">covenant language</text>
     </a>
 
     <!-- Kaspa Script + Covenants -->
-    <a href="/stack/kaspa-script">
+    <a id="sd-script" href="/stack/kaspa-script">
       <rect x="36" y="248" width="430" height="56" rx="8" class="row r2" />
       <text x="56" y="273" class="t-name">Kaspa Script + Covenants++</text>
       <text x="56" y="291" class="t-sub">KIP-17 lineage · KIP-20 covenant ids · tx v1 · inline ZK</text>
     </a>
 
     <!-- Consensus -->
-    <a href="/learn/kaspa-in-60-seconds">
+    <a id="sd-consensus" href="/learn/kaspa-in-60-seconds">
       <rect x="36" y="324" width="430" height="56" rx="8" class="row r1" />
       <text x="56" y="349" class="t-name">Kaspa consensus</text>
       <text x="56" y="367" class="t-sub">GHOSTDAG · blockDAG · proof of work</text>
@@ -56,6 +63,14 @@
     </a>
     <line x1="466" y1="276" x2="514" y2="276" class="dotted" />
   </svg>
+  <div class="narration" id="sd-narration" hidden>
+    <p class="n-text" id="sd-ntext"></p>
+    <div class="n-controls">
+      <span class="dots" id="sd-dots"></span>
+      <button id="sd-next" type="button">next →</button>
+      <button id="sd-exit" type="button">exit</button>
+    </div>
+  </div>
   <figcaption>
     Each layer rests on the one below: apps compile through Argent and Silverscript down to Kaspa Script,
     and consensus enforces the result. vProgs is the research track for native DAG programs.
@@ -91,4 +106,109 @@
   .t-note { font-family: 'Instrument Sans', sans-serif; font-size: 10px; fill: var(--faint); }
   svg a:hover rect { stroke: var(--teal); }
   svg a:hover .t-name, svg a:hover .t-chip { fill: var(--teal-bright); }
+  /* scenario mode */
+  .scenarios { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 8px 16px; }
+  .sc-label {
+    font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-right: 4px;
+  }
+  .sc {
+    font-family: 'Sora', sans-serif; font-size: 0.8rem; font-weight: 600;
+    color: var(--muted); background: var(--surface2);
+    border: 1px solid var(--border-soft); border-radius: 999px;
+    padding: 6px 14px; cursor: pointer;
+  }
+  .sc:hover { color: var(--text); border-color: var(--teal-dim); }
+  .sc.active { color: var(--teal); border-color: var(--teal); }
+  svg.touring a { opacity: 0.3; transition: opacity 0.35s ease; }
+  svg.touring a.lit { opacity: 1; }
+  svg.touring a.lit rect { stroke: var(--teal); }
+  .narration {
+    margin: 14px 8px 4px;
+    background: var(--surface2);
+    border: 1px solid var(--teal-dim);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .n-text { margin: 0 0 8px; font-size: 0.92rem; color: var(--text); }
+  .n-controls { display: flex; align-items: center; gap: 14px; }
+  .dots { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--faint); letter-spacing: 0.2em; }
+  .n-controls button {
+    font-family: 'Sora', sans-serif; font-size: 0.78rem; font-weight: 600;
+    background: none; border: none; color: var(--teal-bright); cursor: pointer; padding: 0;
+  }
+  .n-controls #sd-exit { color: var(--faint); }
 </style>
+
+<script>
+  type Step = { ids: string[]; text: string };
+  const scenarios: Record<string, Step[]> = {
+    token: [
+      { ids: ['sd-kcc20'], text: 'Your token is a KCC-20 — supply and transfer rules the chain itself enforces, not an indexer.' },
+      { ids: ['sd-kcc20', 'sd-silver'], text: 'Those rules are written in Silverscript, following the KCC20 book’s patterns.' },
+      { ids: ['sd-kcc20', 'sd-silver', 'sd-script'], text: 'The compiler emits raw Kaspa Script — the covenant your token actually lives in.' },
+      { ids: ['sd-kcc20', 'sd-silver', 'sd-script', 'sd-consensus'], text: 'Every mint and every trade is checked by consensus. Nobody keeps the score for you.' },
+    ],
+    vault: [
+      { ids: ['sd-vaults'], text: 'A vault is one contract with one rule: where money may go, and when.' },
+      { ids: ['sd-vaults', 'sd-silver'], text: 'You write that rule in Silverscript — like the twelve-liner you can try to break on the Learn tour.' },
+      { ids: ['sd-vaults', 'sd-silver', 'sd-script'], text: 'Compiled to Kaspa Script, it becomes the lock. Deposit coins into it and the rule is armed.' },
+      { ids: ['sd-vaults', 'sd-silver', 'sd-script', 'sd-consensus'], text: 'From then on the rule is physics: consensus rejects any spend that breaks it — even from a thief with your keys.' },
+    ],
+    app: [
+      { ids: ['sd-project'], text: 'A game or marketplace is several contracts that must act together, atomically.' },
+      { ids: ['sd-project', 'sd-argent'], text: 'Argent wires them: actors talking to each other through ICC, inside one transaction.' },
+      { ids: ['sd-project', 'sd-argent', 'sd-silver'], text: 'Each actor compiles down through Silverscript…' },
+      { ids: ['sd-project', 'sd-argent', 'sd-silver', 'sd-script', 'sd-consensus'], text: '…into covenants that consensus enforces as one atomic move. That’s the whole stack, working.' },
+    ],
+  };
+
+  const svg = document.querySelector('.diagram svg')!;
+  const narration = document.getElementById('sd-narration')!;
+  const ntext = document.getElementById('sd-ntext')!;
+  const dots = document.getElementById('sd-dots')!;
+  const links = svg.querySelectorAll('a');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let steps: Step[] = [];
+  let i = 0;
+  let timer: number | undefined;
+
+  const paint = () => {
+    const s = steps[i];
+    links.forEach((a) => a.classList.toggle('lit', s.ids.includes(a.id)));
+    ntext.textContent = s.text;
+    dots.textContent = steps.map((_, k) => (k <= i ? '●' : '○')).join('');
+  };
+  const advance = () => {
+    if (i < steps.length - 1) { i++; paint(); schedule(); }
+    else if (timer) { clearTimeout(timer); timer = undefined; }
+  };
+  const schedule = () => {
+    if (reduced) return; // manual "next" only
+    if (timer) clearTimeout(timer);
+    if (i < steps.length - 1) timer = window.setTimeout(advance, 2600);
+  };
+  const exit = () => {
+    if (timer) clearTimeout(timer);
+    timer = undefined;
+    svg.classList.remove('touring');
+    links.forEach((a) => a.classList.remove('lit'));
+    narration.hidden = true;
+    document.querySelectorAll('.sc').forEach((b) => b.classList.remove('active'));
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('.sc').forEach((b) => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.sc').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      steps = scenarios[b.dataset.sc!];
+      i = 0;
+      svg.classList.add('touring');
+      narration.hidden = false;
+      paint();
+      schedule();
+    });
+  });
+  document.getElementById('sd-next')!.addEventListener('click', advance);
+  document.getElementById('sd-exit')!.addEventListener('click', exit);
+</script>
