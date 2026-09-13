@@ -2,12 +2,12 @@ name: Verify community examples
 
 # LISTED repos (on /build/examples) must stay clean — a failure here means the
 # page is wrong and goes red. WATCH repos are the under-review set: they are
-# re-checked and reported every week so we notice the moment one updates to
+# re-checked and reported daily so we notice the moment one updates to
 # current Silverscript, but they never fail the job.
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 7 * * 1' # Mondays, after verify-build-commands
+    - cron: '30 7 * * *' # daily, after verify-build-commands
 
 jobs:
   compile-check:

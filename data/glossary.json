@@ -17,6 +17,8 @@
   { "id": "lineage-proof", "term": "Lineage proof (KIP-17)", "def": "A proof that a coin descends from a covenant's line of transactions — what lets a rule follow coins across many spends instead of applying only once." },
   { "id": "n-m-pattern", "term": "N:M pattern", "def": "Several covenant inputs and several covenant outputs of the same contract handled in a single transaction — Silverscript's model for batched state." },
   { "id": "p2sh", "term": "P2SH", "def": "Pay-to-script-hash: an output commits to the hash of a script, and the script itself is revealed when the coins are spent." },
+  { "id": "pskt", "term": "PSKT", "def": "Partially Signed Kaspa Transaction — a transaction passed between parties where each signs only the inputs it controls. The building block of multisig and covenant co-signing flows." },
+  { "id": "pskb", "term": "PSKB", "def": "A bundle of PSKTs moved and processed as one unit — shipped in the Kaspa wallet SDK, and central to the draft KCC-12 wallet API for multi-party and covenant transactions." },
   { "id": "script-pricing", "term": "Script pricing", "def": "Toccata's per-operation cost model for scripts, replacing the old flat size limits — heavier operations cost more of a transaction's budget." },
   { "id": "singleton", "term": "Singleton", "def": "A covenant pattern where exactly one live instance of a piece of state exists at any time — the shape most \"one contract, one state\" apps take." },
   { "id": "template-commitment", "term": "Template commitment", "def": "A covenant committing to the allowed script(s) of its next output — the core trick that makes \"these coins may only move like this\" enforceable." },

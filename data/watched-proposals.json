@@ -1,0 +1,8 @@
+[
+  {
+    "repo": "kaspanet/kccs",
+    "pr": 24,
+    "label": "KCC-12 — common wallet provider API + PSKB",
+    "note": "EIP-1193/6963-style; overlaps the separate KIP-12 wallet-discovery effort — convergence is the open question"
+  }
+]

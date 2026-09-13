@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-09-13",
+    "kind": "stack",
+    "title": "KCC-12 proposed: one wallet API for every Kaspa dApp",
+    "body": "A new draft KCC proposes a common browser-wallet provider API — deliberately close to Ethereum's EIP-1193/6963 model (announce/request provider events, request({method}), familiar error codes) — so one dApp can talk to any Kaspa wallet without per-wallet integrations. This week's revision added PSKB support: partially-signed transaction bundles for multisig and covenant flows where a wallet signs only the inputs it controls. Caveats that matter: it is a draft under active review (16 review comments in its first two days), no wallet has adopted it yet, and it overlaps a separate KIP-12 wallet-discovery effort — which standard wallets converge on is the open question. This site now tracks the proposal daily on the status page."
+  },
+  {
     "date": "2026-09-12",
     "kind": "site",
     "title": "State of the stack: live adoption numbers",
