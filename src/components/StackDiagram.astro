@@ -9,6 +9,7 @@
     <button class="sc" data-sc="vault">🔒 Build a vault</button>
     <button class="sc" data-sc="app">🎮 Build an app</button>
   </div>
+  <p class="rotate-hint">🔄 Tip: turn your phone sideways — the whole stack fits on one screen.</p>
   <svg
     viewBox="0 0 760 400"
     role="img"
@@ -120,6 +121,20 @@
   }
   .sc:hover { color: var(--text); border-color: var(--teal-dim); }
   .sc.active { color: var(--teal); border-color: var(--teal); }
+  /* Only exists on narrow portrait screens — the one place it helps. */
+  .rotate-hint { display: none; }
+  @media (max-width: 640px) and (orientation: portrait) {
+    .rotate-hint {
+      display: block;
+      margin: 0 8px 12px;
+      background: var(--surface2);
+      border: 1px solid var(--teal-dim);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  }
   svg.touring a { opacity: 0.3; transition: opacity 0.35s ease; }
   svg.touring a.lit { opacity: 1; }
   svg.touring a.lit rect { stroke: var(--teal); }
