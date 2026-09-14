@@ -65,6 +65,50 @@
       "origin": "community",
       "verified": "live · free access code from the Dagger bot (/sphere) · checked 2026-09-12",
       "featured": true
+    },
+    {
+      "name": "KasProof",
+      "url": "https://kasproof.com",
+      "icon": "📜",
+      "layer": "L1 · proof of existence",
+      "tagline": "Stamp any file onto the DAG",
+      "shows": "Your file is hashed in the browser, the hash becomes a Kaspa address, one transaction becomes a permanent timestamp anyone can verify — the file itself never leaves your device.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-14 · live on mainnet",
+      "featured": false
+    },
+    {
+      "name": "Kassword",
+      "url": "https://kassword.com",
+      "icon": "🔐",
+      "layer": "L1 · encrypted storage",
+      "tagline": "A post-quantum vault on the DAG",
+      "shows": "Passwords, IDs and files encrypted in your browser with NIST post-quantum ciphers, then backed up as sealed noise onto the Kaspa BlockDAG — no accounts, no Kassword servers.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-14 · open source",
+      "featured": false
+    },
+    {
+      "name": "KasRanks",
+      "url": "https://kasranks.com",
+      "icon": "🐋",
+      "layer": "L1 · KRC-721",
+      "tagline": "Your bag picks your creature",
+      "shows": "An NFT collection where your rank is assigned by how much KAS your wallet holds — 782 handcrafted sea creatures across 11 tiers, from Plankton to Aquaman, native on the DAG.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-14",
+      "featured": false
+    },
+    {
+      "name": "Enclave",
+      "url": "https://enclavefi.app",
+      "icon": "🛡️",
+      "layer": "Covenants · wallet",
+      "tagline": "Self-custody, considered",
+      "shows": "A wallet built around understanding what you sign: SureSign spells out a transaction's effects before you approve, Deal Desk holds agreements in encrypted escrow rooms, and vaults carry defined access and inheritance terms.",
+      "origin": "community",
+      "verified": "reviewed 2026-09-14 · in active development · source not yet public",
+      "featured": false
     }
   ],
   "venues": [
@@ -156,7 +200,6 @@
     { "name": "OpenSilver (22-pattern library)", "why": "written pre-v1.0.0 — 21 of 25 contracts no longer parse against the current compiler; listed when updated" },
     { "name": "kosign (covenant multisig)", "why": "written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated" },
     { "name": "K100bet contracts & kasmelt-snapshot", "why": "same v1.0.0 syntax drift as above" },
-    { "name": "Portrait", "why": "pattern library with its own covenant language — checking its emitted Silverscript next" },
-    { "name": "Enclave wallet", "why": "covenant vaults live, but its stated source repository does not resolve" }
+    { "name": "Portrait", "why": "pattern library with its own covenant language — checking its emitted Silverscript next" }
   ]
 }
