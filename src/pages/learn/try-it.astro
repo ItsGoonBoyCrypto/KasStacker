@@ -168,6 +168,7 @@ contract SimpleCovenant(pubkey recipient) &#123;
     margin: 0 0 8px;
   }
   .sim { display: grid; gap: 18px; }
+  .sim > * { min-width: 0; } /* grid items default to min-width auto — the pre must shrink and scroll */
   .code-panel pre { margin: 0; }
   #ln-require { display: inline-block; border-radius: 4px; padding: 0 4px; margin: 0 -4px; }
   .flash-ok { animation: flok 1.2s ease; }
