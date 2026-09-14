@@ -1,0 +1,193 @@
+---
+import Base from '@layouts/Base.astro';
+
+// Generic patterns, deliberately unnamed — this teaches the mechanism,
+// it does not accuse any real project.
+const cases = [
+  {
+    id: 'mint-keys',
+    icon: '🖨️',
+    title: 'The deployer kept the mint keys',
+    setup: 'A new token launches. Supply: 10 million. But the deployer’s own wallet still holds the authority to mint more — nothing on chain stops them.',
+    rug: true,
+    why: 'They can print unlimited new tokens and sell into every buyer. Your share of the supply is whatever they decide it is.',
+    fix: 'A covenant token bakes the supply rule into the coins themselves — the mint either doesn’t exist after launch or is chain-limited. On Kaspa, KCC-20 supply rules are enforced by consensus, not by trust.',
+  },
+  {
+    id: 'locked-amm',
+    icon: '🔒',
+    title: 'Liquidity locked in a covenant AMM',
+    setup: 'The trading pool’s KAS and tokens sit inside a covenant that only allows swaps at the pool’s price formula. No withdraw-everything entry exists in the contract.',
+    rug: false,
+    why: 'Nobody — not even the team — can pull the liquidity, because the covenant has no code path for it. A withdrawal that breaks the formula simply is not a transaction.',
+    fix: 'This is what "rug-proof by construction" means. You can verify it yourself: read the contract’s entries and check no drain path exists.',
+  },
+  {
+    id: 'pause-switch',
+    icon: '⏸️',
+    title: 'The admin can pause trading',
+    setup: 'The token trades freely — but the contract has an admin entry that can freeze all transfers "for emergencies", controlled by one wallet.',
+    rug: true,
+    why: 'The classic honeypot shape: you can buy, then the switch flips and only the admin can sell. Even a well-meaning pause key is a single point of failure that can be sold, stolen or subpoenaed.',
+    fix: 'Ask of every contract: what can the privileged key do to ME? If the answer is "stop me from selling", the rug isn’t hypothetical — it’s a button.',
+  },
+  {
+    id: 'escrow',
+    icon: '🤝',
+    title: 'Escrow where the contract pays out',
+    setup: 'A buy order locks KAS in a covenant. Anyone who delivers the right tokens gets paid by the contract itself — the covenant checks the delivery and releases the KAS. No operator in the loop.',
+    rug: false,
+    why: 'There’s no middleman to run away with the funds — the payout condition is the code, and the whole network checks it on every spend.',
+    fix: 'This is the pattern behind Kaspa’s L1 order books. The honest caveat: the code enforces exactly what’s written — so what’s written still has to be right.',
+  },
+];
+---
+<Base
+  title="Spot the rug — KasStacker"
+  description="Four token setups. Some can rug you, some can't — by construction. Can you tell which? A 60-second game about what covenants actually prevent."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · game</p>
+      <h1>Spot the <em>rug</em>.</h1>
+      <p class="lede">
+        Four token setups you'll actually meet in the wild. For each one, decide: can the people
+        behind it take your money? Then see why — and what covenants change about the answer.
+      </p>
+    </header>
+
+    <div class="cases">
+      {cases.map((c) => (
+        <section class="case" data-rug={c.rug} data-id={c.id}>
+          <div class="c-top">
+            <span class="c-icon" aria-hidden="true">{c.icon}</span>
+            <h2>{c.title}</h2>
+          </div>
+          <p class="c-setup">{c.setup}</p>
+          <div class="c-btns" role="group" aria-label={`Your verdict on: ${c.title}`}>
+            <button class="vote" data-vote="safe" type="button">🛡️ Can't rug me</button>
+            <button class="vote" data-vote="rug" type="button">🚩 Can rug me</button>
+          </div>
+          <div class="c-reveal" hidden>
+            <p class="verdict"></p>
+            <p class="why">{c.why}</p>
+            <p class="fix">{c.fix}</p>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="score" id="score" hidden>
+      <p class="s-line" id="s-line"></p>
+      <p class="s-sub">
+        The one-sentence takeaway: <b>a promise kept by a person can be broken; a promise
+        compiled into the coins cannot.</b> That's the entire point of covenants.
+      </p>
+      <div class="s-actions">
+        <a class="btn btn-primary" href="/learn/build-a-covenant">Now design your own covenant →</a>
+        <a class="btn btn-ghost" href="/learn/try-it">Or try to break one</a>
+      </div>
+    </div>
+
+    <p class="honesty">
+      Honesty note: these are generic patterns, not descriptions of specific projects. And
+      "can't rug you" is about one specific theft — it never means a token is a good buy.
+    </p>
+  </div>
+
+  <script>
+    let answered = 0;
+    let right = 0;
+    const total = document.querySelectorAll('.case').length;
+
+    document.querySelectorAll<HTMLElement>('.case').forEach((sec) => {
+      const isRug = sec.dataset.rug === 'true';
+      sec.querySelectorAll<HTMLButtonElement>('.vote').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (sec.dataset.done) return;
+          sec.dataset.done = '1';
+          const guessedRug = btn.dataset.vote === 'rug';
+          const correct = guessedRug === isRug;
+          if (correct) right += 1;
+          answered += 1;
+          const reveal = sec.querySelector<HTMLElement>('.c-reveal')!;
+          const verdict = reveal.querySelector<HTMLElement>('.verdict')!;
+          verdict.textContent = (correct ? '✓ You called it. ' : '✗ Not quite. ')
+            + (isRug ? 'This one can rug you.' : 'This one can’t — by construction.');
+          verdict.className = `verdict ${correct ? 'ok' : 'no'}`;
+          sec.classList.add(isRug ? 'is-rug' : 'is-safe');
+          btn.classList.add('picked');
+          sec.querySelectorAll<HTMLButtonElement>('.vote').forEach((b) => { b.disabled = true; });
+          reveal.hidden = false;
+          if (answered === total) {
+            const line = document.getElementById('s-line')!;
+            line.textContent = right === total
+              ? `${right}/${total} — perfect. You already think like a covenant auditor.`
+              : right >= total - 1
+                ? `${right}/${total} — sharp. One more read of the reveals and nobody rugs you again.`
+                : `${right}/${total} — this is exactly why this game exists. Read the reveals: the tells are all on-chain.`;
+            const score = document.getElementById('score')!;
+            score.hidden = false;
+            score.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            try {
+              const s = JSON.parse(localStorage.getItem('ks-quiz') ?? '{}');
+              s['spot-the-rug'] = true;
+              localStorage.setItem('ks-quiz', JSON.stringify(s));
+            } catch { /* fine */ }
+          }
+        });
+      });
+    });
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 { font-size: clamp(1.7rem, 4.6vw, 2.3rem); font-weight: 800; margin: 8px 0 12px; }
+  .head h1 em { font-style: normal; color: var(--teal); }
+  .lede { color: var(--muted); font-size: 1.03rem; }
+
+  .cases { display: grid; gap: 14px; }
+  .case {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: border-color 0.2s ease;
+  }
+  .case.is-rug { border-color: color-mix(in srgb, var(--m-preaudit) 55%, var(--border-soft)); }
+  .case.is-safe { border-color: color-mix(in srgb, var(--m-audited) 55%, var(--border-soft)); }
+  .c-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .c-icon { font-size: 1.4rem; }
+  .case h2 { font-size: 1.05rem; font-weight: 700; margin: 0; }
+  .c-setup { color: var(--muted); font-size: 0.93rem; margin: 0 0 14px; }
+  .c-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .vote {
+    font-family: 'Sora', sans-serif; font-size: 0.86rem; font-weight: 700;
+    color: var(--text); background: var(--surface2);
+    border: 1px solid var(--border-soft); border-radius: 999px;
+    padding: 9px 18px; cursor: pointer;
+  }
+  .vote:hover:not(:disabled) { border-color: var(--teal-dim); }
+  .vote:disabled { opacity: 0.55; cursor: default; }
+  .vote.picked { opacity: 1; border-color: var(--teal); }
+  .c-reveal { margin-top: 14px; border-top: 1px dashed var(--border-soft); padding-top: 12px; }
+  .verdict { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; margin: 0 0 8px; }
+  .verdict.ok { color: var(--m-audited); }
+  .verdict.no { color: var(--m-preaudit); }
+  .why { font-size: 0.9rem; margin: 0 0 8px; }
+  .fix { color: var(--muted); font-size: 0.88rem; margin: 0; }
+
+  .score {
+    margin-top: 22px;
+    background: radial-gradient(500px 300px at 30% 0%, color-mix(in srgb, var(--teal) 10%, transparent), transparent), var(--surface);
+    border: 1px solid var(--teal-dim);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+  .s-line { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.15rem; margin: 0 0 10px; }
+  .s-sub { color: var(--muted); font-size: 0.95rem; }
+  .s-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+  .honesty { color: var(--faint); font-size: 0.85rem; border-top: 1px solid var(--border-soft); padding-top: 14px; margin-top: 26px; }
+</style>

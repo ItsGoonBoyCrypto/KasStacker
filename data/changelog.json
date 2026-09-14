@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-09-14",
+    "kind": "site",
+    "title": "Five new ways in: design a covenant, spot the rug, and more",
+    "body": "The learn section gained a covenant design wizard — answer three plain questions and real Silverscript assembles itself, with all eight possible contracts compiled against silverc v1.0.0 and re-proven daily in CI. Alongside it: a spot-the-rug game about what covenants actually prevent, a five-years-in-one-slider timeline, a live covenant counter on the homepage, and a downloadable tour certificate you can timestamp on Kaspa itself via KasProof."
+  },
+  {
     "date": "2026-09-13",
     "kind": "stack",
     "title": "KCC-12 proposed: one wallet API for every Kaspa dApp",

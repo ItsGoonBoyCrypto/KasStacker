@@ -1,0 +1,94 @@
+---
+// The homepage odometer: total covenants on mainnet + yesterday's activity,
+// from the same daily kcc20.info snapshot that powers the status page.
+// Build-time data only — nothing is fetched in the visitor's browser.
+import stats from '@data/chainstats.json';
+
+const total = stats.totals.covenantsCreated;
+const pts = stats.series.points;
+// The final bucket is the partial current day — the one before it is the
+// last complete 24h window.
+const yesterday = pts.length >= 2 ? pts[pts.length - 2].events : null;
+const updated = stats.generatedAt.slice(0, 10);
+
+// Sparkline over the 30d event series (build-time SVG, no JS needed).
+const W = 220;
+const H = 44;
+const max = Math.max(...pts.map((p) => p.events), 1);
+const line = pts
+  .map((p, i) => `${((i / (pts.length - 1)) * W).toFixed(1)},${(H - 3 - (p.events / max) * (H - 8)).toFixed(1)}`)
+  .join(' ');
+---
+<a class="pulse" href="/status">
+  <div class="p-main">
+    <span class="p-num" id="pulse-num" data-total={total}>{total.toLocaleString('en-US')}</span>
+    <span class="p-label">covenants enforcing rules on Kaspa mainnet</span>
+  </div>
+  <div class="p-side">
+    <svg class="p-spark" viewBox={`0 0 ${W} ${H}`} width={W} height={H} aria-hidden="true">
+      <polyline points={line} fill="none" stroke="var(--teal-bright)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9" />
+    </svg>
+    {yesterday !== null && (
+      <span class="p-delta">{yesterday.toLocaleString('en-US')} covenant events yesterday</span>
+    )}
+    <span class="p-src">live count from kcc20.info · refreshed daily · {updated}</span>
+  </div>
+</a>
+
+<script>
+  // Count-up on first sight; lands on the exact figure. Static number stays
+  // for no-JS and reduced-motion visitors.
+  const el = document.getElementById('pulse-num');
+  if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const total = Number(el.dataset.total);
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      const t0 = performance.now();
+      const dur = 1600;
+      const tick = (t: number) => {
+        const k = Math.min((t - t0) / dur, 1);
+        const eased = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(total * eased).toLocaleString('en-US');
+        if (k < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    io.observe(el);
+  }
+</script>
+
+<style>
+  .pulse {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex-wrap: wrap;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--teal) 8%, var(--surface)), var(--surface) 60%);
+    border: 1px solid var(--teal-dim);
+    border-radius: 14px;
+    padding: 22px 26px;
+    color: var(--text);
+    margin-top: 34px;
+  }
+  .pulse:hover { text-decoration: none; border-color: var(--teal); box-shadow: var(--shadow); }
+  .p-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .p-num {
+    font-family: 'Chakra Petch', 'Sora', sans-serif;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--teal-bright);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+  .p-label { color: var(--muted); font-size: 0.92rem; }
+  .p-side { display: flex; flex-direction: column; gap: 3px; margin-left: auto; }
+  .p-spark { display: block; }
+  .p-delta { font-family: 'Sora', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--teal); }
+  .p-src { color: var(--faint); font-size: 0.72rem; }
+  @media (max-width: 640px) {
+    .pulse { gap: 14px; }
+    .p-side { margin-left: 0; }
+  }
+</style>

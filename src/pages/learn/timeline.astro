@@ -1,0 +1,190 @@
+---
+import Base from '@layouts/Base.astro';
+
+const eras = [
+  {
+    key: 'launch',
+    when: 'Nov 2021',
+    dated: true,
+    title: 'Kaspa launches',
+    what: 'GHOSTDAG consensus goes live: blocks run in parallel instead of waiting in line. No premine, no ICO — pure proof of work from block zero.',
+    could: 'Move money, fast. That’s it — and for a money, that’s a lot.',
+    stack: ['consensus'],
+  },
+  {
+    key: 'crescendo',
+    when: 'May 2025',
+    dated: true,
+    title: 'Crescendo',
+    what: 'The full Rust rewrite lands and block rate jumps from 1 to 10 blocks per second. Confirmations become effectively instant for everyday use.',
+    could: 'Move money faster than you can refresh the page. Still just money.',
+    stack: ['consensus'],
+  },
+  {
+    key: 'toccata',
+    when: 'Jun 2026',
+    dated: true,
+    title: 'Toccata — the big one',
+    what: 'Kaspa learns to make promises about money, not just move it. Covenants, chain-checked KCC-20 tokens and ZK verification opcodes activate on mainnet, and the Silverscript → Argent tool stack rises on top.',
+    could: 'Enforce rules: vaults, escrows, rug-proof pools, tokens whose supply is law. Everything this site teaches starts here.',
+    stack: ['consensus', 'script', 'silverscript', 'argent', 'kcc20'],
+  },
+  {
+    key: 'dagknight',
+    when: 'In development — no committed date',
+    dated: false,
+    title: 'DAGKnight',
+    what: 'The next consensus upgrade: block times that adapt to real network conditions, on the road toward 100 blocks per second.',
+    could: 'Everything above, at another order of magnitude. Not live — anyone quoting a date is guessing.',
+    stack: ['consensus', 'script', 'silverscript', 'argent', 'kcc20'],
+  },
+  {
+    key: 'vprogs',
+    when: 'Research track — no timeline',
+    dated: false,
+    title: 'vProgs',
+    what: 'Native programs living in the DAG itself, verified with zero-knowledge proofs — the research frontier beyond covenants.',
+    could: 'Unknown, honestly — that’s what research means. Anyone selling you a "vProg" today is early by definition.',
+    stack: ['consensus', 'script', 'silverscript', 'argent', 'kcc20', 'vprogs'],
+  },
+];
+
+const layerNames: Record<string, string> = {
+  consensus: 'Consensus · GHOSTDAG',
+  script: 'Kaspa Script + Covenants',
+  silverscript: 'Silverscript',
+  argent: 'Argent',
+  kcc20: 'KCC-20 apps',
+  vprogs: 'vProgs (research)',
+};
+const allLayers = ['vprogs', 'kcc20', 'argent', 'silverscript', 'script', 'consensus'];
+---
+<Base
+  title="Five years in one slider — KasStacker"
+  description="Drag from 2021 to the research frontier and watch the Kaspa stack grow — from 'money moves' to 'money keeps promises'."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · interactive</p>
+      <h1>Five years. <em>One slider.</em></h1>
+      <p class="lede">
+        Drag it. At every stop, the stack on the right shows what Kaspa could actually do at
+        that moment — and the biggest jump isn't the speed.
+      </p>
+    </header>
+
+    <div class="tl">
+      <input type="range" id="slider" min="0" max={eras.length - 1} value="0" step="1"
+        aria-label="Timeline position" list="era-marks" />
+      <div class="marks" id="marks">
+        {eras.map((e, i) => (
+          <button class="mark" data-i={i} type="button">
+            <span class="dot"></span>
+            <span class="lbl">{e.dated ? e.when : e.title}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="era" id="era" aria-live="polite">
+        <p class="e-when" id="e-when"></p>
+        <h2 id="e-title"></h2>
+        <p class="e-what" id="e-what"></p>
+        <p class="e-could"><b>What you could do:</b> <span id="e-could"></span></p>
+      </div>
+      <div class="ministack" aria-hidden="true">
+        {allLayers.map((l) => (
+          <div class={`mlayer ml-${l}`} data-layer={l}>{layerNames[l]}</div>
+        ))}
+      </div>
+    </div>
+
+    <p class="honesty">
+      Dates shown are activation dates on Kaspa mainnet. DAGKnight and vProgs carry no dates
+      because none are committed — this site doesn't invent roadmap dates, ever.
+    </p>
+    <div class="next">
+      <a class="btn btn-primary" href="/learn/what-toccata-changed">The Toccata stop, in full →</a>
+      <a class="btn btn-ghost" href="/stack">Explore today's stack</a>
+    </div>
+  </div>
+
+  <script define:vars={{ eras }}>
+    const slider = document.getElementById('slider');
+    function show(i) {
+      const e = eras[i];
+      document.getElementById('e-when').textContent = e.when;
+      document.getElementById('e-title').textContent = e.title;
+      document.getElementById('e-what').textContent = e.what;
+      document.getElementById('e-could').textContent = e.could;
+      document.getElementById('era').classList.toggle('future', !e.dated);
+      document.querySelectorAll('.mlayer').forEach((el) => {
+        el.classList.toggle('on', e.stack.includes(el.dataset.layer));
+      });
+      document.querySelectorAll('.mark').forEach((m, j) => m.classList.toggle('active', j === i));
+    }
+    slider.addEventListener('input', () => show(Number(slider.value)));
+    document.querySelectorAll('.mark').forEach((m) => {
+      m.addEventListener('click', () => { slider.value = m.dataset.i; show(Number(m.dataset.i)); });
+    });
+    show(0);
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 { font-size: clamp(1.7rem, 4.6vw, 2.3rem); font-weight: 800; margin: 8px 0 12px; }
+  .head h1 em { font-style: normal; color: var(--teal); }
+  .lede { color: var(--muted); font-size: 1.03rem; }
+
+  .tl { margin-bottom: 22px; }
+  #slider { width: 100%; accent-color: var(--teal); cursor: pointer; }
+  .marks { display: flex; justify-content: space-between; margin-top: 6px; }
+  .mark {
+    background: none; border: none; padding: 4px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: var(--faint); max-width: 20%;
+  }
+  .mark .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+  .mark.active { color: var(--teal-bright); }
+  .mark.active .dot { background: var(--teal-bright); box-shadow: 0 0 8px color-mix(in srgb, var(--teal) 60%, transparent); }
+  .mark .lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; text-align: center; }
+
+  .stage { display: grid; grid-template-columns: 1fr 240px; gap: 22px; align-items: start; }
+  @media (max-width: 680px) { .stage { grid-template-columns: 1fr; } .ministack { max-width: 300px; } }
+
+  .era {
+    background: var(--surface); border: 1px solid var(--border-soft);
+    border-radius: 12px; padding: 20px 22px; min-height: 240px;
+  }
+  .era.future { border-style: dashed; }
+  .e-when {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+    color: var(--teal); margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .era h2 { font-size: 1.3rem; font-weight: 800; margin: 0 0 10px; }
+  .e-what { font-size: 0.95rem; margin: 0 0 12px; }
+  .e-could { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  .e-could b { color: var(--text); }
+
+  .ministack { display: flex; flex-direction: column-reverse; gap: 6px; }
+  .mlayer {
+    font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 600;
+    text-align: center; border-radius: 8px; padding: 10px 8px;
+    border: 1px solid var(--border-soft); color: var(--faint);
+    opacity: 0.25; transform: translateY(4px);
+    transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  }
+  .mlayer.on { opacity: 1; transform: none; color: var(--text); }
+  .ml-consensus.on { background: color-mix(in srgb, var(--teal) 18%, var(--surface)); border-color: var(--teal-dim); }
+  .ml-script.on { background: color-mix(in srgb, var(--teal) 13%, var(--surface)); border-color: var(--teal-dim); }
+  .ml-silverscript.on, .ml-argent.on { background: color-mix(in srgb, var(--teal) 9%, var(--surface)); border-color: var(--border); }
+  .ml-kcc20.on { background: color-mix(in srgb, var(--teal) 6%, var(--surface)); border-color: var(--border); }
+  .ml-vprogs { border-style: dashed; }
+  .ml-vprogs.on { opacity: 0.75; color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { .mlayer { transition: none; } }
+
+  .honesty { color: var(--faint); font-size: 0.85rem; border-top: 1px solid var(--border-soft); padding-top: 14px; margin-top: 26px; }
+  .next { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+</style>

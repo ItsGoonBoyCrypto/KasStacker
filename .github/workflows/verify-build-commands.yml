@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Checkout site (for the wizard contract generator)
+        uses: actions/checkout@v4
+        with:
+          path: site
       - name: Clone (as the setup page instructs)
         run: git clone https://github.com/kaspanet/silverscript
       - name: cargo test -p silverscript-lang
@@ -37,6 +41,22 @@ jobs:
           python3 -c "import json; print(json.dumps([{'kind': 'bytes', 'value': [0]*32}]))" > args.json
           cargo run -p silverscript-lang --bin silverc -- simple.sil --constructor-args args.json -o artifact.json
           test -s artifact.json && echo "artifact written: $(wc -c < artifact.json) bytes"
+      - name: Compile all 8 covenant-wizard combinations (learn/build-a-covenant)
+        working-directory: silverscript
+        run: |
+          # Same generator the page embeds at build time — the code shown IS
+          # the code proven here.
+          node ../site/scripts/gen-wizard-contracts.mjs wiz
+          fail=0
+          for f in wiz/*.sil; do
+            n="${f%.sil}"
+            if cargo run -q -p silverscript-lang --bin silverc -- "$f" --constructor-args "$n.args.json" -o "$n.artifact.json" && test -s "$n.artifact.json"; then
+              echo "OK   $(basename "$n")"
+            else
+              echo "FAIL $(basename "$n")"; fail=1
+            fi
+          done
+          exit $fail
       - name: Run the CLI debugger example
         working-directory: silverscript
         run: |

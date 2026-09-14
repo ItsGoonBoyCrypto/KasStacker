@@ -2,6 +2,7 @@
 import Base from '@layouts/Base.astro';
 import StackDiagram from '@components/StackDiagram.astro';
 import StatusStrip from '@components/StatusStrip.astro';
+import CovenantPulse from '@components/CovenantPulse.astro';
 import eco from '@data/ecosystem.json';
 
 const featured = eco.projects.filter((p) => p.featured);
@@ -23,6 +24,7 @@ const featured = eco.projects.filter((p) => p.featured);
         <a class="btn btn-primary" href="/learn">Start the 5-minute tour</a>
         <a class="btn btn-ghost" href="/stack">Explore the stack →</a>
       </div>
+      <CovenantPulse />
     </header>
 
     <section>

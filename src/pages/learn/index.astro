@@ -86,6 +86,27 @@ const stops = [
     <a class="sheets-callout" href="/learn/cheat-sheets">
       📄 In a hurry? The whole stack on <b>five one-page cheat sheets</b> — view here, print, share →
     </a>
+
+    <section class="quests">
+      <p class="eyebrow">Go further — interactive</p>
+      <div class="quest-grid">
+        <a class="quest" href="/learn/build-a-covenant">
+          <span class="g-icon" aria-hidden="true">🧙</span>
+          <span class="qt">Design a covenant</span>
+          <span class="qb">Three questions, no code — and real, compiling Silverscript assembles itself.</span>
+        </a>
+        <a class="quest" href="/learn/spot-the-rug">
+          <span class="g-icon" aria-hidden="true">🚩</span>
+          <span class="qt">Spot the rug</span>
+          <span class="qb">Four token setups. Which ones can take your money? 60-second game.</span>
+        </a>
+        <a class="quest" href="/learn/timeline">
+          <span class="g-icon" aria-hidden="true">🎚️</span>
+          <span class="qt">Five years, one slider</span>
+          <span class="qb">Drag from 2021 to the research frontier and watch the stack grow.</span>
+        </a>
+      </div>
+    </section>
   </div>
 
   <script>
@@ -211,4 +232,19 @@ const stops = [
   }
   .sheets-callout:hover { text-decoration: none; border-color: var(--teal); color: var(--text); }
   .sheets-callout b { color: var(--teal); }
+
+  .quests { margin-top: 34px; }
+  .quest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+  @media (max-width: 700px) { .quest-grid { grid-template-columns: 1fr; } }
+  .quest {
+    display: flex; flex-direction: column; gap: 6px;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--teal) 6%, var(--surface)), var(--surface) 55%);
+    border: 1px solid var(--border-soft); border-radius: 12px;
+    padding: 18px; color: var(--text);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .quest:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .quest .g-icon { margin-bottom: 2px; }
+  .qt { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.98rem; }
+  .qb { color: var(--muted); font-size: 0.86rem; }
 </style>

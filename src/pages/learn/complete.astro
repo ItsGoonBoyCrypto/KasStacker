@@ -35,10 +35,21 @@ const shareUrl = encodeURIComponent('https://kasstacker.org/learn');
       </p>
       <div class="c-actions">
         <a class="btn btn-primary" href={`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`} rel="noopener">Share on X</a>
+        <button class="btn btn-ghost" id="cert-dl" type="button">🎓 Download your certificate</button>
         <button class="btn btn-ghost" id="copy-link" type="button">Copy the tour link</button>
         <a class="btn btn-ghost" href="/build">Now build something →</a>
       </div>
       <p class="copied" id="copied" hidden>Link copied.</p>
+
+      <div class="stamp">
+        <p class="stamp-t">📜 Want your certificate to exist <em>forever?</em></p>
+        <p class="stamp-b">
+          Stamp it onto Kaspa itself with <a href="https://kasproof.com" rel="noopener">KasProof</a> —
+          a community tool that timestamps any file on the BlockDAG (~3 KAS, nothing uploaded,
+          the chain becomes your witness). Download the certificate above, drop it in, and the
+          network you just learned about will prove you learned it.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -73,6 +84,57 @@ const shareUrl = encodeURIComponent('https://kasstacker.org/learn');
         document.getElementById('copied')!.hidden = false;
       } catch { /* clipboard unavailable */ }
     });
+
+    // Certificate: drawn locally, downloaded as PNG — pairs with the KasProof
+    // stamp callout (same file every download, so the hash stays stable for
+    // the date drawn on it).
+    document.getElementById('cert-dl')?.addEventListener('click', async () => {
+      await document.fonts.ready;
+      const W = 1200, H = 675;
+      const c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const x = c.getContext('2d')!;
+      x.fillStyle = '#0A0F14';
+      x.fillRect(0, 0, W, H);
+      const glow = x.createRadialGradient(W / 2, 90, 40, W / 2, 90, 560);
+      glow.addColorStop(0, 'rgba(73,234,203,0.14)');
+      glow.addColorStop(1, 'rgba(73,234,203,0)');
+      x.fillStyle = glow;
+      x.fillRect(0, 0, W, H);
+      x.strokeStyle = '#2A4A44';
+      x.lineWidth = 2;
+      x.strokeRect(28, 28, W - 56, H - 56);
+      x.strokeStyle = 'rgba(73,234,203,0.35)';
+      x.strokeRect(38, 38, W - 76, H - 76);
+      x.textAlign = 'center';
+      x.fillStyle = '#70C7BA';
+      x.font = '600 22px Sora, sans-serif';
+      x.fillText('K A S S T A C K E R', W / 2, 118);
+      x.fillStyle = '#8FA3AD';
+      x.font = '16px "JetBrains Mono", monospace';
+      x.fillText('CERTIFICATE OF UNDERSTANDING', W / 2, 156);
+      x.fillStyle = '#E8F1F2';
+      x.font = '800 54px Sora, sans-serif';
+      x.fillText('The Kaspa Stack Tour', W / 2, 250);
+      x.fillStyle = '#49EACB';
+      x.font = '700 30px Sora, sans-serif';
+      x.fillText('— completed —', W / 2, 300);
+      x.fillStyle = '#B7C6CC';
+      x.font = '20px "Instrument Sans", sans-serif';
+      x.fillText('blockDAG · covenants · Silverscript · Argent · KCC-20', W / 2, 368);
+      x.fillText('All six stops. All checkpoints cleared.', W / 2, 400);
+      const date = new Date().toISOString().slice(0, 10);
+      x.fillStyle = '#70C7BA';
+      x.font = '600 18px "JetBrains Mono", monospace';
+      x.fillText(date, W / 2, 488);
+      x.fillStyle = '#5E6E76';
+      x.font = '15px "JetBrains Mono", monospace';
+      x.fillText('kasstacker.org/learn — free, verified, no signup', W / 2, 590);
+      const a = document.createElement('a');
+      a.href = c.toDataURL('image/png');
+      a.download = `kasstacker-certificate-${date}.png`;
+      a.click();
+    });
   </script>
 </Base>
 
@@ -105,4 +167,16 @@ const shareUrl = encodeURIComponent('https://kasstacker.org/learn');
   .c-sub { color: var(--muted); font-size: 0.97rem; max-width: 54ch; margin: 0 auto 22px; }
   .c-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
   .copied { color: var(--m-audited); font-size: 0.85rem; margin: 12px 0 0; }
+  .stamp {
+    margin-top: 26px;
+    border-top: 1px dashed var(--border-soft);
+    padding-top: 20px;
+    text-align: left;
+    max-width: 58ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .stamp-t { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; margin: 0 0 6px; }
+  .stamp-t em { font-style: normal; color: var(--teal); }
+  .stamp-b { color: var(--muted); font-size: 0.9rem; margin: 0; }
 </style>

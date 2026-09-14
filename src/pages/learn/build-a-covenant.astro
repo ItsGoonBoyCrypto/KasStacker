@@ -1,0 +1,221 @@
+---
+import Base from '@layouts/Base.astro';
+import { buildContract, comboKey, allCombos } from '../../../scripts/gen-wizard-contracts.mjs';
+
+// All 8 combinations are generated at build time from the same script CI
+// compiles daily — the code on screen is exactly the code that is proven.
+const contracts: Record<string, string> = {};
+for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
+---
+<Base
+  title="Build a covenant — KasStacker"
+  description="Design a real Kaspa covenant by answering three plain questions — and watch actual Silverscript assemble itself. Every combination compiles with silverc v1.0.0."
+>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">Learn · interactive</p>
+      <h1>Design a covenant. <em>No code required.</em></h1>
+      <p class="lede">
+        Answer three questions about how your coins should behave. Real Silverscript — the
+        language Kaspa covenants are written in — assembles itself as you click. Every one of
+        the eight possible contracts on this page compiles with <code>silverc v1.0.0</code>,
+        re-proven daily by this site's CI.
+      </p>
+    </header>
+
+    <section class="qs" aria-label="Covenant design questions">
+      <fieldset class="q" data-q="who">
+        <legend><span class="qn">1</span> Who can spend the coins?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="who" value="solo" checked /> <span>🙂 Just me</span></label>
+          <label class="opt"><input type="radio" name="who" value="backup" /> <span>👥 Me — plus a backup person if I disappear</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q" data-q="when">
+        <legend><span class="qn">2</span> When can spending start?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="when" value="anytime" checked /> <span>⚡ Anytime</span></label>
+          <label class="opt"><input type="radio" name="when" value="locked" /> <span>📅 Only after a date I choose</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="q" data-q="where">
+        <legend><span class="qn">3</span> Where are the coins allowed to go?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="where" value="free" checked /> <span>🧭 Anywhere I choose when I sign</span></label>
+          <label class="opt"><input type="radio" name="where" value="fixed" /> <span>🎯 Only ever to one fixed address</span></label>
+        </div>
+      </fieldset>
+    </section>
+
+    <p class="says" id="says" aria-live="polite"></p>
+
+    <section class="out">
+      <div class="out-head">
+        <p class="panel-label">Your contract — real, compiling Silverscript</p>
+        <div class="out-btns">
+          <button class="mini" id="copy" type="button">Copy</button>
+          <button class="mini" id="dl" type="button">Download .sil</button>
+        </div>
+      </div>
+      <pre><code id="code"></code></pre>
+      <p class="copied" id="copied" hidden>Copied.</p>
+    </section>
+
+    <section class="notes">
+      <p class="panel-label">What each piece does</p>
+      <ul id="notes"></ul>
+    </section>
+
+    <div class="after">
+      <p class="honesty">
+        Honesty note: these are teaching templates. The compiler proves the <em>syntax and
+        types</em> are right — it can't prove a design fits your situation. Before locking real
+        value behind any covenant, read <a href="/build/real-contract">what production contracts
+        guard against</a>.
+      </p>
+      <div class="next">
+        <a class="btn btn-primary" href="/build/first-covenant">Compile it for real →</a>
+        <a class="btn btn-ghost" href="/learn/try-it">Try to break one first</a>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ contracts }}>
+    const NOTES = {
+      'pragma silverscript ^0.1.0;': ['📌', 'Declares which language version this is written for.'],
+      'entry spend(sig s) {': ['🚪', 'The normal way in: spending requires a signature <code>s</code>.'],
+      'require(checkSig(s, owner));': ['🔑', 'The signature must come from <b>your</b> key. Anyone else\'s signature — not a transaction.'],
+      'require(tx.time >= unlockAt);': ['📅', 'The chain compares its own clock to your date. Before it — not a transaction. Nobody can bribe or rush this.'],
+      'byte[36] destScript = new ScriptPubKeyP2PK(destination);': ['🎯', 'Builds the one address the coins are ever allowed to reach.'],
+      'require(tx.outputs[0].scriptPubKey == byte[](destScript));': ['🛡️', 'The first output <b>must</b> be that address. A thief with your key still can\'t redirect the coins.'],
+      'entry recover(sig s) {': ['🆘', 'The backup door — a second, separate way to spend.'],
+      'require(checkSig(s, backupKey));': ['👥', 'Only your chosen backup person\'s key opens this door.'],
+      'require(tx.time >= backupAfter);': ['⏳', 'And only after your recovery date — while you\'re active, the backup door stays shut.'],
+    };
+    const SAY = {
+      who: { solo: 'only you can spend', backup: 'you can spend — and a backup person can recover after your chosen date' },
+      when: { anytime: '', locked: 'nothing moves before your unlock date' },
+      where: { free: '', fixed: 'coins can only ever reach one address' },
+    };
+
+    const code = document.getElementById('code');
+    const notes = document.getElementById('notes');
+    const says = document.getElementById('says');
+    let current = '';
+
+    function pick(name) { return document.querySelector(`input[name="${name}"]:checked`).value; }
+
+    function render() {
+      const who = pick('who'), when = pick('when'), where = pick('where');
+      const key = `${who}_${when}_${where}`;
+      const src = contracts[key];
+      const prev = new Set(current.split('\n').map((l) => l.trim()));
+      current = src;
+
+      code.textContent = '';
+      notes.textContent = '';
+      for (const line of src.split('\n')) {
+        const span = document.createElement('span');
+        span.className = 'ln';
+        span.textContent = line === '' ? ' ' : line;
+        if (!prev.has(line.trim())) span.classList.add('new');
+        code.appendChild(span);
+        const note = NOTES[line.trim()];
+        if (note && !notes.querySelector(`[data-k="${CSS.escape(line.trim())}"]`)) {
+          const li = document.createElement('li');
+          li.dataset.k = line.trim();
+          li.innerHTML = `<span class="ic">${note[0]}</span><code>${line.trim().replace(/</g, '&lt;')}</code><span class="why">${note[1]}</span>`;
+          notes.appendChild(li);
+        }
+      }
+      const parts = [SAY.who[who], SAY.when[when], SAY.where[where]].filter(Boolean);
+      says.innerHTML = `Your covenant: <b>${parts.join('</b>, <b>')}</b>. Anything else isn’t refused — it simply <b>is not a transaction</b>.`;
+    }
+
+    document.querySelectorAll('.qs input').forEach((r) => r.addEventListener('change', render));
+    render();
+
+    document.getElementById('copy').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(current); document.getElementById('copied').hidden = false; } catch {}
+    });
+    document.getElementById('dl').addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([current], { type: 'text/plain' }));
+      a.download = 'my-covenant.sil';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 { font-size: clamp(1.7rem, 4.6vw, 2.3rem); font-weight: 800; letter-spacing: -0.01em; margin: 8px 0 12px; }
+  .head h1 em { font-style: normal; color: var(--teal); }
+  .lede { color: var(--muted); font-size: 1.03rem; }
+  .lede code { font-size: 0.9em; }
+
+  .qs { display: grid; gap: 14px; }
+  .q { border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 18px; margin: 0; background: var(--surface); }
+  .q legend { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.98rem; padding: 0 6px; }
+  .qn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--teal); color: var(--teal-ink);
+    font-size: 0.78rem; margin-right: 6px;
+  }
+  .opts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  .opt {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border-soft); border-radius: 999px;
+    padding: 9px 16px; cursor: pointer; font-size: 0.92rem;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .opt:hover { border-color: var(--teal-dim); }
+  .opt:has(input:checked) {
+    border-color: var(--teal);
+    background: color-mix(in srgb, var(--teal) 12%, var(--surface));
+    font-weight: 600;
+  }
+  .opt input { accent-color: var(--teal); }
+
+  .says { margin: 20px 0 8px; font-size: 1rem; color: var(--muted); min-height: 2.4em; }
+  .says b { color: var(--text); }
+
+  .out { margin-top: 8px; min-width: 0; }
+  .out-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .panel-label {
+    font-family: 'Sora', sans-serif; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin: 0;
+  }
+  .out-btns { margin-left: auto; display: flex; gap: 8px; }
+  .mini {
+    font-family: 'Sora', sans-serif; font-size: 0.72rem; font-weight: 700;
+    color: var(--teal-bright); background: none;
+    border: 1px solid var(--teal-dim); border-radius: 999px;
+    padding: 4px 12px; cursor: pointer;
+  }
+  .mini:hover { border-color: var(--teal); }
+  .out pre { margin: 0; }
+  .ln { display: block; }
+  .ln.new { animation: flash 1.4s ease; border-radius: 4px; }
+  @keyframes flash { 0%, 45% { background: color-mix(in srgb, var(--teal) 22%, transparent); } 100% { background: transparent; } }
+  .copied { color: var(--m-audited); font-size: 0.82rem; margin: 8px 0 0; }
+
+  .notes { margin-top: 22px; }
+  .notes ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+  .notes li {
+    display: grid; grid-template-columns: 28px 1fr; gap: 4px 10px;
+    background: var(--surface); border: 1px solid var(--border-soft);
+    border-radius: 10px; padding: 11px 14px; font-size: 0.86rem;
+  }
+  .notes .ic { grid-row: span 2; font-size: 1.05rem; }
+  .notes code { font-size: 0.78rem; overflow-wrap: anywhere; }
+  .notes .why { color: var(--muted); }
+
+  .after { margin-top: 28px; }
+  .honesty { color: var(--faint); font-size: 0.88rem; border-top: 1px solid var(--border-soft); padding-top: 14px; }
+  .next { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+</style>
