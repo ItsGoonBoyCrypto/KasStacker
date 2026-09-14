@@ -3,34 +3,34 @@ import Base from '@layouts/Base.astro';
 
 const sheets = [
   {
-    n: '01',
-    file: '/sheets/the-stack.pdf',
+    slug: 'the-stack',
     title: 'The Kaspa stack',
     blurb: 'All five layers on one page — what each does, what enforces what, and where you build.',
+    alt: 'Diagram of the Kaspa stack: your project on top, then Argent, Silverscript, Kaspa Script + Covenants, and Kaspa consensus at the base.',
   },
   {
-    n: '02',
-    file: '/sheets/move-vs-enforce.pdf',
-    title: 'Move vs enforce',
+    slug: 'move-vs-enforce',
+    title: 'What changed',
     blurb: 'The before/after of Toccata: Kaspa used to move money — now it enforces rules on it.',
+    alt: 'Before and after comparison: before, Alice sends 100 KAS to Bob with no conditions; now, rules are checked between them and the network refuses anything else.',
   },
   {
-    n: '03',
-    file: '/sheets/what-is-a-covenant.pdf',
+    slug: 'what-is-a-covenant',
     title: 'What is a covenant?',
     blurb: 'A lock on coins with rules built in — with real example rules and what they unlock.',
+    alt: 'A padlock labelled coins-with-rules, example rules like "only Alice can spend" and "needs 2 of 3 to agree", and the things they enable: vaults, escrow, tokens.',
   },
   {
-    n: '04',
-    file: '/sheets/three-things-you-can-build.pdf',
+    slug: 'three-things-you-can-build',
     title: 'Three things you can build today',
     blurb: 'Token, vault, or app — which part of the stack each one uses, all on Kaspa L1.',
+    alt: 'Three cards: launch a token (uses KCC-20), build a vault (uses Silverscript), build an app (uses Argent) — all ending as covenants on Kaspa L1.',
   },
   {
-    n: '05',
-    file: '/sheets/which-tool.pdf',
+    slug: 'which-tool',
     title: 'Which tool do I need?',
     blurb: 'One question at a time to the right tool — with an honest maturity label on each.',
+    alt: 'Decision flowchart: just want a token leads to KCC-20; rules on some coins leads to Silverscript; a whole app leads to Argent — with maturity labels for each.',
   },
 ];
 ---
@@ -44,24 +44,36 @@ const sheets = [
       <h1>The stack on five pages</h1>
       <p class="lede">
         The whole idea, one page at a time — made for saving, sharing and printing.
-        Post them anywhere; they're free and always will be.
+        Tap any sheet for the full-size PDF. Free, and always will be.
       </p>
     </header>
 
-    <ol class="sheets">
-      {sheets.map((s) => (
-        <li>
-          <a href={s.file} target="_blank" rel="noopener">
-            <span class="n">{s.n}</span>
-            <span class="body">
-              <span class="t">{s.title}</span>
-              <span class="b">{s.blurb}</span>
+    <div class="gallery">
+      {sheets.map((s, i) => (
+        <figure class="sheet">
+          <figcaption>
+            <span class="cap-n">{String(i + 1).padStart(2, '0')}</span>
+            <span class="cap-body">
+              <b>{s.title}</b>
+              <span>{s.blurb}</span>
             </span>
-            <span class="open">open<br />PDF →</span>
+            <a class="pdf" href={`/sheets/${s.slug}.pdf`} target="_blank" rel="noopener">PDF ↗</a>
+          </figcaption>
+          <a href={`/sheets/${s.slug}.pdf`} target="_blank" rel="noopener" aria-label={`Open ${s.title} as a full-size PDF`}>
+            <img
+              src={`/sheets/img/${s.slug}.webp`}
+              srcset={`/sheets/img/${s.slug}-sm.webp 800w, /sheets/img/${s.slug}.webp 1600w`}
+              sizes="(max-width: 820px) 94vw, 780px"
+              alt={s.alt}
+              width="1600"
+              height="1029"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
           </a>
-        </li>
+        </figure>
       ))}
-    </ol>
+    </div>
 
     <p class="after">
       Want the interactive versions? The <a href="/learn">6-stop tour</a> covers the same ground with
@@ -74,45 +86,42 @@ const sheets = [
   .head { padding: 56px 0 28px; }
   .head h1 { font-size: 2rem; font-weight: 800; margin: 8px 0 12px; }
   .lede { color: var(--muted); font-size: 1.05rem; }
-  .sheets { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .sheets a {
-    text-decoration: none;
-    display: grid;
-    grid-template-columns: 52px 1fr 60px;
-    align-items: center;
-    gap: 16px;
-    background: linear-gradient(160deg, color-mix(in srgb, var(--teal) 5%, var(--surface)), var(--surface) 55%);
-    border: 1px solid var(--border-soft);
-    border-radius: 12px;
-    padding: 18px;
-    color: var(--text);
-    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  .gallery { display: grid; gap: 36px; }
+  .sheet { margin: 0; }
+  figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
   }
-  .sheets a:hover { transform: translateY(-2px); border-color: var(--teal-dim); box-shadow: var(--shadow); }
-  .n {
+  .cap-n {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
-    font-size: 1.05rem;
     color: var(--teal);
-    background: var(--surface2);
-    border: 1px solid var(--border-soft);
-    border-radius: 10px;
-    width: 46px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: none;
   }
-  .body { display: flex; flex-direction: column; gap: 3px; }
-  .t { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; }
-  .b { color: var(--muted); font-size: 0.9rem; }
-  .open {
+  .cap-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .cap-body b { font-family: 'Sora', sans-serif; font-size: 1.02rem; }
+  .cap-body span { color: var(--muted); font-size: 0.87rem; }
+  .pdf {
+    margin-left: auto;
+    flex: none;
     font-family: 'Sora', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    color: var(--teal-bright);
-    text-align: center;
-    line-height: 1.3;
+    border: 1px solid var(--teal-dim);
+    border-radius: 999px;
+    padding: 4px 12px;
   }
-  .after { color: var(--faint); font-size: 0.92rem; margin-top: 24px; }
+  .pdf:hover { text-decoration: none; border-color: var(--teal); }
+  .sheet img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .sheet > a { display: block; transition: transform 0.15s ease, box-shadow 0.15s ease; border-radius: 12px; }
+  .sheet > a:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .after { color: var(--faint); font-size: 0.92rem; margin-top: 32px; }
 </style>
