@@ -26,8 +26,10 @@ for (const f of (await readdir(SRC)).filter((f) => f.endsWith('.pdf'))) {
   await page.render({ canvasContext: ctx, viewport: vp }).promise;
   const png = canvas.toBuffer('image/png');
   const name = basename(f, '.pdf');
-  // Trim the PDF page's white margins down to the sheet itself.
-  const trimmed = await sharp(png).trim({ threshold: 12 }).png().toBuffer();
+  // Trim the PDF page's white margins, then breathe: an even border back on.
+  const trimmed = await sharp(
+    await sharp(png).trim({ threshold: 12 }).png().toBuffer(),
+  ).extend({ top: 56, bottom: 56, left: 56, right: 56, background: '#ffffff' }).png().toBuffer();
   const big = await sharp(trimmed).resize(1600).webp({ quality: 86 }).toFile(join(OUT, `${name}.webp`));
   const sm = await sharp(trimmed).resize(800).webp({ quality: 84 }).toFile(join(OUT, `${name}-sm.webp`));
   console.log(`${name}: ${canvas.width}x${canvas.height} -> ${(big.size / 1024).toFixed(0)}KB + ${(sm.size / 1024).toFixed(0)}KB`);

@@ -1,127 +1,361 @@
 ---
 import Base from '@layouts/Base.astro';
-
-const sheets = [
-  {
-    slug: 'the-stack',
-    title: 'The Kaspa stack',
-    blurb: 'All five layers on one page — what each does, what enforces what, and where you build.',
-    alt: 'Diagram of the Kaspa stack: your project on top, then Argent, Silverscript, Kaspa Script + Covenants, and Kaspa consensus at the base.',
-  },
-  {
-    slug: 'move-vs-enforce',
-    title: 'What changed',
-    blurb: 'The before/after of Toccata: Kaspa used to move money — now it enforces rules on it.',
-    alt: 'Before and after comparison: before, Alice sends 100 KAS to Bob with no conditions; now, rules are checked between them and the network refuses anything else.',
-  },
-  {
-    slug: 'what-is-a-covenant',
-    title: 'What is a covenant?',
-    blurb: 'A lock on coins with rules built in — with real example rules and what they unlock.',
-    alt: 'A padlock labelled coins-with-rules, example rules like "only Alice can spend" and "needs 2 of 3 to agree", and the things they enable: vaults, escrow, tokens.',
-  },
-  {
-    slug: 'three-things-you-can-build',
-    title: 'Three things you can build today',
-    blurb: 'Token, vault, or app — which part of the stack each one uses, all on Kaspa L1.',
-    alt: 'Three cards: launch a token (uses KCC-20), build a vault (uses Silverscript), build an app (uses Argent) — all ending as covenants on Kaspa L1.',
-  },
-  {
-    slug: 'which-tool',
-    title: 'Which tool do I need?',
-    blurb: 'One question at a time to the right tool — with an honest maturity label on each.',
-    alt: 'Decision flowchart: just want a token leads to KCC-20; rules on some coins leads to Silverscript; a whole app leads to Argent — with maturity labels for each.',
-  },
-];
+import MaturityBadge from '@components/MaturityBadge.astro';
 ---
 <Base
   title="Cheat sheets — KasStacker"
-  description="The Kaspa stack on five one-page cheat sheets — the stack, covenants, what to build and which tool. Free to save, share and print."
+  description="The Kaspa stack on five one-page cheat sheets — the stack, covenants, what to build and which tool. View them here, print the PDFs."
 >
   <div class="wrap-narrow">
     <header class="head">
       <p class="eyebrow">Learn · cheat sheets</p>
-      <h1>The stack on five pages</h1>
+      <h1>The stack on <em>five pages</em></h1>
       <p class="lede">
-        The whole idea, one page at a time — made for saving, sharing and printing.
-        Tap any sheet for the full-size PDF. Free, and always will be.
+        The whole idea, one page at a time — in full below, matching the site.
+        Every sheet downloads as a PDF in dark or light (light prints best).
+        Free to save, share and print.
       </p>
     </header>
 
-    <div class="gallery">
-      {sheets.map((s, i) => (
-        <figure class="sheet">
-          <figcaption>
-            <span class="cap-n">{String(i + 1).padStart(2, '0')}</span>
-            <span class="cap-body">
-              <b>{s.title}</b>
-              <span>{s.blurb}</span>
-            </span>
-            <a class="pdf" href={`/sheets/${s.slug}.pdf`} target="_blank" rel="noopener">PDF ↗</a>
-          </figcaption>
-          <a href={`/sheets/${s.slug}.pdf`} target="_blank" rel="noopener" aria-label={`Open ${s.title} as a full-size PDF`}>
-            <img
-              src={`/sheets/img/${s.slug}.webp`}
-              srcset={`/sheets/img/${s.slug}-sm.webp 800w, /sheets/img/${s.slug}.webp 1600w`}
-              sizes="(max-width: 820px) 94vw, 780px"
-              alt={s.alt}
-              width="1600"
-              height="1029"
-              loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-            />
-          </a>
-        </figure>
-      ))}
-    </div>
+    <!-- 01 · The stack -->
+    <section class="cs" id="the-stack">
+      <div class="cs-head">
+        <span class="cs-n">01</span>
+        <h2>The Kaspa stack</h2>
+        <span class="pdfs"><a href="/sheets/dark/the-stack-dark.pdf" target="_blank" rel="noopener">PDF dark ↗</a><a href="/sheets/the-stack.pdf" target="_blank" rel="noopener">light ↗</a></span>
+      </div>
+      <div class="cs-card">
+        <p class="cs-sub">Each layer rests on the one below. Higher = easier to use. Lower = what enforces it.</p>
+        <div class="pyramid">
+          <div class="prow" style="--w: 62%; --tint: 4%">
+            <b>Your project</b><span>a token, a vault, a game, an app</span>
+            <i class="side">← you build here</i>
+          </div>
+          <div class="prow" style="--w: 72%; --tint: 8%"><b>Argent</b><span>app language — links many rules into one working app</span></div>
+          <div class="prow" style="--w: 82%; --tint: 12%">
+            <b>Silverscript</b><span>rule language — write "this coin can only be spent if…"</span>
+            <i class="side">compiles down ↓</i>
+          </div>
+          <div class="prow" style="--w: 91%; --tint: 17%"><b>Kaspa Script + Covenants</b><span>the machine-level rules the network actually checks</span></div>
+          <div class="prow base" style="--w: 100%"><b>Kaspa consensus</b><span>blockDAG + proof of work — confirms everything in seconds</span></div>
+        </div>
+        <p class="cs-note">KCC-20 tokens sit on top of the covenant layer. vProgs is the research track for the future.</p>
+      </div>
+    </section>
+
+    <!-- 02 · What changed -->
+    <section class="cs" id="move-vs-enforce">
+      <div class="cs-head">
+        <span class="cs-n">02</span>
+        <h2>What changed</h2>
+        <span class="pdfs"><a href="/sheets/dark/move-vs-enforce-dark.pdf" target="_blank" rel="noopener">PDF dark ↗</a><a href="/sheets/move-vs-enforce.pdf" target="_blank" rel="noopener">light ↗</a></span>
+      </div>
+      <div class="cs-card">
+        <p class="cs-sub">Kaspa used to move money. Now it can enforce rules on money too.</p>
+        <div class="ba">
+          <div class="ba-panel">
+            <p class="ba-title">Before</p>
+            <div class="flow">
+              <span class="person">Alice</span>
+              <span class="wire"><em>100 KAS</em></span>
+              <span class="person">Bob</span>
+            </div>
+            <p class="ba-cap">Send coins from A to B.<br />That's it. No conditions.</p>
+          </div>
+          <div class="ba-panel now">
+            <p class="ba-title">Now</p>
+            <div class="flow">
+              <span class="person">Alice</span>
+              <span class="rules">rules<br />checked</span>
+              <span class="person">Bob</span>
+            </div>
+            <p class="ba-cap">"Only after 30 days. Max 100 KAS."<br />The network refuses anything else.</p>
+          </div>
+        </div>
+        <p class="cs-note">Those rules are called covenants. They live on the coins, not in a company's server.</p>
+      </div>
+    </section>
+
+    <!-- 03 · What is a covenant -->
+    <section class="cs" id="what-is-a-covenant">
+      <div class="cs-head">
+        <span class="cs-n">03</span>
+        <h2>What is a covenant?</h2>
+        <span class="pdfs"><a href="/sheets/dark/what-is-a-covenant-dark.pdf" target="_blank" rel="noopener">PDF dark ↗</a><a href="/sheets/what-is-a-covenant.pdf" target="_blank" rel="noopener">light ↗</a></span>
+      </div>
+      <div class="cs-card">
+        <p class="cs-sub">A lock on coins with rules built in. The whole network checks the rules, so nobody can cheat.</p>
+        <div class="cov">
+          <div class="lockcard">
+            <span class="lock" aria-hidden="true">🔒</span>
+            <b>Coins with rules</b>
+            <span>the rules travel with the coins</span>
+          </div>
+          <div class="rules-list">
+            <p class="rl-title">Example rules you can attach</p>
+            <p><span class="tick">✓</span> Only Alice can spend these</p>
+            <p><span class="tick">✓</span> Not before 1 January</p>
+            <p><span class="tick">✓</span> Max 100 KAS per day</p>
+            <p><span class="tick">✓</span> Needs 2 of 3 people to agree</p>
+          </div>
+        </div>
+        <div class="uses">
+          <div><b>Vaults</b><span>savings you can't drain</span></div>
+          <div><b>Escrow</b><span>pay only when delivered</span></div>
+          <div><b>Tokens</b><span>supply rules nobody can bend</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Three things you can build -->
+    <section class="cs" id="three-things">
+      <div class="cs-head">
+        <span class="cs-n">04</span>
+        <h2>Three things you can build today</h2>
+        <span class="pdfs"><a href="/sheets/dark/three-things-you-can-build-dark.pdf" target="_blank" rel="noopener">PDF dark ↗</a><a href="/sheets/three-things-you-can-build.pdf" target="_blank" rel="noopener">light ↗</a></span>
+      </div>
+      <div class="cs-card">
+        <p class="cs-sub">Pick your goal. Each one uses a different part of the stack.</p>
+        <div class="three">
+          <div class="tcard">
+            <span class="ticon" aria-hidden="true">🪙</span>
+            <b>Launch a token</b>
+            <span>Fixed supply, fair launch, tradable in wallets.</span>
+            <em>uses KCC-20</em>
+          </div>
+          <div class="tcard">
+            <span class="ticon" aria-hidden="true">🔒</span>
+            <b>Build a vault</b>
+            <span>Coins with spending rules: time locks, limits, escrow.</span>
+            <em>uses Silverscript</em>
+          </div>
+          <div class="tcard">
+            <span class="ticon" aria-hidden="true">🎮</span>
+            <b>Build an app</b>
+            <span>Games, markets, agents — many rules working together.</span>
+            <em>uses Argent</em>
+          </div>
+        </div>
+        <p class="cs-note">All three end up as covenants on Kaspa L1 — no separate chain, no bridge.</p>
+      </div>
+    </section>
+
+    <!-- 05 · Which tool -->
+    <section class="cs" id="which-tool">
+      <div class="cs-head">
+        <span class="cs-n">05</span>
+        <h2>Which tool do I need?</h2>
+        <span class="pdfs"><a href="/sheets/dark/which-tool-dark.pdf" target="_blank" rel="noopener">PDF dark ↗</a><a href="/sheets/which-tool.pdf" target="_blank" rel="noopener">light ↗</a></span>
+      </div>
+      <div class="cs-card">
+        <p class="cs-sub">Answer one question at a time.</p>
+        <div class="dt">
+          <div class="q"><b>Just want a token?</b><span>supply, name, trading</span></div>
+          <span class="yes">yes →</span>
+          <div class="a"><b>KCC-20</b><span>no code needed</span></div>
+
+          <span class="no">no ↓</span><span></span><span></span>
+
+          <div class="q"><b>Rules on some coins?</b><span>vault, escrow, time lock</span></div>
+          <span class="yes">yes →</span>
+          <div class="a"><b>Silverscript</b><span>write the rule, deploy it</span></div>
+
+          <span class="no">no ↓</span><span></span><span></span>
+
+          <div class="q"><b>A whole app?</b><span>many parts talking to each other</span></div>
+          <span class="yes">yes →</span>
+          <div class="a"><b>Argent</b><span>builds on Silverscript</span></div>
+        </div>
+        <div class="maturity">
+          <p class="rl-title">Maturity today</p>
+          <div class="mrow"><span>KCC-20</span><MaturityBadge maturity="production" /></div>
+          <div class="mrow"><span>Kaspa Script + Covenants</span><MaturityBadge maturity="production" /></div>
+          <div class="mrow"><span>Silverscript</span><MaturityBadge maturity="pre-audit" /></div>
+          <div class="mrow"><span>Argent</span><MaturityBadge maturity="experimental" /></div>
+          <p class="mlink">live status: <a href="/status">kasstacker.org/status</a></p>
+        </div>
+        <p class="cs-note">Everything ends up as covenants checked by Kaspa consensus.</p>
+      </div>
+    </section>
 
     <p class="after">
-      Want the interactive versions? The <a href="/learn">6-stop tour</a> covers the same ground with
-      quizzes — and you can <a href="/learn/try-it">break a real covenant</a> yourself.
+      Want it interactive? The <a href="/learn">6-stop tour</a> covers the same ground with quizzes —
+      and you can <a href="/learn/try-it">break a real covenant</a> yourself.
     </p>
   </div>
 </Base>
 
 <style>
-  .head { padding: 56px 0 28px; }
-  .head h1 { font-size: 2rem; font-weight: 800; margin: 8px 0 12px; }
+  .head { padding: 56px 0 34px; }
+  .head h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); font-weight: 800; margin: 8px 0 12px; }
+  .head h1 em { font-style: normal; color: var(--teal); }
   .lede { color: var(--muted); font-size: 1.05rem; }
-  .gallery { display: grid; gap: 36px; }
-  .sheet { margin: 0; }
-  figcaption {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-  .cap-n {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    color: var(--teal);
-    flex: none;
-  }
-  .cap-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-  .cap-body b { font-family: 'Sora', sans-serif; font-size: 1.02rem; }
-  .cap-body span { color: var(--muted); font-size: 0.87rem; }
-  .pdf {
-    margin-left: auto;
-    flex: none;
+
+  .cs { margin-bottom: 52px; }
+  .cs-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 12px; }
+  .cs-n { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 1.05rem; color: var(--teal); }
+  .cs-head h2 { font-size: 1.35rem; font-weight: 800; }
+  .pdfs { margin-left: auto; display: flex; gap: 8px; }
+  .pdfs a {
     font-family: 'Sora', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 700;
     border: 1px solid var(--teal-dim);
     border-radius: 999px;
     padding: 4px 12px;
+    white-space: nowrap;
   }
-  .pdf:hover { text-decoration: none; border-color: var(--teal); }
-  .sheet img {
-    display: block;
-    width: 100%;
-    height: auto;
+  .pdfs a:hover { text-decoration: none; border-color: var(--teal); }
+  .cs-card {
+    background: linear-gradient(165deg, color-mix(in srgb, var(--teal) 5%, var(--surface)), var(--surface) 55%);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 26px 26px 20px;
+  }
+  .cs-sub { color: var(--muted); font-size: 0.95rem; margin: 0 0 22px; }
+  .cs-note {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin: 22px 0 0;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 14px;
+  }
+  .rl-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 12px;
+  }
+
+  /* 01 — pyramid */
+  .pyramid { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .prow {
+    position: relative;
+    width: var(--w);
+    min-width: min(100%, 320px);
+    text-align: center;
+    background: color-mix(in srgb, var(--teal) var(--tint, 0%), var(--surface2));
+    border: 1px solid var(--teal-dim);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .prow b { font-family: 'Sora', sans-serif; font-size: 1rem; display: block; }
+  .prow span { color: var(--muted); font-size: 0.82rem; }
+  .prow.base { background: var(--teal); border-color: var(--teal); }
+  .prow.base b { color: var(--teal-ink); }
+  .prow.base span { color: color-mix(in srgb, var(--teal-ink) 75%, var(--teal)); }
+  .side {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-style: normal;
+    font-size: 0.74rem;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  @media (max-width: 860px) { .side { display: none; } }
+
+  /* 02 — before/now */
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 680px) { .ba { grid-template-columns: 1fr; } }
+  .ba-panel { border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .ba-panel.now { border-color: var(--teal); }
+  .ba-title { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.05rem; text-align: center; margin: 0 0 18px; }
+  .ba-panel.now .ba-title { color: var(--teal); }
+  .flow { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+  .person {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--surface2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.8rem; flex: none;
+  }
+  .wire { flex: 1; max-width: 120px; border-top: 2px solid var(--muted); position: relative; text-align: center; }
+  .wire em { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-style: normal; font-size: 0.74rem; color: var(--faint); white-space: nowrap; }
+  .wire::after { content: '▸'; position: absolute; right: -6px; top: -11px; color: var(--muted); }
+  .rules {
+    background: var(--teal); color: var(--teal-ink);
+    font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.72rem;
+    border-radius: 8px; padding: 8px 12px; text-align: center; line-height: 1.25; flex: none;
+  }
+  .ba-cap { color: var(--muted); font-size: 0.86rem; text-align: center; margin: 0; }
+
+  /* 03 — covenant */
+  .cov { display: grid; grid-template-columns: 240px 1fr; gap: 20px; align-items: stretch; }
+  @media (max-width: 680px) { .cov { grid-template-columns: 1fr; } }
+  .lockcard {
+    background: color-mix(in srgb, var(--teal) 16%, var(--surface2));
+    border: 1px solid var(--teal-dim);
     border-radius: 12px;
-    border: 1px solid var(--border);
+    padding: 26px 18px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    text-align: center;
   }
-  .sheet > a { display: block; transition: transform 0.15s ease, box-shadow 0.15s ease; border-radius: 12px; }
-  .sheet > a:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .after { color: var(--faint); font-size: 0.92rem; margin-top: 32px; }
+  .lock { font-size: 3.2rem; line-height: 1; margin-bottom: 6px; }
+  .lockcard b { font-family: 'Sora', sans-serif; }
+  .lockcard span { color: var(--muted); font-size: 0.82rem; }
+  .rules-list p { display: flex; align-items: baseline; gap: 10px; margin: 0 0 10px; font-size: 0.95rem; }
+  .tick {
+    background: var(--teal); color: var(--teal-ink);
+    font-weight: 700; font-size: 0.72rem;
+    border-radius: 6px; width: 20px; height: 20px; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    transform: translateY(2px);
+  }
+  .uses { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 20px; }
+  @media (max-width: 680px) { .uses { grid-template-columns: 1fr; } }
+  .uses div { background: var(--surface2); border: 1px solid var(--border-soft); border-radius: 10px; padding: 12px 14px; text-align: center; }
+  .uses b { font-family: 'Sora', sans-serif; font-size: 0.92rem; display: block; }
+  .uses span { color: var(--muted); font-size: 0.8rem; }
+
+  /* 04 — three things */
+  .three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px) { .three { grid-template-columns: 1fr; } }
+  .tcard {
+    border: 1px solid var(--teal-dim); border-radius: 12px; padding: 22px 18px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
+  }
+  .ticon {
+    font-size: 1.8rem; line-height: 1;
+    background: color-mix(in srgb, var(--teal) 16%, var(--surface2));
+    border-radius: 50%; width: 62px; height: 62px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tcard b { font-family: 'Sora', sans-serif; font-size: 1.02rem; }
+  .tcard span { color: var(--muted); font-size: 0.86rem; }
+  .tcard em {
+    font-style: normal; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.76rem;
+    background: var(--teal); color: var(--teal-ink);
+    border-radius: 999px; padding: 5px 14px; margin-top: 6px;
+  }
+
+  /* 05 — decision flow */
+  .dt {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px 14px;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  .q { border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; }
+  .a { background: color-mix(in srgb, var(--teal) 18%, var(--surface2)); border: 1px solid var(--teal); border-radius: 10px; padding: 12px 16px; }
+  .q b, .a b { font-family: 'Sora', sans-serif; font-size: 0.95rem; display: block; }
+  .q span, .a span { color: var(--muted); font-size: 0.8rem; }
+  .yes { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.78rem; color: var(--teal-bright); white-space: nowrap; }
+  .no { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.74rem; color: var(--faint); padding-left: 16px; }
+  @media (max-width: 680px) {
+    .dt { grid-template-columns: 1fr; gap: 8px; }
+    .yes { text-align: center; }
+    .yes::after { content: ''; }
+    .no { padding-left: 0; text-align: center; }
+    .dt > span:empty { display: none; }
+  }
+  .maturity { border: 1px solid var(--border-soft); border-radius: 12px; padding: 16px 18px; background: var(--surface2); }
+  .mrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 0.92rem; }
+  .mlink { color: var(--faint); font-size: 0.8rem; margin: 10px 0 0; }
+
+  .after { color: var(--faint); font-size: 0.92rem; margin-top: 8px; }
 </style>
