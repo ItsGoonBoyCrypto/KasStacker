@@ -1,15 +1,24 @@
 {
-  "generatedAt": "2026-09-14T12:25:32.643Z",
+  "generatedAt": "2026-09-14T15:18:12.650Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "863c033a29e03007609938a3f164aa108d7b31f9c06e9e0b96051559fd1589fc",
+      "txId": "63d498e1f94eebb4f98b249301e0d40b3e508dbf43dac88c3b7f4efcb203557a",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "492458",
+      "amount": "982595",
       "decimals": 0,
-      "timestamp": 1789387014535
+      "timestamp": 1789397322949
+    },
+    {
+      "txId": "e296177bee69cd2bb1a8ca16a602d8bcbfeef2217e79c8915d0d065ce8e3087c",
+      "kind": "transfer",
+      "ticker": "ZKFROG",
+      "name": "Zero-Knowledge Frog",
+      "amount": "7",
+      "decimals": 0,
+      "timestamp": 1789391908783
     },
     {
       "txId": "4bbd9bb0bc6827a3e6ab4347dfffd42bff04a135c06b0da6666d6aff722704f8",
@@ -19,15 +28,6 @@
       "amount": "7874",
       "decimals": 0,
       "timestamp": 1789381677455
-    },
-    {
-      "txId": "3f71970f3e44b713d7460eb59e17ed04be2a7445953e6029cdb3604e096183e9",
-      "kind": "buy",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "1612232",
-      "decimals": 0,
-      "timestamp": 1789364596912
     }
   ]
 }
