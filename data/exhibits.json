@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-13T11:31:54.103Z",
+  "generatedAt": "2026-09-14T12:25:32.643Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "babf742b673e890442abdbd58ea074cc678259562bedde64e91f41e7d427329e",
-      "kind": "sell",
+      "txId": "863c033a29e03007609938a3f164aa108d7b31f9c06e9e0b96051559fd1589fc",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "200000",
+      "amount": "492458",
       "decimals": 0,
-      "timestamp": 1789298411496
+      "timestamp": 1789387014535
     },
     {
-      "txId": "4a08512be942a5a95ba5cd1bb511d76d8fda4e236b94b455e03c9ba033870699",
+      "txId": "4bbd9bb0bc6827a3e6ab4347dfffd42bff04a135c06b0da6666d6aff722704f8",
       "kind": "sell",
-      "ticker": "KASDIA",
-      "name": "Kaspa al Día",
-      "amount": "1000",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "7874",
       "decimals": 0,
-      "timestamp": 1789282290355
+      "timestamp": 1789381677455
     },
     {
-      "txId": "cf8c4b74abb4df61a202cb33707777a6b2ecbc2da12faf83c032e3bae572d147",
-      "kind": "sell",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "182830",
+      "txId": "3f71970f3e44b713d7460eb59e17ed04be2a7445953e6029cdb3604e096183e9",
+      "kind": "buy",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "1612232",
       "decimals": 0,
-      "timestamp": 1789282187852
+      "timestamp": 1789364596912
     }
   ]
 }
