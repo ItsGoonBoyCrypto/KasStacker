@@ -61,7 +61,7 @@ const stops = [
       </p>
       <div class="ctas">
         <a class="btn btn-primary" href="/learn/kaspa-in-60-seconds">Start the tour →</a>
-        <a class="btn btn-ghost" href="/learn/cheat-sheets">📄 The cheat sheets</a>
+        <a class="btn sheets-btn" href="/learn/cheat-sheets">📄 The cheat sheets <span class="tag">5 one-pagers</span></a>
       </div>
     </header>
 
@@ -109,7 +109,45 @@ const stops = [
   }
   .head h1 em { font-style: normal; color: var(--teal); }
   .lede { color: var(--muted); font-size: 1.05rem; }
-  .ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
+
+  /* The cheat sheets — the bright one in the pair. */
+  .sheets-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    color: var(--teal-ink);
+    background: linear-gradient(120deg, var(--teal-bright), var(--teal));
+    border: 1px solid var(--teal-bright);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--teal) 45%, transparent);
+    animation: sheets-glow 2.2s ease-in-out infinite;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .sheets-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 26px color-mix(in srgb, var(--teal) 65%, transparent);
+    text-decoration: none;
+  }
+  .sheets-btn .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.64rem;
+    letter-spacing: 0.02em;
+    color: var(--teal-bright);
+    background: var(--teal-ink);
+    border-radius: 999px;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+  @keyframes sheets-glow {
+    0%, 100% { box-shadow: 0 0 14px color-mix(in srgb, var(--teal) 35%, transparent); }
+    50% { box-shadow: 0 0 26px color-mix(in srgb, var(--teal) 60%, transparent); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sheets-btn { animation: none; }
+  }
 
   .stops { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
   .stops a {
