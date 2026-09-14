@@ -182,7 +182,7 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
   .opt input { accent-color: var(--teal); }
 
   .says { margin: 20px 0 8px; font-size: 1rem; color: var(--muted); min-height: 2.4em; }
-  .says b { color: var(--text); }
+  .says :global(b) { color: var(--text); }
 
   .out { margin-top: 8px; min-width: 0; }
   .out-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
@@ -199,21 +199,23 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
   }
   .mini:hover { border-color: var(--teal); }
   .out pre { margin: 0; }
-  .ln { display: block; }
-  .ln.new { animation: flash 1.4s ease; border-radius: 4px; }
+  /* .ln spans and note items are created by JS, so they carry no Astro scope
+     attribute — style them via :global. */
+  .out pre :global(.ln) { display: block; }
+  .out pre :global(.ln.new) { animation: flash 1.4s ease; border-radius: 4px; }
   @keyframes flash { 0%, 45% { background: color-mix(in srgb, var(--teal) 22%, transparent); } 100% { background: transparent; } }
   .copied { color: var(--m-audited); font-size: 0.82rem; margin: 8px 0 0; }
 
   .notes { margin-top: 22px; }
   .notes ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
-  .notes li {
+  .notes :global(li) {
     display: grid; grid-template-columns: 28px 1fr; gap: 4px 10px;
     background: var(--surface); border: 1px solid var(--border-soft);
     border-radius: 10px; padding: 11px 14px; font-size: 0.86rem;
   }
-  .notes .ic { grid-row: span 2; font-size: 1.05rem; }
-  .notes code { font-size: 0.78rem; overflow-wrap: anywhere; }
-  .notes .why { color: var(--muted); }
+  .notes :global(.ic) { grid-row: span 2; font-size: 1.05rem; }
+  .notes :global(code) { font-size: 0.78rem; overflow-wrap: anywhere; }
+  .notes :global(.why) { color: var(--muted); }
 
   .after { margin-top: 28px; }
   .honesty { color: var(--faint); font-size: 0.88rem; border-top: 1px solid var(--border-soft); padding-top: 14px; }
