@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-14T15:18:12.650Z",
+  "generatedAt": "2026-09-15T11:30:18.139Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "63d498e1f94eebb4f98b249301e0d40b3e508dbf43dac88c3b7f4efcb203557a",
+      "txId": "0d3032a4501a7eb7faff2cb7557edd751d3350cc611357945c5ebe672d17ecf8",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "982595",
+      "amount": "453187",
       "decimals": 0,
-      "timestamp": 1789397322949
+      "timestamp": 1789470124304
     },
     {
-      "txId": "e296177bee69cd2bb1a8ca16a602d8bcbfeef2217e79c8915d0d065ce8e3087c",
-      "kind": "transfer",
-      "ticker": "ZKFROG",
-      "name": "Zero-Knowledge Frog",
-      "amount": "7",
-      "decimals": 0,
-      "timestamp": 1789391908783
-    },
-    {
-      "txId": "4bbd9bb0bc6827a3e6ab4347dfffd42bff04a135c06b0da6666d6aff722704f8",
-      "kind": "sell",
+      "txId": "b02047c29d6f837431ece44b61f17daa186ef1ef738a25067b229dcc4d177eb1",
+      "kind": "buy",
       "ticker": "KASCOV",
       "name": "kascov",
-      "amount": "7874",
+      "amount": "4339",
       "decimals": 0,
-      "timestamp": 1789381677455
+      "timestamp": 1789469472197
+    },
+    {
+      "txId": "c7b5c1fbc6cc618a252e904941ec46e19bc9e8e758c6bc2f75968fcda0033e9b",
+      "kind": "buy",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "2864056",
+      "decimals": 0,
+      "timestamp": 1789458966526
     }
   ]
 }
