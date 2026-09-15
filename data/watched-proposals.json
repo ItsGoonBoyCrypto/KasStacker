@@ -4,5 +4,11 @@
     "pr": 24,
     "label": "KCC-12 — common wallet provider API + PSKB",
     "note": "EIP-1193/6963-style; overlaps the separate KIP-12 wallet-discovery effort — convergence is the open question"
+  },
+  {
+    "repo": "kaspanet/kccs",
+    "pr": 26,
+    "label": "KCC-23 — MJ, JSON metadata bound to a covenant ID",
+    "note": "general-purpose (not only tokens): a dedicated KCC-1 instance anchors metadata at genesis; under discussion with core devs — a July sibling proposal (KCC-21, PR #6) covers token metadata, so which shape wins is the open question"
   }
 ]
