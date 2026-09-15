@@ -5,11 +5,15 @@
 import stats from '@data/chainstats.json';
 
 const total = stats.totals.covenantsCreated;
+const alive = stats.totals.alive;
+const transitions = stats.totals.transitions;
+const tpl = stats.kascov?.templates;
 const pts = stats.series.points;
 // The final bucket is the partial current day — the one before it is the
 // last complete 24h window.
 const yesterday = pts.length >= 2 ? pts[pts.length - 2].events : null;
 const updated = stats.generatedAt.slice(0, 10);
+const fmt = (n: number | null) => (n === null ? '—' : n.toLocaleString('en-US'));
 
 // Sparkline over the 30d event series (build-time SVG, no JS needed).
 const W = 220;
@@ -20,19 +24,38 @@ const line = pts
   .join(' ');
 ---
 <a class="pulse" href="/status">
-  <div class="p-main">
-    <span class="p-num" id="pulse-num" data-total={total}>{total.toLocaleString('en-US')}</span>
-    <span class="p-label">covenants enforcing rules on Kaspa mainnet</span>
+  <div class="p-row">
+    <div class="p-main">
+      <span class="p-num" id="pulse-num" data-total={total}>{total.toLocaleString('en-US')}</span>
+      <span class="p-label">covenants created on Kaspa mainnet (all time)</span>
+    </div>
+    <div class="p-stat">
+      <span class="p-num2">{fmt(alive)}</span>
+      <span class="p-label">alive right now</span>
+    </div>
+    <div class="p-stat">
+      <span class="p-num2">{fmt(transitions)}</span>
+      <span class="p-label">state transitions (all time)</span>
+    </div>
+    <div class="p-side">
+      <svg class="p-spark" viewBox={`0 0 ${W} ${H}`} width={W} height={H} aria-hidden="true">
+        <polyline points={line} fill="none" stroke="var(--teal-bright)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9" />
+      </svg>
+      {yesterday !== null && (
+        <span class="p-delta">{yesterday.toLocaleString('en-US')} covenant events yesterday</span>
+      )}
+      <span class="p-src">from kcc20.info + kascov.io · refreshed daily · {updated}</span>
+    </div>
   </div>
-  <div class="p-side">
-    <svg class="p-spark" viewBox={`0 0 ${W} ${H}`} width={W} height={H} aria-hidden="true">
-      <polyline points={line} fill="none" stroke="var(--teal-bright)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9" />
-    </svg>
-    {yesterday !== null && (
-      <span class="p-delta">{yesterday.toLocaleString('en-US')} covenant events yesterday</span>
-    )}
-    <span class="p-src">live count from kcc20.info · refreshed daily · {updated}</span>
-  </div>
+  {tpl && (
+    <p class="p-break">
+      <b>What the {Math.round(total / 1000)}k actually is:</b>{' '}
+      KasWare vaults {fmt(tpl.kaswareVaults.covenants)} ({fmt(tpl.kaswareVaults.liveStates)} live) ·
+      KCC-20 {fmt(tpl.kcc20?.covenants)} tokens ({fmt(tpl.kcc20?.liveStates)} live states) ·
+      P2SH commitment {fmt(tpl.p2shCommitment?.covenants)} ({fmt(tpl.p2shCommitment?.liveStates)} live) ·
+      Silverscript escrow {fmt(tpl.silverscriptEscrow?.covenants)} ({fmt(tpl.silverscriptEscrow?.liveStates)} live)
+    </p>
+  )}
 </a>
 
 <script>
@@ -60,10 +83,7 @@ const line = pts
 
 <style>
   .pulse {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-    flex-wrap: wrap;
+    display: block;
     background: linear-gradient(150deg, color-mix(in srgb, var(--teal) 8%, var(--surface)), var(--surface) 60%);
     border: 1px solid var(--teal-dim);
     border-radius: 14px;
@@ -72,7 +92,24 @@ const line = pts
     margin-top: 34px;
   }
   .pulse:hover { text-decoration: none; border-color: var(--teal); box-shadow: var(--shadow); }
-  .p-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .p-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+  .p-main, .p-stat { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .p-num2 {
+    font-family: 'Chakra Petch', 'Sora', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 700;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.15;
+  }
+  .p-break {
+    margin: 14px 0 0;
+    border-top: 1px dashed var(--border-soft);
+    padding-top: 12px;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  .p-break b { color: var(--text); }
   .p-num {
     font-family: 'Chakra Petch', 'Sora', sans-serif;
     font-size: clamp(1.9rem, 5vw, 2.6rem);

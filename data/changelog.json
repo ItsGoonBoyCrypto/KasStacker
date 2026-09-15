@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-09-15",
+    "kind": "site",
+    "title": "Corrections from the first independent review (STP-KAS)",
+    "body": "STP-KAS published an independent claim-and-product review of this site, and it was right about a lot. Shipped the same day: (1) the homepage counter now says what it counts — covenants created all time (mostly completed KasWare vault lifecycles), with 'alive now' (created minus burned, ~700) and a template breakdown alongside; (2) vProgs was wrongly listed as having no public repo — kaspanet/vprogs is public and in early development, and is now on the status board with live GitHub data; (3) KCC-20's maturity badge dropped from production to draft — the standard has no tagged release, and the legend now states the rule: production requires one (mainnet adoption is shown separately, from the feed); (4) the try-it lesson no longer implies a network broadcast — it runs in your browser against the contract's logic, and now says so (live testnet-10 broadcast: coming); (5) ecosystem cards replaced the bare 'reviewed' stamp with typed, dated checks — compiled in CI, on-chain proof, source public, homepage visited — and a card with only a homepage visit says 'listed, not verified', per the now-public LISTING_CHECKLIST.md; (6) the status page gained an indexer-agreement table comparing kcc20.info against kascov.io daily, with units labelled where they differ. Review: github.com/STP-KAS/three-x-reviews."
+  },
+  {
     "date": "2026-09-14",
     "kind": "site",
     "title": "Five new ways in: design a covenant, spot the rug, and more",

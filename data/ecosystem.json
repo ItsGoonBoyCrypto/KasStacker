@@ -8,8 +8,18 @@
       "tagline": "Chess for KAS stakes",
       "shows": "Match escrow is a covenant with a trustless timeout forfeit — proven on testnet-10, then mainnet. The chain enforces the win.",
       "origin": "community",
-      "verified": "live on mainnet",
-      "featured": true
+      "featured": true,
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-09-08",
+          "what": "mainnet escrow spends"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-14"
+        }
+      ]
     },
     {
       "name": "Dagger",
@@ -19,8 +29,18 @@
       "tagline": "Telegram trading for covenant tokens",
       "shows": "Trades KCC-20 tokens across the L1 venues from a Telegram bot — every trade verifiable on kascov.",
       "origin": "community",
-      "verified": "live on mainnet",
-      "featured": true
+      "featured": true,
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-09-12",
+          "what": "mainnet trades visible on kascov"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ]
     },
     {
       "name": "Koracle",
@@ -30,8 +50,15 @@
       "tagline": "The accountable oracle",
       "shows": "A named oracle signing facts with BIP340 and settling them into covenants and hashlocks — with its own four-tier honesty labels.",
       "origin": "community",
-      "verified": "reviewed 2026-09-11 · signed feeds live",
-      "featured": true
+      "featured": true,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-11",
+          "what": "signed feeds observed live"
+        }
+      ],
+      "note": "listed on its public claims — no code or on-chain check yet"
     },
     {
       "name": "Warda Protocol",
@@ -41,8 +68,18 @@
       "tagline": "Spending limits for AI agents",
       "shows": "An agent's budget compiled into the coin's script: a spend outside the cap is not refused — it is not a transaction.",
       "origin": "community",
-      "verified": "reviewed 2026-09-11 · testnet-10, unaudited by its own statement · open source",
-      "featured": true
+      "featured": true,
+      "checks": [
+        {
+          "type": "source",
+          "date": "2026-09-11"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-11"
+        }
+      ],
+      "note": "testnet-10, unaudited by its own statement"
     },
     {
       "name": "Kaspire wallet",
@@ -52,8 +89,17 @@
       "tagline": "The covenant-ready wallet",
       "shows": "KCC-20 discovery and operations built on the Silverscript template — mainnet and testnet-10.",
       "origin": "community",
-      "verified": "reviewed 2026-09-11 · open source",
-      "featured": true
+      "featured": true,
+      "checks": [
+        {
+          "type": "source",
+          "date": "2026-09-11"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-11"
+        }
+      ]
     },
     {
       "name": "DagSphere",
@@ -63,8 +109,14 @@
       "tagline": "See who really holds it",
       "shows": "Live holder maps for every KCC-20 token — bubbles by share of supply, funding-cluster detection, deployer tags. Read-only by design.",
       "origin": "community",
-      "verified": "live · free access code from the Dagger bot (/sphere) · checked 2026-09-12",
-      "featured": true
+      "featured": true,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-12",
+          "what": "read-only chain data; free access code via the Dagger bot"
+        }
+      ]
     },
     {
       "name": "KasProof",
@@ -74,8 +126,14 @@
       "tagline": "Stamp any file onto the DAG",
       "shows": "Your file is hashed in the browser, the hash becomes a Kaspa address, one transaction becomes a permanent timestamp anyone can verify — the file itself never leaves your device.",
       "origin": "community",
-      "verified": "reviewed 2026-09-14 · live on mainnet",
-      "featured": false
+      "featured": false,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-14",
+          "what": "mainnet connect observed"
+        }
+      ]
     },
     {
       "name": "Kassword",
@@ -85,8 +143,17 @@
       "tagline": "A post-quantum vault on the DAG",
       "shows": "Passwords, IDs and files encrypted in your browser with NIST post-quantum ciphers, then backed up as sealed noise onto the Kaspa BlockDAG — no accounts, no Kassword servers.",
       "origin": "community",
-      "verified": "reviewed 2026-09-14 · open source",
-      "featured": false
+      "featured": false,
+      "checks": [
+        {
+          "type": "source",
+          "date": "2026-09-14"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-14"
+        }
+      ]
     },
     {
       "name": "KasRanks",
@@ -96,8 +163,13 @@
       "tagline": "Your bag picks your creature",
       "shows": "An NFT collection where your rank is assigned by how much KAS your wallet holds — 782 handcrafted sea creatures across 11 tiers, from Plankton to Aquaman, native on the DAG.",
       "origin": "community",
-      "verified": "reviewed 2026-09-14",
-      "featured": false
+      "featured": false,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-14"
+        }
+      ]
     },
     {
       "name": "Enclave",
@@ -107,8 +179,14 @@
       "tagline": "Self-custody, considered",
       "shows": "A wallet built around understanding what you sign: SureSign spells out a transaction's effects before you approve, Deal Desk holds agreements in encrypted escrow rooms, and vaults carry defined access and inheritance terms.",
       "origin": "community",
-      "verified": "reviewed 2026-09-14 · in active development · source not yet public",
-      "featured": false
+      "featured": false,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-14"
+        }
+      ],
+      "note": "in active development · source not yet public"
     }
   ],
   "venues": [
@@ -119,7 +197,17 @@
       "layer": "Covenants · KCC-20",
       "tagline": "Kaspa's L1 DEX + launchpad",
       "shows": "Swap KCC-20 tokens against a permanently-locked AMM, or launch your own on a rug-proof bonding curve — live charts per token.",
-      "verified": "live on mainnet · trading verified on chain"
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-09-12",
+          "what": "mainnet trades verified on chain"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ]
     },
     {
       "name": "KaspaRocket",
@@ -128,7 +216,18 @@
       "layer": "Silverscript · KCC-20",
       "tagline": "Fair-launch tokens on a curve",
       "shows": "Tokens climb a dual-phase bonding curve, then graduate to a constant-product AMM — and the venue publishes its Silverscript contracts.",
-      "verified": "live · contracts published + parse-checked weekly in CI"
+      "checks": [
+        {
+          "type": "compile",
+          "date": "daily",
+          "what": "contracts parse-checked in CI"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ],
+      "note": "L1 trading proven end-to-end on testnet-10"
     },
     {
       "name": "Zealous Swap",
@@ -137,7 +236,17 @@
       "layer": "Covenants · KCC-20",
       "tagline": "The sustainable-liquidity DEX",
       "shows": "Protocol-owned liquidity, an insurance fund and NFT-based fees — a DEX with launchpad built for the long game.",
-      "verified": "trading verified on chain · reviewed 2026-09-12"
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-09-09",
+          "what": "buy, sell and launch on testnet-10"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ]
     },
     {
       "name": "KForge",
@@ -146,7 +255,17 @@
       "layer": "Covenants · KCC-20",
       "tagline": "Forge a token, watch it graduate",
       "shows": "A launchpad and DEX built entirely from Kaspa covenants — the script holding the funds enforces the price.",
-      "verified": "trading verified on chain (testnet-10) · reviewed 2026-09-12"
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-09-12",
+          "what": "trades on testnet-10"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ]
     },
     {
       "name": "KaspaKaha",
@@ -155,7 +274,17 @@
       "layer": "Covenants · KCC-20",
       "tagline": "The covenant AMM",
       "shows": "Pool-based AMM swaps where the covenant itself is the market maker — build a trade, sign it, the pool enforces the price.",
-      "verified": "buy + sell verified on chain (testnet-10)"
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-09-09",
+          "what": "buy + sell on testnet-10"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ]
     },
     {
       "name": "KaspaCom",
@@ -164,7 +293,13 @@
       "layer": "Covenants · KCC-20",
       "tagline": "The Kaspa marketplace hub",
       "shows": "Tokens, NFTs, domains and a KCC20 covenant marketplace — plus its own covenant explorer at covenants.kaspa.com.",
-      "verified": "KCC20 marketplace live on mainnet"
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-12",
+          "what": "KCC20 marketplace live on mainnet, observed"
+        }
+      ]
     }
   ],
   "explorers": [
@@ -175,7 +310,13 @@
       "layer": "Covenants · KCC-20",
       "tagline": "Covenant explorer + zero-install playground",
       "shows": "Browse live covenants, KCC-20 holdings and trades — and try covenant code right in the browser, nothing to install.",
-      "verified": "serving mainnet + testnet-10"
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ],
+      "note": "now also a daily data source for this site (templates feed)"
     },
     {
       "name": "KaspaCom Covenant Explorer",
@@ -184,7 +325,12 @@
       "layer": "Covenants · KCC-20",
       "tagline": "Covenant activity made visible",
       "shows": "KCC20 listings, trades, transactions and UTXOs in one place — the marketplace hub's own window onto the chain.",
-      "verified": "live on mainnet"
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ]
     },
     {
       "name": "kcc20.info",
@@ -193,13 +339,31 @@
       "layer": "Covenants · KCC-20",
       "tagline": "The keyless covenant indexer",
       "shows": "Public JSON for tokens, holders, balances, covenant events and signing data — no API key, local-first, validated from a Kaspa node.",
-      "verified": "in daily use by this site — the mainnet exhibits come from its API"
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-12"
+        }
+      ],
+      "note": "in daily use — the site’s mainnet numbers come from its API"
     }
   ],
   "underReview": [
-    { "name": "OpenSilver (22-pattern library)", "why": "written pre-v1.0.0 — 21 of 25 contracts no longer parse against the current compiler; listed when updated" },
-    { "name": "kosign (covenant multisig)", "why": "written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated" },
-    { "name": "K100bet contracts & kasmelt-snapshot", "why": "same v1.0.0 syntax drift as above" },
-    { "name": "Portrait", "why": "pattern library with its own covenant language — checking its emitted Silverscript next" }
+    {
+      "name": "OpenSilver (22-pattern library)",
+      "why": "written pre-v1.0.0 — 21 of 25 contracts no longer parse against the current compiler; listed when updated"
+    },
+    {
+      "name": "kosign (covenant multisig)",
+      "why": "written pre-v1.0.0 — its contracts no longer parse against the current compiler; listed when updated"
+    },
+    {
+      "name": "K100bet contracts & kasmelt-snapshot",
+      "why": "same v1.0.0 syntax drift as above"
+    },
+    {
+      "name": "Portrait",
+      "why": "pattern library with its own covenant language — checking its emitted Silverscript next"
+    }
   ]
 }

@@ -3,7 +3,10 @@
 // per the data rules, unknown values are shown, never guessed.
 interface Props { maturity: string | null }
 const { maturity } = Astro.props;
-const known = ['roadmap', 'experimental', 'testnet', 'pre-audit', 'audited', 'production', 'legacy'];
+// Rule (STP-KAS review, 2026-09-15): 'production' requires a tagged
+// spec/release in the feed data — a live-on-mainnet component with no tag is
+// at most 'draft'.
+const known = ['roadmap', 'experimental', 'draft', 'testnet', 'pre-audit', 'audited', 'production', 'legacy'];
 const m = maturity && known.includes(maturity) ? maturity : null;
 const cls = m ? `b-${m.replace('-', '')}` : 'b-unverified';
 ---
@@ -22,6 +25,7 @@ const cls = m ? `b-${m.replace('-', '')}` : 'b-unverified';
   }
   .b-roadmap { color: var(--m-roadmap); border-color: var(--m-roadmap); }
   .b-experimental { color: var(--m-experimental); border-color: var(--m-experimental); }
+  .b-draft { color: var(--m-testnet); border-color: var(--m-testnet); border-style: dashed; }
   .b-testnet { color: var(--m-testnet); border-color: var(--m-testnet); }
   .b-preaudit { color: var(--m-preaudit); border-color: var(--m-preaudit); }
   .b-audited { color: var(--m-audited); border-color: var(--m-audited); }

@@ -11,8 +11,12 @@ import Base from '@layouts/Base.astro';
       <h1>Try to break a covenant</h1>
       <p class="lede">
         This is the real <code>SimpleCovenant</code> from the official tutorial — the same twelve
-        lines this site compiles in CI every day. Coins are locked by it, and the recipient baked
-        in at creation is <b>you</b>. Play the thief. Press the buttons.
+        lines this site compiles in CI every day. Imagine coins locked by it, with the recipient
+        baked in at creation being <b>you</b>. Play the thief. Press the buttons.
+      </p>
+      <p class="sim-note">
+        This lesson runs in your browser against the contract's logic — no coins move. Every
+        verdict shows the rule a real node would apply. Live testnet-10 broadcast: coming.
       </p>
     </header>
 
@@ -30,7 +34,7 @@ contract SimpleCovenant(pubkey recipient) &#123;
       </div>
 
       <div class="attempts">
-        <p class="panel-label">Build a spend and broadcast it</p>
+        <p class="panel-label">Build a spend and submit it</p>
         <div class="btns">
           <button class="attempt" data-try="steal">🦹 Thief: send the coins to the thief's address</button>
           <button class="attempt" data-try="stealhome">🦹 Thief: send the coins to <em>your</em> address</button>
@@ -52,7 +56,7 @@ contract SimpleCovenant(pubkey recipient) &#123;
           </div>
         </div>
         <div class="check">
-          <p class="panel-label">Every node now runs <code>entry spend()</code></p>
+          <p class="panel-label">What <code>entry spend()</code> decides</p>
           <p class="check-line" id="check-line"></p>
           <div class="verdict" id="verdict"></div>
           <p class="lesson" id="lesson"></p>
@@ -88,7 +92,7 @@ contract SimpleCovenant(pubkey recipient) &#123;
         out0Class: 'bad',
         pass: false,
         check: 'tx.outputs[0].scriptPubKey == recipient? — the output pays the thief, not the baked-in recipient.',
-        lesson: 'REJECTED by consensus. Not "refused" — the network treats it like a coin that doesn\'t fit the slot. With your keys stolen and the network against them, the thief still cannot move these coins anywhere but your address.',
+        lesson: 'This spend breaks the rule — require() fails, so on chain it would never become a transaction at all. Even with your keys stolen, the thief could not move these coins anywhere but your address: the rule is in the coin, not in a server.',
       },
       stealhome: {
         out0: 'output 0 → 🙂 YOUR address\n100 KAS',
@@ -138,7 +142,7 @@ contract SimpleCovenant(pubkey recipient) &#123;
           out1.className = 'box out bad';
         } else { out1.hidden = true; }
         checkLine.textContent = t.check;
-        verdict.textContent = t.pass ? '✓ ACCEPTED — the transaction is real' : '✗ REJECTED — the transaction never existed';
+        verdict.textContent = t.pass ? '✓ PASSES — the rule allows this spend' : '✗ FAILS — the rule this spend breaks is highlighted';
         verdict.className = `verdict ${t.pass ? 'ok' : 'no'}`;
         lesson.textContent = t.lesson;
         requireLine.classList.remove('flash-ok', 'flash-no');
@@ -158,6 +162,13 @@ contract SimpleCovenant(pubkey recipient) &#123;
   .head { padding: 56px 0 24px; }
   .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
   .lede { color: var(--muted); font-size: 1.03rem; }
+  .sim-note {
+    color: var(--faint);
+    font-size: 0.85rem;
+    border-left: 2px solid var(--teal-dim);
+    padding-left: 12px;
+    margin-top: 12px;
+  }
   .panel-label {
     font-family: 'Sora', sans-serif;
     font-size: 0.68rem;

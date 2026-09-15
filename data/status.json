@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T11:30:17.655Z",
+  "generatedAt": "2026-09-15T15:00:14.971Z",
   "repos": {
     "kaspanet/rusty-kaspa": {
       "latestTag": "v2.0.1",
@@ -31,6 +31,14 @@
       "lastCommit": "2026-09-11T15:42:24Z",
       "openIssues": 8,
       "stars": 11,
+      "archived": false
+    },
+    "kaspanet/vprogs": {
+      "latestTag": null,
+      "latestTagDate": null,
+      "lastCommit": "2026-09-10T13:49:51Z",
+      "openIssues": 32,
+      "stars": 53,
       "archived": false
     }
   }

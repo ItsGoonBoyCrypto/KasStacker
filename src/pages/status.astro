@@ -21,11 +21,22 @@ const day = (iso: string | null) => (iso ? iso.slice(0, 10) : null);
 // --- chain pulse ---
 const fmt = (n: number | null) => (n == null ? '—' : n.toLocaleString('en-US'));
 const tiles = [
-  { label: 'Covenants created', value: fmt(chain.totals.covenantsCreated), sub: 'genesis events, all time' },
-  { label: 'State transitions', value: fmt(chain.totals.transitions), sub: 'covenants doing their job' },
-  { label: 'Live KCC-20 tokens', value: fmt(chain.tokens.live), sub: `of ${fmt(chain.tokens.total)} ever created` },
-  { label: 'Covenant burns', value: fmt(chain.totals.burns), sub: 'lifecycles completed' },
+  { label: 'Covenants created (all time)', value: fmt(chain.totals.covenantsCreated), sub: 'genesis events — mostly completed vault lifecycles' },
+  { label: 'Alive now', value: fmt(chain.totals.alive), sub: 'created minus burned' },
+  { label: 'State transitions (all time)', value: fmt(chain.totals.transitions), sub: 'covenants doing their job' },
+  { label: 'Live KCC-20 tokens', value: fmt(chain.tokens.live), sub: `of ${fmt(chain.tokens.total)} ever (kcc20.info) · ${fmt(chain.kascov?.templates?.kcc20?.liveStates ?? null)} live token states (kascov)` },
 ];
+
+// --- indexer agreement (two independent sources, compared daily) ---
+const kv = chain.kascov?.templates;
+const agree = [
+  { metric: 'Covenants created (all time)', a: chain.totals.covenantsCreated, b: kv?.totalCovenants ?? null },
+];
+const withDelta = agree.map((r) => {
+  const delta = r.a != null && r.b != null ? Math.abs(r.a - r.b) : null;
+  const pct = delta != null && r.a ? (delta / r.a) * 100 : null;
+  return { ...r, delta, warn: delta != null && (delta > 200 || (pct ?? 0) > 0.5) };
+});
 const pts = chain.series.points;
 const maxEvents = Math.max(1, ...pts.map((p) => p.events));
 const CW = 720, CH = 120, GAP = 3;
@@ -84,6 +95,38 @@ const totalWindow = pts.reduce((a, p) => a + p.events, 0);
           )}
         </svg>
       </figure>
+
+      <div class="agree panel">
+        <p class="agree-t"><b>Indexer agreement</b> — the same numbers from two independent sources, compared daily.</p>
+        <div class="table-scroll">
+          <table class="data">
+            <thead><tr><th>Metric</th><th>kcc20.info</th><th>kascov.io</th><th>Δ</th></tr></thead>
+            <tbody>
+              {withDelta.map((r) => (
+                <tr>
+                  <td>{r.metric}</td>
+                  <td class="num">{fmt(r.a)}</td>
+                  <td class="num">{fmt(r.b)}</td>
+                  <td class={`num ${r.warn ? 'warn' : 'ok'}`}>{r.delta === 0 ? '✓ exact' : fmt(r.delta)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="agree-note">
+          Units differ where the indexers count differently: kcc20.info counts <i>tokens</i>
+          ({fmt(chain.tokens.live)} live), kascov counts <i>token states</i>
+          ({fmt(kv?.kcc20?.liveStates ?? null)} live) — both are shown wherever "live KCC-20" appears.
+          What the all-time count actually is (kascov templates): KasWare vaults {fmt(kv?.kaswareVaults?.covenants ?? null)} ·
+          KCC-20 {fmt(kv?.kcc20?.covenants ?? null)} tokens · P2SH commitment {fmt(kv?.p2shCommitment?.covenants ?? null)} ·
+          Silverscript escrow {fmt(kv?.silverscriptEscrow?.covenants ?? null)}.
+        </p>
+      </div>
+
+      <p class="review-line">
+        Last independent review: <a href="https://github.com/STP-KAS/three-x-reviews/blob/main/01-kasstacker.md" rel="noopener">STP-KAS, 15 Sep 2026</a> —
+        its corrections shipped the same day (<a href="/changelog">what moved</a>).
+      </p>
     </section>
 
     {proposals.items.length > 0 && (
@@ -136,8 +179,9 @@ const totalWindow = pts.reduce((a, p) => a + p.events, 0);
         </table>
       </div>
       <p class="note">
-        A component without a repository row either has no public repo (vProgs is a roadmap item) or its
-        canonical location is not yet confirmed — per the site's rules, that is shown rather than guessed.
+        A component without a repository row has no confirmed public repo — per the site's rules,
+        that is shown rather than guessed. Maturity legend rule: <b>production requires a tagged
+        spec or release</b>; live-on-mainnet without a tag is at most <i>draft</i>.
       </p>
     </section>
   </div>
@@ -190,4 +234,10 @@ const totalWindow = pts.reduce((a, p) => a + p.events, 0);
   .board-title { font-size: 1.3rem; margin-bottom: 6px; }
   .board-sub { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; }
   .note { color: var(--faint); font-size: 0.85rem; margin-top: 16px; max-width: 70ch; }
+  .agree { margin-top: 18px; }
+  .agree-t { margin: 0 0 10px; font-size: 0.95rem; }
+  .agree-note { color: var(--faint); font-size: 0.84rem; margin: 12px 0 0; max-width: 80ch; }
+  td.ok { color: var(--m-audited); }
+  td.warn { color: var(--m-preaudit); font-weight: 700; }
+  .review-line { color: var(--muted); font-size: 0.9rem; margin-top: 16px; }
 </style>

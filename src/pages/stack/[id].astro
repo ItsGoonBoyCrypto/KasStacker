@@ -4,6 +4,7 @@ import MaturityBadge from '@components/MaturityBadge.astro';
 import Exhibits from '@components/Exhibits.astro';
 import components from '@data/components.json';
 import status from '@data/status.json';
+import chainstats from '@data/chainstats.json';
 
 export function getStaticPaths() {
   return components.map((c) => ({ params: { id: c.id } }));
@@ -25,6 +26,14 @@ const facts: [string, string | null][] = [
   ['Since', c.since],
   ['On mainnet', c.mainnet == null ? null : c.mainnet ? 'yes' : 'no'],
 ];
+if (c.id === 'kcc-20' && chainstats.tokens?.live != null) {
+  // Maturity is 'draft' (no tagged spec) — mainnet adoption is a separate,
+  // feed-sourced fact. Units differ per indexer, so both are labelled.
+  facts.push([
+    'Live tokens',
+    `${chainstats.tokens.live} of ${chainstats.tokens.total} tokens (kcc20.info) · ${chainstats.kascov?.templates?.kcc20?.liveStates?.toLocaleString('en-US') ?? '—'} live token states (kascov)`,
+  ]);
+}
 const links: [string, string | null][] = [
   ['Repository', c.repo ? `https://github.com/${c.repo}` : null],
   ['Docs', c.docs],
