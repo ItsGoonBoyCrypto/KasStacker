@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-09-16",
+    "kind": "site",
+    "title": "KasStacker speaks 12 languages",
+    "body": "The homepage and the full 6-stop tour — including the interactive break-a-covenant lesson and every checkpoint quiz — are now available in Spanish, German, French, Portuguese, Turkish, Dutch, Chinese, Indonesian, Russian, Japanese and Korean, via the new language menu in the header. The language set covers every locale kaspa.org itself supports, plus Turkish and Dutch. Technical pages (build, status, compare, ecosystem) remain English-first for now, and the menu is honest about that: on an untranslated page it takes you to your language's home."
+  },
+  {
     "date": "2026-09-15",
     "kind": "site",
     "title": "Corrections from the first independent review (STP-KAS)",

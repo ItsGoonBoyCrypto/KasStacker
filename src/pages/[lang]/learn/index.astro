@@ -1,0 +1,144 @@
+---
+import Base from '@layouts/Base.astro';
+import { localePaths, loadDict } from '../../../i18n/index';
+
+export function getStaticPaths() { return localePaths(); }
+const { lang } = Astro.params;
+const t = (await loadDict(lang!)).hub;
+
+const hrefs = [
+  'kaspa-in-60-seconds',
+  'what-toccata-changed',
+  'meet-the-stack',
+  'how-it-fits-together',
+  'try-it',
+  'faq',
+];
+const icons = ['⏱️', '⚡', '🧱', '🧩', '🧨', '❓'];
+const quizIds = ['kaspa-in-60-seconds', 'what-toccata-changed', 'meet-the-stack', 'how-it-fits-together', null, null];
+---
+<Base title={`${t.h1Before}${t.h1Em}${t.h1After} — KasStacker`} description={t.lede} lang={lang}>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1Before}<em>{t.h1Em}</em>{t.h1After}</h1>
+      <p class="lede">{t.lede}</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href={`/${lang}/learn/kaspa-in-60-seconds/`}>{t.ctaStart}</a>
+        <a class="btn sheets-btn" href="/learn/cheat-sheets">{t.ctaSheets} <span class="tag">{t.ctaSheetsTag}</span></a>
+      </div>
+    </header>
+
+    <ol class="stops">
+      {t.stops.map((s, i) => (
+        <li>
+          <a href={`/${lang}/learn/${hrefs[i]}/`}>
+            <span class="g-icon" aria-hidden="true">{icons[i]}</span>
+            <span class="body">
+              <span class="t">{s.title}
+                <span class="n">{t.stopChip.replace('{n}', String(i + 1))}</span>
+                {quizIds[i] && <span class="done-tick" data-quiz-done={quizIds[i]} hidden>{t.doneChip}</span>}
+              </span>
+              <span class="b">{s.blurb}</span>
+            </span>
+            <span class="go">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <script>
+    try {
+      const state = JSON.parse(localStorage.getItem('ks-quiz') ?? '{}');
+      document.querySelectorAll<HTMLElement>('[data-quiz-done]').forEach((el) => {
+        if (state[el.dataset.quizDone!]) el.hidden = false;
+      });
+    } catch { /* storage unavailable */ }
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 26px; }
+  .head h1 {
+    font-size: clamp(1.8rem, 4.8vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 8px 0 12px;
+  }
+  .head h1 em { font-style: normal; color: var(--teal); }
+  .lede { color: var(--muted); font-size: 1.05rem; }
+  .ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; align-items: center; }
+  .sheets-btn {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 6px 9px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    color: var(--teal-ink);
+    background: linear-gradient(120deg, var(--teal-bright), var(--teal));
+    border: 1px solid var(--teal-bright);
+  }
+  .sheets-btn:hover { transform: translateY(-2px); text-decoration: none; }
+  .sheets-btn .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.64rem;
+    color: var(--teal-bright);
+    background: var(--teal-ink);
+    border-radius: 999px;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+  .stops { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .stops a {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 52px 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--teal) 5%, var(--surface)), var(--surface) 50%);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 18px;
+    color: var(--text);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .stops a:hover { transform: translateY(-2px); border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .g-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .body { display: flex; flex-direction: column; gap: 2px; }
+  .t { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .n {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-size: 0.66rem;
+    color: var(--faint);
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .done-tick {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--teal-ink);
+    background: var(--teal);
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+  .b { color: var(--muted); font-size: 0.9rem; }
+  .go { color: var(--teal-bright); font-weight: 600; }
+</style>

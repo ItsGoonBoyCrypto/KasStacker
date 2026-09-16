@@ -14,27 +14,47 @@ import '@fontsource/chakra-petch/600.css';
 import '@fontsource/chakra-petch/700.css';
 import '../styles/global.css';
 import Logo from '../components/Logo.astro';
+import { LOCALES, COVERED, HTML_LANG, loadDict } from '../i18n/index';
 
 interface Props {
   title: string;
   description: string;
+  lang?: string;
 }
-const { title, description } = Astro.props;
+const { title, description, lang = 'en' } = Astro.props;
+const dict = await loadDict(lang);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og.png', Astro.site);
+
+// Learn (and home) exist per-locale; the rest of the site is English.
+const learnHref = lang === 'en' ? '/learn' : `/${lang}/learn`;
+const homeHref = lang === 'en' ? '/' : `/${lang}/`;
 const nav = [
-  { href: '/learn', label: 'Learn' },
-  { href: '/stack', label: 'The Stack' },
-  { href: '/ecosystem', label: 'Ecosystem' },
-  { href: '/compare', label: 'Compare' },
-  { href: '/decide', label: 'Decide' },
-  { href: '/build', label: 'Build' },
-  { href: '/status', label: 'Status' },
+  { href: learnHref, label: dict.ui.nav.learn },
+  { href: '/stack', label: dict.ui.nav.stack },
+  { href: '/ecosystem', label: dict.ui.nav.ecosystem },
+  { href: '/compare', label: dict.ui.nav.compare },
+  { href: '/decide', label: dict.ui.nav.decide },
+  { href: '/build', label: dict.ui.nav.build },
+  { href: '/status', label: dict.ui.nav.status },
 ];
 const path = Astro.url.pathname.replace(/\/$/, '');
+
+// Language switcher: map the current page to its translation when covered,
+// otherwise to the locale home. Rendered server-side — no JS.
+const rawPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
+const basePath = lang === 'en' ? rawPath : rawPath.replace(new RegExp(`^/${lang}/`), '/');
+const covered = COVERED.includes(basePath);
+const allLangs: string[] = ['en', ...LOCALES];
+const langNames: Record<string, string> = { en: 'English' };
+for (const l of LOCALES) langNames[l] = (await loadDict(l)).ui.langName;
+const langTarget = (code: string) => {
+  if (code === 'en') return covered ? basePath : '/';
+  return covered ? `/${code}${basePath}` : `/${code}/`;
+};
 ---
 <!doctype html>
-<html lang="en">
+<html lang={HTML_LANG[lang] ?? lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,11 +75,15 @@ const path = Astro.url.pathname.replace(/\/$/, '');
     <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="KasStacker — What moved" href="/rss.xml" />
+    {covered && allLangs.map((l) => (
+      <link rel="alternate" hreflang={HTML_LANG[l] ?? l} href={new URL(langTarget(l), Astro.site)} />
+    ))}
+    {covered && <link rel="alternate" hreflang="x-default" href={new URL(basePath, Astro.site)} />}
   </head>
   <body>
     <header class="site-header">
       <div class="wrap bar">
-        <a href="/" class="home" aria-label="KasStacker home">
+        <a href={homeHref} class="home" aria-label="KasStacker home">
           <Logo size={26} />
           <span class="wordmark">Kas<em>Stacker</em></span>
         </a>
@@ -68,6 +92,16 @@ const path = Astro.url.pathname.replace(/\/$/, '');
             <a href={n.href} class:list={{ active: path === n.href || path.startsWith(n.href + '/') }}>{n.label}</a>
           ))}
         </nav>
+        <details class="lang-menu">
+          <summary aria-label={dict.ui.language}>
+            <span aria-hidden="true">🌐</span> {lang.toUpperCase()}
+          </summary>
+          <div class="lang-list">
+            {allLangs.map((l) => (
+              <a href={langTarget(l)} class:list={{ current: l === lang }} lang={HTML_LANG[l] ?? l}>{langNames[l]}</a>
+            ))}
+          </div>
+        </details>
         <button id="search-open" type="button" aria-label="Search the site">
           <span aria-hidden="true">🔍</span><kbd>Ctrl K</kbd>
         </button>
@@ -115,6 +149,11 @@ const path = Astro.url.pathname.replace(/\/$/, '');
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); dlg.open ? dlg.close() : open(); }
       });
       dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+      // Close the language menu when clicking elsewhere.
+      const langMenu = document.querySelector('.lang-menu') as HTMLDetailsElement | null;
+      document.addEventListener('click', (e) => {
+        if (langMenu?.open && !langMenu.contains(e.target as Node)) langMenu.open = false;
+      });
     </script>
 
     <footer class="site-footer">
@@ -177,6 +216,50 @@ const path = Astro.url.pathname.replace(/\/$/, '');
       }
       nav a:hover { color: var(--text); text-decoration: none; background: var(--surface2); }
       nav a.active { color: var(--teal); }
+      .lang-menu { position: relative; margin-left: 8px; }
+      .lang-menu summary {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--surface2);
+        border: 1px solid var(--border-soft);
+        border-radius: 8px;
+        color: var(--muted);
+        font-family: 'Sora', sans-serif;
+        font-size: 0.76rem;
+        font-weight: 600;
+        padding: 7px 10px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .lang-menu summary::-webkit-details-marker { display: none; }
+      .lang-menu summary:hover { border-color: var(--teal-dim); color: var(--text); }
+      .lang-menu[open] summary { border-color: var(--teal); color: var(--text); }
+      .lang-list {
+        position: absolute;
+        right: 0;
+        top: calc(100% + 6px);
+        z-index: 20;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        padding: 8px;
+        min-width: 250px;
+      }
+      .lang-list a {
+        color: var(--muted);
+        font-size: 0.84rem;
+        padding: 7px 10px;
+        border-radius: 7px;
+        white-space: nowrap;
+      }
+      .lang-list a:hover { color: var(--text); background: var(--surface2); text-decoration: none; }
+      .lang-list a.current { color: var(--teal); font-weight: 700; }
       #search-open {
         display: flex;
         align-items: center;
@@ -211,7 +294,9 @@ const path = Astro.url.pathname.replace(/\/$/, '');
           row-gap: 6px;
         }
         .home { order: 1; }
-        #search-open { order: 2; margin-left: auto; }
+        .lang-menu { order: 2; margin-left: auto; }
+        #search-open { order: 2; margin-left: 8px; }
+        .lang-list { grid-template-columns: 1fr 1fr; }
         nav {
           order: 3;
           width: 100%;

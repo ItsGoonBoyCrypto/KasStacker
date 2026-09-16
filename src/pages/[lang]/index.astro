@@ -1,0 +1,135 @@
+---
+import Base from '@layouts/Base.astro';
+import StackDiagram from '@components/StackDiagram.astro';
+import StatusStrip from '@components/StatusStrip.astro';
+import CovenantPulse from '@components/CovenantPulse.astro';
+import eco from '@data/ecosystem.json';
+import { localePaths, loadDict } from '../../i18n/index';
+
+export function getStaticPaths() { return localePaths(); }
+const { lang } = Astro.params;
+const t = (await loadDict(lang!)).home;
+const featured = eco.projects.filter((p) => p.featured);
+---
+<Base title="KasStacker — Kaspa" description={t.lede} lang={lang}>
+  <div class="wrap">
+    <header class="hero">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1Before}<em>{t.h1Em}</em>{t.h1After}</h1>
+      <p class="lede">{t.lede}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={`/${lang}/learn/`}>{t.ctaTour}</a>
+        <a class="btn btn-ghost" href="/stack">{t.ctaStack}</a>
+      </div>
+      <CovenantPulse labels={t.pulse} />
+    </header>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">{t.bigPictureEyebrow}</p>
+        <h2>{t.bigPictureH2}</h2>
+      </div>
+      <StackDiagram />
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">{t.proofEyebrow}</p>
+        <h2>{t.proofH2}</h2>
+        <p class="sec-sub">{t.proofSub}</p>
+      </div>
+      <div class="eco-grid">
+        {featured.map((p) => (
+          <a class="eco-card" href={p.url} rel="noopener">
+            <span class="eco-icon" aria-hidden="true">{p.icon}</span>
+            <span class="eco-name">{p.name}</span>
+            <span class="eco-tag">{p.tagline}</span>
+          </a>
+        ))}
+      </div>
+      <p class="eco-more"><a href="/ecosystem">{t.ecoMore}</a></p>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">{t.doorsEyebrow}</p>
+        <h2>{t.doorsH2}</h2>
+      </div>
+      <div class="doors">
+        <a class="door" href={`/${lang}/learn/`}>
+          <h3>{t.doorLearnH3}</h3>
+          <p>{t.doorLearnP}</p>
+          <span class="go">{t.doorLearnGo}</span>
+        </a>
+        <a class="door" href="/compare">
+          <h3>{t.doorCompareH3}</h3>
+          <p>{t.doorCompareP}</p>
+          <span class="go">{t.doorCompareGo}</span>
+        </a>
+        <a class="door" href="/stack">
+          <h3>{t.doorStackH3}</h3>
+          <p>{t.doorStackP}</p>
+          <span class="go">{t.doorStackGo}</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <p class="eyebrow">{t.statusEyebrow}</p>
+        <h2>{t.statusH2}</h2>
+        <p class="sec-sub">{t.statusSub}</p>
+      </div>
+      <StatusStrip />
+    </section>
+  </div>
+</Base>
+
+<style>
+  .hero { padding: 76px 0 8px; }
+  .hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3.1rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 10px 0 16px;
+    max-width: 22ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--teal); }
+  .lede { font-size: 1.12rem; color: var(--muted); max-width: 56ch; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .eco-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px) { .eco-grid { grid-template-columns: 1fr; } }
+  .eco-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--teal) 7%, var(--surface)), var(--surface) 55%);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 16px 18px;
+    color: var(--text);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .eco-card:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .eco-icon { font-size: 1.4rem; line-height: 1; margin-bottom: 4px; }
+  .eco-name { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.98rem; }
+  .eco-tag { color: var(--muted); font-size: 0.82rem; }
+  .eco-more { margin-top: 14px; font-size: 0.92rem; }
+  .doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .doors { grid-template-columns: 1fr; } }
+  .door {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 22px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .door:hover { text-decoration: none; border-color: var(--teal-dim); box-shadow: var(--shadow); }
+  .door h3 { font-size: 1.05rem; }
+  .door p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  .door .go { margin-top: auto; padding-top: 10px; color: var(--teal-bright); font-size: 0.85rem; font-weight: 600; }
+</style>

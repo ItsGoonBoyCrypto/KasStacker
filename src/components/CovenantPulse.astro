@@ -4,6 +4,21 @@
 // Build-time data only — nothing is fetched in the visitor's browser.
 import stats from '@data/chainstats.json';
 
+// i18n: localized homepages pass translated labels; defaults are English.
+interface Props { labels?: Record<string, string> }
+const L = {
+  allTime: 'covenants created on Kaspa mainnet (all time)',
+  alive: 'alive right now',
+  transitions: 'state transitions (all time)',
+  yesterday: '{n} covenant events yesterday',
+  src: 'from kcc20.info + kascov.io · refreshed daily',
+  breakdown: 'What the {k}k actually is:',
+  live: 'live',
+  liveStates: 'live states',
+  tokens: 'tokens',
+  ...(Astro.props.labels ?? {}),
+};
+
 const total = stats.totals.covenantsCreated;
 const alive = stats.totals.alive;
 const transitions = stats.totals.transitions;
@@ -27,33 +42,33 @@ const line = pts
   <div class="p-row">
     <div class="p-main">
       <span class="p-num" id="pulse-num" data-total={total}>{total.toLocaleString('en-US')}</span>
-      <span class="p-label">covenants created on Kaspa mainnet (all time)</span>
+      <span class="p-label">{L.allTime}</span>
     </div>
     <div class="p-stat">
       <span class="p-num2">{fmt(alive)}</span>
-      <span class="p-label">alive right now</span>
+      <span class="p-label">{L.alive}</span>
     </div>
     <div class="p-stat">
       <span class="p-num2">{fmt(transitions)}</span>
-      <span class="p-label">state transitions (all time)</span>
+      <span class="p-label">{L.transitions}</span>
     </div>
     <div class="p-side">
       <svg class="p-spark" viewBox={`0 0 ${W} ${H}`} width={W} height={H} aria-hidden="true">
         <polyline points={line} fill="none" stroke="var(--teal-bright)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.9" />
       </svg>
       {yesterday !== null && (
-        <span class="p-delta">{yesterday.toLocaleString('en-US')} covenant events yesterday</span>
+        <span class="p-delta">{L.yesterday.replace('{n}', yesterday.toLocaleString('en-US'))}</span>
       )}
-      <span class="p-src">from kcc20.info + kascov.io · refreshed daily · {updated}</span>
+      <span class="p-src">{L.src} · {updated}</span>
     </div>
   </div>
   {tpl && (
     <p class="p-break">
-      <b>What the {Math.round(total / 1000)}k actually is:</b>{' '}
-      KasWare vaults {fmt(tpl.kaswareVaults.covenants)} ({fmt(tpl.kaswareVaults.liveStates)} live) ·
-      KCC-20 {fmt(tpl.kcc20?.covenants)} tokens ({fmt(tpl.kcc20?.liveStates)} live states) ·
-      P2SH commitment {fmt(tpl.p2shCommitment?.covenants)} ({fmt(tpl.p2shCommitment?.liveStates)} live) ·
-      Silverscript escrow {fmt(tpl.silverscriptEscrow?.covenants)} ({fmt(tpl.silverscriptEscrow?.liveStates)} live)
+      <b>{L.breakdown.replace('{k}', String(Math.round(total / 1000)))}</b>{' '}
+      KasWare vaults {fmt(tpl.kaswareVaults.covenants)} ({fmt(tpl.kaswareVaults.liveStates)} {L.live}) ·
+      KCC-20 {fmt(tpl.kcc20?.covenants)} {L.tokens} ({fmt(tpl.kcc20?.liveStates)} {L.liveStates}) ·
+      P2SH commitment {fmt(tpl.p2shCommitment?.covenants)} ({fmt(tpl.p2shCommitment?.liveStates)} {L.live}) ·
+      Silverscript escrow {fmt(tpl.silverscriptEscrow?.covenants)} ({fmt(tpl.silverscriptEscrow?.liveStates)} {L.live})
     </p>
   )}
 </a>

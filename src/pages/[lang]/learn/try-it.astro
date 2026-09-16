@@ -1,0 +1,186 @@
+---
+import Base from '@layouts/Base.astro';
+import { localePaths, loadDict } from '../../../i18n/index';
+
+export function getStaticPaths() { return localePaths(); }
+const { lang } = Astro.params;
+const d = await loadDict(lang!);
+const t = d.stop5;
+// The contract itself and the wire-level check lines stay in English — they
+// sit directly against the (English) code. Lessons and verdicts are localized.
+---
+<Base title={`${t.h1} — KasStacker`} description={t.simNote} lang={lang}>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1}</h1>
+      <p class="lede" set:html={t.lede} />
+      <p class="sim-note">{t.simNote}</p>
+    </header>
+
+    <section class="sim">
+      <div class="code-panel">
+        <p class="panel-label">{t.codeLabel}</p>
+        <pre><code>pragma silverscript ^0.1.0;
+
+contract SimpleCovenant(pubkey recipient) &#123;
+    entry spend() &#123;
+        <span id="ln-decl">byte[36] recipientScriptPubKey = new ScriptPubKeyP2PK(recipient);</span>
+        <span id="ln-require">require(tx.outputs[0].scriptPubKey == byte[](recipientScriptPubKey));</span>
+    &#125;
+&#125;</code></pre>
+      </div>
+
+      <div class="attempts">
+        <p class="panel-label">{t.attemptsLabel}</p>
+        <div class="btns">
+          <button class="attempt" data-try="steal">{t.attempts.steal}</button>
+          <button class="attempt" data-try="stealhome">{t.attempts.stealhome}</button>
+          <button class="attempt" data-try="honest">{t.attempts.honest}</button>
+          <button class="attempt" data-try="split">{t.attempts.split}</button>
+        </div>
+      </div>
+
+      <div id="stage" class="stage" hidden>
+        <div class="tx">
+          <div class="tx-flow">
+            <div class="box in">vault UTXO<br /><span>100 KAS · SimpleCovenant</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="outs">
+              <div class="box out" id="out0"></div>
+              <div class="box out" id="out1" hidden></div>
+            </div>
+          </div>
+        </div>
+        <div class="check">
+          <p class="panel-label">{t.stageLabel}</p>
+          <p class="check-line" id="check-line"></p>
+          <div class="verdict" id="verdict"></div>
+          <p class="lesson" id="lesson"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="next-link"><a class="btn btn-primary" href={`/${lang}/learn/faq/`}>{t.next}</a></div>
+  </div>
+
+  <script define:vars={{ lessons: t.lessons, passVerdict: t.passVerdict, failVerdict: t.failVerdict }}>
+    const tries = {
+      steal: { out0: 'output 0 → 🦹\n100 KAS', out0Class: 'bad', pass: false,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — ✗' },
+      stealhome: { out0: 'output 0 → 🙂\n100 KAS', out0Class: 'good', pass: true,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — ✓' },
+      honest: { out0: 'output 0 → 🙂\n100 KAS', out0Class: 'good', pass: true,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — ✓' },
+      split: { out0: 'output 0 → 🙂\n1 KAS', out0Class: 'good', out1: 'output 1 → 🦹\n99 KAS', pass: true,
+        check: 'tx.outputs[0].scriptPubKey == recipient? — ✓' },
+    };
+    const stage = document.getElementById('stage');
+    const out0 = document.getElementById('out0');
+    const out1 = document.getElementById('out1');
+    const checkLine = document.getElementById('check-line');
+    const verdict = document.getElementById('verdict');
+    const lesson = document.getElementById('lesson');
+    const requireLine = document.getElementById('ln-require');
+
+    document.querySelectorAll('.attempt').forEach((b) => {
+      b.addEventListener('click', () => {
+        const key = b.dataset.try;
+        const t = tries[key];
+        stage.hidden = false;
+        out0.textContent = '';
+        t.out0.split('\n').forEach((s, i) => { if (i) out0.appendChild(document.createElement('br')); out0.appendChild(document.createTextNode(s)); });
+        out0.className = `box out ${t.out0Class}`;
+        if (t.out1) {
+          out1.hidden = false;
+          out1.textContent = '';
+          t.out1.split('\n').forEach((s, i) => { if (i) out1.appendChild(document.createElement('br')); out1.appendChild(document.createTextNode(s)); });
+          out1.className = 'box out bad';
+        } else { out1.hidden = true; }
+        checkLine.textContent = t.check;
+        verdict.textContent = t.pass ? passVerdict : failVerdict;
+        verdict.className = `verdict ${t.pass ? 'ok' : 'no'}`;
+        lesson.textContent = lessons[key];
+        requireLine.classList.remove('flash-ok', 'flash-no');
+        void requireLine.offsetWidth;
+        requireLine.classList.add(t.pass ? 'flash-ok' : 'flash-no');
+        document.querySelectorAll('.attempt').forEach((x) => x.classList.remove('active'));
+        b.classList.add('active');
+        stage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  </script>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.03rem; }
+  .sim-note {
+    color: var(--faint);
+    font-size: 0.85rem;
+    border-left: 2px solid var(--teal-dim);
+    padding-left: 12px;
+    margin-top: 12px;
+  }
+  .panel-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 8px;
+  }
+  .sim { display: grid; gap: 18px; }
+  .sim > * { min-width: 0; }
+  .code-panel pre { margin: 0; }
+  #ln-require { display: inline-block; border-radius: 4px; padding: 0 4px; margin: 0 -4px; }
+  :global(.flash-ok) { animation: flok 1.2s ease; }
+  :global(.flash-no) { animation: flno 1.2s ease; }
+  @keyframes flok { 0%, 60% { background: color-mix(in srgb, var(--m-audited) 30%, transparent); } 100% { background: transparent; } }
+  @keyframes flno { 0%, 60% { background: color-mix(in srgb, var(--m-preaudit) 35%, transparent); } 100% { background: transparent; } }
+  .btns { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .btns { grid-template-columns: 1fr 1fr; } }
+  .attempt {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.92rem;
+    text-align: left;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+  }
+  .attempt:hover { border-color: var(--teal-dim); }
+  .attempt.active { border-color: var(--teal); }
+  .stage { display: grid; gap: 16px; }
+  .tx-flow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .box span { color: var(--faint); font-size: 0.72rem; }
+  .box.good { border-color: var(--m-audited); }
+  .box.bad { border-color: var(--m-preaudit); }
+  .arrow { color: var(--faint); }
+  .outs { display: grid; gap: 8px; }
+  .check-line { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--muted); overflow-wrap: anywhere; }
+  .verdict {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 10px 0;
+    display: inline-block;
+  }
+  .verdict.ok { color: var(--m-audited); border: 1px solid var(--m-audited); }
+  .verdict.no { color: var(--m-preaudit); border: 1px solid var(--m-preaudit); }
+  .lesson { color: var(--muted); font-size: 0.92rem; max-width: 62ch; }
+</style>

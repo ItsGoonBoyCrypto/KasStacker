@@ -1,0 +1,226 @@
+{
+  "ui": {
+    "langName": "Français",
+    "language": "Langue",
+    "nav": {
+      "learn": "Apprendre",
+      "stack": "La Stack",
+      "ecosystem": "Écosystème",
+      "compare": "Comparer",
+      "decide": "Décider",
+      "build": "Construire",
+      "status": "Statut"
+    },
+    "englishOnlyNote": "Au-delà de la visite guidée, les pages sont pour l'instant en anglais.",
+    "next": "Suivant :",
+    "fullPage": "Page complète →"
+  },
+  "quizUi": {
+    "checkpoint": "Point d'étape — {n} questions rapides",
+    "done": "✓ Point d'étape terminé — progression enregistrée dans ce navigateur.",
+    "seeResult": "Voir le résultat de votre visite →"
+  },
+  "home": {
+    "eyebrow": "La stack de programmabilité de Kaspa, expliquée",
+    "h1Before": "Comprendre la ",
+    "h1Em": "stack Kaspa",
+    "h1After": ".",
+    "lede": "Kaspa sait désormais imposer des règles à l'argent, pas seulement le déplacer. KasStacker explique ce que font réellement les covenants, Silverscript, Argent et KCC-20 — et comment ils s'articulent — en langage clair d'abord, avec la précision ensuite.",
+    "ctaTour": "Commencer la visite de 5 minutes",
+    "ctaStack": "Explorer la stack →",
+    "pulse": {
+      "allTime": "covenants créés sur le mainnet Kaspa (depuis le début)",
+      "alive": "actifs en ce moment",
+      "transitions": "transitions d'état (depuis le début)",
+      "yesterday": "{n} événements de covenant hier",
+      "src": "données de kcc20.info + kascov.io · actualisées chaque jour",
+      "breakdown": "Ce que représentent vraiment ces {k}k :",
+      "live": "actifs",
+      "liveStates": "états actifs",
+      "tokens": "tokens"
+    },
+    "bigPictureEyebrow": "La vue d'ensemble",
+    "bigPictureH2": "Comment les pièces s'assemblent",
+    "proofEyebrow": "La preuve",
+    "proofH2": "On construit déjà dessus",
+    "proofSub": "Ce n'est pas un discours de roadmap — de vrais projets tournent aujourd'hui sur les covenants Kaspa, chacun vérifié avant d'apparaître ici.",
+    "ecoMore": "L'écosystème complet — plateformes, explorateurs, et comment fonctionne le listing →",
+    "doorsEyebrow": "Trois portes",
+    "doorsH2": "Où voulez-vous aller ?",
+    "doorLearnH3": "Apprendre",
+    "doorLearnP": "Tout cela est nouveau pour vous ? Une visite guidée qui va de « c'est quoi, Kaspa » à « comment un covenant protège vos fonds ». Aucun jargon sans explication.",
+    "doorLearnGo": "Suivre la visite →",
+    "doorCompareH3": "Comparer",
+    "doorCompareP": "La matrice complète : couche par couche, ce que chaque composant peut et ne peut pas faire, avec des badges de maturité honnêtes sur chaque ligne.",
+    "doorCompareGo": "Voir la matrice →",
+    "doorStackH3": "La Stack",
+    "doorStackP": "Une page par composant — ce que c'est, quel problème il résout, ce qu'il ne peut pas faire, et tous les liens officiels qui comptent.",
+    "doorStackGo": "Parcourir les composants →",
+    "statusEyebrow": "En direct des dépôts",
+    "statusH2": "Le statut en ce moment",
+    "statusSub": "Extrait chaque jour de l'API GitHub — jamais écrit à la main, jamais silencieusement périmé."
+  },
+  "hub": {
+    "eyebrow": "Apprendre",
+    "h1Before": "Comprenez tout en ",
+    "h1Em": "cinq minutes",
+    "h1After": ".",
+    "lede": "Six étapes courtes, dans l'ordre, écrites pour les gens qui n'écrivent pas de code. Chaque terme technique est expliqué la première fois qu'il apparaît.",
+    "ctaStart": "Commencer la visite →",
+    "ctaSheets": "📄 Les antisèches",
+    "ctaSheetsTag": "5 fiches d'une page (en anglais)",
+    "stopChip": "étape {n}",
+    "doneChip": "✓ terminé",
+    "stops": [
+      { "title": "Kaspa en 60 secondes", "blurb": "Ce qu'est Kaspa, pourquoi c'est rapide, et pourquoi pendant des années il ne pouvait que déplacer l'argent — sans pouvoir faire de promesses à son sujet." },
+      { "title": "Ce que Toccata a changé", "blurb": "La mise à niveau de 2026 qui a appris à Kaspa à imposer des règles : covenants, tokens vérifiés par la chaîne, vérification ZK." },
+      { "title": "Découvrez la stack", "blurb": "Les cinq pièces — consensus, Script + Covenants, Silverscript, Argent, KCC-20 — une phrase et une analogie pour chacune." },
+      { "title": "Comment tout s'assemble", "blurb": "Suivez un vrai coffre-fort, de l'idée au covenant, jusqu'aux fonds sur le mainnet que personne ne peut déplacer en dehors des règles." },
+      { "title": "Essayez de casser un covenant", "blurb": "Interactif : jouez le voleur face à un vrai contrat qui compile — et voyez exactement quelle règle vous arrête." },
+      { "title": "Les questions que tout le monde pose", "blurb": "Est-ce comme les smart contracts d'Ethereum ? Qu'est-ce qui est audité ? Par où commencer concrètement ?" }
+    ]
+  },
+  "stop1": {
+    "eyebrow": "Apprendre · étape 1 sur 6",
+    "h1": "Kaspa en 60 secondes",
+    "p1": "Kaspa est de l'argent numérique sécurisé par la preuve de travail, comme Bitcoin — mais conçu pour être rapide.",
+    "p2": "La plupart des blockchains produisent un bloc à la fois et jettent les ex æquo. Kaspa conserve chaque bloc et les tisse en un <strong>blockDAG</strong> — une tresse plutôt qu'une chaîne unique — ordonnée par un protocole appelé <strong>GHOSTDAG</strong>. Le résultat concret : les blocs arrivent plusieurs fois par seconde et les paiements se confirment en quelques secondes, tout en gardant une sécurité par preuve de travail à la Bitcoin.",
+    "quote": "Une chaîne est une route à voie unique ; un blockDAG est une autoroute où le trafic de toutes les voies finit quand même dans un seul ordre convenu.",
+    "h2Catch": "Le hic — jusqu'en 2026",
+    "p3": "Pendant des années, le langage de script de Kaspa est resté volontairement minimal. Il pouvait vérifier <em>qui</em> possède les fonds et les déplacer, mais il ne pouvait pas imposer de <em>conditions</em> sur leurs prochains mouvements. Pas de coffres-forts, pas de tokens imposés par la chaîne, pas d'accords on-chain — de l'argent, rien de plus.",
+    "p4": "C'est ce que la <strong>mise à niveau Toccata</strong> a changé, et c'est la raison d'être de ce site.",
+    "next": "Suivant : Ce que Toccata a changé →"
+  },
+  "stop2": {
+    "eyebrow": "Apprendre · étape 2 sur 6",
+    "h1": "Ce que Toccata a changé",
+    "p1": "<strong>Toccata est la mise à niveau de 2026 qui a appris à Kaspa à imposer des règles à l'argent, pas seulement à le déplacer.</strong> Avant elle, la chaîne ne savait répondre qu'à une seule question : « cette signature correspond-elle ? » Après, la chaîne peut vérifier tout un contrat de conditions avant de laisser les fonds bouger.",
+    "beforeH3": "Avant",
+    "beforeItems": [
+      "Envoyer et recevoir des fonds",
+      "Portefeuilles multi-signatures",
+      "Des soldes de tokens tenus par des comptables <em>hors chaîne</em>"
+    ],
+    "afterH3": "Après",
+    "afterItems": [
+      "<strong>Les covenants</strong> — des règles attachées aux fonds, que chaque dépense future doit respecter",
+      "<strong>Les tokens imposés par la chaîne</strong> — l'approche KCC-20 : l'offre et les règles de transfert vérifiées par le consensus lui-même",
+      "<strong>La vérification zero-knowledge intégrée</strong> — la chaîne peut vérifier une preuve cryptographique qu'un événement a eu lieu, sans en voir les détails"
+    ],
+    "h2Words": "Les nouveaux mots, traduits",
+    "words": [
+      "<strong>Covenant</strong> — un verrou sur des fonds qui dicte comment ils ont le droit de bouger <em>ensuite</em>. Ni un conseil, ni une note de comptable : le consensus rejette toute dépense qui l'enfreint.",
+      "<strong>Lignée (KIP-17)</strong> — un covenant peut prouver d'où viennent ses fonds, pour que les règles suivent l'argent à travers de nombreuses transactions.",
+      "<strong>Identifiant de covenant (KIP-20)</strong> — une identité stable pour un covenant, pour qu'un contrat puisse posséder des choses et être retrouvé.",
+      "<strong>ZK intégré (KIP-16)</strong> — la vérification de preuves zero-knowledge, active sur le mainnet depuis le 30 juin 2026."
+    ],
+    "quote": "Avant Toccata, Kaspa était une caisse enregistreuse très rapide. Après Toccata, c'est une caisse enregistreuse qui peut aussi tenir un séquestre, faire tourner un coffre-fort et émettre des tokens — avec les règles intégrées à la machine.",
+    "next": "Suivant : Découvrez la stack →"
+  },
+  "stop3": {
+    "eyebrow": "Apprendre · étape 3 sur 6",
+    "h1": "Découvrez la stack",
+    "lede": "De bas en haut : chaque couche existe pour rendre celle du dessous utilisable. Une phrase, une analogie et un badge de maturité honnête pour chacune.",
+    "components": {
+      "kaspa-script": {
+        "name": "Kaspa Script + Covenants++",
+        "plain": "Des règles intégrées à l'argent lui-même. Un covenant est un verrou sur des fonds qui dit exactement comment ils ont le droit de bouger ensuite — et la chaîne refuse toute dépense qui enfreint la règle.",
+        "analogy": "La porte du coffre-fort : la logique de la combinaison est usinée dans la porte elle-même, pas écrite sur un panneau à côté."
+      },
+      "silverscript": {
+        "name": "Silverscript",
+        "plain": "Un langage pour écrire des règles que la chaîne elle-même fait respecter — sans câbler le script brut à la main. Vous décrivez les changements d'état autorisés ; le compilateur produit le covenant.",
+        "analogy": "Écrire la logique de la combinaison de la porte du coffre — sans usiner la porte vous-même."
+      },
+      "argent": {
+        "name": "Argent",
+        "plain": "Un framework d'applications, un niveau au-dessus : au lieu d'un seul contrat, vous écrivez des acteurs — des covenants séparés qui se parlent — et Argent compile toute l'application en passant par Silverscript.",
+        "analogy": "Plusieurs portes de coffre qui travaillent ensemble : chaque acteur est une porte, et Argent câble les couloirs entre elles."
+      },
+      "kcc-20": {
+        "name": "KCC-20",
+        "plain": "Des tokens construits comme des covenants : l'offre et les règles de transfert sont vérifiées par le consensus Kaspa lui-même — aucun comptable hors chaîne à qui faire confiance. Actifs et échangés sur le mainnet ; le standard écrit reste un brouillon en cours de consolidation, sans version taguée pour l'instant.",
+        "analogy": "Des tokens dont le règlement est usiné dans la porte du coffre — personne en dehors de la chaîne ne tient les comptes."
+      },
+      "vprogs": {
+        "name": "vProgs / CDAG",
+        "plain": "Des programmes qui vivent nativement dans le DAG de Kaspa, au lieu d'être encodés en scripts de covenant. Le dépôt kaspanet/vprogs est public — un framework Rust pour le calcul prouvable, en début de développement. Rien que vous puissiez déployer sur le mainnet aujourd'hui.",
+        "analogy": "Les plans d'un coffre plus intelligent — désormais affichés dans un atelier public, mais le coffre n'est pas encore construit."
+      }
+    },
+    "next": "Suivant : Comment tout s'assemble →"
+  },
+  "stop4": {
+    "eyebrow": "Apprendre · étape 4 sur 6",
+    "h1": "Comment tout s'assemble",
+    "lede": "Une seule histoire, du haut de la stack jusqu'en bas : un coffre-fort qui protège des fonds même face à un voleur qui détient vos clés. Chaque couche rencontrée à l'étape précédente joue ici un rôle précis.",
+    "steps": [
+      { "layer": "Vous", "title": "Partez d'une règle qui mérite d'être imposée", "body": "« Ces fonds ne peuvent être retirés qu'après un délai de 24 heures, et uniquement vers mon adresse — peu importe qui vole mes clés cette nuit. » Cette phrase est un coffre-fort." },
+      { "layer": "Silverscript", "title": "Écrivez la règle sous forme de code", "body": "Quelques dizaines de lignes décrivant les changements d'état autorisés : ancien état + votre demande + les faits de la transaction → le nouvel état permis. Rien d'autre ne l'est." },
+      { "layer": "Kaspa Script", "title": "Le compilateur usine le verrou", "body": "Silverscript compile votre règle en Kaspa Script — le covenant brut que la chaîne comprend. Vous ne câblez jamais cette couche à la main, c'est le compilateur qui s'en charge." },
+      { "layer": "Consensus Kaspa", "title": "Le dépôt — la règle devient une loi physique", "body": "Vous envoyez les fonds dans le covenant. À partir de cet instant, la règle n'est plus une promesse ni une politique d'entreprise : chaque nœud du réseau la vérifie à chaque tentative de dépense." },
+      { "layer": "Consensus Kaspa", "title": "Un voleur essaie — et la chaîne dit non", "body": "Quelqu'un muni de vos clés volées diffuse un retrait immédiat. La dépense enfreint la règle de délai, alors le consensus rejette la transaction comme une pièce qui n'entre pas dans la fente. Elle n'a jamais existé." },
+      { "layer": "Explorateur", "title": "N'importe qui peut le vérifier", "body": "Le covenant, ses règles et son historique sont publics. Un explorateur comme kascov.io montre le coffre posé là, qui se fait respecter tout seul, sans aucune entreprise dans la boucle." }
+    ],
+    "note": "Les applications multi-contrats suivent la même histoire, avec un chapitre en plus : <a href=\"/stack/argent\">Argent</a> relie plusieurs covenants en une seule application avant que le tout ne soit compilé.",
+    "next": "Suivant : Essayez de casser un covenant →"
+  },
+  "stop5": {
+    "eyebrow": "Apprendre · étape 5 sur 6 · interactif",
+    "h1": "Essayez de casser un covenant",
+    "lede": "Voici le vrai <code>SimpleCovenant</code> du tutoriel officiel — les mêmes douze lignes que ce site compile en CI chaque jour. Imaginez des fonds verrouillés par lui, avec un destinataire fixé dès la création : <b>vous</b>. Jouez le voleur. Appuyez sur les boutons.",
+    "simNote": "Cette leçon s'exécute dans votre navigateur, contre la logique du contrat — aucun fonds ne bouge. Chaque verdict montre la règle qu'un vrai nœud appliquerait. Diffusion réelle sur testnet-10 : bientôt.",
+    "codeLabel": "Le contrat — exactement tel qu'il est écrit",
+    "attemptsLabel": "Construisez une dépense et soumettez-la",
+    "stageLabel": "Ce que décide entry spend()",
+    "attempts": {
+      "steal": "🦹 Le voleur : envoyer les fonds à l'adresse du voleur",
+      "stealhome": "🦹 Le voleur : envoyer les fonds à votre adresse",
+      "honest": "🙂 Vous : retirer vers votre adresse",
+      "split": "🤔 Le voleur : la sortie 0 pour vous… plus une sortie 1 pour le voleur"
+    },
+    "passVerdict": "✓ ACCEPTÉ — la règle autorise cette dépense",
+    "failVerdict": "✗ REFUSÉ — la règle que cette dépense enfreint est surlignée",
+    "lessons": {
+      "steal": "Cette dépense enfreint la règle — require() échoue, donc sur la chaîne elle ne deviendrait jamais une transaction. Même avec vos clés volées, le voleur ne pourrait déplacer ces fonds nulle part ailleurs que vers votre adresse : la règle est dans la pièce, pas dans un serveur.",
+      "stealhome": "ACCEPTÉ — le voleur vient de dépenser votre coffre… droit dans votre poche. Relisez le contrat : il ne vérifie jamais qui signe. Il vérifie où va l'argent. La règle est le verrou, pas la clé.",
+      "honest": "ACCEPTÉ — le chemin ordinaire. La même règle qui a bloqué le voleur vous laisse passer, parce qu'elle ne s'est jamais souciée que de la destination.",
+      "split": "ACCEPTÉ — vous avez trouvé la faille. Rien ici ne contraint les montants ni les autres sorties : un contrat de tutoriel fait donc un très mauvais coffre-fort. La chaîne a imposé exactement ce qui était écrit ; c'est l'écriture qui était la faiblesse. Voilà pourquoi les covenants de production verrouillent montants et sorties — et pourquoi les audits comptent."
+    },
+    "next": "Suivant : Les questions que tout le monde pose →"
+  },
+  "faq": {
+    "eyebrow": "Apprendre · étape 6 sur 6",
+    "h1": "Les questions que tout le monde pose",
+    "items": [
+      { "q": "Est-ce comme les smart contracts d'Ethereum ?", "a": "Même objectif — des règles programmables on-chain — mais une forme différente. Ethereum exécute des programmes sur de grands soldes de comptes partagés. Les covenants Kaspa attachent les règles directement à des pièces précises (des UTXO) : chaque contrat est plus petit et plus strict, mais les règles voyagent avec l'argent lui-même et héritent de la vitesse de Kaspa et de sa sécurité par preuve de travail." },
+      { "q": "Dois-je comprendre les covenants pour détenir du KAS ?", "a": "Non. L'envoi et la réception ordinaires ne changent pas. La stack compte quand vous voulez plus qu'un simple transfert : coffres-forts, séquestre, tokens aux règles imposées par la chaîne — ou quand vous voulez juger un projet qui prétend les utiliser." },
+      { "q": "Qu'est-ce qui est réellement audité ?", "a": "Au dernier examen fait pour ce site : Silverscript a atteint la v1.0.0 le 9 septembre 2026, mais ne cite aucun audit externe et sa propre politique de sécurité le qualifie encore d'expérimental. Argent n'a aucune version taguée. Le tableau de statut suit tout cela chaque jour — et toute affirmation « audité » d'un projet mérite un auditeur nommé et une date avant d'être crue." },
+      { "q": "KCC-20, en une ligne ?", "a": "Des tokens dont l'offre et les règles de transfert sont vérifiées par le consensus Kaspa lui-même — aucun comptable hors chaîne à qui faire confiance. Ils sont actifs et échangés sur le mainnet pendant que le standard écrit est encore en cours de consolidation." },
+      { "q": "Que sont les vProgs, et puis-je les utiliser ?", "a": "Pas encore — les vProgs (des programmes natifs vivant dans le DAG) sont la piste de recherche, la feuille de route au-delà des covenants. Quiconque vous vend un « vProg » aujourd'hui est en avance, par définition." },
+      { "q": "Par où commencer concrètement pour construire ?", "a": "Kascov.io vous laisse essayer du code de covenant sans rien installer, et Silverscript est le langage dans lequel presque tout s'écrit aujourd'hui. La section Construire déroule tout le chemin : la chaîne d'outils, un premier covenant de 12 lignes, le testnet, et les exemples qui valent la lecture." }
+    ],
+    "finishH2": "C'est la fin de la visite.",
+    "finishP": "Vous en savez maintenant plus sur la stack de programmabilité de Kaspa que la majorité du crypto-Twitter. Pour la suite (en anglais) : la <a href=\"/compare\">matrice de comparaison</a> pour les détails, le <a href=\"/decide\">guide de décision</a> si vous construisez quelque chose, le <a href=\"/build\">parcours de construction</a> quand vous serez prêt à écrire du code, ou le <a href=\"/status\">tableau de statut</a> pour voir ce qui a bougé aujourd'hui."
+  },
+  "quiz": {
+    "kaspa-in-60-seconds": [
+      { "q": "Qu'est-ce qu'un blockDAG ?", "options": ["Une tresse de blocs parallèles, tous conservés et rangés dans un seul ordre convenu", "Une chaîne qui jette les blocs arrivés en même temps", "Une base de données maintenue par la fondation Kaspa"], "correct": 0, "why": "Kaspa conserve chaque bloc et laisse GHOSTDAG les ordonner — c'est pourquoi il peut produire de nombreux blocs par seconde sans renoncer à la sécurité de la preuve de travail." },
+      { "q": "Avant la mise à niveau Toccata, Kaspa pouvait…", "options": ["exécuter de vrais smart contracts", "vérifier des signatures et déplacer des fonds — de l'argent, rien de plus", "héberger une EVM"], "correct": 1, "why": "Le langage de script de Kaspa était volontairement minimal : il vérifiait qui possède les fonds et les déplaçait. Les conditions sur leurs prochains mouvements sont arrivées avec Toccata." }
+    ],
+    "what-toccata-changed": [
+      { "q": "Qu'est-ce qu'un covenant ?", "options": ["Une promesse qu'un projet fait dans son whitepaper", "Une entrée dans la base de données d'un indexeur", "Une règle attachée aux fonds, que le consensus lui-même fait respecter"], "correct": 2, "why": "Ni un conseil, ni de la comptabilité : toute dépense qui enfreint la règle est rejetée par chaque nœud. La règle voyage avec l'argent." },
+      { "q": "Une dépense qui enfreint la règle d'un covenant est…", "options": ["pas une transaction du tout — le consensus la rejette", "remboursée après un délai d'examen", "signalée à des modérateurs qui trancheront"], "correct": 0, "why": "Il n'y a pas de procédure d'appel parce qu'il n'y a rien à contester — le réseau la traite comme une pièce qui n'entre pas dans la fente." },
+      { "q": "La vérification ZK intégrée (KIP-16) permet à la chaîne de…", "options": ["masquer les soldes de tout le monde par défaut", "vérifier une preuve cryptographique qu'un événement a eu lieu, sans en voir les détails", "miner des blocs plus vite"], "correct": 1, "why": "Un covenant peut exiger une preuve zero-knowledge valide avant que les fonds ne bougent — actif sur le mainnet depuis le 30 juin 2026." }
+    ],
+    "meet-the-stack": [
+      { "q": "Silverscript compile vers…", "options": ["du bytecode EVM", "Kaspa Script — le covenant brut", "Python"], "correct": 1, "why": "Vous décrivez les changements d'état autorisés ; le compilateur produit le covenant que la chaîne comprend. Vous ne câblez jamais le script brut à la main." },
+      { "q": "Argent est la bonne couche quand…", "options": ["vous n'avez besoin que d'un simple coffre-fort", "vous voulez un token compté par des indexeurs", "plusieurs contrats doivent agir ensemble de façon atomique"], "correct": 2, "why": "Les acteurs + l'ICC existent exactement pour les applications multi-contrats. Un contrat seul relève de Silverscript — et Argent n'a pas encore de version taguée." },
+      { "q": "Les vProgs, aujourd'hui, sont…", "options": ["actifs sur le mainnet", "une feuille de route de recherche — rien à construire pour l'instant", "un app store pour Kaspa"], "correct": 1, "why": "Les programmes natifs du DAG sont la piste de recherche au-delà des covenants. Quiconque vous vend un vProg aujourd'hui est en avance, par définition." }
+    ],
+    "how-it-fits-together": [
+      { "q": "Après votre dépôt dans un coffre-covenant, qui vérifie la règle ?", "options": ["Les serveurs de la société du coffre", "Uniquement votre application de portefeuille", "Chaque nœud du réseau, à chaque tentative de dépense"], "correct": 2, "why": "C'est tout l'intérêt : la règle cesse d'être une politique et devient une loi physique — aucune entreprise dans la boucle." },
+      { "q": "Un voleur qui dérobe vos clés peut…", "options": ["déplacer les fonds uniquement là où la règle du covenant l'autorise", "tout prendre instantanément", "geler votre compte"], "correct": 0, "why": "La règle est le verrou, pas la clé. Vous pouvez appuyer sur ce bouton vous-même à la prochaine étape de la visite." }
+    ]
+  }
+}

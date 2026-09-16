@@ -1,0 +1,68 @@
+---
+import Base from '@layouts/Base.astro';
+import { localePaths, loadDict } from '../../../i18n/index';
+
+export function getStaticPaths() { return localePaths(); }
+const { lang } = Astro.params;
+const t = (await loadDict(lang!)).faq;
+---
+<Base title={`${t.h1} — KasStacker`} description={t.items[0].q} lang={lang}>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1}</h1>
+    </header>
+
+    <div class="faqs">
+      {t.items.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p set:html={f.a} />
+        </details>
+      ))}
+    </div>
+
+    <div class="finish panel">
+      <h2>{t.finishH2}</h2>
+      <p set:html={t.finishP} />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 24px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+  .faqs { display: grid; gap: 10px; }
+  details {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 0 20px;
+  }
+  details[open] { border-color: var(--teal-dim); }
+  summary {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 0.97rem;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 28px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--teal);
+    font-weight: 600;
+  }
+  details[open] summary::after { content: '–'; }
+  details p { color: var(--muted); font-size: 0.94rem; margin: 0 0 18px; max-width: 62ch; }
+  .finish { margin-top: 36px; }
+  .finish h2 { font-size: 1.15rem; margin-bottom: 8px; }
+  .finish p { color: var(--muted); margin: 0; }
+</style>

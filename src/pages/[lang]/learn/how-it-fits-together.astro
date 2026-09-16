@@ -1,0 +1,77 @@
+---
+import Base from '@layouts/Base.astro';
+import Quiz from '@components/Quiz.astro';
+import { localePaths, loadDict } from '../../../i18n/index';
+
+export function getStaticPaths() { return localePaths(); }
+const { lang } = Astro.params;
+const d = await loadDict(lang!);
+const t = d.stop4;
+---
+<Base title={`${t.h1} — KasStacker`} description={t.lede} lang={lang}>
+  <div class="wrap-narrow">
+    <header class="head">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1}</h1>
+      <p class="lede">{t.lede}</p>
+    </header>
+
+    <ol class="flow">
+      {t.steps.map((s, i) => (
+        <li>
+          <div class="marker">
+            <span class="n">{i + 1}</span>
+            {i < t.steps.length - 1 && <span class="line" aria-hidden="true"></span>}
+          </div>
+          <div class="body">
+            <span class="layer">{s.layer}</span>
+            <h2>{s.title}</h2>
+            <p>{s.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <p class="note" set:html={t.note} />
+
+    <Quiz page="how-it-fits-together" questions={d.quiz['how-it-fits-together']} labels={d.quizUi} resultHref="/learn/complete" />
+
+    <div class="next-link"><a class="btn btn-primary" href={`/${lang}/learn/try-it/`}>{t.next}</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 30px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin: 8px 0 12px; }
+  .lede { color: var(--muted); font-size: 1.02rem; }
+  .flow { list-style: none; margin: 0; padding: 0; }
+  .flow li { display: grid; grid-template-columns: 44px 1fr; gap: 18px; }
+  .marker { display: flex; flex-direction: column; align-items: center; }
+  .n {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--teal);
+    background: var(--surface2);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .line { width: 2px; flex: 1; background: var(--border); margin: 6px 0; }
+  .body { padding-bottom: 34px; }
+  .layer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--teal);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .body h2 { font-size: 1.1rem; margin: 4px 0 8px; }
+  .body p { color: var(--muted); font-size: 0.95rem; margin: 0; max-width: 60ch; }
+  .note { color: var(--faint); font-size: 0.9rem; margin-top: 8px; }
+</style>

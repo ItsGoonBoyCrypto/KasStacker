@@ -1,0 +1,35 @@
+---
+import Base from '@layouts/Base.astro';
+import Quiz from '@components/Quiz.astro';
+import { localePaths, loadDict } from '../../../i18n/index';
+
+export function getStaticPaths() { return localePaths(); }
+const { lang } = Astro.params;
+const d = await loadDict(lang!);
+const t = d.stop1;
+---
+<Base title={`${t.h1} — KasStacker`} description={t.p1} lang={lang}>
+  <div class="wrap-narrow prose">
+    <header class="head">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.h1}</h1>
+    </header>
+
+    <p><strong>{t.p1}</strong></p>
+    <p set:html={t.p2} />
+    <blockquote>{t.quote}</blockquote>
+
+    <h2>{t.h2Catch}</h2>
+    <p set:html={t.p3} />
+    <p set:html={t.p4} />
+
+    <Quiz page="kaspa-in-60-seconds" questions={d.quiz['kaspa-in-60-seconds']} labels={d.quizUi} resultHref="/learn/complete" />
+
+    <div class="next-link"><a class="btn btn-primary" href={`/${lang}/learn/what-toccata-changed/`}>{t.next}</a></div>
+  </div>
+</Base>
+
+<style>
+  .head { padding: 56px 0 16px; }
+  .head h1 { font-size: 2rem; font-weight: 700; margin-top: 8px; }
+</style>

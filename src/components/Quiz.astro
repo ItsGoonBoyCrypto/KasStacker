@@ -5,12 +5,21 @@
 // localStorage ('ks-quiz') and the page works fine without storage.
 import quiz from '@data/quiz.json';
 
-interface Props { page: keyof typeof quiz }
-const { page } = Astro.props;
-const questions = quiz[page];
+type Question = { q: string; options: string[]; correct: number; why: string };
+interface Props {
+  page: keyof typeof quiz;
+  // i18n overrides — localized pages pass translated questions + UI labels;
+  // English pages pass nothing and behave exactly as before.
+  questions?: Question[];
+  labels?: { checkpoint: string; done: string; seeResult: string };
+  resultHref?: string;
+}
+const { page, labels, resultHref = '/learn/complete' } = Astro.props;
+const questions: Question[] = Astro.props.questions ?? quiz[page];
+const checkpointLabel = (labels?.checkpoint ?? 'Checkpoint — {n} quick questions').replace('{n}', String(questions.length));
 ---
 <section class="quiz" data-quiz={page} data-count={questions.length}>
-  <p class="q-label">Checkpoint — {questions.length} quick questions</p>
+  <p class="q-label">{checkpointLabel}</p>
   {questions.map((question, qi) => (
     <div class="q" data-q={qi}>
       <p class="q-text">{question.q}</p>
@@ -22,7 +31,7 @@ const questions = quiz[page];
       <p class="why" hidden>{question.why}</p>
     </div>
   ))}
-  <p class="q-done" hidden>✓ Checkpoint done — progress saved in this browser. <a href="/learn/complete">See your tour result →</a></p>
+  <p class="q-done" hidden>{labels?.done ?? '✓ Checkpoint done — progress saved in this browser.'} <a href={resultHref}>{labels?.seeResult ?? 'See your tour result →'}</a></p>
 </section>
 
 <script>
