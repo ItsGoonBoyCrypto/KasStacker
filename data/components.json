@@ -7,14 +7,20 @@
     "plain": "Rules built into the money itself. A covenant is a lock on coins that says exactly how they are allowed to move next — and the chain refuses any spend that breaks the rule.",
     "analogy": "The vault door: the combination logic is machined into the door itself, not written on a sign next to it.",
     "repo": "kaspanet/rusty-kaspa",
-    "docs": "https://docs.kaspa.org/toccata",
+    "docs": "https://docs.kaspa.org/programmability/covenants",
     "playground": "https://kascov.io",
     "maturity": "production",
     "stateModel": "UTXO + covenants (KIP-17 lineage, KIP-20 covenant ids)",
     "composability": "transaction-level; covenant-id ownership",
     "tokenSupport": "the base KCC-20 tokens run on",
-    "bestFor": ["locks", "vaults", "escrow primitives"],
-    "notFor": ["writing whole apps by hand — use a language on top"],
+    "bestFor": [
+      "locks",
+      "vaults",
+      "escrow primitives"
+    ],
+    "notFor": [
+      "writing whole apps by hand — use a language on top"
+    ],
     "network": "L1",
     "since": "2026 (Toccata upgrade; KIP-16 inline ZK live 2026-06-30)",
     "mainnet": true
@@ -33,8 +39,17 @@
     "stateModel": "single-contract UTXO covenant",
     "composability": "N:M within one contract; covenant-id ownership",
     "tokenSupport": "KCC-20 patterns",
-    "bestFor": ["vaults", "escrow", "simple tokens", "single-actor state machines"],
-    "notFor": ["multi-contract apps", "AMMs with complex state", "anything account-model"],
+    "bestFor": [
+      "vaults",
+      "escrow",
+      "simple tokens",
+      "single-actor state machines"
+    ],
+    "notFor": [
+      "multi-contract apps",
+      "AMMs with complex state",
+      "anything account-model"
+    ],
     "network": "L1",
     "since": "v1.0.0 released 2026-09-09",
     "mainnet": true
@@ -53,8 +68,13 @@
     "stateModel": "multi-actor covenants",
     "composability": "actors + ICC (inter-covenant communication)",
     "tokenSupport": null,
-    "bestFor": ["multi-contract apps", "event/ticketing-style flows"],
-    "notFor": ["production use today — no tagged release yet"],
+    "bestFor": [
+      "multi-contract apps",
+      "event/ticketing-style flows"
+    ],
+    "notFor": [
+      "production use today — no tagged release yet"
+    ],
     "network": "L1",
     "since": null,
     "mainnet": false
@@ -73,8 +93,13 @@
     "stateModel": "covenant UTXO",
     "composability": "covenant-id ownership",
     "tokenSupport": null,
-    "bestFor": ["new tokens with L1-enforced rules", "trust-minimized supply logic"],
-    "notFor": ["anything needing a finalized written spec today — the draft is still consolidating"],
+    "bestFor": [
+      "new tokens with L1-enforced rules",
+      "trust-minimized supply logic"
+    ],
+    "notFor": [
+      "anything needing a finalized written spec today — the draft is still consolidating"
+    ],
     "network": "L1",
     "since": null,
     "mainnet": true
@@ -87,14 +112,16 @@
     "plain": "Programs that live natively inside Kaspa's DAG rather than being encoded as covenant scripts. The kaspanet/vprogs repo is public — a Rust framework for provable computation, in early development. Not something you can deploy on mainnet today.",
     "analogy": "Blueprints for a smarter vault — now pinned up in a public workshop, but the vault isn't built yet.",
     "repo": "kaspanet/vprogs",
-    "docs": null,
+    "docs": "https://docs.kaspa.org/programmability/full-vprogs",
     "playground": null,
     "maturity": "roadmap",
     "stateModel": null,
     "composability": null,
     "tokenSupport": null,
     "bestFor": [],
-    "notFor": ["anything on mainnet today — it is a prototype in early development"],
+    "notFor": [
+      "anything on mainnet today — it is a prototype in early development"
+    ],
     "network": "L1",
     "since": null,
     "mainnet": false
