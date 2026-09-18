@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-16T11:16:30.690Z",
+  "generatedAt": "2026-09-18T10:58:11.041Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
       "note": "EIP-1193/6963-style; overlaps the separate KIP-12 wallet-discovery effort — convergence is the open question",
       "url": "https://github.com/kaspanet/kccs/pull/24",
       "status": "open",
-      "updated": "2026-09-13T08:05:39Z",
-      "reviewComments": 16,
+      "updated": "2026-09-18T07:13:06Z",
+      "reviewComments": 30,
       "commits": 4
     },
     {
@@ -15,9 +15,9 @@
       "note": "general-purpose (not only tokens): a dedicated KCC-1 instance anchors metadata at genesis; under discussion with core devs — a July sibling proposal (KCC-21, PR #6) covers token metadata, so which shape wins is the open question",
       "url": "https://github.com/kaspanet/kccs/pull/26",
       "status": "open",
-      "updated": "2026-09-15T08:29:39Z",
+      "updated": "2026-09-16T19:25:08Z",
       "reviewComments": 0,
-      "commits": 2
+      "commits": 3
     }
   ]
 }
