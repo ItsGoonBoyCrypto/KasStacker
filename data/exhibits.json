@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-18T10:58:08.296Z",
+  "generatedAt": "2026-09-19T10:41:50.071Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "673088a08e40f27971ef8b9ffa905f5bbcdab976ec05189b45407e603bfbd286",
+      "txId": "950b571f0082395f21c8d537b8474f4ad00d2dce4d1df4df8a5f9e93062a3208",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "511209",
+      "amount": "15686",
       "decimals": 0,
-      "timestamp": 1789728391171
+      "timestamp": 1789809889187
     },
     {
-      "txId": "b8bb97d23e62eaa45d5594af228260a6fc223c6f596ce5ce4d51a4bd1936816a",
+      "txId": "3aad554a9610610307b562df4d7d0f1c9610e0c4fb2b0a1b545b1ca28eb59b4d",
       "kind": "buy",
-      "ticker": "KASDIA",
-      "name": "Kaspa al Día",
-      "amount": "61",
+      "ticker": "KOOK",
+      "name": "Let HIm kook",
+      "amount": "1481997",
       "decimals": 0,
-      "timestamp": 1789722625519
+      "timestamp": 1789806860455
     },
     {
-      "txId": "b1a9533670fef0b57ba5789e5f3613e36c2116b873582b4c426f2f704e4c1852",
+      "txId": "edc72110f5675850a2b986cd7e6679a841205ec3c9babc2d95520aafce4b8ba7",
       "kind": "buy",
       "ticker": "IFWEN",
       "name": "NOT IF BUT WEN",
-      "amount": "10703",
+      "amount": "68560",
       "decimals": 0,
-      "timestamp": 1789719978783
+      "timestamp": 1789806627596
     }
   ]
 }
