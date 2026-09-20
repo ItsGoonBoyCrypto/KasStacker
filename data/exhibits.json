@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-19T10:41:50.071Z",
+  "generatedAt": "2026-09-20T11:04:24.689Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "950b571f0082395f21c8d537b8474f4ad00d2dce4d1df4df8a5f9e93062a3208",
+      "txId": "842b20efb5d5b51e4bf319099682aaca9a1cd65806a14d7d6c4d632cede7ee48",
       "kind": "buy",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "15686",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "181223",
       "decimals": 0,
-      "timestamp": 1789809889187
+      "timestamp": 1789898295759
     },
     {
-      "txId": "3aad554a9610610307b562df4d7d0f1c9610e0c4fb2b0a1b545b1ca28eb59b4d",
+      "txId": "5c04eaf4561018c751db76c566a81d968fbc9672ff2e9575d8d97bb6041e408b",
       "kind": "buy",
-      "ticker": "KOOK",
-      "name": "Let HIm kook",
-      "amount": "1481997",
+      "ticker": "KASPI",
+      "name": "ꓘΛSρɪ",
+      "amount": "4507",
       "decimals": 0,
-      "timestamp": 1789806860455
+      "timestamp": 1789897667091
     },
     {
-      "txId": "edc72110f5675850a2b986cd7e6679a841205ec3c9babc2d95520aafce4b8ba7",
-      "kind": "buy",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "68560",
+      "txId": "13211ca266c5f582602b8a75c737ac983ef8c38566dee847351d33b2efddaa8a",
+      "kind": "sell",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "2987",
       "decimals": 0,
-      "timestamp": 1789806627596
+      "timestamp": 1789892819540
     }
   ]
 }

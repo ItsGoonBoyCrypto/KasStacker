@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-19T10:41:49.562Z",
+  "generatedAt": "2026-09-20T11:04:24.116Z",
   "repos": {
     "kaspanet/rusty-kaspa": {
       "latestTag": "v2.0.1",
       "latestTagDate": "2026-06-15T19:10:50Z",
-      "lastCommit": "2026-09-08T04:08:18Z",
-      "openIssues": 222,
-      "stars": 846,
+      "lastCommit": "2026-09-20T07:41:07Z",
+      "openIssues": 225,
+      "stars": 847,
       "archived": false
     },
     "kaspanet/silverscript": {
@@ -36,8 +36,8 @@
     "kaspanet/vprogs": {
       "latestTag": null,
       "latestTagDate": null,
-      "lastCommit": "2026-09-19T08:20:23Z",
-      "openIssues": 36,
+      "lastCommit": "2026-09-20T10:15:54Z",
+      "openIssues": 37,
       "stars": 53,
       "archived": false
     }
