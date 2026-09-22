@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-21T12:32:27.076Z",
+  "generatedAt": "2026-09-22T11:20:38.473Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "92a8ca9fa77ce702969b0a291cfa8922719c993d39abea91b2070b019a21232d",
-      "kind": "buy",
+      "txId": "01c0dac2a4b26b8b02b781f01949b50155cad1af51a46f2897d10aba4a7f5fcf",
+      "kind": "transfer",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "91647",
+      "amount": "10",
       "decimals": 0,
-      "timestamp": 1789991435387
+      "timestamp": 1790075582975
     },
     {
-      "txId": "3ffc03fa583bbedb15bee4a916e9a7857c32710b8d609eb697e80ed551f77fb5",
+      "txId": "a70b59b3cd4d547f978f6388ebfaa8b1586c2c230fce535ef3addab22db5d973",
       "kind": "buy",
-      "ticker": "MACH",
-      "name": "Mach Coin",
-      "amount": "39810",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "3001",
       "decimals": 0,
-      "timestamp": 1789986662163
+      "timestamp": 1790061447236
     },
     {
-      "txId": "e293e6fbb71582ac24864c004fae423d505ccb4f88c53105ae2e99f6931aa8d6",
+      "txId": "e461515d701ea1c177403839b56f5338026c3dfdfcebe45627de41993cdcea75",
       "kind": "sell",
-      "ticker": "KROSHI",
-      "name": "Kroshi",
-      "amount": "1208200",
+      "ticker": "GIABOO",
+      "name": "GiaBoo",
+      "amount": "4259990",
       "decimals": 0,
-      "timestamp": 1789986262912
+      "timestamp": 1790058081489
     }
   ]
 }
