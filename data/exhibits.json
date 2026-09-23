@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-22T11:20:38.473Z",
+  "generatedAt": "2026-09-23T11:15:25.969Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "01c0dac2a4b26b8b02b781f01949b50155cad1af51a46f2897d10aba4a7f5fcf",
-      "kind": "transfer",
+      "txId": "d6d0787acf01bbec3dcf5e3b3eca07de84d38df65110b946f1a1d864a2780329",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "10",
+      "amount": "20647",
       "decimals": 0,
-      "timestamp": 1790075582975
+      "timestamp": 1790154983107
     },
     {
-      "txId": "a70b59b3cd4d547f978f6388ebfaa8b1586c2c230fce535ef3addab22db5d973",
-      "kind": "buy",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "3001",
-      "decimals": 0,
-      "timestamp": 1790061447236
-    },
-    {
-      "txId": "e461515d701ea1c177403839b56f5338026c3dfdfcebe45627de41993cdcea75",
+      "txId": "cd4cfe21108b2147def827f3579899dc8b2b1374c24a71f7a10c7738f0d847ac",
       "kind": "sell",
-      "ticker": "GIABOO",
-      "name": "GiaBoo",
-      "amount": "4259990",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "2000000",
       "decimals": 0,
-      "timestamp": 1790058081489
+      "timestamp": 1790152874796
+    },
+    {
+      "txId": "7cb58084e74744685dc9f5d0b0a2a0d9563fb92df18013cfec2a9862d077dd15",
+      "kind": "buy",
+      "ticker": "KKDAG",
+      "name": "Kas Knight",
+      "amount": "1538",
+      "decimals": 0,
+      "timestamp": 1790145947862
     }
   ]
 }
