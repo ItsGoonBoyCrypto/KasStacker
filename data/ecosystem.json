@@ -364,6 +364,10 @@
     {
       "name": "Portrait",
       "why": "pattern library with its own covenant language — checking its emitted Silverscript next"
+    },
+    {
+      "name": "Silverscript Studio (silverscriptstudio.com)",
+      "why": "suggested 2026-09-24, but the site answered 503 on every check that day and has no public archive snapshot — listed when it is reachable and reviewable"
     }
   ]
 }

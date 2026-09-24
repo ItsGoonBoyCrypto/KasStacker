@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T11:30:01.298Z",
+  "generatedAt": "2026-09-24T18:39:23.396Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -15,9 +15,27 @@
       "note": "general-purpose (not only tokens): a dedicated KCC-1 instance anchors metadata at genesis; under discussion with core devs — a July sibling proposal (KCC-21, PR #6) covers token metadata, so which shape wins is the open question",
       "url": "https://github.com/kaspanet/kccs/pull/26",
       "status": "open",
-      "updated": "2026-09-24T11:15:49Z",
+      "updated": "2026-09-24T17:28:07Z",
       "reviewComments": 6,
-      "commits": 6
+      "commits": 11
+    },
+    {
+      "label": "KCC-20 — KCC-0 compliance + advancement to Last Call",
+      "note": "the fungible-token standard moving toward finalization — KCC-0 (the process doc) itself went Final on 2026-09-21",
+      "url": "https://github.com/kaspanet/kccs/pull/31",
+      "status": "open",
+      "updated": "2026-09-24T15:05:32Z",
+      "reviewComments": 4,
+      "commits": 4
+    },
+    {
+      "label": "Reputation, bond and identity registry covenant KCCs",
+      "note": "a new proposal domain beyond tokens — registries as covenants; early draft",
+      "url": "https://github.com/kaspanet/kccs/pull/29",
+      "status": "open",
+      "updated": "2026-09-21T21:57:43Z",
+      "reviewComments": 0,
+      "commits": 1
     }
   ]
 }

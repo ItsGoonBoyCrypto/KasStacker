@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-09-24",
+    "kind": "stack",
+    "title": "KCC-0 is Final — the first finalized Kaspa convention — and KCC-20 moves toward Last Call",
+    "body": "Verified at source: KCC-0, the meta-document defining how Kaspa conventions are proposed and finalized, reached Status: Final on 2026-09-21 — the first KCC to complete the process. A new pull request proposes advancing KCC-20 itself to Last Call alongside KCC-0 compliance; this site's daily proposals watcher now tracks it, together with a new proposal domain: reputation, bond and identity registry covenants. Also new: the footer now links the Kas Smiths forum (where these standards are debated — its public content is mirrored daily in Manyfestation's kas-smiths-public-archive on GitHub) and the public Kaspa Core R&D Telegram. One suggestion is parked honestly: silverscriptstudio.com was unreachable on every check today and joins the under-review list until it answers."
+  },
+  {
     "date": "2026-09-17",
     "kind": "stack",
     "title": "Official docs restructured: a programmability decision guide, and \"Based Apps\" named",
