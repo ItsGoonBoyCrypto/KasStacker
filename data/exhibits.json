@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-09-24T11:29:58.978Z",
+  "generatedAt": "2026-09-25T11:36:00.836Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "a1165d8b1725b433a1006beee5dee8e4fb80a4a707146f85a6e5e5957cc4a9b6",
-      "kind": "sell",
+      "txId": "0ce82347251b545840a8f0e5b2239b38face9f69976fda190bc9c9c74a5108fb",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "235",
+      "amount": "301890",
       "decimals": 0,
-      "timestamp": 1790245594746
+      "timestamp": 1790335617650
     },
     {
-      "txId": "def8f87a17f304b37fd39c7cef02ae21d170517d6f6e81a0c915d7d68539cb45",
-      "kind": "sell",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "77",
-      "decimals": 0,
-      "timestamp": 1790219038632
-    },
-    {
-      "txId": "6b22d74ff04a1726b2d679984218aff4c2b11cfe385161fceca8226eecd3db92",
+      "txId": "2e533a9983b33eda3d58e266bf5ad195d3f9e426451bacf74f72fa04736cd375",
       "kind": "buy",
-      "ticker": "KKDAG",
-      "name": "Kas Knight",
-      "amount": "69130",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "14356",
       "decimals": 0,
-      "timestamp": 1790215169732
+      "timestamp": 1790310456953
+    },
+    {
+      "txId": "1527e74a9d16ef96f6ba4955a2e8b7a1be9a5b17e86719f972c7515f9af85344",
+      "kind": "sell",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "26206954",
+      "decimals": 0,
+      "timestamp": 1790310424744
     }
   ]
 }
