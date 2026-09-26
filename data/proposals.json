@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T11:36:04.412Z",
+  "generatedAt": "2026-09-26T11:11:02.303Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -15,7 +15,7 @@
       "note": "general-purpose (not only tokens): a dedicated KCC-1 instance anchors metadata at genesis; under discussion with core devs — a July sibling proposal (KCC-21, PR #6) covers token metadata, so which shape wins is the open question",
       "url": "https://github.com/kaspanet/kccs/pull/26",
       "status": "open",
-      "updated": "2026-09-25T07:27:18Z",
+      "updated": "2026-09-25T13:00:53Z",
       "reviewComments": 6,
       "commits": 11
     },
@@ -24,7 +24,7 @@
       "note": "the fungible-token standard moving toward finalization — KCC-0 (the process doc) itself went Final on 2026-09-21",
       "url": "https://github.com/kaspanet/kccs/pull/31",
       "status": "open",
-      "updated": "2026-09-24T15:05:32Z",
+      "updated": "2026-09-25T14:09:37Z",
       "reviewComments": 4,
       "commits": 4
     },
