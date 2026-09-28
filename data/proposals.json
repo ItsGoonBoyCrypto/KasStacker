@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T13:31:30.254Z",
+  "generatedAt": "2026-09-28T18:30:46.117Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -12,7 +12,7 @@
     },
     {
       "label": "KCC-23 — MJ, JSON metadata bound to a covenant ID",
-      "note": "general-purpose (not only tokens): a dedicated KCC-1 instance anchors metadata at genesis; under discussion with core devs — a July sibling proposal (KCC-21, PR #6) covers token metadata, so which shape wins is the open question",
+      "note": "now the metadata track: the rival KCC-21 proposal was closed as superseded on 2026-09-25, and a follow-up defining name/ticker/decimals/image fields is planned on top of KCC-23",
       "url": "https://github.com/kaspanet/kccs/pull/26",
       "status": "open",
       "updated": "2026-09-25T13:00:53Z",
@@ -36,6 +36,15 @@
       "updated": "2026-09-21T21:57:43Z",
       "reviewComments": 0,
       "commits": 1
+    },
+    {
+      "label": "Argent KCC-20 reference implementation",
+      "note": "the first real content in the official reference repo: a KCC-20 token actor, an admin-keyless public mint, offline examples — the kind of public implementation the standard needs before Final",
+      "url": "https://github.com/argent-lang/kcc20-reference/pull/1",
+      "status": "open",
+      "updated": "2026-09-27T19:41:37Z",
+      "reviewComments": 10,
+      "commits": 9
     }
   ]
 }

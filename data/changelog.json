@@ -1,6 +1,12 @@
 [
   {
     "date": "2026-09-28",
+    "kind": "stack",
+    "title": "KCC-20's Last Call approved; the metadata question is answered; rusty-kaspa v2.1.0",
+    "body": "Three moves, all verified at source. (1) The pull request advancing KCC-20 to Last Call received an approving review on 2026-09-28 — merge looks imminent, and this site's status badge flips the day it lands. (2) The covenant-metadata question is settled: KCC-21 was closed as superseded on 2026-09-25, making KCC-23 (Metadata JSON) the track — with a follow-up planned to define name, ticker, decimals and image fields. (3) rusty-kaspa v2.1.0 (released 2026-09-22, already on the repo board): network and P2P hardening, an arithmetic-safety audit, and the ZK proof-script tooling extracted into a standalone kaspa-txscript-zk-sdk crate — a building block for proof-verified covenants. Also now watched daily: the first Argent KCC-20 reference implementation, opened in the official argent-lang/kcc20-reference repo."
+  },
+  {
+    "date": "2026-09-28",
     "kind": "ecosystem",
     "title": "SilverScript Studio: a browser IDE for covenants",
     "body": "Off the under-review list and onto the board: silverscriptstudio.com is a zero-install Silverscript IDE with annotated snippets, eight covenant wizards, an AI assistant, and one-key compilation with a hex inspector — we exercised the compiler in-browser and watched the welcome contract compile to 56 bytes. Its deploy, deposit and withdraw flows are the site's own claims (not yet independently tested), and no public source repository is named — the card says so. It was unreachable when first suggested on 2026-09-24 and has been back up since."
