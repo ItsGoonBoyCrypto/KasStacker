@@ -57,10 +57,12 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
         <div class="out-btns">
           <button class="mini" id="copy" type="button">Copy</button>
           <button class="mini" id="dl" type="button">Download .sil</button>
+          <button class="mini studio" id="studio" type="button">🎛️ Open in Studio ↗</button>
         </div>
       </div>
       <pre><code id="code"></code></pre>
       <p class="copied" id="copied" hidden>Copied.</p>
+      <p class="copied" id="studio-hint" hidden>Copied your covenant ✓ — in the Studio: paste it (Ctrl+V), then compile (Ctrl+B).</p>
     </section>
 
     <section class="notes">
@@ -154,6 +156,11 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
       a.click();
       URL.revokeObjectURL(a.href);
     });
+    // One click: copy the designed contract, open the Studio to compile it.
+    document.getElementById('studio').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(current); document.getElementById('studio-hint').hidden = false; } catch {}
+      window.open('https://silverscriptstudio.com', '_blank', 'noopener');
+    });
   </script>
 </Base>
 
@@ -205,6 +212,17 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
     padding: 4px 12px; cursor: pointer;
   }
   .mini:hover { border-color: var(--teal); }
+  .mini.studio {
+    color: var(--teal-ink);
+    background: linear-gradient(120deg, var(--teal-bright), var(--teal));
+    border-color: var(--teal-bright);
+    animation: studio-glow 2.4s ease-in-out infinite;
+  }
+  @keyframes studio-glow {
+    0%, 100% { box-shadow: 0 0 8px color-mix(in srgb, var(--teal) 30%, transparent); }
+    50% { box-shadow: 0 0 18px color-mix(in srgb, var(--teal) 55%, transparent); }
+  }
+  @media (prefers-reduced-motion: reduce) { .mini.studio { animation: none; } }
   .out pre { margin: 0; }
   /* .ln spans and note items are created by JS, so they carry no Astro scope
      attribute — style them via :global. */
