@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-09-28",
+    "kind": "ecosystem",
+    "title": "SilverScript Studio: a browser IDE for covenants",
+    "body": "Off the under-review list and onto the board: silverscriptstudio.com is a zero-install Silverscript IDE with annotated snippets, eight covenant wizards, an AI assistant, and one-key compilation with a hex inspector — we exercised the compiler in-browser and watched the welcome contract compile to 56 bytes. Its deploy, deposit and withdraw flows are the site's own claims (not yet independently tested), and no public source repository is named — the card says so. It was unreachable when first suggested on 2026-09-24 and has been back up since."
+  },
+  {
     "date": "2026-09-24",
     "kind": "stack",
     "title": "KCC-0 is Final — the first finalized Kaspa convention — and KCC-20 moves toward Last Call",
