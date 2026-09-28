@@ -62,7 +62,7 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
       </div>
       <pre><code id="code"></code></pre>
       <p class="copied" id="copied" hidden>Copied.</p>
-      <p class="copied" id="studio-hint" hidden>Copied your covenant ✓ — in the Studio: paste it (Ctrl+V), then compile (Ctrl+B).</p>
+      <p class="copied" id="studio-hint" hidden>Copied your covenant ✓ — if the Studio didn't load it automatically, paste it (Ctrl+V). Then compile (Ctrl+B).</p>
     </section>
 
     <section class="notes">
@@ -156,10 +156,18 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
       a.click();
       URL.revokeObjectURL(a.href);
     });
-    // One click: copy the designed contract, open the Studio to compile it.
+    // One click: open the Studio with the contract in the URL fragment
+    // (their #open= import format, v1 — stays in the browser, never hits
+    // their server logs), plus a clipboard copy as fallback while the
+    // import feature rolls out on their side.
     document.getElementById('studio').addEventListener('click', async () => {
       try { await navigator.clipboard.writeText(current); document.getElementById('studio-hint').hidden = false; } catch {}
-      window.open('https://silverscriptstudio.com', '_blank', 'noopener');
+      const json = JSON.stringify({ v: 1, file: 'my-covenant.sil', source: current, from: 'KasStacker' });
+      const bytes = new TextEncoder().encode(json);
+      let bin = '';
+      bytes.forEach((b) => { bin += String.fromCharCode(b); });
+      const b64url = btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      window.open(`https://silverscriptstudio.com/#open=${b64url}`, '_blank', 'noopener');
     });
   </script>
 </Base>

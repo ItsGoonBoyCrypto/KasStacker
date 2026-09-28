@@ -18,8 +18,9 @@ const places = [
   },
   {
     name: 'Zero-install experimenting',
-    blurb: 'Stuck on setup? kascov.io runs covenant code in the browser, and the starter template compiles on the first try in CI — clone it and compare against your checkout.',
+    blurb: 'Stuck on setup? SilverScript Studio is a full browser IDE (wizards, one-key compile, hex inspector), kascov.io runs covenant code in the browser, and the starter template compiles on the first try in CI. The Studio also exposes a public compile-check API — POST JSON {source} to /api/compile, CORS-enabled, no key, ~30 req/min — handy for checking that source compiles from your own tools (verified working 2026-09-28; its output uses placeholder constructor values, so never derive an address from it).',
     links: [
+      ['SilverScript Studio', 'https://silverscriptstudio.com'],
       ['kascov.io', 'https://kascov.io'],
       ['kasstacker-starter', 'https://github.com/ItsGoonBoyCrypto/kasstacker-starter'],
     ],
