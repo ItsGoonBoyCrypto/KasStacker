@@ -68,6 +68,12 @@ const counts = Object.fromEntries(
         <a class="btn btn-primary" href="/build/setup">Start the path →</a>
         <a class="btn btn-ghost" href="https://github.com/ItsGoonBoyCrypto/kasstacker-starter" rel="noopener">Clone the starter template</a>
       </div>
+      <a class="studio-callout" href="https://silverscriptstudio.com" rel="noopener">
+        <span class="sc-badge">ZERO INSTALL</span>
+        <span class="sc-body"><b>No toolchain? Start in the browser.</b> SilverScript Studio — a community IDE
+        with covenant wizards and one-key compile. We verified its compiler works; its
+        deploy flow carries the usual <span class="sc-link">honest checks</span>. ↗</span>
+      </a>
     </header>
 
     <div class="progress" data-ids={allIds.join(',')} hidden>
@@ -173,6 +179,35 @@ const counts = Object.fromEntries(
   .b { color: var(--muted); font-size: 0.9rem; }
   .go { color: var(--teal-bright); font-weight: 600; }
   .eco-line { margin-top: 22px; color: var(--faint); font-size: 0.92rem; }
+  .studio-callout {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--teal) 9%, var(--surface)), var(--surface) 60%);
+    border: 1px solid var(--teal-dim);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .studio-callout:hover { text-decoration: none; border-color: var(--teal); box-shadow: var(--shadow); }
+  .studio-callout b { color: var(--text); }
+  .sc-badge {
+    font-family: 'Chakra Petch', 'JetBrains Mono', monospace;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--teal-ink);
+    background: var(--teal-bright);
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    flex: none;
+  }
+  .sc-body { min-width: 0; }
+  .sc-link { color: var(--teal-bright); text-decoration: underline; }
 </style>
 
 <script>

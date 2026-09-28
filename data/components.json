@@ -34,7 +34,7 @@
     "analogy": "Writing the combination logic for the vault door — without machining the door yourself.",
     "repo": "kaspanet/silverscript",
     "docs": "https://docs.kaspa.org/toccata/silverscript",
-    "playground": "https://kascov.io",
+    "playground": "https://silverscriptstudio.com",
     "maturity": "pre-audit",
     "stateModel": "single-contract UTXO covenant",
     "composability": "N:M within one contract; covenant-id ownership",

@@ -196,7 +196,7 @@
       "tagline": "Write, compile & deploy covenants in the browser",
       "shows": "A zero-install Silverscript IDE: annotated snippets, eight covenant wizards (time-locked vault, escrow, dead man's switch…), an AI assistant, and one-key compile with a hex inspector — plus wallet-connect deploy, deposit and withdraw flows.",
       "origin": "community",
-      "featured": false,
+      "featured": true,
       "checks": [
         {
           "type": "homepage",
