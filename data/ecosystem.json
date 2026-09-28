@@ -1,6 +1,25 @@
 {
   "projects": [
     {
+      "name": "SilverScript Studio",
+      "url": "https://silverscriptstudio.com",
+      "icon": "🎛️",
+      "layer": "Silverscript · IDE",
+      "tagline": "Write, compile & deploy covenants in the browser",
+      "shows": "A zero-install Silverscript IDE: annotated snippets, eight covenant wizards (time-locked vault, escrow, dead man's switch…), an AI assistant, and one-key compile with a hex inspector — plus wallet-connect deploy, deposit and withdraw flows.",
+      "origin": "community",
+      "featured": true,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-09-28",
+          "what": "in-browser compiler exercised — the welcome contract compiled to 56 bytes"
+        }
+      ],
+      "note": "deploy/deposit/withdraw are the site's own claims, not yet independently tested · no public source found · was unreachable on 2026-09-24, back up since",
+      "isNew": true
+    },
+    {
       "name": "DAGmate",
       "url": "https://dagmate.org",
       "icon": "♟️",
@@ -187,24 +206,6 @@
         }
       ],
       "note": "in active development · source not yet public"
-    },
-    {
-      "name": "SilverScript Studio",
-      "url": "https://silverscriptstudio.com",
-      "icon": "🎛️",
-      "layer": "Silverscript · IDE",
-      "tagline": "Write, compile & deploy covenants in the browser",
-      "shows": "A zero-install Silverscript IDE: annotated snippets, eight covenant wizards (time-locked vault, escrow, dead man's switch…), an AI assistant, and one-key compile with a hex inspector — plus wallet-connect deploy, deposit and withdraw flows.",
-      "origin": "community",
-      "featured": true,
-      "checks": [
-        {
-          "type": "homepage",
-          "date": "2026-09-28",
-          "what": "in-browser compiler exercised — the welcome contract compiled to 56 bytes"
-        }
-      ],
-      "note": "deploy/deposit/withdraw are the site's own claims, not yet independently tested · no public source found · was unreachable on 2026-09-24, back up since"
     }
   ],
   "venues": [

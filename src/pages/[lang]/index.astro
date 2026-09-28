@@ -98,8 +98,9 @@ const featured = eco.projects.filter((p) => p.featured);
   .lede { font-size: 1.12rem; color: var(--muted); max-width: 56ch; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
   .eco-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  @media (max-width: 720px) { .eco-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 460px) { .eco-grid { grid-template-columns: 1fr; } }
+  .eco-card:first-child:nth-last-child(3n + 1) { grid-column: 1 / -1; border-color: var(--teal-dim); }
+  @media (max-width: 720px) { .eco-grid { grid-template-columns: 1fr 1fr; } .eco-card:first-child:nth-last-child(3n + 1) { grid-column: auto; } .eco-card:first-child:nth-last-child(odd) { grid-column: 1 / -1; } }
+  @media (max-width: 460px) { .eco-grid { grid-template-columns: 1fr; } .eco-card:first-child { grid-column: auto; } }
   .eco-card {
     display: flex;
     flex-direction: column;
