@@ -75,10 +75,17 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
         value behind any covenant, read <a href="/build/real-contract">what production contracts
         guard against</a>.
       </p>
+      <p class="next-label">Compile it for real — two ways:</p>
       <div class="next">
-        <a class="btn btn-primary" href="/build/first-covenant">Compile it for real →</a>
+        <a class="btn btn-primary" href="https://silverscriptstudio.com" rel="noopener">In your browser — SilverScript Studio ↗</a>
+        <a class="btn btn-ghost" href="/build/first-covenant">With the full toolchain →</a>
         <a class="btn btn-ghost" href="/learn/try-it">Try to break one first</a>
       </div>
+      <p class="next-note">
+        SilverScript Studio is a zero-install community IDE — paste your contract, hit Ctrl+B.
+        We verified its compiler works; its deploy flow is
+        <a href="/ecosystem">listed with the usual honest checks</a>.
+      </p>
     </div>
   </div>
 
@@ -219,5 +226,7 @@ for (const c of allCombos()) contracts[comboKey(c)] = buildContract(c);
 
   .after { margin-top: 28px; }
   .honesty { color: var(--faint); font-size: 0.88rem; border-top: 1px solid var(--border-soft); padding-top: 14px; }
-  .next { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .next-label { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; margin: 18px 0 0; }
+  .next { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .next-note { color: var(--faint); font-size: 0.84rem; margin-top: 12px; }
 </style>
