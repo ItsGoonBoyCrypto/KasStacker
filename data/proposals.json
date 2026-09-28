@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T11:48:48.368Z",
+  "generatedAt": "2026-09-28T13:31:30.254Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -24,9 +24,9 @@
       "note": "the fungible-token standard moving toward finalization — KCC-0 (the process doc) itself went Final on 2026-09-21",
       "url": "https://github.com/kaspanet/kccs/pull/31",
       "status": "open",
-      "updated": "2026-09-25T14:09:37Z",
-      "reviewComments": 4,
-      "commits": 4
+      "updated": "2026-09-28T10:57:38Z",
+      "reviewComments": 8,
+      "commits": 9
     },
     {
       "label": "Reputation, bond and identity registry covenant KCCs",
