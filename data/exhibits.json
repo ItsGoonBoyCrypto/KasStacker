@@ -1,33 +1,24 @@
 {
-  "generatedAt": "2026-09-28T13:31:26.048Z",
+  "generatedAt": "2026-09-29T12:33:09.718Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "2b5cad76ae9501cd4cb48f860fff194fdf5f0b5e0f79950e9e51987d4fb0b699",
+      "txId": "08046e8d4eaa88b3c1066cf9c0db30c8f7c43c08cbf0ed35ef86613ad93d4328",
       "kind": "buy",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "11612",
+      "decimals": 0,
+      "timestamp": 1790684453195
+    },
+    {
+      "txId": "052b07231fb2fcac517fe67c537df86d05d5bb2c4a1de296b7c40fccd97161a9",
+      "kind": "sell",
       "ticker": "PEPE",
       "name": "The Ultimate test",
-      "amount": "338257",
+      "amount": "4959969",
       "decimals": 0,
-      "timestamp": 1790599232985
-    },
-    {
-      "txId": "55a48f1dc9d40c0fc5d937a866765a4f01269d8ea2170d6e964995529a48ba45",
-      "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "899",
-      "decimals": 0,
-      "timestamp": 1790588478755
-    },
-    {
-      "txId": "5ea44e04aaa46c92b591cfe09e007636590247c385860a8d88d4b11bf318e7ba",
-      "kind": "buy",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "2036748",
-      "decimals": 0,
-      "timestamp": 1790582619696
+      "timestamp": 1790682214550
     }
   ]
 }
