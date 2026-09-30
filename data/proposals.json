@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T12:33:13.617Z",
+  "generatedAt": "2026-09-30T12:19:11.177Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -15,9 +15,9 @@
       "note": "now the metadata track: the rival KCC-21 proposal was closed as superseded on 2026-09-25, and a follow-up defining name/ticker/decimals/image fields is planned on top of KCC-23",
       "url": "https://github.com/kaspanet/kccs/pull/26",
       "status": "open",
-      "updated": "2026-09-25T13:00:53Z",
+      "updated": "2026-09-30T07:52:43Z",
       "reviewComments": 6,
-      "commits": 11
+      "commits": 12
     },
     {
       "label": "KCC-20 — KCC-0 compliance + advancement to Last Call",

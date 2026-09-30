@@ -1,24 +1,33 @@
 {
-  "generatedAt": "2026-09-29T12:33:09.718Z",
+  "generatedAt": "2026-09-30T12:19:06.676Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "08046e8d4eaa88b3c1066cf9c0db30c8f7c43c08cbf0ed35ef86613ad93d4328",
-      "kind": "buy",
+      "txId": "9ddfed775dad6c5fe0ad5b5bef075b2d59daa8fefb20abdbb8c9f4a3a408d8a9",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "11612",
+      "amount": "65984",
       "decimals": 0,
-      "timestamp": 1790684453195
+      "timestamp": 1790766278035
     },
     {
-      "txId": "052b07231fb2fcac517fe67c537df86d05d5bb2c4a1de296b7c40fccd97161a9",
+      "txId": "818dd434813972496b6beedb21b6fc40c5f07d3412be903f85efb5370d2750e4",
       "kind": "sell",
+      "ticker": "ANSEM",
+      "name": "The Black Bull",
+      "amount": "563240",
+      "decimals": 0,
+      "timestamp": 1790760775117
+    },
+    {
+      "txId": "6f2c51639a82bfd2cfd61dc4d3fa1a183c8876fd2f1693433afd4cd3e6416d6c",
+      "kind": "buy",
       "ticker": "PEPE",
       "name": "The Ultimate test",
-      "amount": "4959969",
+      "amount": "1100673",
       "decimals": 0,
-      "timestamp": 1790682214550
+      "timestamp": 1790746347361
     }
   ]
 }
