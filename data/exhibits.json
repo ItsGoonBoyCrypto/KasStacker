@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-01T12:54:01.543Z",
+  "generatedAt": "2026-10-02T12:16:43.358Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "30cb419fd5f44df6bd449f63cf8d121a9e0727d20ccfc1709c219b1a6a51f379",
-      "kind": "sell",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "9405",
-      "decimals": 0,
-      "timestamp": 1790858849313
-    },
-    {
-      "txId": "c6b06ae9aea9bb16e8945fa623ab7f2d10ad0ad9cd37376f7c94050c4455043c",
+      "txId": "43e54bb50c3800818da9704b1ab7689c0eec0974888bb419023f94abf47afd0c",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "125000",
+      "amount": "30000",
       "decimals": 0,
-      "timestamp": 1790856479946
+      "timestamp": 1790939938042
     },
     {
-      "txId": "442192817fadee7fb7903f0457b86cb9f13c750fe003a190b6cd3a274149e9d2",
-      "kind": "buy",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "1510",
+      "txId": "d384fbe07900bf7190685bcbe06947ee39e08a8278ebc296c562d1903a2a2d06",
+      "kind": "sell",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "187300",
       "decimals": 0,
-      "timestamp": 1790855654928
+      "timestamp": 1790936629779
+    },
+    {
+      "txId": "dc47e33317475c403fcd5b1ab805cbe65d001e5ba29f1a64d5b9dfca1925f273",
+      "kind": "sell",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "1918656",
+      "decimals": 0,
+      "timestamp": 1790935773274
     }
   ]
 }

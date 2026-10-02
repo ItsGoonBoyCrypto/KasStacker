@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T12:54:00.836Z",
+  "generatedAt": "2026-10-02T12:16:42.329Z",
   "repos": {
     "kaspanet/rusty-kaspa": {
       "latestTag": "v2.1.0",
@@ -20,15 +20,15 @@
     "argent-lang/argent": {
       "latestTag": null,
       "latestTagDate": null,
-      "lastCommit": "2026-10-01T11:55:09Z",
-      "openIssues": 3,
-      "stars": 27,
+      "lastCommit": "2026-10-02T11:21:30Z",
+      "openIssues": 4,
+      "stars": 28,
       "archived": false
     },
     "kaspanet/kccs": {
       "latestTag": null,
       "latestTagDate": null,
-      "lastCommit": "2026-10-01T12:52:20Z",
+      "lastCommit": "2026-10-01T13:15:20Z",
       "openIssues": 7,
       "stars": 12,
       "archived": false
