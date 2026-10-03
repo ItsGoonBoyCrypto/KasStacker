@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-02T12:16:43.358Z",
+  "generatedAt": "2026-10-03T11:27:00.323Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "43e54bb50c3800818da9704b1ab7689c0eec0974888bb419023f94abf47afd0c",
-      "kind": "sell",
+      "txId": "26e283d06abe115815714aedce861ca06847da2c3a2ae39252db946792769507",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "30000",
+      "amount": "78919",
       "decimals": 0,
-      "timestamp": 1790939938042
+      "timestamp": 1791025972849
     },
     {
-      "txId": "d384fbe07900bf7190685bcbe06947ee39e08a8278ebc296c562d1903a2a2d06",
-      "kind": "sell",
+      "txId": "8f2fba8076eb212f587c3a16e103b9c42ef7e3cebac2ad1df6b3d6694df46b02",
+      "kind": "buy",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "10534",
+      "decimals": 0,
+      "timestamp": 1791018573106
+    },
+    {
+      "txId": "3ce102a7cdce9bb857bb44d9d9364795920026fb8f6a05bf52aecd8a24c1aabf",
+      "kind": "buy",
       "ticker": "PEPE",
       "name": "The Ultimate test",
-      "amount": "187300",
+      "amount": "834885",
       "decimals": 0,
-      "timestamp": 1790936629779
-    },
-    {
-      "txId": "dc47e33317475c403fcd5b1ab805cbe65d001e5ba29f1a64d5b9dfca1925f273",
-      "kind": "sell",
-      "ticker": "PEEPS",
-      "name": "Pixel Peeps Game",
-      "amount": "1918656",
-      "decimals": 0,
-      "timestamp": 1790935773274
+      "timestamp": 1791016011369
     }
   ]
 }
