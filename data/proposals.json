@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T11:00:54.556Z",
+  "generatedAt": "2026-10-04T11:00:40.252Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -45,6 +45,15 @@
       "updated": "2026-10-02T13:45:06Z",
       "reviewComments": 10,
       "commits": 10
+    },
+    {
+      "label": "Mobile wallet session & pairing API (draft, unnumbered)",
+      "note": "companion territory to KCC-12's provider API — how a mobile wallet pairs with a dApp session; early draft",
+      "url": "https://github.com/kaspanet/kccs/pull/35",
+      "status": "open",
+      "updated": "2026-10-02T21:43:02Z",
+      "reviewComments": 0,
+      "commits": 1
     }
   ]
 }

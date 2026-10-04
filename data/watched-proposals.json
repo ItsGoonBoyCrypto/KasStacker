@@ -28,5 +28,11 @@
     "pr": 1,
     "label": "Argent KCC-20 reference implementation",
     "note": "the first real content in the official reference repo: a KCC-20 token actor, an admin-keyless public mint, offline examples — the kind of public implementation the standard needs before Final"
+  },
+  {
+    "repo": "kaspanet/kccs",
+    "pr": 35,
+    "label": "Mobile wallet session & pairing API (draft, unnumbered)",
+    "note": "companion territory to KCC-12's provider API — how a mobile wallet pairs with a dApp session; early draft"
   }
 ]

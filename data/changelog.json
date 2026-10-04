@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-04",
+    "kind": "stack",
+    "title": "KCC-1 and KCC-2 reach Last Call; the Studio hand-off goes one-click",
+    "body": "Verified at source: KCC-1 (the covenant definition and ABI) and KCC-2 (authority schemes) both advanced to Last Call on 2026-10-01 — the final review stage before Final. KCC-20's own Last Call PR remains open with an approving review. Newly watched: a draft mobile wallet session-and-pairing API, companion territory to KCC-12. And a site milestone: SilverScript Studio shipped its import endpoint, so the covenant designer's 'Open in Studio' button now delivers your contract straight into their editor — pre-loaded, credited, with their reminder to review keys before deploying. Design to IDE in one click, nothing installed."
+  },
+  {
     "date": "2026-09-28",
     "kind": "stack",
     "title": "KCC-20's Last Call approved; the metadata question is answered; rusty-kaspa v2.1.0",
