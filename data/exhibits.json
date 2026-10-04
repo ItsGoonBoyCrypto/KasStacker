@@ -1,33 +1,15 @@
 {
-  "generatedAt": "2026-10-03T11:27:00.323Z",
+  "generatedAt": "2026-10-04T11:00:51.190Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "26e283d06abe115815714aedce861ca06847da2c3a2ae39252db946792769507",
+      "txId": "28315d53402e99092bb668005d02b81a3e726e2e9630b55e9899161ee709fe72",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "78919",
+      "amount": "1690",
       "decimals": 0,
-      "timestamp": 1791025972849
-    },
-    {
-      "txId": "8f2fba8076eb212f587c3a16e103b9c42ef7e3cebac2ad1df6b3d6694df46b02",
-      "kind": "buy",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "10534",
-      "decimals": 0,
-      "timestamp": 1791018573106
-    },
-    {
-      "txId": "3ce102a7cdce9bb857bb44d9d9364795920026fb8f6a05bf52aecd8a24c1aabf",
-      "kind": "buy",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "834885",
-      "decimals": 0,
-      "timestamp": 1791016011369
+      "timestamp": 1791110784780
     }
   ]
 }
