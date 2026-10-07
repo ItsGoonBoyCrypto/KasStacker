@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T13:09:14.473Z",
+  "generatedAt": "2026-10-07T13:04:32.486Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -42,9 +42,9 @@
       "note": "the first real content in the official reference repo: a KCC-20 token actor, an admin-keyless public mint, offline examples — the kind of public implementation the standard needs before Final",
       "url": "https://github.com/argent-lang/kcc20-reference/pull/1",
       "status": "open",
-      "updated": "2026-10-02T13:45:06Z",
+      "updated": "2026-10-07T12:22:31Z",
       "reviewComments": 10,
-      "commits": 10
+      "commits": 17
     },
     {
       "label": "Mobile wallet session & pairing API (draft, unnumbered)",
