@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-07T13:04:27.315Z",
+  "generatedAt": "2026-10-08T13:11:37.565Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "89963b7d09e22675a49dd15feac268a67ba0900ad8d932c0da4b79babf6ea1cb",
+      "txId": "1b43dbc3231df938bffa43c9997c3396ed3f21350029a8aa545942996d31ffc1",
       "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "9405",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "1673",
       "decimals": 0,
-      "timestamp": 1791378128904
+      "timestamp": 1791463377193
     },
     {
-      "txId": "7aeca05fb8f6e8801ad430c2b1c5ecc2be53aed2d8cee25fd9c37a2740569dee",
+      "txId": "a0e366b8821ea1423e7a7af1ebf30d7596b4d7292cf4f7549653841bf1382800",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "2152",
+      "amount": "45527",
       "decimals": 0,
-      "timestamp": 1791376610335
+      "timestamp": 1791457720687
     },
     {
-      "txId": "3c156be15cc7fc30e37f960f876f44e744ac2adfd9e48e62731b543cd5c82cc2",
+      "txId": "b366bc692fc0b1a3dddd466221df9ebf0750c990c8630b6137adc297b0bd0dd3",
       "kind": "buy",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "51563",
+      "ticker": "KASPI",
+      "name": "ꓘΛSρɪ",
+      "amount": "26850",
       "decimals": 0,
-      "timestamp": 1791376570425
+      "timestamp": 1791429510884
     }
   ]
 }
