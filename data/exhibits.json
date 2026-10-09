@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-08T13:11:37.565Z",
+  "generatedAt": "2026-10-09T12:58:14.615Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "1b43dbc3231df938bffa43c9997c3396ed3f21350029a8aa545942996d31ffc1",
-      "kind": "buy",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "1673",
-      "decimals": 0,
-      "timestamp": 1791463377193
-    },
-    {
-      "txId": "a0e366b8821ea1423e7a7af1ebf30d7596b4d7292cf4f7549653841bf1382800",
+      "txId": "3ead0b419459fd7e5c13c7425668e1bc48de1f9e48806062ea301878e56ec699",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "45527",
+      "amount": "111773",
       "decimals": 0,
-      "timestamp": 1791457720687
+      "timestamp": 1791550118677
     },
     {
-      "txId": "b366bc692fc0b1a3dddd466221df9ebf0750c990c8630b6137adc297b0bd0dd3",
+      "txId": "580e604fb98b764619d7e598f54066e8d68b22593732bb8252f772c0e5cd1787",
       "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "26850",
+      "ticker": "KASDIA",
+      "name": "Kaspa al Día",
+      "amount": "6448",
       "decimals": 0,
-      "timestamp": 1791429510884
+      "timestamp": 1791537695929
+    },
+    {
+      "txId": "964bc4a680034a114970b2e2c152a0e4751ee190b31c8941380e3cd82f4cc8d8",
+      "kind": "sell",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "377200",
+      "decimals": 0,
+      "timestamp": 1791537610788
     }
   ]
 }
