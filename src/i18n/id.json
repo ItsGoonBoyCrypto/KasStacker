@@ -33,7 +33,7 @@
       "alive": "aktif saat ini",
       "transitions": "transisi state (sepanjang masa)",
       "yesterday": "{n} peristiwa covenant kemarin",
-      "src": "dari kcc20.info + kascov.io · diperbarui setiap hari",
+      "src": "dari kcc20.info + kascov.io · diperbarui setiap 4 jam",
       "breakdown": "Apa sebenarnya {k}k itu:",
       "live": "aktif",
       "liveStates": "state aktif",
@@ -58,7 +58,7 @@
     "doorStackGo": "Telusuri komponen →",
     "statusEyebrow": "Langsung dari repo",
     "statusH2": "Status saat ini",
-    "statusSub": "Ditarik setiap hari dari API GitHub — tidak pernah ditulis tangan, tidak pernah diam-diam basi."
+    "statusSub": "Ditarik dari API GitHub setiap 4 jam — tidak pernah ditulis tangan, tidak pernah basi secara diam-diam."
   },
   "hub": {
     "eyebrow": "Belajar",

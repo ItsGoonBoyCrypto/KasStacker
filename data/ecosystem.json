@@ -335,7 +335,7 @@
           "date": "2026-09-12"
         }
       ],
-      "note": "now also a daily data source for this site (templates feed)"
+      "note": "also a data source for this site — the templates feed, refreshed every 4 hours"
     },
     {
       "name": "KaspaCom Covenant Explorer",
@@ -364,7 +364,7 @@
           "date": "2026-09-12"
         }
       ],
-      "note": "in daily use — the site’s mainnet numbers come from its API"
+      "note": "in constant use — the site's mainnet numbers come from its API, refreshed every 4 hours"
     }
   ],
   "underReview": [

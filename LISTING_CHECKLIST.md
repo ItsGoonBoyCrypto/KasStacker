@@ -29,8 +29,8 @@ directory information, not proof.
 ## Re-checking cadence
 
 - `compile` checks re-run **daily** in scheduled CI.
-- Repo liveness (tags, pushes) refreshes **daily** from the GitHub API.
-- Chain stats refresh **daily** from two independent indexers (kcc20.info + kascov.io).
+- Repo liveness (tags, pushes) refreshes **every 4 hours** from the GitHub API.
+- Chain stats refresh **every 4 hours** from two independent indexers (kcc20.info + kascov.io).
 - `homepage` and `onchain` checks carry their date; they are point-in-time.
 
 ## Suggesting an entry

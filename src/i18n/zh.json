@@ -33,7 +33,7 @@
       "alive": "当前存活",
       "transitions": "状态转换（历史总量）",
       "yesterday": "昨日 {n} 次契约事件",
-      "src": "数据来自 kcc20.info + kascov.io · 每日刷新",
+      "src": "来自 kcc20.info + kascov.io · 每 4 小时刷新",
       "breakdown": "这 {k}k 究竟包括什么：",
       "live": "存活",
       "liveStates": "存活状态",
@@ -58,7 +58,7 @@
     "doorStackGo": "浏览组件 →",
     "statusEyebrow": "来自代码仓库的实时数据",
     "statusH2": "当前状态",
-    "statusSub": "每日从 GitHub API 拉取 — 绝非手写，也绝不会悄悄过期。"
+    "statusSub": "每 4 小时从 GitHub API 拉取——绝不手写，绝不悄悄过时。"
   },
   "hub": {
     "eyebrow": "学习",

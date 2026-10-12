@@ -33,7 +33,7 @@
       "alive": "現在アクティブ",
       "transitions": "状態遷移（累計）",
       "yesterday": "昨日のコベナントイベント {n} 件",
-      "src": "kcc20.info + kascov.io より · 毎日更新",
+      "src": "kcc20.info + kascov.io より · 4時間ごとに更新",
       "breakdown": "この{k}kの内訳:",
       "live": "アクティブ",
       "liveStates": "アクティブな状態",
@@ -58,7 +58,7 @@
     "doorStackGo": "コンポーネントを見る →",
     "statusEyebrow": "リポジトリからのライブ情報",
     "statusH2": "現在のステータス",
-    "statusSub": "GitHub APIから毎日取得 — 手書きではなく、気づかないうちに古くなることもありません。"
+    "statusSub": "4時間ごとに GitHub API から取得——手書きは一切なし、気づかぬうちに古くなることもありません。"
   },
   "hub": {
     "eyebrow": "学ぶ",

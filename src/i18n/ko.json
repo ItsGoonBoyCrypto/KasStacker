@@ -33,7 +33,7 @@
       "alive": "현재 살아 있는 수",
       "transitions": "상태 전이 (역대 누적)",
       "yesterday": "어제 발생한 커버넌트 이벤트 {n}건",
-      "src": "kcc20.info + kascov.io 기준 · 매일 갱신",
+      "src": "kcc20.info + kascov.io 제공 · 4시간마다 갱신",
       "breakdown": "{k}k의 실제 구성:",
       "live": "라이브",
       "liveStates": "라이브 상태",
@@ -58,7 +58,7 @@
     "doorStackGo": "구성 요소 둘러보기 →",
     "statusEyebrow": "저장소에서 실시간으로",
     "statusH2": "지금 이 순간의 상태",
-    "statusSub": "매일 GitHub API에서 가져옵니다 — 손으로 쓰지 않고, 조용히 낡아 가지도 않습니다."
+    "statusSub": "4시간마다 GitHub API에서 가져옵니다 — 손으로 쓰지 않고, 조용히 낡아가지도 않습니다."
   },
   "hub": {
     "eyebrow": "배우기",

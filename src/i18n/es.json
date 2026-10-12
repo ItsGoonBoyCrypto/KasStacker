@@ -33,7 +33,7 @@
       "alive": "vivos ahora mismo",
       "transitions": "transiciones de estado (histórico)",
       "yesterday": "{n} eventos de covenants ayer",
-      "src": "de kcc20.info + kascov.io · actualizado a diario",
+      "src": "de kcc20.info + kascov.io · actualizado cada 4 horas",
       "breakdown": "Qué son realmente los {k}k:",
       "live": "vivos",
       "liveStates": "estados vivos",
@@ -58,7 +58,7 @@
     "doorStackGo": "Explora los componentes →",
     "statusEyebrow": "En vivo desde los repos",
     "statusH2": "Estado ahora mismo",
-    "statusSub": "Extraído a diario de la API de GitHub — nunca escrito a mano, nunca desactualizado en silencio."
+    "statusSub": "Extraído de la API de GitHub cada 4 horas — nunca escrito a mano, nunca silenciosamente obsoleto."
   },
   "hub": {
     "eyebrow": "Aprende",

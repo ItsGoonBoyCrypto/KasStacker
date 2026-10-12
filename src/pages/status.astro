@@ -60,7 +60,7 @@ const totalWindow = pts.reduce((a, p) => a + p.events, 0);
       <h1>State of the stack</h1>
       <p class="lede">
         Adoption in numbers, straight from the chain — then the health of every repository.
-        Nothing on this page is typed by hand: chain data refreshes daily from the keyless
+        Nothing on this page is typed by hand: chain data refreshes every 4 hours from the keyless
         <a href="https://kcc20.info" rel="noopener">kcc20.info</a> indexer, repo data from the GitHub API.
       </p>
     </header>
@@ -132,7 +132,7 @@ const totalWindow = pts.reduce((a, p) => a + p.events, 0);
     {proposals.items.length > 0 && (
       <section>
         <h2 class="board-title">Proposals in flight</h2>
-        <p class="board-sub">Standards being drafted right now — checked daily; the badge flips the day one merges.</p>
+        <p class="board-sub">Standards being drafted right now — checked every 4 hours; the badge flips within hours of a merge.</p>
         <div class="props">
           {proposals.items.map((p) => (
             <div class="prop panel">
@@ -150,7 +150,7 @@ const totalWindow = pts.reduce((a, p) => a + p.events, 0);
 
     <section>
       <h2 class="board-title">The repo board</h2>
-      <p class="board-sub">Fetched daily by a workflow that fails loudly — stale data is never silently committed. Last refresh: <code>{generated} UTC</code>.</p>
+      <p class="board-sub">Fetched every 4 hours by a workflow that fails loudly — stale data is never silently committed. Last refresh: <code>{generated} UTC</code>.</p>
       <div class="table-scroll">
         <table class="data">
           <thead>

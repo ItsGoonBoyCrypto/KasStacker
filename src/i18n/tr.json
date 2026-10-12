@@ -33,7 +33,7 @@
       "alive": "şu anda hayatta",
       "transitions": "durum geçişi (tüm zamanlar)",
       "yesterday": "dün {n} covenant olayı",
-      "src": "kaynak: kcc20.info + kascov.io · günlük yenilenir",
+      "src": "kcc20.info + kascov.io'dan · her 4 saatte bir güncellenir",
       "breakdown": "Bu {k}k aslında ne:",
       "live": "canlı",
       "liveStates": "canlı durum",
@@ -58,7 +58,7 @@
     "doorStackGo": "Bileşenlere göz at →",
     "statusEyebrow": "Repolardan canlı",
     "statusH2": "Şu anki durum",
-    "statusSub": "Her gün GitHub API'sinden çekilir — asla elle yazılmaz, asla sessizce bayatlamaz."
+    "statusSub": "Her 4 saatte bir GitHub API'sinden çekilir — asla elle yazılmaz, asla sessizce bayatlamaz."
   },
   "hub": {
     "eyebrow": "Öğren",

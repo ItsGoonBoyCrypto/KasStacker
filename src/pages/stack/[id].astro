@@ -87,7 +87,7 @@ const links: [string, string | null][] = [
     {repo && (
       <section>
         <h2>Live status</h2>
-        <p class="src">From the GitHub API for <code>{c.repo}</code>, refreshed daily.</p>
+        <p class="src">From the GitHub API for <code>{c.repo}</code>, refreshed every 4 hours.</p>
         <div class="repo-row">
           <span class="stat"><b>{repo.latestTag ?? 'no release'}</b> latest tag</span>
           <span class="stat"><b>{new Date(repo.lastCommit).toISOString().slice(0, 10)}</b> last push</span>
