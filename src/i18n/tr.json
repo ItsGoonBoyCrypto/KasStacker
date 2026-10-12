@@ -72,12 +72,30 @@
     "stopChip": "durak {n}",
     "doneChip": "✓ tamam",
     "stops": [
-      { "title": "60 saniyede Kaspa", "blurb": "Kaspa nedir, neden hızlıdır ve neden yıllarca parayı sadece taşıyabildi — para hakkında söz veremedi." },
-      { "title": "Toccata neyi değiştirdi", "blurb": "Kaspa'ya kural uygulamayı öğreten 2026 yükseltmesi: covenant'lar, zincirin denetlediği token'lar, ZK doğrulama." },
-      { "title": "Stack ile tanış", "blurb": "Beş parça — konsensüs, Script + Covenant'lar, Silverscript, Argent, KCC-20 — her biri için bir cümle ve bir benzetme." },
-      { "title": "Nasıl birleşiyor", "blurb": "Gerçek bir kasayı fikirden covenant'a, oradan mainnet'te kimsenin kurallara aykırı taşıyamadığı coin'lere kadar izle." },
-      { "title": "Bir covenant'ı kırmayı dene", "blurb": "Etkileşimli: gerçekten derlenen bir sözleşmeye karşı hırsızı oyna — ve seni tam olarak hangi kuralın durdurduğunu gör." },
-      { "title": "Herkesin sorduğu sorular", "blurb": "Bu Ethereum akıllı sözleşmeleri gibi mi? Ne denetlendi? Gerçekte nereden başlarım?" }
+      {
+        "title": "60 saniyede Kaspa",
+        "blurb": "Kaspa nedir, neden hızlıdır ve neden yıllarca parayı sadece taşıyabildi — para hakkında söz veremedi."
+      },
+      {
+        "title": "Toccata neyi değiştirdi",
+        "blurb": "Kaspa'ya kural uygulamayı öğreten 2026 yükseltmesi: covenant'lar, zincirin denetlediği token'lar, ZK doğrulama."
+      },
+      {
+        "title": "Stack ile tanış",
+        "blurb": "Beş parça — konsensüs, Script + Covenant'lar, Silverscript, Argent, KCC-20 — her biri için bir cümle ve bir benzetme."
+      },
+      {
+        "title": "Nasıl birleşiyor",
+        "blurb": "Gerçek bir kasayı fikirden covenant'a, oradan mainnet'te kimsenin kurallara aykırı taşıyamadığı coin'lere kadar izle."
+      },
+      {
+        "title": "Bir covenant'ı kırmayı dene",
+        "blurb": "Etkileşimli: gerçekten derlenen bir sözleşmeye karşı hırsızı oyna — ve seni tam olarak hangi kuralın durdurduğunu gör."
+      },
+      {
+        "title": "Herkesin sorduğu sorular",
+        "blurb": "Bu Ethereum akıllı sözleşmeleri gibi mi? Ne denetlendi? Gerçekte nereden başlarım?"
+      }
     ]
   },
   "stop1": {
@@ -139,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Covenant olarak inşa edilmiş token'lar; arz ve transfer kuralları bizzat Kaspa konsensüsü tarafından denetlenir — güvenmen gereken zincir dışı bir defterci yok. Mainnet'te canlı ve işlem görüyor; yazılı standart ise hâlâ derlenip toparlanan bir taslak, etiketlenmiş bir sürüm henüz yok.",
+        "plain": "Covenant olarak inşa edilmiş tokenlar: arz ve transfer kurallarını Kaspa konsensüsünün kendisi denetler — güvenilmesi gereken zincir dışı bir defterdar yok. Mainnet'te canlı ve işlem görüyor; yazılı standart 2026-10-07'de Last Call'a girdi — Final öncesindeki son inceleme penceresi.",
         "analogy": "Kural kitabı kasa kapısına işlenmiş token'lar — skoru zincirin dışında kimse tutmuyor."
       },
       "vprogs": {
@@ -155,12 +173,36 @@
     "h1": "Nasıl birleşiyor",
     "lede": "Tek bir hikâye, stack'in tepesinden dibine: anahtarlarını elinde tutan bir hırsıza karşı bile coin'lerini koruyan bir kasa. Önceki durakta tanıştığın her katman burada tek bir iş yapıyor.",
     "steps": [
-      { "layer": "Sen", "title": "Uygulamaya değer bir kuralla başla", "body": "\"Bu coin'ler yalnızca 24 saatlik bir gecikmeden sonra ve yalnızca benim adresime çekilebilir — bu gece anahtarlarımı kim çalarsa çalsın.\" Bu cümle bir kasadır." },
-      { "layer": "Silverscript", "title": "Kuralı kod olarak yaz", "body": "İzin verilen durum değişikliklerini tarif eden birkaç düzine satır: eski durum + senin talebin + işlemin gerçekleri → izin verilen yeni durum. Başka hiçbir şeye izin yok." },
-      { "layer": "Kaspa Script", "title": "Kilidi derleyici imal eder", "body": "Silverscript kuralını Kaspa Script'e — zincirin anladığı ham covenant'a — derler. Bu katmanı asla elle kablolamazsın; derleyici yapar." },
-      { "layer": "Kaspa konsensüsü", "title": "Yatır — kural fiziğe dönüşür", "body": "Coin'leri covenant'a gönderirsin. O andan itibaren kural bir söz ya da şirket politikası değildir: ağdaki her düğüm, her harcama girişiminde onu denetler." },
-      { "layer": "Kaspa konsensüsü", "title": "Bir hırsız dener — ve zincir hayır der", "body": "Çalıntı anahtarlarını ele geçiren biri anında bir çekim yayınlar. Harcama gecikme kuralını bozar; konsensüs de işlemi yuvaya oturmayan bir madenî para gibi reddeder. Hiç yaşanmamış olur." },
-      { "layer": "Explorer", "title": "Herkes doğrulayabilir", "body": "Covenant, kuralları ve geçmişi herkese açıktır. kascov.io gibi bir explorer, kasanın orada durup kendi kendini uyguladığını gösterir — arada hiçbir şirket yok." }
+      {
+        "layer": "Sen",
+        "title": "Uygulamaya değer bir kuralla başla",
+        "body": "\"Bu coin'ler yalnızca 24 saatlik bir gecikmeden sonra ve yalnızca benim adresime çekilebilir — bu gece anahtarlarımı kim çalarsa çalsın.\" Bu cümle bir kasadır."
+      },
+      {
+        "layer": "Silverscript",
+        "title": "Kuralı kod olarak yaz",
+        "body": "İzin verilen durum değişikliklerini tarif eden birkaç düzine satır: eski durum + senin talebin + işlemin gerçekleri → izin verilen yeni durum. Başka hiçbir şeye izin yok."
+      },
+      {
+        "layer": "Kaspa Script",
+        "title": "Kilidi derleyici imal eder",
+        "body": "Silverscript kuralını Kaspa Script'e — zincirin anladığı ham covenant'a — derler. Bu katmanı asla elle kablolamazsın; derleyici yapar."
+      },
+      {
+        "layer": "Kaspa konsensüsü",
+        "title": "Yatır — kural fiziğe dönüşür",
+        "body": "Coin'leri covenant'a gönderirsin. O andan itibaren kural bir söz ya da şirket politikası değildir: ağdaki her düğüm, her harcama girişiminde onu denetler."
+      },
+      {
+        "layer": "Kaspa konsensüsü",
+        "title": "Bir hırsız dener — ve zincir hayır der",
+        "body": "Çalıntı anahtarlarını ele geçiren biri anında bir çekim yayınlar. Harcama gecikme kuralını bozar; konsensüs de işlemi yuvaya oturmayan bir madenî para gibi reddeder. Hiç yaşanmamış olur."
+      },
+      {
+        "layer": "Explorer",
+        "title": "Herkes doğrulayabilir",
+        "body": "Covenant, kuralları ve geçmişi herkese açıktır. kascov.io gibi bir explorer, kasanın orada durup kendi kendini uyguladığını gösterir — arada hiçbir şirket yok."
+      }
     ],
     "note": "Çok sözleşmeli uygulamalar aynı hikâyeyi bir fazladan bölümle izler: <a href=\"/stack/argent\">Argent</a>, her şey aşağıya derlenmeden önce birden fazla covenant'ı tek bir uygulamada birbirine bağlar.",
     "next": "Sıradaki: Bir covenant'ı kırmayı dene →"
@@ -193,34 +235,142 @@
     "eyebrow": "Öğren · durak 6 / 6",
     "h1": "Herkesin sorduğu sorular",
     "items": [
-      { "q": "Bu Ethereum akıllı sözleşmeleri gibi mi?", "a": "Amaç aynı — zincir üstü programlanabilir kurallar — biçim farklı. Ethereum, programları büyük ortak hesap bakiyeleri üzerinde çalıştırır. Kaspa covenant'ları ise kuralları doğrudan belirli coin'lere (UTXO'lara) iliştirir: sözleşme başına daha küçük ve daha katı, ama kurallar paranın kendisiyle yolculuk eder ve Kaspa'nın hızını ve proof-of-work güvenliğini miras alır." },
-      { "q": "KAS tutmak için covenant'ları anlamam gerekiyor mu?", "a": "Hayır. Sıradan gönderme ve alma değişmedi. Stack, transferden fazlasını istediğinde önem kazanır: kasalar, emanet, zincirin denetlediği kurallara sahip token'lar — ya da bunları kullandığını iddia eden bir projeyi değerlendirmek istediğinde." },
-      { "q": "Gerçekte ne denetlendi?", "a": "Bu sitenin son incelemesi itibarıyla: Silverscript 2026-09-09'da v1.0.0'a ulaştı ama harici bir denetim adı vermiyor ve kendi güvenlik politikası onu hâlâ deneysel olarak niteliyor. Argent'ın etiketlenmiş bir sürümü bile yok. Durum panosu bunu her gün takip ediyor — ve herhangi bir projenin \"denetlendi\" iddiasına inanmadan önce isimli bir denetçi ve bir tarih istemek hakkın." },
-      { "q": "KCC-20 nedir, tek cümleyle?", "a": "Arz ve transfer kuralları bizzat Kaspa konsensüsü tarafından denetlenen token'lar — güvenmen gereken zincir dışı bir defterci yok. Mainnet'te canlı ve işlem görüyorlar; yazılı standart ise hâlâ derlenip toparlanıyor." },
-      { "q": "vProgs nedir, kullanabilir miyim?", "a": "Henüz değil — vProgs (DAG'in içinde yaşayan doğal programlar) araştırma hattıdır, covenant'ların ötesindeki yol haritasıdır. Bugün sana \"vProg\" satmaya çalışan herkes tanım gereği erkencidir." },
-      { "q": "Gerçekte inşa etmeye nereden başlarım?", "a": "Kascov.io, hiçbir kurulum yapmadan covenant kodu denemeni sağlar; Silverscript ise bugün çoğu şeyin yazıldığı dildir. İnşa Et bölümü tüm yolu adım adım anlatır: araç zinciri, 12 satırlık ilk covenant, testnet ve okumaya değer örnekler." }
+      {
+        "q": "Bu Ethereum akıllı sözleşmeleri gibi mi?",
+        "a": "Amaç aynı — zincir üstü programlanabilir kurallar — biçim farklı. Ethereum, programları büyük ortak hesap bakiyeleri üzerinde çalıştırır. Kaspa covenant'ları ise kuralları doğrudan belirli coin'lere (UTXO'lara) iliştirir: sözleşme başına daha küçük ve daha katı, ama kurallar paranın kendisiyle yolculuk eder ve Kaspa'nın hızını ve proof-of-work güvenliğini miras alır."
+      },
+      {
+        "q": "KAS tutmak için covenant'ları anlamam gerekiyor mu?",
+        "a": "Hayır. Sıradan gönderme ve alma değişmedi. Stack, transferden fazlasını istediğinde önem kazanır: kasalar, emanet, zincirin denetlediği kurallara sahip token'lar — ya da bunları kullandığını iddia eden bir projeyi değerlendirmek istediğinde."
+      },
+      {
+        "q": "Gerçekte ne denetlendi?",
+        "a": "Bu sitenin son incelemesi itibarıyla: Silverscript 2026-09-09'da v1.0.0'a ulaştı ama harici bir denetim adı vermiyor ve kendi güvenlik politikası onu hâlâ deneysel olarak niteliyor. Argent'ın etiketlenmiş bir sürümü bile yok. Durum panosu bunu her gün takip ediyor — ve herhangi bir projenin \"denetlendi\" iddiasına inanmadan önce isimli bir denetçi ve bir tarih istemek hakkın."
+      },
+      {
+        "q": "KCC-20 nedir, tek cümleyle?",
+        "a": "Arz ve transfer kuralları bizzat Kaspa konsensüsü tarafından denetlenen token'lar — güvenmen gereken zincir dışı bir defterci yok. Mainnet'te canlı ve işlem görüyorlar; yazılı standart ise hâlâ derlenip toparlanıyor."
+      },
+      {
+        "q": "vProgs nedir, kullanabilir miyim?",
+        "a": "Henüz değil — vProgs (DAG'in içinde yaşayan doğal programlar) araştırma hattıdır, covenant'ların ötesindeki yol haritasıdır. Bugün sana \"vProg\" satmaya çalışan herkes tanım gereği erkencidir."
+      },
+      {
+        "q": "Gerçekte inşa etmeye nereden başlarım?",
+        "a": "Kascov.io, hiçbir kurulum yapmadan covenant kodu denemeni sağlar; Silverscript ise bugün çoğu şeyin yazıldığı dildir. İnşa Et bölümü tüm yolu adım adım anlatır: araç zinciri, 12 satırlık ilk covenant, testnet ve okumaya değer örnekler."
+      }
     ],
     "finishH2": "Tur bu kadar.",
     "finishP": "Artık Kaspa'nın programlanabilirlik stack'i hakkında kripto Twitter'ının çoğundan daha fazla şey biliyorsun. Buradan sonrası (İngilizce): ayrıntılar için <a href=\"/compare\">karşılaştırma matrisi</a>, bir şey inşa ediyorsan <a href=\"/decide\">karar rehberi</a>, kod yazmaya hazır olduğunda <a href=\"/build\">inşa yolu</a> ve bugün nelerin değiştiğini görmek için <a href=\"/status\">durum panosu</a>."
   },
   "quiz": {
     "kaspa-in-60-seconds": [
-      { "q": "blockDAG nedir?", "options": ["Hepsi saklanan ve tek bir kabul edilmiş sıraya konan paralel blokların örgüsü", "Aynı anda gelen blokları çöpe atan bir zincir", "Kaspa vakfının tuttuğu bir veritabanı"], "correct": 0, "why": "Kaspa her bloğu saklar ve sıralamayı GHOSTDAG'e bırakır — proof-of-work güvenliğinden vazgeçmeden saniyede birçok blok çalıştırabilmesinin sebebi bu." },
-      { "q": "Toccata yükseltmesinden önce Kaspa…", "options": ["tam akıllı sözleşmeler çalıştırabiliyordu", "imzaları doğrulayıp coin taşıyabiliyordu — sadece para", "bir EVM barındırabiliyordu"], "correct": 1, "why": "Kaspa'nın betiklemesi bilerek asgari düzeydeydi: coin'lerin kime ait olduğunu doğrular ve onları taşırdı. Coin'lerin bundan sonra nasıl hareket edeceğine dair koşullar Toccata ile geldi." }
+      {
+        "q": "blockDAG nedir?",
+        "options": [
+          "Hepsi saklanan ve tek bir kabul edilmiş sıraya konan paralel blokların örgüsü",
+          "Aynı anda gelen blokları çöpe atan bir zincir",
+          "Kaspa vakfının tuttuğu bir veritabanı"
+        ],
+        "correct": 0,
+        "why": "Kaspa her bloğu saklar ve sıralamayı GHOSTDAG'e bırakır — proof-of-work güvenliğinden vazgeçmeden saniyede birçok blok çalıştırabilmesinin sebebi bu."
+      },
+      {
+        "q": "Toccata yükseltmesinden önce Kaspa…",
+        "options": [
+          "tam akıllı sözleşmeler çalıştırabiliyordu",
+          "imzaları doğrulayıp coin taşıyabiliyordu — sadece para",
+          "bir EVM barındırabiliyordu"
+        ],
+        "correct": 1,
+        "why": "Kaspa'nın betiklemesi bilerek asgari düzeydeydi: coin'lerin kime ait olduğunu doğrular ve onları taşırdı. Coin'lerin bundan sonra nasıl hareket edeceğine dair koşullar Toccata ile geldi."
+      }
     ],
     "what-toccata-changed": [
-      { "q": "Covenant nedir?", "options": ["Bir projenin whitepaper'ında verdiği bir söz", "Bir indexer'ın veritabanındaki bir kayıt", "Coin'lere iliştirilen ve bizzat konsensüsün uyguladığı bir kural"], "correct": 2, "why": "Tavsiye değil, defter tutma değil: kuralı bozan her harcama her düğüm tarafından reddedilir. Kural parayla birlikte yolculuk eder." },
-      { "q": "Bir covenant kuralını bozan harcama…", "options": ["hiç işlem olamaz — konsensüs onu reddeder", "bir inceleme süresinden sonra iade edilir", "moderatörlerin kararına bırakılır"], "correct": 0, "why": "İtiraz süreci yok, çünkü itiraz edilecek bir şey yok — ağ onu yuvaya oturmayan bir madenî para gibi görür." },
-      { "q": "Satır içi ZK doğrulaması (KIP-16) zincire şunu sağlar…", "options": ["varsayılan olarak herkesin bakiyesini gizlemeyi", "ayrıntıları görmeden bir şeyin gerçekleştiğine dair kriptografik bir kanıtı denetlemeyi", "blokları daha hızlı kazmayı"], "correct": 1, "why": "Bir covenant, coin'ler hareket etmeden önce geçerli bir sıfır bilgi kanıtı şart koşabilir — 2026-06-30'dan beri mainnet'te canlı." }
+      {
+        "q": "Covenant nedir?",
+        "options": [
+          "Bir projenin whitepaper'ında verdiği bir söz",
+          "Bir indexer'ın veritabanındaki bir kayıt",
+          "Coin'lere iliştirilen ve bizzat konsensüsün uyguladığı bir kural"
+        ],
+        "correct": 2,
+        "why": "Tavsiye değil, defter tutma değil: kuralı bozan her harcama her düğüm tarafından reddedilir. Kural parayla birlikte yolculuk eder."
+      },
+      {
+        "q": "Bir covenant kuralını bozan harcama…",
+        "options": [
+          "hiç işlem olamaz — konsensüs onu reddeder",
+          "bir inceleme süresinden sonra iade edilir",
+          "moderatörlerin kararına bırakılır"
+        ],
+        "correct": 0,
+        "why": "İtiraz süreci yok, çünkü itiraz edilecek bir şey yok — ağ onu yuvaya oturmayan bir madenî para gibi görür."
+      },
+      {
+        "q": "Satır içi ZK doğrulaması (KIP-16) zincire şunu sağlar…",
+        "options": [
+          "varsayılan olarak herkesin bakiyesini gizlemeyi",
+          "ayrıntıları görmeden bir şeyin gerçekleştiğine dair kriptografik bir kanıtı denetlemeyi",
+          "blokları daha hızlı kazmayı"
+        ],
+        "correct": 1,
+        "why": "Bir covenant, coin'ler hareket etmeden önce geçerli bir sıfır bilgi kanıtı şart koşabilir — 2026-06-30'dan beri mainnet'te canlı."
+      }
     ],
     "meet-the-stack": [
-      { "q": "Silverscript şuna derlenir…", "options": ["EVM bytecode'una", "Kaspa Script'e — ham covenant'a", "Python'a"], "correct": 1, "why": "Sen izin verilen durum değişikliklerini tarif edersin; derleyici zincirin anladığı covenant'ı üretir. Ham script'i asla elle kablolamazsın." },
-      { "q": "Argent doğru katmandır, eğer…", "options": ["tek bir basit kasaya ihtiyacın varsa", "indexer'ların saydığı bir token istiyorsan", "birden fazla sözleşmenin atomik olarak birlikte hareket etmesi gerekiyorsa"], "correct": 2, "why": "Aktörler + ICC tam da çok sözleşmeli uygulamalar için var. Tek başına bir sözleşme Silverscript'in alanıdır — ve Argent'ın henüz etiketlenmiş bir sürümü yok." },
-      { "q": "vProgs bugün…", "options": ["mainnet'te canlı", "bir araştırma yol haritası — henüz üzerine inşa edilecek bir şey yok", "Kaspa için bir uygulama mağazası"], "correct": 1, "why": "Doğal DAG programları, covenant'ların ötesindeki araştırma hattıdır. Bugün sana bir vProg satan herkes tanım gereği erkencidir." }
+      {
+        "q": "Silverscript şuna derlenir…",
+        "options": [
+          "EVM bytecode'una",
+          "Kaspa Script'e — ham covenant'a",
+          "Python'a"
+        ],
+        "correct": 1,
+        "why": "Sen izin verilen durum değişikliklerini tarif edersin; derleyici zincirin anladığı covenant'ı üretir. Ham script'i asla elle kablolamazsın."
+      },
+      {
+        "q": "Argent doğru katmandır, eğer…",
+        "options": [
+          "tek bir basit kasaya ihtiyacın varsa",
+          "indexer'ların saydığı bir token istiyorsan",
+          "birden fazla sözleşmenin atomik olarak birlikte hareket etmesi gerekiyorsa"
+        ],
+        "correct": 2,
+        "why": "Aktörler + ICC tam da çok sözleşmeli uygulamalar için var. Tek başına bir sözleşme Silverscript'in alanıdır — ve Argent'ın henüz etiketlenmiş bir sürümü yok."
+      },
+      {
+        "q": "vProgs bugün…",
+        "options": [
+          "mainnet'te canlı",
+          "bir araştırma yol haritası — henüz üzerine inşa edilecek bir şey yok",
+          "Kaspa için bir uygulama mağazası"
+        ],
+        "correct": 1,
+        "why": "Doğal DAG programları, covenant'ların ötesindeki araştırma hattıdır. Bugün sana bir vProg satan herkes tanım gereği erkencidir."
+      }
     ],
     "how-it-fits-together": [
-      { "q": "Bir covenant kasasına para yatırdıktan sonra kuralı kim denetler?", "options": ["Kasa şirketinin sunucuları", "Yalnızca kendi cüzdan uygulaman", "Ağdaki her düğüm, her harcama girişiminde"], "correct": 2, "why": "Bütün mesele bu: kural bir politika olmaktan çıkar, fiziğe dönüşür — arada hiçbir şirket yok." },
-      { "q": "Anahtarlarını çalan bir hırsız…", "options": ["coin'leri yalnızca covenant kuralının izin verdiği yere taşıyabilir", "her şeyi anında alabilir", "hesabını dondurabilir"], "correct": 0, "why": "Kural kilittir, anahtar değil. Turun bir sonraki durağında bu düğmeye kendin basabilirsin." }
+      {
+        "q": "Bir covenant kasasına para yatırdıktan sonra kuralı kim denetler?",
+        "options": [
+          "Kasa şirketinin sunucuları",
+          "Yalnızca kendi cüzdan uygulaman",
+          "Ağdaki her düğüm, her harcama girişiminde"
+        ],
+        "correct": 2,
+        "why": "Bütün mesele bu: kural bir politika olmaktan çıkar, fiziğe dönüşür — arada hiçbir şirket yok."
+      },
+      {
+        "q": "Anahtarlarını çalan bir hırsız…",
+        "options": [
+          "coin'leri yalnızca covenant kuralının izin verdiği yere taşıyabilir",
+          "her şeyi anında alabilir",
+          "hesabını dondurabilir"
+        ],
+        "correct": 0,
+        "why": "Kural kilittir, anahtar değil. Turun bir sonraki durağında bu düğmeye kendin basabilirsin."
+      }
     ]
   }
 }

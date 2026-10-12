@@ -72,12 +72,30 @@
     "stopChip": "pemberhentian {n}",
     "doneChip": "✓ selesai",
     "stops": [
-      { "title": "Kaspa dalam 60 detik", "blurb": "Apa itu Kaspa, kenapa cepat, dan kenapa selama bertahun-tahun ia hanya bisa memindahkan uang — bukan membuat janji tentangnya." },
-      { "title": "Apa yang diubah Toccata", "blurb": "Upgrade 2026 yang mengajari Kaspa menegakkan aturan: covenant, token yang diperiksa on-chain, verifikasi ZK." },
-      { "title": "Kenalan dengan stack-nya", "blurb": "Lima bagian — konsensus, Script + Covenants, Silverscript, Argent, KCC-20 — masing-masing satu kalimat dan satu analogi." },
-      { "title": "Bagaimana semuanya terhubung", "blurb": "Ikuti satu vault nyata dari sebuah ide, melalui covenant, sampai jadi koin di mainnet yang tidak bisa dipindahkan siapa pun di luar aturannya." },
-      { "title": "Coba bobol sebuah covenant", "blurb": "Interaktif: mainkan peran pencuri melawan kontrak nyata yang benar-benar terkompilasi — dan lihat persis aturan mana yang menghentikan Anda." },
-      { "title": "Pertanyaan yang selalu ditanyakan", "blurb": "Apakah ini seperti smart contract Ethereum? Apa yang sudah diaudit? Dari mana sebaiknya saya mulai?" }
+      {
+        "title": "Kaspa dalam 60 detik",
+        "blurb": "Apa itu Kaspa, kenapa cepat, dan kenapa selama bertahun-tahun ia hanya bisa memindahkan uang — bukan membuat janji tentangnya."
+      },
+      {
+        "title": "Apa yang diubah Toccata",
+        "blurb": "Upgrade 2026 yang mengajari Kaspa menegakkan aturan: covenant, token yang diperiksa on-chain, verifikasi ZK."
+      },
+      {
+        "title": "Kenalan dengan stack-nya",
+        "blurb": "Lima bagian — konsensus, Script + Covenants, Silverscript, Argent, KCC-20 — masing-masing satu kalimat dan satu analogi."
+      },
+      {
+        "title": "Bagaimana semuanya terhubung",
+        "blurb": "Ikuti satu vault nyata dari sebuah ide, melalui covenant, sampai jadi koin di mainnet yang tidak bisa dipindahkan siapa pun di luar aturannya."
+      },
+      {
+        "title": "Coba bobol sebuah covenant",
+        "blurb": "Interaktif: mainkan peran pencuri melawan kontrak nyata yang benar-benar terkompilasi — dan lihat persis aturan mana yang menghentikan Anda."
+      },
+      {
+        "title": "Pertanyaan yang selalu ditanyakan",
+        "blurb": "Apakah ini seperti smart contract Ethereum? Apa yang sudah diaudit? Dari mana sebaiknya saya mulai?"
+      }
     ]
   },
   "stop1": {
@@ -139,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Token yang dibangun sebagai covenant, sehingga aturan pasokan dan transfernya diperiksa langsung oleh konsensus Kaspa — tidak ada pembukuan off-chain yang harus dipercaya. Sudah aktif dan diperdagangkan di mainnet; standar tertulisnya masih berupa draf yang sedang dikonsolidasikan, belum ada rilis ber-tag.",
+        "plain": "Token yang dibangun sebagai covenant: aturan pasokan dan transfer diperiksa langsung oleh konsensus Kaspa — tanpa pembukuan off-chain yang harus dipercaya. Sudah live dan diperdagangkan di mainnet, dan standar tertulisnya memasuki Last Call pada 2026-10-07 — jendela tinjauan terakhir sebelum Final.",
         "analogy": "Token yang buku aturannya terpahat di pintu brankas — tidak ada siapa pun di luar chain yang memegang catatannya."
       },
       "vprogs": {
@@ -155,12 +173,36 @@
     "h1": "Bagaimana semuanya terhubung",
     "lede": "Satu cerita, dari puncak stack sampai ke dasarnya: sebuah vault yang melindungi koin bahkan dari pencuri yang memegang kunci Anda. Setiap lapisan yang Anda temui di pemberhentian sebelumnya melakukan satu tugas di sini.",
     "steps": [
-      { "layer": "Anda", "title": "Mulai dari aturan yang layak ditegakkan", "body": "\"Koin ini hanya bisa ditarik setelah jeda 24 jam, dan hanya ke alamat saya — tidak peduli siapa yang mencuri kunci saya malam ini.\" Kalimat itu adalah sebuah vault." },
-      { "layer": "Silverscript", "title": "Tulis aturannya sebagai kode", "body": "Beberapa puluh baris yang mendeskripsikan perubahan state yang diizinkan: state lama + permintaan Anda + fakta-fakta transaksi → state baru yang diperbolehkan. Selain itu, tidak ada." },
-      { "layer": "Kaspa Script", "title": "Compiler memahat kuncinya", "body": "Silverscript mengompilasi aturan Anda menjadi Kaspa Script — raw covenant yang dipahami chain. Anda tidak pernah merakit lapisan ini secara manual, compiler yang melakukannya." },
-      { "layer": "Konsensus Kaspa", "title": "Deposit — aturan menjadi hukum alam", "body": "Anda mengirim koin ke dalam covenant. Sejak saat ini aturannya bukan lagi janji atau kebijakan perusahaan: setiap node di jaringan memeriksanya pada setiap percobaan pembelanjaan." },
-      { "layer": "Konsensus Kaspa", "title": "Pencuri mencoba — dan chain berkata tidak", "body": "Seseorang dengan kunci curian Anda menyiarkan penarikan instan. Pembelanjaan itu melanggar aturan jeda, sehingga konsensus menolak transaksinya seperti koin yang tidak muat di slotnya. Seolah tidak pernah terjadi." },
-      { "layer": "Explorer", "title": "Siapa pun bisa memverifikasinya", "body": "Covenant, aturannya, dan riwayatnya bersifat publik. Explorer seperti kascov.io menampilkan vault itu duduk di sana, menegakkan dirinya sendiri, tanpa satu perusahaan pun di tengahnya." }
+      {
+        "layer": "Anda",
+        "title": "Mulai dari aturan yang layak ditegakkan",
+        "body": "\"Koin ini hanya bisa ditarik setelah jeda 24 jam, dan hanya ke alamat saya — tidak peduli siapa yang mencuri kunci saya malam ini.\" Kalimat itu adalah sebuah vault."
+      },
+      {
+        "layer": "Silverscript",
+        "title": "Tulis aturannya sebagai kode",
+        "body": "Beberapa puluh baris yang mendeskripsikan perubahan state yang diizinkan: state lama + permintaan Anda + fakta-fakta transaksi → state baru yang diperbolehkan. Selain itu, tidak ada."
+      },
+      {
+        "layer": "Kaspa Script",
+        "title": "Compiler memahat kuncinya",
+        "body": "Silverscript mengompilasi aturan Anda menjadi Kaspa Script — raw covenant yang dipahami chain. Anda tidak pernah merakit lapisan ini secara manual, compiler yang melakukannya."
+      },
+      {
+        "layer": "Konsensus Kaspa",
+        "title": "Deposit — aturan menjadi hukum alam",
+        "body": "Anda mengirim koin ke dalam covenant. Sejak saat ini aturannya bukan lagi janji atau kebijakan perusahaan: setiap node di jaringan memeriksanya pada setiap percobaan pembelanjaan."
+      },
+      {
+        "layer": "Konsensus Kaspa",
+        "title": "Pencuri mencoba — dan chain berkata tidak",
+        "body": "Seseorang dengan kunci curian Anda menyiarkan penarikan instan. Pembelanjaan itu melanggar aturan jeda, sehingga konsensus menolak transaksinya seperti koin yang tidak muat di slotnya. Seolah tidak pernah terjadi."
+      },
+      {
+        "layer": "Explorer",
+        "title": "Siapa pun bisa memverifikasinya",
+        "body": "Covenant, aturannya, dan riwayatnya bersifat publik. Explorer seperti kascov.io menampilkan vault itu duduk di sana, menegakkan dirinya sendiri, tanpa satu perusahaan pun di tengahnya."
+      }
     ],
     "note": "Aplikasi multi-kontrak mengikuti cerita yang sama dengan satu bab tambahan: <a href=\"/stack/argent\">Argent</a> merangkai beberapa covenant menjadi satu aplikasi sebelum semuanya dikompilasi turun.",
     "next": "Selanjutnya: Coba bobol sebuah covenant →"
@@ -193,34 +235,142 @@
     "eyebrow": "Belajar · pemberhentian 6 dari 6",
     "h1": "Pertanyaan yang selalu ditanyakan",
     "items": [
-      { "q": "Apakah ini seperti smart contract Ethereum?", "a": "Tujuannya sama — aturan yang bisa diprogram on-chain — bentuknya berbeda. Ethereum menjalankan program di atas saldo akun bersama yang besar. Covenant Kaspa melekatkan aturan langsung pada koin tertentu (UTXO): lebih kecil dan lebih ketat per kontrak, tetapi aturannya ikut berjalan bersama uangnya dan mewarisi kecepatan serta keamanan proof-of-work Kaspa." },
-      { "q": "Apakah saya perlu memahami covenant untuk sekadar memegang KAS?", "a": "Tidak. Mengirim dan menerima biasa tidak berubah. Stack ini baru penting saat Anda menginginkan lebih dari sekadar transfer: vault, escrow, token dengan aturan yang ditegakkan chain — atau saat Anda ingin menilai proyek yang mengaku menggunakannya." },
-      { "q": "Apa yang benar-benar sudah diaudit?", "a": "Per tinjauan terakhir situs ini: Silverscript mencapai v1.0.0 pada 2026-09-09 tetapi tidak menyebutkan audit eksternal apa pun, dan kebijakan keamanannya sendiri masih menyebutnya eksperimental. Argent bahkan belum punya rilis ber-tag sama sekali. Papan status melacak ini setiap hari — dan klaim \"sudah diaudit\" dari proyek mana pun layak diminta nama auditor dan tanggalnya sebelum Anda percaya." },
-      { "q": "Apa itu KCC-20, dalam satu kalimat?", "a": "Token yang aturan pasokan dan transfernya diperiksa langsung oleh konsensus Kaspa — tidak ada pembukuan off-chain yang harus dipercaya. Sudah aktif dan diperdagangkan di mainnet sementara standar tertulisnya masih dikonsolidasikan." },
-      { "q": "Apa itu vProgs, dan bisakah saya memakainya?", "a": "Belum — vProgs (program native yang hidup di dalam DAG) adalah jalur riset, roadmap di luar covenant. Siapa pun yang menjual \"vProg\" kepada Anda hari ini, secara definisi, terlalu dini." },
-      { "q": "Dari mana sebaiknya saya mulai membangun?", "a": "Kascov.io memungkinkan Anda mencoba kode covenant tanpa instalasi apa pun, dan Silverscript adalah bahasa yang dipakai kebanyakan hal saat ini. Bagian Build memandu seluruh jalurnya: toolchain, covenant 12 baris pertama, testnet, dan contoh-contoh yang layak dibaca." }
+      {
+        "q": "Apakah ini seperti smart contract Ethereum?",
+        "a": "Tujuannya sama — aturan yang bisa diprogram on-chain — bentuknya berbeda. Ethereum menjalankan program di atas saldo akun bersama yang besar. Covenant Kaspa melekatkan aturan langsung pada koin tertentu (UTXO): lebih kecil dan lebih ketat per kontrak, tetapi aturannya ikut berjalan bersama uangnya dan mewarisi kecepatan serta keamanan proof-of-work Kaspa."
+      },
+      {
+        "q": "Apakah saya perlu memahami covenant untuk sekadar memegang KAS?",
+        "a": "Tidak. Mengirim dan menerima biasa tidak berubah. Stack ini baru penting saat Anda menginginkan lebih dari sekadar transfer: vault, escrow, token dengan aturan yang ditegakkan chain — atau saat Anda ingin menilai proyek yang mengaku menggunakannya."
+      },
+      {
+        "q": "Apa yang benar-benar sudah diaudit?",
+        "a": "Per tinjauan terakhir situs ini: Silverscript mencapai v1.0.0 pada 2026-09-09 tetapi tidak menyebutkan audit eksternal apa pun, dan kebijakan keamanannya sendiri masih menyebutnya eksperimental. Argent bahkan belum punya rilis ber-tag sama sekali. Papan status melacak ini setiap hari — dan klaim \"sudah diaudit\" dari proyek mana pun layak diminta nama auditor dan tanggalnya sebelum Anda percaya."
+      },
+      {
+        "q": "Apa itu KCC-20, dalam satu kalimat?",
+        "a": "Token yang aturan pasokan dan transfernya diperiksa langsung oleh konsensus Kaspa — tidak ada pembukuan off-chain yang harus dipercaya. Sudah aktif dan diperdagangkan di mainnet sementara standar tertulisnya masih dikonsolidasikan."
+      },
+      {
+        "q": "Apa itu vProgs, dan bisakah saya memakainya?",
+        "a": "Belum — vProgs (program native yang hidup di dalam DAG) adalah jalur riset, roadmap di luar covenant. Siapa pun yang menjual \"vProg\" kepada Anda hari ini, secara definisi, terlalu dini."
+      },
+      {
+        "q": "Dari mana sebaiknya saya mulai membangun?",
+        "a": "Kascov.io memungkinkan Anda mencoba kode covenant tanpa instalasi apa pun, dan Silverscript adalah bahasa yang dipakai kebanyakan hal saat ini. Bagian Build memandu seluruh jalurnya: toolchain, covenant 12 baris pertama, testnet, dan contoh-contoh yang layak dibaca."
+      }
     ],
     "finishH2": "Selesai sudah turnya.",
     "finishP": "Anda kini tahu lebih banyak tentang stack programabilitas Kaspa daripada kebanyakan crypto Twitter. Dari sini (dalam bahasa Inggris): <a href=\"/compare\">matriks perbandingan</a> untuk detailnya, <a href=\"/decide\">panduan keputusan</a> jika Anda sedang membangun sesuatu, <a href=\"/build\">jalur build</a> saat Anda siap menulis kode, atau <a href=\"/status\">papan status</a> untuk melihat apa yang bergerak hari ini."
   },
   "quiz": {
     "kaspa-in-60-seconds": [
-      { "q": "Apa itu blockDAG?", "options": ["Jalinan blok-blok paralel yang semuanya disimpan dan disusun dalam satu urutan yang disepakati", "Rantai yang membuang blok-blok yang tiba pada saat bersamaan", "Database yang dikelola oleh yayasan Kaspa"], "correct": 0, "why": "Kaspa menyimpan semua blok dan membiarkan GHOSTDAG mengurutkannya — itulah kenapa ia bisa menjalankan banyak blok per detik tanpa mengorbankan keamanan proof-of-work." },
-      { "q": "Sebelum upgrade Toccata, Kaspa hanya bisa…", "options": ["menjalankan smart contract penuh", "memverifikasi tanda tangan dan memindahkan koin — hanya uang", "menjalankan EVM"], "correct": 1, "why": "Scripting Kaspa sengaja dibuat minimal: ia memverifikasi siapa pemilik koin dan memindahkannya. Syarat tentang bagaimana koin berpindah berikutnya baru datang bersama Toccata." }
+      {
+        "q": "Apa itu blockDAG?",
+        "options": [
+          "Jalinan blok-blok paralel yang semuanya disimpan dan disusun dalam satu urutan yang disepakati",
+          "Rantai yang membuang blok-blok yang tiba pada saat bersamaan",
+          "Database yang dikelola oleh yayasan Kaspa"
+        ],
+        "correct": 0,
+        "why": "Kaspa menyimpan semua blok dan membiarkan GHOSTDAG mengurutkannya — itulah kenapa ia bisa menjalankan banyak blok per detik tanpa mengorbankan keamanan proof-of-work."
+      },
+      {
+        "q": "Sebelum upgrade Toccata, Kaspa hanya bisa…",
+        "options": [
+          "menjalankan smart contract penuh",
+          "memverifikasi tanda tangan dan memindahkan koin — hanya uang",
+          "menjalankan EVM"
+        ],
+        "correct": 1,
+        "why": "Scripting Kaspa sengaja dibuat minimal: ia memverifikasi siapa pemilik koin dan memindahkannya. Syarat tentang bagaimana koin berpindah berikutnya baru datang bersama Toccata."
+      }
     ],
     "what-toccata-changed": [
-      { "q": "Apa itu covenant?", "options": ["Janji yang dibuat proyek di whitepaper-nya", "Entri di database sebuah indexer", "Aturan yang melekat pada koin dan ditegakkan langsung oleh konsensus"], "correct": 2, "why": "Bukan saran, bukan pembukuan: setiap pembelanjaan yang melanggar aturan ditolak oleh setiap node. Aturannya ikut berjalan bersama uangnya." },
-      { "q": "Pembelanjaan yang melanggar aturan covenant akan…", "options": ["sama sekali bukan transaksi — konsensus menolaknya", "dikembalikan setelah masa peninjauan", "ditandai untuk diputuskan moderator"], "correct": 0, "why": "Tidak ada proses banding karena tidak ada yang bisa dibanding — jaringan memperlakukannya seperti koin yang tidak muat di slotnya." },
-      { "q": "Verifikasi ZK inline (KIP-16) memungkinkan chain…", "options": ["menyembunyikan saldo semua orang secara default", "memeriksa bukti kriptografis bahwa sesuatu telah terjadi, tanpa melihat detailnya", "menambang blok lebih cepat"], "correct": 1, "why": "Sebuah covenant bisa mensyaratkan bukti zero-knowledge yang valid sebelum koin berpindah — aktif di mainnet sejak 2026-06-30." }
+      {
+        "q": "Apa itu covenant?",
+        "options": [
+          "Janji yang dibuat proyek di whitepaper-nya",
+          "Entri di database sebuah indexer",
+          "Aturan yang melekat pada koin dan ditegakkan langsung oleh konsensus"
+        ],
+        "correct": 2,
+        "why": "Bukan saran, bukan pembukuan: setiap pembelanjaan yang melanggar aturan ditolak oleh setiap node. Aturannya ikut berjalan bersama uangnya."
+      },
+      {
+        "q": "Pembelanjaan yang melanggar aturan covenant akan…",
+        "options": [
+          "sama sekali bukan transaksi — konsensus menolaknya",
+          "dikembalikan setelah masa peninjauan",
+          "ditandai untuk diputuskan moderator"
+        ],
+        "correct": 0,
+        "why": "Tidak ada proses banding karena tidak ada yang bisa dibanding — jaringan memperlakukannya seperti koin yang tidak muat di slotnya."
+      },
+      {
+        "q": "Verifikasi ZK inline (KIP-16) memungkinkan chain…",
+        "options": [
+          "menyembunyikan saldo semua orang secara default",
+          "memeriksa bukti kriptografis bahwa sesuatu telah terjadi, tanpa melihat detailnya",
+          "menambang blok lebih cepat"
+        ],
+        "correct": 1,
+        "why": "Sebuah covenant bisa mensyaratkan bukti zero-knowledge yang valid sebelum koin berpindah — aktif di mainnet sejak 2026-06-30."
+      }
     ],
     "meet-the-stack": [
-      { "q": "Silverscript dikompilasi menjadi…", "options": ["bytecode EVM", "Kaspa Script — raw covenant-nya", "Python"], "correct": 1, "why": "Anda mendeskripsikan perubahan state yang diizinkan; compiler menghasilkan covenant yang dipahami chain. Anda tidak pernah merakit raw script secara manual." },
-      { "q": "Argent adalah lapisan yang tepat saat…", "options": ["Anda butuh satu vault sederhana", "Anda ingin token yang dihitung oleh indexer", "beberapa kontrak harus bertindak bersama secara atomik"], "correct": 2, "why": "Actor + ICC memang ada untuk aplikasi multi-kontrak. Satu kontrak tunggal adalah wilayah Silverscript — dan Argent belum punya rilis ber-tag." },
-      { "q": "vProgs hari ini adalah…", "options": ["sudah aktif di mainnet", "roadmap riset — belum ada yang bisa dibangun dengannya", "app store untuk Kaspa"], "correct": 1, "why": "Program DAG native adalah jalur riset di luar covenant. Siapa pun yang menjual vProg kepada Anda hari ini, secara definisi, terlalu dini." }
+      {
+        "q": "Silverscript dikompilasi menjadi…",
+        "options": [
+          "bytecode EVM",
+          "Kaspa Script — raw covenant-nya",
+          "Python"
+        ],
+        "correct": 1,
+        "why": "Anda mendeskripsikan perubahan state yang diizinkan; compiler menghasilkan covenant yang dipahami chain. Anda tidak pernah merakit raw script secara manual."
+      },
+      {
+        "q": "Argent adalah lapisan yang tepat saat…",
+        "options": [
+          "Anda butuh satu vault sederhana",
+          "Anda ingin token yang dihitung oleh indexer",
+          "beberapa kontrak harus bertindak bersama secara atomik"
+        ],
+        "correct": 2,
+        "why": "Actor + ICC memang ada untuk aplikasi multi-kontrak. Satu kontrak tunggal adalah wilayah Silverscript — dan Argent belum punya rilis ber-tag."
+      },
+      {
+        "q": "vProgs hari ini adalah…",
+        "options": [
+          "sudah aktif di mainnet",
+          "roadmap riset — belum ada yang bisa dibangun dengannya",
+          "app store untuk Kaspa"
+        ],
+        "correct": 1,
+        "why": "Program DAG native adalah jalur riset di luar covenant. Siapa pun yang menjual vProg kepada Anda hari ini, secara definisi, terlalu dini."
+      }
     ],
     "how-it-fits-together": [
-      { "q": "Setelah Anda deposit ke vault covenant, siapa yang memeriksa aturannya?", "options": ["Server perusahaan pengelola vault", "Hanya aplikasi dompet Anda sendiri", "Setiap node di jaringan, pada setiap percobaan pembelanjaan"], "correct": 2, "why": "Itulah intinya: aturan berhenti menjadi kebijakan dan menjadi hukum alam — tanpa satu perusahaan pun di tengahnya." },
-      { "q": "Pencuri yang mencuri kunci Anda hanya bisa…", "options": ["memindahkan koin ke tempat yang diizinkan aturan covenant", "mengambil semuanya seketika", "membekukan akun Anda"], "correct": 0, "why": "Aturannya adalah gemboknya, bukan kuncinya. Anda bisa menekan tombolnya sendiri di pemberhentian tur berikutnya." }
+      {
+        "q": "Setelah Anda deposit ke vault covenant, siapa yang memeriksa aturannya?",
+        "options": [
+          "Server perusahaan pengelola vault",
+          "Hanya aplikasi dompet Anda sendiri",
+          "Setiap node di jaringan, pada setiap percobaan pembelanjaan"
+        ],
+        "correct": 2,
+        "why": "Itulah intinya: aturan berhenti menjadi kebijakan dan menjadi hukum alam — tanpa satu perusahaan pun di tengahnya."
+      },
+      {
+        "q": "Pencuri yang mencuri kunci Anda hanya bisa…",
+        "options": [
+          "memindahkan koin ke tempat yang diizinkan aturan covenant",
+          "mengambil semuanya seketika",
+          "membekukan akun Anda"
+        ],
+        "correct": 0,
+        "why": "Aturannya adalah gemboknya, bukan kuncinya. Anda bisa menekan tombolnya sendiri di pemberhentian tur berikutnya."
+      }
     ]
   }
 }

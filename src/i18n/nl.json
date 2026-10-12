@@ -72,12 +72,30 @@
     "stopChip": "stop {n}",
     "doneChip": "✓ klaar",
     "stops": [
-      { "title": "Kaspa in 60 seconden", "blurb": "Wat Kaspa is, waarom het snel is, en waarom het jarenlang alleen geld kon verplaatsen — zonder er beloften over te kunnen doen." },
-      { "title": "Wat Toccata veranderde", "blurb": "De upgrade van 2026 die Kaspa leerde regels af te dwingen: covenants, tokens gecontroleerd door de chain, ZK-verificatie." },
-      { "title": "Maak kennis met de stack", "blurb": "De vijf onderdelen — consensus, Script + Covenants, Silverscript, Argent, KCC-20 — elk in één zin en één analogie." },
-      { "title": "Hoe het in elkaar past", "blurb": "Volg één echte kluis van idee, via een covenant, tot munten op mainnet die niemand tegen de regels in kan verplaatsen." },
-      { "title": "Probeer een covenant te breken", "blurb": "Interactief: speel de dief tegen een echt, compilerend contract — en zie precies welke regel je tegenhoudt." },
-      { "title": "Vragen die iedereen stelt", "blurb": "Is dit hetzelfde als Ethereum smart contracts? Wat is er geauditeerd? Waar zou ik eigenlijk beginnen?" }
+      {
+        "title": "Kaspa in 60 seconden",
+        "blurb": "Wat Kaspa is, waarom het snel is, en waarom het jarenlang alleen geld kon verplaatsen — zonder er beloften over te kunnen doen."
+      },
+      {
+        "title": "Wat Toccata veranderde",
+        "blurb": "De upgrade van 2026 die Kaspa leerde regels af te dwingen: covenants, tokens gecontroleerd door de chain, ZK-verificatie."
+      },
+      {
+        "title": "Maak kennis met de stack",
+        "blurb": "De vijf onderdelen — consensus, Script + Covenants, Silverscript, Argent, KCC-20 — elk in één zin en één analogie."
+      },
+      {
+        "title": "Hoe het in elkaar past",
+        "blurb": "Volg één echte kluis van idee, via een covenant, tot munten op mainnet die niemand tegen de regels in kan verplaatsen."
+      },
+      {
+        "title": "Probeer een covenant te breken",
+        "blurb": "Interactief: speel de dief tegen een echt, compilerend contract — en zie precies welke regel je tegenhoudt."
+      },
+      {
+        "title": "Vragen die iedereen stelt",
+        "blurb": "Is dit hetzelfde als Ethereum smart contracts? Wat is er geauditeerd? Waar zou ik eigenlijk beginnen?"
+      }
     ]
   },
   "stop1": {
@@ -139,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Tokens gebouwd als covenants, zodat supply- en overdrachtsregels door de Kaspa-consensus zelf worden gecontroleerd — geen off-chain boekhouder die je hoeft te vertrouwen. Live en verhandeld op mainnet; de geschreven standaard is een concept dat nog wordt samengevoegd, zonder getagde release tot nu toe.",
+        "plain": "Tokens gebouwd als covenants: de supply- en overdrachtsregels worden door de Kaspa-consensus zelf gecontroleerd — geen off-chain boekhouder om te vertrouwen. Live en verhandelbaar op mainnet, en de geschreven standaard is op 07-10-2026 in Last Call gegaan — het laatste reviewvenster vóór Final.",
         "analogy": "Tokens waarvan het regelboek in de kluisdeur is gefreesd — niemand buiten de chain houdt de stand bij."
       },
       "vprogs": {
@@ -155,12 +173,36 @@
     "h1": "Hoe het in elkaar past",
     "lede": "Eén verhaal, van de top van de stack tot de bodem: een kluis die munten beschermt, zelfs tegen een dief met jouw sleutels. Elke laag die je bij de vorige stop tegenkwam doet hier één taak.",
     "steps": [
-      { "layer": "Jij", "title": "Begin met een regel die het afdwingen waard is", "body": "\"Deze munten kunnen alleen worden opgenomen na een vertraging van 24 uur, en alleen naar mijn adres — wie mijn sleutels vannacht ook steelt.\" Die zin is een kluis." },
-      { "layer": "Silverscript", "title": "Schrijf de regel als code", "body": "Een paar dozijn regels code die de toegestane state-veranderingen beschrijven: oude state + jouw verzoek + de feiten van de transactie → de nieuwe state die is toegestaan. Niets anders." },
-      { "layer": "Kaspa Script", "title": "De compiler freest het slot", "body": "Silverscript compileert je regel omlaag naar Kaspa Script — het ruwe covenant dat de chain begrijpt. Deze laag bedraad je nooit zelf; dat doet de compiler." },
-      { "layer": "Kaspa-consensus", "title": "Storten — de regel wordt natuurkunde", "body": "Je stuurt munten het covenant in. Vanaf dat moment is de regel geen belofte of bedrijfsbeleid meer: elke node op het netwerk controleert hem bij elke bestedingspoging." },
-      { "layer": "Kaspa-consensus", "title": "Een dief probeert het — en de chain zegt nee", "body": "Iemand met jouw gestolen sleutels verstuurt een directe opname. De besteding breekt de vertragingsregel, dus de consensus weigert de transactie als een munt die niet in de gleuf past. Het is nooit gebeurd." },
-      { "layer": "Explorer", "title": "Iedereen kan het controleren", "body": "Het covenant, zijn regels en zijn geschiedenis zijn openbaar. Een explorer zoals kascov.io laat de kluis daar gewoon zien, zichzelf afdwingend, zonder bedrijf ertussen." }
+      {
+        "layer": "Jij",
+        "title": "Begin met een regel die het afdwingen waard is",
+        "body": "\"Deze munten kunnen alleen worden opgenomen na een vertraging van 24 uur, en alleen naar mijn adres — wie mijn sleutels vannacht ook steelt.\" Die zin is een kluis."
+      },
+      {
+        "layer": "Silverscript",
+        "title": "Schrijf de regel als code",
+        "body": "Een paar dozijn regels code die de toegestane state-veranderingen beschrijven: oude state + jouw verzoek + de feiten van de transactie → de nieuwe state die is toegestaan. Niets anders."
+      },
+      {
+        "layer": "Kaspa Script",
+        "title": "De compiler freest het slot",
+        "body": "Silverscript compileert je regel omlaag naar Kaspa Script — het ruwe covenant dat de chain begrijpt. Deze laag bedraad je nooit zelf; dat doet de compiler."
+      },
+      {
+        "layer": "Kaspa-consensus",
+        "title": "Storten — de regel wordt natuurkunde",
+        "body": "Je stuurt munten het covenant in. Vanaf dat moment is de regel geen belofte of bedrijfsbeleid meer: elke node op het netwerk controleert hem bij elke bestedingspoging."
+      },
+      {
+        "layer": "Kaspa-consensus",
+        "title": "Een dief probeert het — en de chain zegt nee",
+        "body": "Iemand met jouw gestolen sleutels verstuurt een directe opname. De besteding breekt de vertragingsregel, dus de consensus weigert de transactie als een munt die niet in de gleuf past. Het is nooit gebeurd."
+      },
+      {
+        "layer": "Explorer",
+        "title": "Iedereen kan het controleren",
+        "body": "Het covenant, zijn regels en zijn geschiedenis zijn openbaar. Een explorer zoals kascov.io laat de kluis daar gewoon zien, zichzelf afdwingend, zonder bedrijf ertussen."
+      }
     ],
     "note": "Apps met meerdere contracten volgen hetzelfde verhaal met één extra hoofdstuk: <a href=\"/stack/argent\">Argent</a> verbindt meerdere covenants tot één applicatie voordat alles omlaag compileert.",
     "next": "Volgende: Probeer een covenant te breken →"
@@ -193,34 +235,142 @@
     "eyebrow": "Leren · stop 6 van 6",
     "h1": "Vragen die iedereen stelt",
     "items": [
-      { "q": "Is dit hetzelfde als Ethereum smart contracts?", "a": "Zelfde doel — programmeerbare regels on-chain — andere vorm. Ethereum draait programma's tegen grote gedeelde accountsaldi. Kaspa-covenants maken regels rechtstreeks vast aan specifieke munten (UTXO's): kleiner en strikter per contract, maar de regels reizen mee met het geld zelf en erven Kaspa's snelheid en proof-of-work-beveiliging." },
-      { "q": "Moet ik covenants begrijpen om KAS te bezitten?", "a": "Nee. Gewoon versturen en ontvangen is onveranderd. De stack doet ertoe zodra je meer wilt dan overmaken: kluizen, escrow, tokens met door de chain afgedwongen regels — of wanneer je een project wilt beoordelen dat beweert ze te gebruiken." },
-      { "q": "Wat is er echt geauditeerd?", "a": "Op het moment van de laatste controle door deze site: Silverscript bereikte v1.0.0 op 2026-09-09, maar noemt geen externe audit en zijn eigen securitybeleid noemt het nog altijd experimenteel. Argent heeft helemaal geen getagde release. Het statusboard volgt dit dagelijks — en de claim \"geauditeerd\" van welk project dan ook verdient een auditor met naam en een datum voordat je hem gelooft." },
-      { "q": "Wat is KCC-20, in één regel?", "a": "Tokens waarvan de supply- en overdrachtsregels door de Kaspa-consensus zelf worden gecontroleerd — geen off-chain boekhouder om te vertrouwen. Ze zijn live en worden verhandeld op mainnet, terwijl de geschreven standaard nog wordt samengevoegd." },
-      { "q": "Wat zijn vProgs, en kan ik ze gebruiken?", "a": "Nog niet — vProgs (native programma's die in de DAG leven) zijn het onderzoeksspoor, de roadmap voorbij covenants. Iedereen die je vandaag een \"vProg\" verkoopt, is per definitie te vroeg." },
-      { "q": "Waar zou ik echt beginnen met bouwen?", "a": "Op kascov.io kun je covenant-code proberen zonder iets te installeren, en Silverscript is de taal waarin de meeste dingen vandaag geschreven worden. De sectie Bouwen loopt het hele pad met je door: toolchain, een eerste covenant van 12 regels, testnet, en de voorbeelden die het lezen waard zijn." }
+      {
+        "q": "Is dit hetzelfde als Ethereum smart contracts?",
+        "a": "Zelfde doel — programmeerbare regels on-chain — andere vorm. Ethereum draait programma's tegen grote gedeelde accountsaldi. Kaspa-covenants maken regels rechtstreeks vast aan specifieke munten (UTXO's): kleiner en strikter per contract, maar de regels reizen mee met het geld zelf en erven Kaspa's snelheid en proof-of-work-beveiliging."
+      },
+      {
+        "q": "Moet ik covenants begrijpen om KAS te bezitten?",
+        "a": "Nee. Gewoon versturen en ontvangen is onveranderd. De stack doet ertoe zodra je meer wilt dan overmaken: kluizen, escrow, tokens met door de chain afgedwongen regels — of wanneer je een project wilt beoordelen dat beweert ze te gebruiken."
+      },
+      {
+        "q": "Wat is er echt geauditeerd?",
+        "a": "Op het moment van de laatste controle door deze site: Silverscript bereikte v1.0.0 op 2026-09-09, maar noemt geen externe audit en zijn eigen securitybeleid noemt het nog altijd experimenteel. Argent heeft helemaal geen getagde release. Het statusboard volgt dit dagelijks — en de claim \"geauditeerd\" van welk project dan ook verdient een auditor met naam en een datum voordat je hem gelooft."
+      },
+      {
+        "q": "Wat is KCC-20, in één regel?",
+        "a": "Tokens waarvan de supply- en overdrachtsregels door de Kaspa-consensus zelf worden gecontroleerd — geen off-chain boekhouder om te vertrouwen. Ze zijn live en worden verhandeld op mainnet, terwijl de geschreven standaard nog wordt samengevoegd."
+      },
+      {
+        "q": "Wat zijn vProgs, en kan ik ze gebruiken?",
+        "a": "Nog niet — vProgs (native programma's die in de DAG leven) zijn het onderzoeksspoor, de roadmap voorbij covenants. Iedereen die je vandaag een \"vProg\" verkoopt, is per definitie te vroeg."
+      },
+      {
+        "q": "Waar zou ik echt beginnen met bouwen?",
+        "a": "Op kascov.io kun je covenant-code proberen zonder iets te installeren, en Silverscript is de taal waarin de meeste dingen vandaag geschreven worden. De sectie Bouwen loopt het hele pad met je door: toolchain, een eerste covenant van 12 regels, testnet, en de voorbeelden die het lezen waard zijn."
+      }
     ],
     "finishH2": "Dat was de tour.",
     "finishP": "Je weet nu meer over Kaspa's programmeerbaarheidsstack dan het grootste deel van crypto-Twitter. Vanaf hier (in het Engels): de <a href=\"/compare\">vergelijkingsmatrix</a> voor de details, de <a href=\"/decide\">beslisgids</a> als je iets bouwt, het <a href=\"/build\">bouwpad</a> wanneer je klaar bent om code te schrijven, of het <a href=\"/status\">statusboard</a> om te zien wat er vandaag bewoog."
   },
   "quiz": {
     "kaspa-in-60-seconds": [
-      { "q": "Wat is een blockDAG?", "options": ["Een vlecht van parallelle blokken die allemaal worden bewaard en in één afgesproken volgorde worden gezet", "Een keten die blokken weggooit die tegelijk aankomen", "Een database die door de Kaspa-foundation wordt beheerd"], "correct": 0, "why": "Kaspa bewaart elk blok en laat GHOSTDAG ze ordenen — daarom kan het vele blokken per seconde draaien zonder proof-of-work-beveiliging op te geven." },
-      { "q": "Vóór de Toccata-upgrade kon Kaspa…", "options": ["volledige smart contracts draaien", "handtekeningen verifiëren en munten verplaatsen — alleen geld", "een EVM hosten"], "correct": 1, "why": "Kaspa's scripting was bewust minimaal: het verifieerde wie munten bezit en verplaatste ze. Voorwaarden voor hoe munten daarna bewegen kwamen met Toccata." }
+      {
+        "q": "Wat is een blockDAG?",
+        "options": [
+          "Een vlecht van parallelle blokken die allemaal worden bewaard en in één afgesproken volgorde worden gezet",
+          "Een keten die blokken weggooit die tegelijk aankomen",
+          "Een database die door de Kaspa-foundation wordt beheerd"
+        ],
+        "correct": 0,
+        "why": "Kaspa bewaart elk blok en laat GHOSTDAG ze ordenen — daarom kan het vele blokken per seconde draaien zonder proof-of-work-beveiliging op te geven."
+      },
+      {
+        "q": "Vóór de Toccata-upgrade kon Kaspa…",
+        "options": [
+          "volledige smart contracts draaien",
+          "handtekeningen verifiëren en munten verplaatsen — alleen geld",
+          "een EVM hosten"
+        ],
+        "correct": 1,
+        "why": "Kaspa's scripting was bewust minimaal: het verifieerde wie munten bezit en verplaatste ze. Voorwaarden voor hoe munten daarna bewegen kwamen met Toccata."
+      }
     ],
     "what-toccata-changed": [
-      { "q": "Wat is een covenant?", "options": ["Een belofte die een project in zijn whitepaper doet", "Een vermelding in de database van een indexer", "Een regel vastgemaakt aan munten die de consensus zelf afdwingt"], "correct": 2, "why": "Geen advies, geen boekhouding: elke besteding die de regel breekt wordt door elke node geweigerd. De regel reist mee met het geld." },
-      { "q": "Een besteding die een covenant-regel breekt is…", "options": ["helemaal geen transactie — de consensus weigert hem", "iets dat na een beoordelingsperiode wordt terugbetaald", "iets dat wordt gemarkeerd zodat moderators beslissen"], "correct": 0, "why": "Er is geen beroepsprocedure, omdat er niets is om beroep tegen aan te tekenen — het netwerk behandelt het als een munt die niet in de gleuf past." },
-      { "q": "Inline ZK-verificatie (KIP-16) laat de chain…", "options": ["ieders saldo standaard verbergen", "een cryptografisch bewijs controleren dat iets is gebeurd, zonder de details te zien", "sneller blokken minen"], "correct": 1, "why": "Een covenant kan een geldig zero-knowledge-bewijs eisen voordat munten bewegen — live op mainnet sinds 2026-06-30." }
+      {
+        "q": "Wat is een covenant?",
+        "options": [
+          "Een belofte die een project in zijn whitepaper doet",
+          "Een vermelding in de database van een indexer",
+          "Een regel vastgemaakt aan munten die de consensus zelf afdwingt"
+        ],
+        "correct": 2,
+        "why": "Geen advies, geen boekhouding: elke besteding die de regel breekt wordt door elke node geweigerd. De regel reist mee met het geld."
+      },
+      {
+        "q": "Een besteding die een covenant-regel breekt is…",
+        "options": [
+          "helemaal geen transactie — de consensus weigert hem",
+          "iets dat na een beoordelingsperiode wordt terugbetaald",
+          "iets dat wordt gemarkeerd zodat moderators beslissen"
+        ],
+        "correct": 0,
+        "why": "Er is geen beroepsprocedure, omdat er niets is om beroep tegen aan te tekenen — het netwerk behandelt het als een munt die niet in de gleuf past."
+      },
+      {
+        "q": "Inline ZK-verificatie (KIP-16) laat de chain…",
+        "options": [
+          "ieders saldo standaard verbergen",
+          "een cryptografisch bewijs controleren dat iets is gebeurd, zonder de details te zien",
+          "sneller blokken minen"
+        ],
+        "correct": 1,
+        "why": "Een covenant kan een geldig zero-knowledge-bewijs eisen voordat munten bewegen — live op mainnet sinds 2026-06-30."
+      }
     ],
     "meet-the-stack": [
-      { "q": "Silverscript compileert omlaag naar…", "options": ["EVM-bytecode", "Kaspa Script — het ruwe covenant", "Python"], "correct": 1, "why": "Jij beschrijft de toegestane state-veranderingen; de compiler produceert het covenant dat de chain begrijpt. Het ruwe script bedraad je nooit met de hand." },
-      { "q": "Argent is de juiste laag wanneer…", "options": ["je één simpele kluis nodig hebt", "je een token wilt dat indexers meetellen", "meerdere contracten atomair moeten samenwerken"], "correct": 2, "why": "Actors + ICC bestaan precies voor apps met meerdere contracten. Eén contract op zichzelf is Silverscript-terrein — en Argent heeft nog geen getagde release." },
-      { "q": "vProgs zijn vandaag…", "options": ["live op mainnet", "een onderzoeksroadmap — nog niets om mee te bouwen", "een appstore voor Kaspa"], "correct": 1, "why": "Native DAG-programma's zijn het onderzoeksspoor voorbij covenants. Iedereen die je vandaag een vProg verkoopt, is per definitie te vroeg." }
+      {
+        "q": "Silverscript compileert omlaag naar…",
+        "options": [
+          "EVM-bytecode",
+          "Kaspa Script — het ruwe covenant",
+          "Python"
+        ],
+        "correct": 1,
+        "why": "Jij beschrijft de toegestane state-veranderingen; de compiler produceert het covenant dat de chain begrijpt. Het ruwe script bedraad je nooit met de hand."
+      },
+      {
+        "q": "Argent is de juiste laag wanneer…",
+        "options": [
+          "je één simpele kluis nodig hebt",
+          "je een token wilt dat indexers meetellen",
+          "meerdere contracten atomair moeten samenwerken"
+        ],
+        "correct": 2,
+        "why": "Actors + ICC bestaan precies voor apps met meerdere contracten. Eén contract op zichzelf is Silverscript-terrein — en Argent heeft nog geen getagde release."
+      },
+      {
+        "q": "vProgs zijn vandaag…",
+        "options": [
+          "live op mainnet",
+          "een onderzoeksroadmap — nog niets om mee te bouwen",
+          "een appstore voor Kaspa"
+        ],
+        "correct": 1,
+        "why": "Native DAG-programma's zijn het onderzoeksspoor voorbij covenants. Iedereen die je vandaag een vProg verkoopt, is per definitie te vroeg."
+      }
     ],
     "how-it-fits-together": [
-      { "q": "Wie controleert de regel nadat je in een covenant-kluis hebt gestort?", "options": ["De servers van het kluisbedrijf", "Alleen je eigen wallet-app", "Elke node op het netwerk, bij elke bestedingspoging"], "correct": 2, "why": "Dat is precies het punt: de regel is geen beleid meer, maar natuurkunde — zonder bedrijf ertussen." },
-      { "q": "Een dief die je sleutels steelt kan…", "options": ["de munten alleen verplaatsen waar de covenant-regel het toestaat", "alles direct meenemen", "je account bevriezen"], "correct": 0, "why": "De regel is het slot, niet de sleutel. Je kunt deze knop zelf indrukken bij de volgende stop van de tour." }
+      {
+        "q": "Wie controleert de regel nadat je in een covenant-kluis hebt gestort?",
+        "options": [
+          "De servers van het kluisbedrijf",
+          "Alleen je eigen wallet-app",
+          "Elke node op het netwerk, bij elke bestedingspoging"
+        ],
+        "correct": 2,
+        "why": "Dat is precies het punt: de regel is geen beleid meer, maar natuurkunde — zonder bedrijf ertussen."
+      },
+      {
+        "q": "Een dief die je sleutels steelt kan…",
+        "options": [
+          "de munten alleen verplaatsen waar de covenant-regel het toestaat",
+          "alles direct meenemen",
+          "je account bevriezen"
+        ],
+        "correct": 0,
+        "why": "De regel is het slot, niet de sleutel. Je kunt deze knop zelf indrukken bij de volgende stop van de tour."
+      }
     ]
   }
 }

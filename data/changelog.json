@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-12",
+    "kind": "stack",
+    "title": "KCC-20 is in Last Call — the token standard is one review window from Final",
+    "body": "The day arrived: the pull request advancing KCC-20 merged on 2026-10-07, and the standard's own file now reads Status: Last Call — the final review window (typically 14 days, per KCC-0) before Final. KCC-1 and KCC-2 are in Last Call alongside it. The same day, the first official Argent KCC-20 reference implementation merged in argent-lang/kcc20-reference — a token actor and an admin-keyless public mint, the kind of independent implementation KCC-0 asks for on the road to Final. This site's KCC-20 badge moves from draft to last-call across every page and all 12 languages; per the house rule, production still waits for a tagged release. If this window completes without normative changes, the next changelog entry here is the big one."
+  },
+  {
     "date": "2026-10-04",
     "kind": "stack",
     "title": "KCC-1 and KCC-2 reach Last Call; the Studio hand-off goes one-click",

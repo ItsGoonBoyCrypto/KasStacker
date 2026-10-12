@@ -72,12 +72,30 @@
     "stopChip": "stop {n}",
     "doneChip": "✓ done",
     "stops": [
-      { "title": "Kaspa in 60 seconds", "blurb": "What Kaspa is, why it is fast, and why for years it could only move money — not make promises about it." },
-      { "title": "What Toccata changed", "blurb": "The 2026 upgrade that taught Kaspa to enforce rules: covenants, chain-checked tokens, ZK verification." },
-      { "title": "Meet the stack", "blurb": "The five pieces — consensus, Script + Covenants, Silverscript, Argent, KCC-20 — one sentence and one analogy each." },
-      { "title": "How it fits together", "blurb": "Follow one real vault from an idea, through a covenant, to coins on mainnet no one can move against the rules." },
-      { "title": "Try to break a covenant", "blurb": "Interactive: play the thief against a real, compiling contract — and see exactly which rule stops you." },
-      { "title": "Questions everyone asks", "blurb": "Is this like Ethereum smart contracts? What is audited? Where would I actually start?" }
+      {
+        "title": "Kaspa in 60 seconds",
+        "blurb": "What Kaspa is, why it is fast, and why for years it could only move money — not make promises about it."
+      },
+      {
+        "title": "What Toccata changed",
+        "blurb": "The 2026 upgrade that taught Kaspa to enforce rules: covenants, chain-checked tokens, ZK verification."
+      },
+      {
+        "title": "Meet the stack",
+        "blurb": "The five pieces — consensus, Script + Covenants, Silverscript, Argent, KCC-20 — one sentence and one analogy each."
+      },
+      {
+        "title": "How it fits together",
+        "blurb": "Follow one real vault from an idea, through a covenant, to coins on mainnet no one can move against the rules."
+      },
+      {
+        "title": "Try to break a covenant",
+        "blurb": "Interactive: play the thief against a real, compiling contract — and see exactly which rule stops you."
+      },
+      {
+        "title": "Questions everyone asks",
+        "blurb": "Is this like Ethereum smart contracts? What is audited? Where would I actually start?"
+      }
     ]
   },
   "stop1": {
@@ -139,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Tokens built as covenants, so supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper has to be trusted. Live and traded on mainnet; the written standard is a draft still being consolidated, with no tagged release yet.",
+        "plain": "Tokens built as covenants, so supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper has to be trusted. Live and traded on mainnet, and the written standard entered Last Call on 2026-10-07 — the final review window before Final.",
         "analogy": "Tokens whose rulebook is machined into the vault door — nobody outside the chain keeps the score."
       },
       "vprogs": {
@@ -155,12 +173,36 @@
     "h1": "How it fits together",
     "lede": "One story, top of the stack to the bottom: a vault that protects coins even from a thief holding your keys. Every layer you met at the last stop does one job here.",
     "steps": [
-      { "layer": "You", "title": "Start with a rule worth enforcing", "body": "\"These coins can only be withdrawn after a 24-hour delay, and only to my address — no matter who steals my keys tonight.\" That sentence is a vault." },
-      { "layer": "Silverscript", "title": "Write the rule as code", "body": "A few dozen lines describing the allowed state changes: old state + your request + the transaction's facts → the new state that's permitted. Nothing else is." },
-      { "layer": "Kaspa Script", "title": "The compiler machines the lock", "body": "Silverscript compiles your rule down to Kaspa Script — the raw covenant the chain understands. You never hand-wire this layer, the compiler does." },
-      { "layer": "Kaspa consensus", "title": "Deposit — the rule becomes physics", "body": "You send coins into the covenant. From this moment the rule isn't a promise or a company policy: every node on the network checks it on every spend attempt." },
-      { "layer": "Kaspa consensus", "title": "A thief tries — and the chain says no", "body": "Someone with your stolen keys broadcasts an instant withdrawal. The spend breaks the delay rule, so consensus rejects the transaction like a coin that doesn't fit the slot. It never happened." },
-      { "layer": "Explorer", "title": "Anyone can verify it", "body": "The covenant, its rules and its history are public. An explorer like kascov.io shows the vault sitting there, enforcing itself, with no company in the loop." }
+      {
+        "layer": "You",
+        "title": "Start with a rule worth enforcing",
+        "body": "\"These coins can only be withdrawn after a 24-hour delay, and only to my address — no matter who steals my keys tonight.\" That sentence is a vault."
+      },
+      {
+        "layer": "Silverscript",
+        "title": "Write the rule as code",
+        "body": "A few dozen lines describing the allowed state changes: old state + your request + the transaction's facts → the new state that's permitted. Nothing else is."
+      },
+      {
+        "layer": "Kaspa Script",
+        "title": "The compiler machines the lock",
+        "body": "Silverscript compiles your rule down to Kaspa Script — the raw covenant the chain understands. You never hand-wire this layer, the compiler does."
+      },
+      {
+        "layer": "Kaspa consensus",
+        "title": "Deposit — the rule becomes physics",
+        "body": "You send coins into the covenant. From this moment the rule isn't a promise or a company policy: every node on the network checks it on every spend attempt."
+      },
+      {
+        "layer": "Kaspa consensus",
+        "title": "A thief tries — and the chain says no",
+        "body": "Someone with your stolen keys broadcasts an instant withdrawal. The spend breaks the delay rule, so consensus rejects the transaction like a coin that doesn't fit the slot. It never happened."
+      },
+      {
+        "layer": "Explorer",
+        "title": "Anyone can verify it",
+        "body": "The covenant, its rules and its history are public. An explorer like kascov.io shows the vault sitting there, enforcing itself, with no company in the loop."
+      }
     ],
     "note": "Multi-contract apps follow the same story with one extra chapter: <a href=\"/stack/argent\">Argent</a> wires several covenants into one application before everything compiles down.",
     "next": "Next: Try to break a covenant →"
@@ -193,34 +235,142 @@
     "eyebrow": "Learn · stop 6 of 6",
     "h1": "Questions everyone asks",
     "items": [
-      { "q": "Is this like Ethereum smart contracts?", "a": "Same goal — programmable rules on-chain — different shape. Ethereum runs programs against big shared account balances. Kaspa covenants attach rules directly to specific coins (UTXOs): smaller and stricter per contract, but the rules travel with the money itself and inherit Kaspa's speed and proof-of-work security." },
-      { "q": "Do I need to understand covenants to hold KAS?", "a": "No. Plain sending and receiving is unchanged. The stack matters when you want more than transfer: vaults, escrow, tokens with chain-enforced rules — or when you want to judge a project that claims to use them." },
-      { "q": "What is actually audited?", "a": "As of this site's last review: Silverscript hit v1.0.0 on 2026-09-09 but names no external audit and its own security policy still calls it experimental. Argent has no tagged release at all. The status board tracks this daily — and any project's \"audited\" claim deserves a named auditor and a date before you believe it." },
-      { "q": "What is KCC-20, in one line?", "a": "Tokens whose supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper to trust. They are live and traded on mainnet while the written standard is still being consolidated." },
-      { "q": "What are vProgs, and can I use them?", "a": "Not yet — vProgs (native programs living in the DAG) are the research track, the roadmap beyond covenants. Anyone selling you a \"vProg\" today is early by definition." },
-      { "q": "Where would I actually start building?", "a": "Kascov.io lets you try covenant code with zero installation, and Silverscript is the language most things are written in today. The Build section walks the whole path: toolchain, a first 12-line covenant, testnet, and the examples worth reading." }
+      {
+        "q": "Is this like Ethereum smart contracts?",
+        "a": "Same goal — programmable rules on-chain — different shape. Ethereum runs programs against big shared account balances. Kaspa covenants attach rules directly to specific coins (UTXOs): smaller and stricter per contract, but the rules travel with the money itself and inherit Kaspa's speed and proof-of-work security."
+      },
+      {
+        "q": "Do I need to understand covenants to hold KAS?",
+        "a": "No. Plain sending and receiving is unchanged. The stack matters when you want more than transfer: vaults, escrow, tokens with chain-enforced rules — or when you want to judge a project that claims to use them."
+      },
+      {
+        "q": "What is actually audited?",
+        "a": "As of this site's last review: Silverscript hit v1.0.0 on 2026-09-09 but names no external audit and its own security policy still calls it experimental. Argent has no tagged release at all. The status board tracks this daily — and any project's \"audited\" claim deserves a named auditor and a date before you believe it."
+      },
+      {
+        "q": "What is KCC-20, in one line?",
+        "a": "Tokens whose supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper to trust. They are live and traded on mainnet while the written standard is still being consolidated."
+      },
+      {
+        "q": "What are vProgs, and can I use them?",
+        "a": "Not yet — vProgs (native programs living in the DAG) are the research track, the roadmap beyond covenants. Anyone selling you a \"vProg\" today is early by definition."
+      },
+      {
+        "q": "Where would I actually start building?",
+        "a": "Kascov.io lets you try covenant code with zero installation, and Silverscript is the language most things are written in today. The Build section walks the whole path: toolchain, a first 12-line covenant, testnet, and the examples worth reading."
+      }
     ],
     "finishH2": "That's the tour.",
     "finishP": "You now know more about Kaspa's programmability stack than most of crypto Twitter. From here (in English): the <a href=\"/compare\">comparison matrix</a> for the details, the <a href=\"/decide\">decision guide</a> if you're building something, the <a href=\"/build\">build path</a> when you're ready to write code, or the <a href=\"/status\">status board</a> to see what moved today."
   },
   "quiz": {
     "kaspa-in-60-seconds": [
-      { "q": "What is a blockDAG?", "options": ["A braid of parallel blocks that are all kept and put in one agreed order", "A chain that throws away blocks which arrive at the same time", "A database maintained by the Kaspa foundation"], "correct": 0, "why": "Kaspa keeps every block and lets GHOSTDAG order them — that's why it can run many blocks per second without giving up proof-of-work security." },
-      { "q": "Before the Toccata upgrade, Kaspa could…", "options": ["run full smart contracts", "verify signatures and move coins — money only", "host an EVM"], "correct": 1, "why": "Kaspa's scripting was deliberately minimal: it verified who owns coins and moved them. Conditions on how coins move next came with Toccata." }
+      {
+        "q": "What is a blockDAG?",
+        "options": [
+          "A braid of parallel blocks that are all kept and put in one agreed order",
+          "A chain that throws away blocks which arrive at the same time",
+          "A database maintained by the Kaspa foundation"
+        ],
+        "correct": 0,
+        "why": "Kaspa keeps every block and lets GHOSTDAG order them — that's why it can run many blocks per second without giving up proof-of-work security."
+      },
+      {
+        "q": "Before the Toccata upgrade, Kaspa could…",
+        "options": [
+          "run full smart contracts",
+          "verify signatures and move coins — money only",
+          "host an EVM"
+        ],
+        "correct": 1,
+        "why": "Kaspa's scripting was deliberately minimal: it verified who owns coins and moved them. Conditions on how coins move next came with Toccata."
+      }
     ],
     "what-toccata-changed": [
-      { "q": "What is a covenant?", "options": ["A promise a project makes in its whitepaper", "An entry in an indexer's database", "A rule attached to coins that consensus itself enforces"], "correct": 2, "why": "Not advice, not bookkeeping: any spend that breaks the rule is rejected by every node. The rule travels with the money." },
-      { "q": "A spend that breaks a covenant rule is…", "options": ["not a transaction at all — consensus rejects it", "refunded after a review period", "flagged for moderators to decide"], "correct": 0, "why": "There is no appeal process because there is nothing to appeal — the network treats it like a coin that doesn't fit the slot." },
-      { "q": "Inline ZK verification (KIP-16) lets the chain…", "options": ["hide everyone's balances by default", "check a cryptographic proof that something happened, without seeing the details", "mine blocks faster"], "correct": 1, "why": "A covenant can require a valid zero-knowledge proof before coins move — live on mainnet since 2026-06-30." }
+      {
+        "q": "What is a covenant?",
+        "options": [
+          "A promise a project makes in its whitepaper",
+          "An entry in an indexer's database",
+          "A rule attached to coins that consensus itself enforces"
+        ],
+        "correct": 2,
+        "why": "Not advice, not bookkeeping: any spend that breaks the rule is rejected by every node. The rule travels with the money."
+      },
+      {
+        "q": "A spend that breaks a covenant rule is…",
+        "options": [
+          "not a transaction at all — consensus rejects it",
+          "refunded after a review period",
+          "flagged for moderators to decide"
+        ],
+        "correct": 0,
+        "why": "There is no appeal process because there is nothing to appeal — the network treats it like a coin that doesn't fit the slot."
+      },
+      {
+        "q": "Inline ZK verification (KIP-16) lets the chain…",
+        "options": [
+          "hide everyone's balances by default",
+          "check a cryptographic proof that something happened, without seeing the details",
+          "mine blocks faster"
+        ],
+        "correct": 1,
+        "why": "A covenant can require a valid zero-knowledge proof before coins move — live on mainnet since 2026-06-30."
+      }
     ],
     "meet-the-stack": [
-      { "q": "Silverscript compiles down to…", "options": ["EVM bytecode", "Kaspa Script — the raw covenant", "Python"], "correct": 1, "why": "You describe the allowed state changes; the compiler produces the covenant the chain understands. You never wire the raw script by hand." },
-      { "q": "Argent is the right layer when…", "options": ["you need one simple vault", "you want a token counted by indexers", "several contracts must act together atomically"], "correct": 2, "why": "Actors + ICC exist exactly for multi-contract apps. One contract alone is Silverscript territory — and Argent has no tagged release yet." },
-      { "q": "vProgs today are…", "options": ["live on mainnet", "a research roadmap — nothing to build with yet", "an app store for Kaspa"], "correct": 1, "why": "Native DAG programs are the research track beyond covenants. Anyone selling you a vProg today is early by definition." }
+      {
+        "q": "Silverscript compiles down to…",
+        "options": [
+          "EVM bytecode",
+          "Kaspa Script — the raw covenant",
+          "Python"
+        ],
+        "correct": 1,
+        "why": "You describe the allowed state changes; the compiler produces the covenant the chain understands. You never wire the raw script by hand."
+      },
+      {
+        "q": "Argent is the right layer when…",
+        "options": [
+          "you need one simple vault",
+          "you want a token counted by indexers",
+          "several contracts must act together atomically"
+        ],
+        "correct": 2,
+        "why": "Actors + ICC exist exactly for multi-contract apps. One contract alone is Silverscript territory — and Argent has no tagged release yet."
+      },
+      {
+        "q": "vProgs today are…",
+        "options": [
+          "live on mainnet",
+          "a research roadmap — nothing to build with yet",
+          "an app store for Kaspa"
+        ],
+        "correct": 1,
+        "why": "Native DAG programs are the research track beyond covenants. Anyone selling you a vProg today is early by definition."
+      }
     ],
     "how-it-fits-together": [
-      { "q": "After you deposit into a covenant vault, who checks the rule?", "options": ["The vault company's servers", "Only your own wallet app", "Every node on the network, on every spend attempt"], "correct": 2, "why": "That's the whole point: the rule stops being a policy and becomes physics — no company in the loop." },
-      { "q": "A thief who steals your keys can…", "options": ["only move the coins where the covenant rule allows", "take everything instantly", "freeze your account"], "correct": 0, "why": "The rule is the lock, not the key. You can press this button yourself on the next stop of the tour." }
+      {
+        "q": "After you deposit into a covenant vault, who checks the rule?",
+        "options": [
+          "The vault company's servers",
+          "Only your own wallet app",
+          "Every node on the network, on every spend attempt"
+        ],
+        "correct": 2,
+        "why": "That's the whole point: the rule stops being a policy and becomes physics — no company in the loop."
+      },
+      {
+        "q": "A thief who steals your keys can…",
+        "options": [
+          "only move the coins where the covenant rule allows",
+          "take everything instantly",
+          "freeze your account"
+        ],
+        "correct": 0,
+        "why": "The rule is the lock, not the key. You can press this button yourself on the next stop of the tour."
+      }
     ]
   }
 }

@@ -72,12 +72,30 @@
     "stopChip": "parada {n}",
     "doneChip": "✓ feito",
     "stops": [
-      { "title": "Kaspa em 60 segundos", "blurb": "O que é a Kaspa, por que ela é rápida e por que, durante anos, ela só conseguia mover dinheiro — sem fazer promessas sobre ele." },
-      { "title": "O que a Toccata mudou", "blurb": "A atualização de 2026 que ensinou a Kaspa a impor regras: covenants, tokens verificados pela chain, verificação ZK." },
-      { "title": "Conheça a stack", "blurb": "As cinco peças — consenso, Script + Covenants, Silverscript, Argent, KCC-20 — uma frase e uma analogia para cada." },
-      { "title": "Como tudo se encaixa", "blurb": "Acompanhe um cofre real da ideia, passando por um covenant, até moedas na mainnet que ninguém consegue mover contra as regras." },
-      { "title": "Tente quebrar um covenant", "blurb": "Interativo: faça o papel do ladrão contra um contrato real que compila — e veja exatamente qual regra impede você." },
-      { "title": "Perguntas que todo mundo faz", "blurb": "Isso é como os smart contracts do Ethereum? O que está auditado? Por onde eu realmente começaria?" }
+      {
+        "title": "Kaspa em 60 segundos",
+        "blurb": "O que é a Kaspa, por que ela é rápida e por que, durante anos, ela só conseguia mover dinheiro — sem fazer promessas sobre ele."
+      },
+      {
+        "title": "O que a Toccata mudou",
+        "blurb": "A atualização de 2026 que ensinou a Kaspa a impor regras: covenants, tokens verificados pela chain, verificação ZK."
+      },
+      {
+        "title": "Conheça a stack",
+        "blurb": "As cinco peças — consenso, Script + Covenants, Silverscript, Argent, KCC-20 — uma frase e uma analogia para cada."
+      },
+      {
+        "title": "Como tudo se encaixa",
+        "blurb": "Acompanhe um cofre real da ideia, passando por um covenant, até moedas na mainnet que ninguém consegue mover contra as regras."
+      },
+      {
+        "title": "Tente quebrar um covenant",
+        "blurb": "Interativo: faça o papel do ladrão contra um contrato real que compila — e veja exatamente qual regra impede você."
+      },
+      {
+        "title": "Perguntas que todo mundo faz",
+        "blurb": "Isso é como os smart contracts do Ethereum? O que está auditado? Por onde eu realmente começaria?"
+      }
     ]
   },
   "stop1": {
@@ -139,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Tokens construídos como covenants, então as regras de emissão e transferência são checadas pelo próprio consenso da Kaspa — sem precisar confiar em nenhum contador fora da chain. Ativos e negociados na mainnet; o padrão escrito é um rascunho ainda em consolidação, sem release oficial marcada.",
+        "plain": "Tokens construídos como covenants: as regras de emissão e transferência são verificadas pelo próprio consenso da Kaspa — sem contador off-chain para confiar. Vivos e negociados na mainnet, e o padrão escrito entrou em Last Call em 07/10/2026 — a janela final de revisão antes do Final.",
         "analogy": "Tokens cujo livro de regras está usinado na porta do cofre — ninguém de fora da chain guarda o placar."
       },
       "vprogs": {
@@ -155,12 +173,36 @@
     "h1": "Como tudo se encaixa",
     "lede": "Uma história, do topo da stack até a base: um cofre que protege moedas até de um ladrão com suas chaves na mão. Cada camada que você conheceu na parada anterior faz um trabalho aqui.",
     "steps": [
-      { "layer": "Você", "title": "Comece com uma regra que valha a pena impor", "body": "\"Estas moedas só podem ser sacadas após um atraso de 24 horas, e só para o meu endereço — não importa quem roube minhas chaves hoje à noite.\" Essa frase é um cofre." },
-      { "layer": "Silverscript", "title": "Escreva a regra como código", "body": "Algumas dezenas de linhas descrevendo as mudanças de estado permitidas: estado antigo + seu pedido + os fatos da transação → o novo estado que é permitido. Nada além disso." },
-      { "layer": "Kaspa Script", "title": "O compilador usina a trava", "body": "O Silverscript compila sua regra para Kaspa Script — o covenant bruto que a chain entende. Você nunca monta essa camada à mão, o compilador faz isso." },
-      { "layer": "Consenso da Kaspa", "title": "Depósito — a regra vira física", "body": "Você envia moedas para dentro do covenant. A partir desse momento, a regra não é uma promessa nem uma política de empresa: cada nó da rede a verifica em cada tentativa de gasto." },
-      { "layer": "Consenso da Kaspa", "title": "Um ladrão tenta — e a chain diz não", "body": "Alguém com suas chaves roubadas transmite um saque instantâneo. O gasto quebra a regra do atraso, então o consenso rejeita a transação como uma moeda que não cabe na fenda. Nunca aconteceu." },
-      { "layer": "Explorador", "title": "Qualquer pessoa pode verificar", "body": "O covenant, suas regras e seu histórico são públicos. Um explorador como o kascov.io mostra o cofre parado lá, se impondo sozinho, sem nenhuma empresa no meio." }
+      {
+        "layer": "Você",
+        "title": "Comece com uma regra que valha a pena impor",
+        "body": "\"Estas moedas só podem ser sacadas após um atraso de 24 horas, e só para o meu endereço — não importa quem roube minhas chaves hoje à noite.\" Essa frase é um cofre."
+      },
+      {
+        "layer": "Silverscript",
+        "title": "Escreva a regra como código",
+        "body": "Algumas dezenas de linhas descrevendo as mudanças de estado permitidas: estado antigo + seu pedido + os fatos da transação → o novo estado que é permitido. Nada além disso."
+      },
+      {
+        "layer": "Kaspa Script",
+        "title": "O compilador usina a trava",
+        "body": "O Silverscript compila sua regra para Kaspa Script — o covenant bruto que a chain entende. Você nunca monta essa camada à mão, o compilador faz isso."
+      },
+      {
+        "layer": "Consenso da Kaspa",
+        "title": "Depósito — a regra vira física",
+        "body": "Você envia moedas para dentro do covenant. A partir desse momento, a regra não é uma promessa nem uma política de empresa: cada nó da rede a verifica em cada tentativa de gasto."
+      },
+      {
+        "layer": "Consenso da Kaspa",
+        "title": "Um ladrão tenta — e a chain diz não",
+        "body": "Alguém com suas chaves roubadas transmite um saque instantâneo. O gasto quebra a regra do atraso, então o consenso rejeita a transação como uma moeda que não cabe na fenda. Nunca aconteceu."
+      },
+      {
+        "layer": "Explorador",
+        "title": "Qualquer pessoa pode verificar",
+        "body": "O covenant, suas regras e seu histórico são públicos. Um explorador como o kascov.io mostra o cofre parado lá, se impondo sozinho, sem nenhuma empresa no meio."
+      }
     ],
     "note": "Aplicativos multi-contrato seguem a mesma história com um capítulo extra: o <a href=\"/stack/argent\">Argent</a> conecta vários covenants em uma única aplicação antes de tudo ser compilado.",
     "next": "Próximo: Tente quebrar um covenant →"
@@ -193,34 +235,142 @@
     "eyebrow": "Aprender · parada 6 de 6",
     "h1": "Perguntas que todo mundo faz",
     "items": [
-      { "q": "Isso é como os smart contracts do Ethereum?", "a": "Mesmo objetivo — regras programáveis on-chain — formato diferente. O Ethereum roda programas sobre grandes saldos de conta compartilhados. Os covenants da Kaspa anexam regras diretamente a moedas específicas (UTXOs): menores e mais rígidos por contrato, mas as regras viajam com o próprio dinheiro e herdam a velocidade e a segurança de prova de trabalho da Kaspa." },
-      { "q": "Preciso entender covenants para ter KAS?", "a": "Não. Enviar e receber normalmente continua igual. A stack importa quando você quer mais do que transferir: cofres, depósitos em garantia, tokens com regras impostas pela chain — ou quando você quer avaliar um projeto que afirma usá-los." },
-      { "q": "O que está realmente auditado?", "a": "Até a última revisão deste site: o Silverscript chegou à v1.0.0 em 2026-09-09, mas não cita nenhuma auditoria externa e sua própria política de segurança ainda o chama de experimental. O Argent não tem nenhuma release marcada. O painel de status acompanha isso diariamente — e a alegação de \"auditado\" de qualquer projeto merece um auditor nomeado e uma data antes de você acreditar." },
-      { "q": "O que é KCC-20, em uma linha?", "a": "Tokens cujas regras de emissão e transferência são checadas pelo próprio consenso da Kaspa — sem contador fora da chain para confiar. Eles estão ativos e são negociados na mainnet enquanto o padrão escrito ainda está sendo consolidado." },
-      { "q": "O que são vProgs, e posso usá-los?", "a": "Ainda não — vProgs (programas nativos que vivem no DAG) são a trilha de pesquisa, o roadmap além dos covenants. Qualquer pessoa vendendo um \"vProg\" hoje está adiantada por definição." },
-      { "q": "Por onde eu realmente começaria a construir?", "a": "O kascov.io deixa você testar código de covenant sem instalar nada, e o Silverscript é a linguagem em que a maioria das coisas é escrita hoje. A seção Construir percorre o caminho inteiro: toolchain, um primeiro covenant de 12 linhas, testnet e os exemplos que valem a leitura." }
+      {
+        "q": "Isso é como os smart contracts do Ethereum?",
+        "a": "Mesmo objetivo — regras programáveis on-chain — formato diferente. O Ethereum roda programas sobre grandes saldos de conta compartilhados. Os covenants da Kaspa anexam regras diretamente a moedas específicas (UTXOs): menores e mais rígidos por contrato, mas as regras viajam com o próprio dinheiro e herdam a velocidade e a segurança de prova de trabalho da Kaspa."
+      },
+      {
+        "q": "Preciso entender covenants para ter KAS?",
+        "a": "Não. Enviar e receber normalmente continua igual. A stack importa quando você quer mais do que transferir: cofres, depósitos em garantia, tokens com regras impostas pela chain — ou quando você quer avaliar um projeto que afirma usá-los."
+      },
+      {
+        "q": "O que está realmente auditado?",
+        "a": "Até a última revisão deste site: o Silverscript chegou à v1.0.0 em 2026-09-09, mas não cita nenhuma auditoria externa e sua própria política de segurança ainda o chama de experimental. O Argent não tem nenhuma release marcada. O painel de status acompanha isso diariamente — e a alegação de \"auditado\" de qualquer projeto merece um auditor nomeado e uma data antes de você acreditar."
+      },
+      {
+        "q": "O que é KCC-20, em uma linha?",
+        "a": "Tokens cujas regras de emissão e transferência são checadas pelo próprio consenso da Kaspa — sem contador fora da chain para confiar. Eles estão ativos e são negociados na mainnet enquanto o padrão escrito ainda está sendo consolidado."
+      },
+      {
+        "q": "O que são vProgs, e posso usá-los?",
+        "a": "Ainda não — vProgs (programas nativos que vivem no DAG) são a trilha de pesquisa, o roadmap além dos covenants. Qualquer pessoa vendendo um \"vProg\" hoje está adiantada por definição."
+      },
+      {
+        "q": "Por onde eu realmente começaria a construir?",
+        "a": "O kascov.io deixa você testar código de covenant sem instalar nada, e o Silverscript é a linguagem em que a maioria das coisas é escrita hoje. A seção Construir percorre o caminho inteiro: toolchain, um primeiro covenant de 12 linhas, testnet e os exemplos que valem a leitura."
+      }
     ],
     "finishH2": "Esse foi o tour.",
     "finishP": "Você agora sabe mais sobre a stack de programabilidade da Kaspa do que a maior parte do Twitter cripto. A partir daqui (em inglês): a <a href=\"/compare\">matriz de comparação</a> para os detalhes, o <a href=\"/decide\">guia de decisão</a> se você está construindo algo, o <a href=\"/build\">caminho de construção</a> quando estiver pronto para escrever código, ou o <a href=\"/status\">painel de status</a> para ver o que mudou hoje."
   },
   "quiz": {
     "kaspa-in-60-seconds": [
-      { "q": "O que é um blockDAG?", "options": ["Uma trança de blocos paralelos que são todos mantidos e postos em uma única ordem acordada", "Uma chain que descarta blocos que chegam ao mesmo tempo", "Um banco de dados mantido pela fundação Kaspa"], "correct": 0, "why": "A Kaspa mantém todos os blocos e deixa o GHOSTDAG ordená-los — é por isso que ela consegue rodar vários blocos por segundo sem abrir mão da segurança de prova de trabalho." },
-      { "q": "Antes da atualização Toccata, a Kaspa podia…", "options": ["rodar smart contracts completos", "verificar assinaturas e mover moedas — só dinheiro", "hospedar uma EVM"], "correct": 1, "why": "O scripting da Kaspa era deliberadamente mínimo: verificava quem era dono das moedas e as movia. Condições sobre como as moedas se movem em seguida vieram com a Toccata." }
+      {
+        "q": "O que é um blockDAG?",
+        "options": [
+          "Uma trança de blocos paralelos que são todos mantidos e postos em uma única ordem acordada",
+          "Uma chain que descarta blocos que chegam ao mesmo tempo",
+          "Um banco de dados mantido pela fundação Kaspa"
+        ],
+        "correct": 0,
+        "why": "A Kaspa mantém todos os blocos e deixa o GHOSTDAG ordená-los — é por isso que ela consegue rodar vários blocos por segundo sem abrir mão da segurança de prova de trabalho."
+      },
+      {
+        "q": "Antes da atualização Toccata, a Kaspa podia…",
+        "options": [
+          "rodar smart contracts completos",
+          "verificar assinaturas e mover moedas — só dinheiro",
+          "hospedar uma EVM"
+        ],
+        "correct": 1,
+        "why": "O scripting da Kaspa era deliberadamente mínimo: verificava quem era dono das moedas e as movia. Condições sobre como as moedas se movem em seguida vieram com a Toccata."
+      }
     ],
     "what-toccata-changed": [
-      { "q": "O que é um covenant?", "options": ["Uma promessa que um projeto faz no whitepaper", "Uma entrada no banco de dados de um indexador", "Uma regra anexada às moedas que o próprio consenso impõe"], "correct": 2, "why": "Não é conselho, não é contabilidade: qualquer gasto que quebre a regra é rejeitado por todos os nós. A regra viaja com o dinheiro." },
-      { "q": "Um gasto que quebra uma regra de covenant é…", "options": ["nem sequer uma transação — o consenso o rejeita", "reembolsado após um período de revisão", "sinalizado para moderadores decidirem"], "correct": 0, "why": "Não existe processo de apelação porque não há o que apelar — a rede o trata como uma moeda que não cabe na fenda." },
-      { "q": "A verificação ZK inline (KIP-16) permite que a chain…", "options": ["esconda os saldos de todo mundo por padrão", "cheque uma prova criptográfica de que algo aconteceu, sem ver os detalhes", "minere blocos mais rápido"], "correct": 1, "why": "Um covenant pode exigir uma prova zero-knowledge válida antes de as moedas se moverem — ativo na mainnet desde 2026-06-30." }
+      {
+        "q": "O que é um covenant?",
+        "options": [
+          "Uma promessa que um projeto faz no whitepaper",
+          "Uma entrada no banco de dados de um indexador",
+          "Uma regra anexada às moedas que o próprio consenso impõe"
+        ],
+        "correct": 2,
+        "why": "Não é conselho, não é contabilidade: qualquer gasto que quebre a regra é rejeitado por todos os nós. A regra viaja com o dinheiro."
+      },
+      {
+        "q": "Um gasto que quebra uma regra de covenant é…",
+        "options": [
+          "nem sequer uma transação — o consenso o rejeita",
+          "reembolsado após um período de revisão",
+          "sinalizado para moderadores decidirem"
+        ],
+        "correct": 0,
+        "why": "Não existe processo de apelação porque não há o que apelar — a rede o trata como uma moeda que não cabe na fenda."
+      },
+      {
+        "q": "A verificação ZK inline (KIP-16) permite que a chain…",
+        "options": [
+          "esconda os saldos de todo mundo por padrão",
+          "cheque uma prova criptográfica de que algo aconteceu, sem ver os detalhes",
+          "minere blocos mais rápido"
+        ],
+        "correct": 1,
+        "why": "Um covenant pode exigir uma prova zero-knowledge válida antes de as moedas se moverem — ativo na mainnet desde 2026-06-30."
+      }
     ],
     "meet-the-stack": [
-      { "q": "O Silverscript compila para…", "options": ["bytecode da EVM", "Kaspa Script — o covenant bruto", "Python"], "correct": 1, "why": "Você descreve as mudanças de estado permitidas; o compilador produz o covenant que a chain entende. Você nunca monta o script bruto à mão." },
-      { "q": "O Argent é a camada certa quando…", "options": ["você precisa de um único cofre simples", "você quer um token contado por indexadores", "vários contratos precisam agir juntos atomicamente"], "correct": 2, "why": "Atores + ICC existem exatamente para aplicativos multi-contrato. Um contrato sozinho é território do Silverscript — e o Argent ainda não tem nenhuma release marcada." },
-      { "q": "Os vProgs hoje são…", "options": ["ativos na mainnet", "um roadmap de pesquisa — nada para construir ainda", "uma loja de aplicativos para a Kaspa"], "correct": 1, "why": "Programas nativos no DAG são a trilha de pesquisa além dos covenants. Qualquer pessoa vendendo um vProg hoje está adiantada por definição." }
+      {
+        "q": "O Silverscript compila para…",
+        "options": [
+          "bytecode da EVM",
+          "Kaspa Script — o covenant bruto",
+          "Python"
+        ],
+        "correct": 1,
+        "why": "Você descreve as mudanças de estado permitidas; o compilador produz o covenant que a chain entende. Você nunca monta o script bruto à mão."
+      },
+      {
+        "q": "O Argent é a camada certa quando…",
+        "options": [
+          "você precisa de um único cofre simples",
+          "você quer um token contado por indexadores",
+          "vários contratos precisam agir juntos atomicamente"
+        ],
+        "correct": 2,
+        "why": "Atores + ICC existem exatamente para aplicativos multi-contrato. Um contrato sozinho é território do Silverscript — e o Argent ainda não tem nenhuma release marcada."
+      },
+      {
+        "q": "Os vProgs hoje são…",
+        "options": [
+          "ativos na mainnet",
+          "um roadmap de pesquisa — nada para construir ainda",
+          "uma loja de aplicativos para a Kaspa"
+        ],
+        "correct": 1,
+        "why": "Programas nativos no DAG são a trilha de pesquisa além dos covenants. Qualquer pessoa vendendo um vProg hoje está adiantada por definição."
+      }
     ],
     "how-it-fits-together": [
-      { "q": "Depois que você deposita em um cofre de covenant, quem verifica a regra?", "options": ["Os servidores da empresa do cofre", "Só o seu próprio aplicativo de carteira", "Todos os nós da rede, em cada tentativa de gasto"], "correct": 2, "why": "Esse é o ponto todo: a regra deixa de ser uma política e vira física — sem nenhuma empresa no meio." },
-      { "q": "Um ladrão que rouba suas chaves pode…", "options": ["mover as moedas apenas para onde a regra do covenant permite", "levar tudo instantaneamente", "congelar sua conta"], "correct": 0, "why": "A regra é a trava, não a chave. Você mesmo pode apertar esse botão na próxima parada do tour." }
+      {
+        "q": "Depois que você deposita em um cofre de covenant, quem verifica a regra?",
+        "options": [
+          "Os servidores da empresa do cofre",
+          "Só o seu próprio aplicativo de carteira",
+          "Todos os nós da rede, em cada tentativa de gasto"
+        ],
+        "correct": 2,
+        "why": "Esse é o ponto todo: a regra deixa de ser uma política e vira física — sem nenhuma empresa no meio."
+      },
+      {
+        "q": "Um ladrão que rouba suas chaves pode…",
+        "options": [
+          "mover as moedas apenas para onde a regra do covenant permite",
+          "levar tudo instantaneamente",
+          "congelar sua conta"
+        ],
+        "correct": 0,
+        "why": "A regra é a trava, não a chave. Você mesmo pode apertar esse botão na próxima parada do tour."
+      }
     ]
   }
 }
