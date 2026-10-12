@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T15:03:32.564Z",
+  "generatedAt": "2026-10-12T18:36:15.342Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -21,7 +21,7 @@
     },
     {
       "label": "KCC-20 — KCC-0 compliance + advancement to Last Call",
-      "note": "the fungible-token standard moving toward finalization — KCC-0 (the process doc) itself went Final on 2026-09-21",
+      "note": "MERGED 2026-10-07 — KCC-20 is in Last Call, the final review window (typically 14 days per KCC-0) before Final; it needs conformance vectors and reverts to Review if normative changes surface",
       "url": "https://github.com/kaspanet/kccs/pull/31",
       "status": "merged",
       "updated": "2026-10-07T20:38:09Z",
@@ -39,7 +39,7 @@
     },
     {
       "label": "Argent KCC-20 reference implementation",
-      "note": "the first real content in the official reference repo: a KCC-20 token actor, an admin-keyless public mint, offline examples — the kind of public implementation the standard needs before Final",
+      "note": "MERGED 2026-10-07 — the first official Argent KCC-20 reference implementation (token actor + admin-keyless public mint) landed the same day KCC-20 entered Last Call",
       "url": "https://github.com/argent-lang/kcc20-reference/pull/1",
       "status": "merged",
       "updated": "2026-10-07T19:50:09Z",

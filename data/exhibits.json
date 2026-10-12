@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-12T15:03:28.786Z",
+  "generatedAt": "2026-10-12T18:31:45.650Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "ee09e939ba3f5b731663e31451c4334cdc7817f2bd5f8dd7742d907599493d26",
+      "txId": "aeb77c4fddd5cee9eba6164fe3d0cafb42fd09b7f64a153621d5045123e1044e",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "1217",
+      "amount": "33371",
       "decimals": 0,
-      "timestamp": 1791814148620
+      "timestamp": 1791826576941
     },
     {
       "txId": "74d7b59db8184343764a86c03f501a90eb6809192855effc5bdc7909ccf9d93c",
