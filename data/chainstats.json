@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-13T18:54:27.637Z",
+  "generatedAt": "2026-10-13T23:36:15.170Z",
   "source": "https://kcc20.info/v1/stats",
   "totals": {
     "covenantsCreated": 188368,
-    "transitions": 72739,
+    "transitions": 72773,
     "burns": 187310,
     "alive": 1058
   },
@@ -13,7 +13,7 @@
   },
   "kascov": {
     "source": "https://kascov.io/data/mainnet/templates.json",
-    "generatedAtMs": 1791916840209,
+    "generatedAtMs": 1791933754255,
     "templates": {
       "kaswareVaults": {
         "covenants": 185001,
@@ -21,19 +21,19 @@
       },
       "kcc20": {
         "covenants": 146,
-        "liveStates": 3556,
-        "statesEver": 47467
+        "liveStates": 3559,
+        "statesEver": 47485
       },
       "p2shCommitment": {
         "covenants": 3216,
-        "liveStates": 10690
+        "liveStates": 10700
       },
       "silverscriptEscrow": {
         "covenants": 4,
         "liveStates": 0
       },
       "totalCovenants": 188368,
-      "totalLiveStates": 14246
+      "totalLiveStates": 14259
     }
   },
   "series": {
@@ -41,154 +41,154 @@
     "bucketSeconds": 86400,
     "points": [
       {
-        "t": 1789325663648,
-        "events": 233,
-        "actions": 72
+        "t": 1789342571002,
+        "events": 234,
+        "actions": 82
       },
       {
-        "t": 1789412063648,
-        "events": 1848,
-        "actions": 70
+        "t": 1789428971002,
+        "events": 2621,
+        "actions": 71
       },
       {
-        "t": 1789498463648,
-        "events": 2929,
-        "actions": 83
-      },
-      {
-        "t": 1789584863648,
-        "events": 52475,
-        "actions": 48
-      },
-      {
-        "t": 1789671263648,
-        "events": 1261,
-        "actions": 63
-      },
-      {
-        "t": 1789757663648,
-        "events": 912,
-        "actions": 78
-      },
-      {
-        "t": 1789844063648,
-        "events": 749,
-        "actions": 102
-      },
-      {
-        "t": 1789930463648,
-        "events": 684,
-        "actions": 87
-      },
-      {
-        "t": 1790016863648,
-        "events": 382,
-        "actions": 64
-      },
-      {
-        "t": 1790103263648,
-        "events": 380,
-        "actions": 124
-      },
-      {
-        "t": 1790189663648,
-        "events": 307,
-        "actions": 40
-      },
-      {
-        "t": 1790276063648,
-        "events": 923,
-        "actions": 38
-      },
-      {
-        "t": 1790362463648,
-        "events": 601,
-        "actions": 88
-      },
-      {
-        "t": 1790448863648,
-        "events": 522,
-        "actions": 70
-      },
-      {
-        "t": 1790535263648,
-        "events": 398,
-        "actions": 87
-      },
-      {
-        "t": 1790621663648,
-        "events": 213,
-        "actions": 47
-      },
-      {
-        "t": 1790708063648,
-        "events": 475,
-        "actions": 41
-      },
-      {
-        "t": 1790794463648,
-        "events": 420,
-        "actions": 132
-      },
-      {
-        "t": 1790880863648,
-        "events": 488,
-        "actions": 143
-      },
-      {
-        "t": 1790967263648,
-        "events": 328,
+        "t": 1789515371002,
+        "events": 2585,
         "actions": 74
       },
       {
-        "t": 1791053663648,
-        "events": 496,
-        "actions": 187
+        "t": 1789601771002,
+        "events": 52210,
+        "actions": 47
       },
       {
-        "t": 1791140063648,
-        "events": 249,
-        "actions": 36
+        "t": 1789688171002,
+        "events": 1209,
+        "actions": 78
       },
       {
-        "t": 1791226463648,
-        "events": 455,
-        "actions": 34
+        "t": 1789774571002,
+        "events": 812,
+        "actions": 68
       },
       {
-        "t": 1791312863648,
-        "events": 739,
-        "actions": 181
+        "t": 1789860971002,
+        "events": 833,
+        "actions": 118
       },
       {
-        "t": 1791399263648,
-        "events": 423,
-        "actions": 103
+        "t": 1789947371002,
+        "events": 625,
+        "actions": 67
       },
       {
-        "t": 1791485663648,
-        "events": 274,
-        "actions": 57
+        "t": 1790033771002,
+        "events": 379,
+        "actions": 121
       },
       {
-        "t": 1791572063648,
-        "events": 221,
-        "actions": 21
+        "t": 1790120171002,
+        "events": 429,
+        "actions": 72
       },
       {
-        "t": 1791658463648,
-        "events": 284,
+        "t": 1790206571002,
+        "events": 375,
+        "actions": 46
+      },
+      {
+        "t": 1790292971002,
+        "events": 924,
         "actions": 29
       },
       {
-        "t": 1791744863648,
-        "events": 308,
-        "actions": 43
+        "t": 1790379371002,
+        "events": 618,
+        "actions": 90
       },
       {
-        "t": 1791831263648,
-        "events": 260,
+        "t": 1790465771002,
+        "events": 444,
+        "actions": 67
+      },
+      {
+        "t": 1790552171002,
+        "events": 308,
+        "actions": 83
+      },
+      {
+        "t": 1790638571002,
+        "events": 228,
+        "actions": 52
+      },
+      {
+        "t": 1790724971002,
+        "events": 507,
+        "actions": 52
+      },
+      {
+        "t": 1790811371002,
+        "events": 423,
+        "actions": 133
+      },
+      {
+        "t": 1790897771002,
+        "events": 489,
+        "actions": 145
+      },
+      {
+        "t": 1790984171002,
+        "events": 353,
+        "actions": 91
+      },
+      {
+        "t": 1791070571002,
+        "events": 413,
+        "actions": 145
+      },
+      {
+        "t": 1791156971002,
+        "events": 304,
+        "actions": 35
+      },
+      {
+        "t": 1791243371002,
+        "events": 443,
+        "actions": 48
+      },
+      {
+        "t": 1791329771002,
+        "events": 796,
+        "actions": 213
+      },
+      {
+        "t": 1791416171002,
+        "events": 367,
+        "actions": 60
+      },
+      {
+        "t": 1791502571002,
+        "events": 234,
+        "actions": 61
+      },
+      {
+        "t": 1791588971002,
+        "events": 273,
+        "actions": 20
+      },
+      {
+        "t": 1791675371002,
+        "events": 320,
+        "actions": 45
+      },
+      {
+        "t": 1791761771002,
+        "events": 250,
         "actions": 30
+      },
+      {
+        "t": 1791848171002,
+        "events": 235,
+        "actions": 28
       }
     ]
   }
