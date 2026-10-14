@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-14T09:18:00.273Z",
+  "generatedAt": "2026-10-14T16:35:42.724Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "8f5aab65ceecd431163290076fc9d47a382818d0cf3fb504cfde9ba7fddba8fa",
+      "txId": "65cac915c1bd7e6af064a3e1e0dca44d20ce0df02094651ebd1189a96538f2ee",
       "kind": "buy",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "41006",
+      "decimals": 0,
+      "timestamp": 1791991728022
+    },
+    {
+      "txId": "3a8c4f513d2ede224a76de3e52bbc1d0d61d6e5971474f301db48ed721d81b10",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "198787",
+      "amount": "104465",
       "decimals": 0,
-      "timestamp": 1791957698537
+      "timestamp": 1791989810497
     },
     {
-      "txId": "cd1ade1bcdb195c11fb14821d031d5c25302bd5f4b0495ba656b016c98c5e3a6",
+      "txId": "271aa7b50b6001863877416a46d3df597c15e94a7d33add083ee704dc55d4328",
       "kind": "buy",
-      "ticker": "KKDAG",
-      "name": "Kas Knight",
-      "amount": "155091",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "12249342",
       "decimals": 0,
-      "timestamp": 1791931563850
-    },
-    {
-      "txId": "dc9b3cddb9c0d3864119e0f169c159824c7c8597fcdd91d8d8fc01d7de0877da",
-      "kind": "sell",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "10520",
-      "decimals": 0,
-      "timestamp": 1791919931119
+      "timestamp": 1791986435121
     }
   ]
 }
