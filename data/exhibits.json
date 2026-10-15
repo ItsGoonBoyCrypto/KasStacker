@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-15T08:52:51.095Z",
+  "generatedAt": "2026-10-15T16:21:36.816Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "c99925b298ac8b2db235a38cc4397ed306697e263158fa202d79895dc5220c51",
+      "txId": "489a811fd477703ac6680e41cc36071484e7a2884e7588bf0947517503fa44e2",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "187354",
+      "amount": "510934",
       "decimals": 0,
-      "timestamp": 1792050638604
+      "timestamp": 1792076393261
     },
     {
-      "txId": "c34653325e017196b6ff13fd4ec6fd4c67e7f27e34f3e87f138ed0f48a28b41e",
-      "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "44749",
-      "decimals": 0,
-      "timestamp": 1791998316612
-    },
-    {
-      "txId": "65cac915c1bd7e6af064a3e1e0dca44d20ce0df02094651ebd1189a96538f2ee",
-      "kind": "buy",
+      "txId": "158f614879e50139a793c375c8fa4067889f49744024526db244917865f81c27",
+      "kind": "sell",
       "ticker": "PEPE",
       "name": "The Ultimate test",
-      "amount": "41006",
+      "amount": "1000000",
       "decimals": 0,
-      "timestamp": 1791991728022
+      "timestamp": 1792076080644
+    },
+    {
+      "txId": "cf303c2a39007ae18be838c84506e927714beb10f0b3c93c5cbebe28bd0610b2",
+      "kind": "buy",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "713",
+      "decimals": 0,
+      "timestamp": 1792059110322
     }
   ]
 }
