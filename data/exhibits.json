@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-16T08:46:01.463Z",
+  "generatedAt": "2026-10-16T16:07:54.892Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "2dbf05f4b26e56740d9a29b1d90e8f507b60448dcdae52b03b6306365c2bb263",
+      "txId": "d97e4e09452547c1ddf9c2ac7ee2d55145228a4fdf474fd3c2020d1a3727da31",
       "kind": "buy",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "10520",
+      "decimals": 0,
+      "timestamp": 1792166718387
+    },
+    {
+      "txId": "6bd38a1f4768e8fcbb1ba7b593058e9f9d0ad8e2d82fcd0ae6d37e9cfa1deeee",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "57217",
+      "amount": "670000",
       "decimals": 0,
-      "timestamp": 1792128641537
+      "timestamp": 1792163882462
     },
     {
-      "txId": "3ed393920420df76c7bcc3b33c750d8459e7bdc539920037aea2aed9ba69865d",
+      "txId": "0db85c6c675a30c8ea195534f9306fcd624c57965b63bfb245ff9ecc1e3c9745",
       "kind": "sell",
-      "ticker": "KROSHI",
-      "name": "Kroshi",
-      "amount": "1168924",
+      "ticker": "KKDAG",
+      "name": "Kas Knight",
+      "amount": "100844",
       "decimals": 0,
-      "timestamp": 1792094334333
-    },
-    {
-      "txId": "9c46d3c9ad32db7271198837586b443aebfd3131afc6aa8ff284f21e2cd4048e",
-      "kind": "sell",
-      "ticker": "PEEPS",
-      "name": "Pixel Peeps Game",
-      "amount": "45108",
-      "decimals": 0,
-      "timestamp": 1792083017260
+      "timestamp": 1792154514487
     }
   ]
 }
