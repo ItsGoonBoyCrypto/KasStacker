@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-17T18:09:59.656Z",
+  "generatedAt": "2026-10-17T21:58:11.556Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
       "note": "EIP-1193/6963-style; overlaps the separate KIP-12 wallet-discovery effort — convergence is the open question",
       "url": "https://github.com/kaspanet/kccs/pull/24",
       "status": "open",
-      "updated": "2026-10-14T14:04:29Z",
+      "updated": "2026-10-17T19:43:06Z",
       "reviewComments": 47,
       "commits": 9
     },
