@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-17T15:00:10.254Z",
+  "generatedAt": "2026-10-17T18:09:55.719Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "7ed5475d77cde5f7668daf4b7ad317889c21bdc00f584294c38abff4b9ec76b4",
+      "txId": "90f8d13cc0dc8756a6b9e811b0c97c6712ebd1d26aecb8b8f883bcb9cb4f59cc",
       "kind": "buy",
+      "ticker": "KEKEN",
+      "name": "keken the frog verse",
+      "amount": "191181",
+      "decimals": 0,
+      "timestamp": 1792259512855
+    },
+    {
+      "txId": "99aca325bcce87b85a5907352575a3ff899f912c342090148ad05cf4684cda3d",
+      "kind": "transfer",
       "ticker": "DNBT",
       "name": "dont buy this is test",
-      "amount": "3268479",
+      "amount": "8574",
       "decimals": 0,
-      "timestamp": 1792248110334
+      "timestamp": 1792258963695
     },
     {
-      "txId": "650ed4bc06cc0c0ae848c3518fef365944addfbcd390375ed08490c6e1dc6dda",
+      "txId": "a8b112fee536cc50a7b74c2012ef42d67236f5a51f5a16dd5a4da9ce0c29c801",
       "kind": "buy",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "546240",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "959730",
       "decimals": 0,
-      "timestamp": 1792238923596
-    },
-    {
-      "txId": "7563db9d2f624e2dfefc9caf05192a1397ef8365ad70c45886b092f367e17f47",
-      "kind": "sell",
-      "ticker": "KREX",
-      "name": "KREX Token 𐤊",
-      "amount": "1031234",
-      "decimals": 0,
-      "timestamp": 1792221059760
+      "timestamp": 1792254120127
     }
   ]
 }
