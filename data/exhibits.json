@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-17T03:05:40.103Z",
+  "generatedAt": "2026-10-17T08:16:36.245Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "6d901d38a376f5f90c15989e0588502797cb125bd2ac9674c1ebaa212cec8b04",
+      "txId": "33d97952fce74ac6fd0273700ca2ca52c750239c6f389c4f23c34320733df740",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "238000",
+      "amount": "411614",
       "decimals": 0,
-      "timestamp": 1792196764774
+      "timestamp": 1792221701701
     },
     {
-      "txId": "901e0153ed8b1f3206cb9830487cff7f889a9b23c39d6b0be3eb8fdde8e40d1d",
+      "txId": "7563db9d2f624e2dfefc9caf05192a1397ef8365ad70c45886b092f367e17f47",
       "kind": "sell",
+      "ticker": "KREX",
+      "name": "KREX Token 𐤊",
+      "amount": "1031234",
+      "decimals": 0,
+      "timestamp": 1792221059760
+    },
+    {
+      "txId": "d13688d82e1dfa83e981bc5233bf32b4c235bd905bba1dccc4e34c6afcaf698e",
+      "kind": "buy",
       "ticker": "DNBT",
       "name": "dont buy this is test",
-      "amount": "6300000",
+      "amount": "6337582",
       "decimals": 0,
-      "timestamp": 1792182528668
-    },
-    {
-      "txId": "5609bd92fc2017f450a9066eb8cc02a7a3a1239702eddf9479d93dfab48dd1da",
-      "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "13415",
-      "decimals": 0,
-      "timestamp": 1792180419625
+      "timestamp": 1792221041282
     }
   ]
 }
