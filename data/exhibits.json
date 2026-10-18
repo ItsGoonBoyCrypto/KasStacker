@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-18T08:34:00.091Z",
+  "generatedAt": "2026-10-18T15:25:12.956Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "7ace379a984a40358fff6f1a7656995ad331c58378dad999cd4b4891bb5c9b16",
-      "kind": "buy",
+      "txId": "52195270720f93c2ea756a4500e2a2450b2904e57395717b6a1ff5fee8b4a6a7",
+      "kind": "sell",
+      "ticker": "SHAY",
+      "name": "Shay",
+      "amount": "15333",
+      "decimals": 0,
+      "timestamp": 1792334618869
+    },
+    {
+      "txId": "3c85e33da4c16731f998f3f01a23f51988c810276a058f0bdf1f88ccc7183d70",
+      "kind": "sell",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "825",
+      "decimals": 0,
+      "timestamp": 1792334582096
+    },
+    {
+      "txId": "94e22be2ce97a403e89d89cd087e34ed29eee59b418e0f7ccf4d5b803abbc8e9",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "10608",
+      "amount": "83750",
       "decimals": 0,
-      "timestamp": 1792310745593
-    },
-    {
-      "txId": "e883bbcbd21a15b7589c0738b5694ac8cc4c0637faccbe8e0e1f83fef4095b02",
-      "kind": "transfer",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "10",
-      "decimals": 0,
-      "timestamp": 1792296924944
-    },
-    {
-      "txId": "089ccb220a3243a597cd42296618aacff4d5b025ce55fc554e3751123f3a295e",
-      "kind": "transfer",
-      "ticker": "KASDIA",
-      "name": "Kaspa al Día",
-      "amount": "10",
-      "decimals": 0,
-      "timestamp": 1792283871806
+      "timestamp": 1792334527321
     }
   ]
 }
