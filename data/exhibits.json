@@ -1,7 +1,16 @@
 {
-  "generatedAt": "2026-10-18T15:25:12.956Z",
+  "generatedAt": "2026-10-18T18:27:44.833Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "8f6a9c2ea4b7255f8ff36984b2e0f3fd402687975f5d153c0a2daf8e73b05109",
+      "kind": "sell",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "10534",
+      "decimals": 0,
+      "timestamp": 1792341554902
+    },
     {
       "txId": "52195270720f93c2ea756a4500e2a2450b2904e57395717b6a1ff5fee8b4a6a7",
       "kind": "sell",
@@ -19,15 +28,6 @@
       "amount": "825",
       "decimals": 0,
       "timestamp": 1792334582096
-    },
-    {
-      "txId": "94e22be2ce97a403e89d89cd087e34ed29eee59b418e0f7ccf4d5b803abbc8e9",
-      "kind": "sell",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "83750",
-      "decimals": 0,
-      "timestamp": 1792334527321
     }
   ]
 }
