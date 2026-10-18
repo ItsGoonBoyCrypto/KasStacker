@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-18T18:27:44.833Z",
+  "generatedAt": "2026-10-18T22:13:39.232Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "8f6a9c2ea4b7255f8ff36984b2e0f3fd402687975f5d153c0a2daf8e73b05109",
-      "kind": "sell",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "10534",
+      "txId": "bcc95e05c41d3c8140472e3eb307ffd57aa39f6a5e2f437608eb466075ab2504",
+      "kind": "buy",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "370865",
       "decimals": 0,
-      "timestamp": 1792341554902
+      "timestamp": 1792352054796
     },
     {
-      "txId": "52195270720f93c2ea756a4500e2a2450b2904e57395717b6a1ff5fee8b4a6a7",
-      "kind": "sell",
-      "ticker": "SHAY",
-      "name": "Shay",
-      "amount": "15333",
+      "txId": "a0c4c208079dc38eb970a95f55b77677008492a829db743402a1a6d66f11504f",
+      "kind": "buy",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "149838",
       "decimals": 0,
-      "timestamp": 1792334618869
+      "timestamp": 1792351497606
     },
     {
-      "txId": "3c85e33da4c16731f998f3f01a23f51988c810276a058f0bdf1f88ccc7183d70",
+      "txId": "43bdf589b85ed207ade89be46e6bcc069901ed609d10e6b01a0e8fc501e6c176",
       "kind": "sell",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "825",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "100000",
       "decimals": 0,
-      "timestamp": 1792334582096
+      "timestamp": 1792348088198
     }
   ]
 }
