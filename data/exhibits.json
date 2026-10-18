@@ -1,15 +1,24 @@
 {
-  "generatedAt": "2026-10-17T21:58:08.642Z",
+  "generatedAt": "2026-10-18T03:08:21.220Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "57887b636937c57e4942d2553243912230d6aa67865afefaa4066d5f46dba7dc",
-      "kind": "buy",
+      "txId": "8c802492e16f1d2c6d03b124fe5b17b92dc3271776bcc54d879d420b64492f68",
+      "kind": "transfer",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "82148",
+      "amount": "1",
       "decimals": 0,
-      "timestamp": 1792262744488
+      "timestamp": 1792287712613
+    },
+    {
+      "txId": "089ccb220a3243a597cd42296618aacff4d5b025ce55fc554e3751123f3a295e",
+      "kind": "transfer",
+      "ticker": "KASDIA",
+      "name": "Kaspa al Día",
+      "amount": "10",
+      "decimals": 0,
+      "timestamp": 1792283871806
     },
     {
       "txId": "8722831bd247f3652a44838cc4224583908390f08e80089ed9f097a490df98ad",
@@ -19,15 +28,6 @@
       "amount": "130165",
       "decimals": 0,
       "timestamp": 1792261582597
-    },
-    {
-      "txId": "90f8d13cc0dc8756a6b9e811b0c97c6712ebd1d26aecb8b8f883bcb9cb4f59cc",
-      "kind": "buy",
-      "ticker": "KEKEN",
-      "name": "keken the frog verse",
-      "amount": "191181",
-      "decimals": 0,
-      "timestamp": 1792259512855
     }
   ]
 }
