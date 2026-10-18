@@ -1,15 +1,24 @@
 {
-  "generatedAt": "2026-10-18T03:08:21.220Z",
+  "generatedAt": "2026-10-18T08:34:00.091Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "8c802492e16f1d2c6d03b124fe5b17b92dc3271776bcc54d879d420b64492f68",
-      "kind": "transfer",
+      "txId": "7ace379a984a40358fff6f1a7656995ad331c58378dad999cd4b4891bb5c9b16",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "1",
+      "amount": "10608",
       "decimals": 0,
-      "timestamp": 1792287712613
+      "timestamp": 1792310745593
+    },
+    {
+      "txId": "e883bbcbd21a15b7589c0738b5694ac8cc4c0637faccbe8e0e1f83fef4095b02",
+      "kind": "transfer",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "10",
+      "decimals": 0,
+      "timestamp": 1792296924944
     },
     {
       "txId": "089ccb220a3243a597cd42296618aacff4d5b025ce55fc554e3751123f3a295e",
@@ -19,15 +28,6 @@
       "amount": "10",
       "decimals": 0,
       "timestamp": 1792283871806
-    },
-    {
-      "txId": "8722831bd247f3652a44838cc4224583908390f08e80089ed9f097a490df98ad",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "130165",
-      "decimals": 0,
-      "timestamp": 1792261582597
     }
   ]
 }
