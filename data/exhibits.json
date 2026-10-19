@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-19T09:36:43.061Z",
+  "generatedAt": "2026-10-19T18:21:57.857Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "b0ab5ea4e11550fbb975cbef4bb66384816ff19fb16e239841a58efd44c7e33e",
+      "txId": "bae2c45a969f3170631f544858f6d461d28220faff1dcf49436c69f6f164b5d4",
       "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "217213",
+      "ticker": "KKDAG",
+      "name": "Kas Knight",
+      "amount": "1207",
       "decimals": 0,
-      "timestamp": 1792398850414
+      "timestamp": 1792433734144
     },
     {
-      "txId": "6150dab94a2b3dbbdc8af2a6507e91148397275050b56833c913bcf7ec0db050",
-      "kind": "sell",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "291056",
-      "decimals": 0,
-      "timestamp": 1792379130836
-    },
-    {
-      "txId": "a0c4c208079dc38eb970a95f55b77677008492a829db743402a1a6d66f11504f",
+      "txId": "8de244b44fc95ab244825a69e7abc5b2c7817edabb64b8e0339aa6c42581cc43",
       "kind": "buy",
       "ticker": "PEPE",
       "name": "The Ultimate test",
-      "amount": "149838",
+      "amount": "2367764",
       "decimals": 0,
-      "timestamp": 1792351497606
+      "timestamp": 1792426253167
+    },
+    {
+      "txId": "47bfc07d0451bed0226503f713899d5b730fe6c9e230672693f8f8bfda67fb04",
+      "kind": "sell",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "751615",
+      "decimals": 0,
+      "timestamp": 1792420311936
     }
   ]
 }
