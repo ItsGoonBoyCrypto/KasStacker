@@ -1,7 +1,16 @@
 {
-  "generatedAt": "2026-10-19T03:22:13.073Z",
+  "generatedAt": "2026-10-19T09:36:43.061Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "b0ab5ea4e11550fbb975cbef4bb66384816ff19fb16e239841a58efd44c7e33e",
+      "kind": "buy",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "217213",
+      "decimals": 0,
+      "timestamp": 1792398850414
+    },
     {
       "txId": "6150dab94a2b3dbbdc8af2a6507e91148397275050b56833c913bcf7ec0db050",
       "kind": "sell",
@@ -10,15 +19,6 @@
       "amount": "291056",
       "decimals": 0,
       "timestamp": 1792379130836
-    },
-    {
-      "txId": "bcc95e05c41d3c8140472e3eb307ffd57aa39f6a5e2f437608eb466075ab2504",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "370865",
-      "decimals": 0,
-      "timestamp": 1792352054796
     },
     {
       "txId": "a0c4c208079dc38eb970a95f55b77677008492a829db743402a1a6d66f11504f",
