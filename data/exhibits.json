@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-19T18:21:57.857Z",
+  "generatedAt": "2026-10-19T23:18:52.896Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "bae2c45a969f3170631f544858f6d461d28220faff1dcf49436c69f6f164b5d4",
+      "txId": "3fbe5bd309801a786da58fe8508b824282cb022b6d8a29600a6dcd50f04210fa",
       "kind": "buy",
-      "ticker": "KKDAG",
-      "name": "Kas Knight",
-      "amount": "1207",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "484026",
       "decimals": 0,
-      "timestamp": 1792433734144
+      "timestamp": 1792451763466
     },
     {
-      "txId": "8de244b44fc95ab244825a69e7abc5b2c7817edabb64b8e0339aa6c42581cc43",
+      "txId": "65ef2387fabf9da654d0a6cfd742f529bde097c900118befbca07ccc6ad57410",
       "kind": "buy",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "2367764",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "2579602",
       "decimals": 0,
-      "timestamp": 1792426253167
+      "timestamp": 1792450060605
     },
     {
-      "txId": "47bfc07d0451bed0226503f713899d5b730fe6c9e230672693f8f8bfda67fb04",
+      "txId": "e2cacb82e42dc6a07ee5341fa6816943d77b9e6ce55eb62ea880e8c9080fec49",
       "kind": "sell",
       "ticker": "DNBT",
       "name": "dont buy this is test",
-      "amount": "751615",
+      "amount": "10148804",
       "decimals": 0,
-      "timestamp": 1792420311936
+      "timestamp": 1792442667032
     }
   ]
 }
