@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-10-20T03:30:56.814Z",
+  "generatedAt": "2026-10-20T09:08:22.893Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "3fbe5bd309801a786da58fe8508b824282cb022b6d8a29600a6dcd50f04210fa",
-      "kind": "buy",
+      "txId": "a3a144b714e183a7037c1026b29011beafe984b3f4c172f97c908502b574ae1b",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "484026",
+      "amount": "1053",
       "decimals": 0,
-      "timestamp": 1792451763466
+      "timestamp": 1792482369221
     },
     {
-      "txId": "65ef2387fabf9da654d0a6cfd742f529bde097c900118befbca07ccc6ad57410",
+      "txId": "557dd669c082f54d360bf4138fafa138e3c7132f81ee3b5d0931f1454258c4ca",
       "kind": "buy",
       "ticker": "PEEPS",
       "name": "Pixel Peeps Game",
-      "amount": "2579602",
+      "amount": "6750418",
       "decimals": 0,
-      "timestamp": 1792450060605
+      "timestamp": 1792475746286
     },
     {
       "txId": "e2cacb82e42dc6a07ee5341fa6816943d77b9e6ce55eb62ea880e8c9080fec49",
