@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-20T22:55:37.768Z",
+  "generatedAt": "2026-10-21T03:25:08.977Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "621b9d7da64d2523b3a6bd943ce5b52fffe373266ca080794a2d01b7f4e57e30",
+      "txId": "bc5cdead2916b6aa7c8f43726a7fa95e339cbaee782581b67f89be64a60d1b0d",
       "kind": "sell",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "100000",
+      "ticker": "KASDIA",
+      "name": "Kaspa al Día",
+      "amount": "2040",
       "decimals": 0,
-      "timestamp": 1792535869665
+      "timestamp": 1792552412653
     },
     {
-      "txId": "6810d693b8e896679bb2df0e409bc665af3d9e7f524320d03ec4c8d025d76163",
+      "txId": "2830d98489ed47f5feeed5aec7145cfca4ce7fb8ff7c3059670ac7ec9d763a4f",
       "kind": "sell",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "23820914",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "1109325",
       "decimals": 0,
-      "timestamp": 1792516445424
+      "timestamp": 1792552265735
     },
     {
-      "txId": "bf0d8b9b09347a4ee43d11985ee3de124e8ef2872edf5461b99ba05929fe4f4f",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "5339545",
+      "txId": "521420425cae5587f0bc6a9e22f755bcad5ea7c55e72275c0c8562b2e0fdbf14",
+      "kind": "sell",
+      "ticker": "KASPI",
+      "name": "ꓘΛSρɪ",
+      "amount": "200000",
       "decimals": 0,
-      "timestamp": 1792515920808
+      "timestamp": 1792552118376
     }
   ]
 }
