@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-22T09:10:23.685Z",
+  "generatedAt": "2026-10-22T16:40:23.729Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "db719f9831c5ffed2e2d8ff835667f95fb41403cee8ddcb984e5ba28f9cd8842",
+      "txId": "23e6a1873dfb41edec1aadb61d91281c069ca3e25c52a997a6acc594c91a3a07",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "227185",
+      "amount": "466666",
       "decimals": 0,
-      "timestamp": 1792655294405
+      "timestamp": 1792686453219
     },
     {
-      "txId": "5f7b18a5e3b0a9469ce6528cd3873afffac870df42e42cbb641df1ce3a524a0a",
-      "kind": "sell",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "1000000",
+      "txId": "e17465336fa21bb47a502e4a4c298c18aebeb415179da76751a1e736ec1ac769",
+      "kind": "buy",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "271085",
       "decimals": 0,
-      "timestamp": 1792648441029
+      "timestamp": 1792683520369
     },
     {
-      "txId": "0b04ec8dca8eb2ec52f1870a5820e8a63e505566c5e16c27484935bad2e4a030",
-      "kind": "transfer",
-      "ticker": "KASDIA",
-      "name": "Kaspa al Día",
-      "amount": "1",
+      "txId": "35fa6389899ebf48ffb5060f60477ad5a35bb32cf0a5352f754e2823bae0a617",
+      "kind": "buy",
+      "ticker": "KKDAG",
+      "name": "Kas Knight",
+      "amount": "1166",
       "decimals": 0,
-      "timestamp": 1792644245203
+      "timestamp": 1792682493689
     }
   ]
 }
