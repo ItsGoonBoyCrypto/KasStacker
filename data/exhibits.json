@@ -1,33 +1,15 @@
 {
-  "generatedAt": "2026-10-21T23:01:30.951Z",
+  "generatedAt": "2026-10-22T03:23:58.877Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "c909653111530683ee90fe3d36b2e5f9fe4488f93840fe969d45346c90fcde7b",
-      "kind": "buy",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "431",
-      "decimals": 0,
-      "timestamp": 1792623049287
-    },
-    {
-      "txId": "b7c7b28493cd1b183a417ee5d1f15100c81924750c779d2cbcd50b30bba82d80",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "4777266",
-      "decimals": 0,
-      "timestamp": 1792622163306
-    },
-    {
-      "txId": "687de03a6b67bc06e73c46a7a2f1843b15e97e1271cda3116ccacfed16b86b7e",
+      "txId": "cdc1265dcf2d7796c26472beb886aa6407acf62f8f0a8db0d6871d1271653421",
       "kind": "sell",
-      "ticker": "ANSEM",
-      "name": "The Black Bull",
-      "amount": "779523",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "9495",
       "decimals": 0,
-      "timestamp": 1792619612863
+      "timestamp": 1792639308528
     }
   ]
 }
