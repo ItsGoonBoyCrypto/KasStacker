@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-22T22:57:59.495Z",
+  "generatedAt": "2026-10-23T03:29:11.640Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "e1050f4de7780cd8bace11f2fa2fe53d6abe8f83e26b5d5712ac2a148076a67e",
+      "txId": "034280a911a251bdee9f229761fccd24be88d0b14ce0ad1b1e95cd86f85fcd80",
       "kind": "buy",
+      "ticker": "KEKEN",
+      "name": "keken the frog verse",
+      "amount": "161380",
+      "decimals": 0,
+      "timestamp": 1792724353577
+    },
+    {
+      "txId": "16932762ccde40966f6a7c18d706d3818e7627fbf7124102f8668f9b72332d06",
+      "kind": "sell",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "1000000",
+      "decimals": 0,
+      "timestamp": 1792723547043
+    },
+    {
+      "txId": "41d543b962214291869519679c05107ab1fd4594fda1b2b06f95f8caadd28df0",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "216547",
+      "amount": "100000",
       "decimals": 0,
-      "timestamp": 1792701891645
-    },
-    {
-      "txId": "d0a4c01fe4a547546dfec19c17581b2221fb7762d52a8add17a2400d5253c5cc",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "8325900",
-      "decimals": 0,
-      "timestamp": 1792700281218
-    },
-    {
-      "txId": "16c7f6421de33752d3acf77dc50e110965c8ffd2cd874daab38606d248aafb12",
-      "kind": "buy",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "5152592",
-      "decimals": 0,
-      "timestamp": 1792699507859
+      "timestamp": 1792723430622
     }
   ]
 }
