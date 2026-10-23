@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-23T16:30:41.021Z",
+  "generatedAt": "2026-10-23T22:54:12.299Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "62830c9f039f84c6cf54ee83773d19b11f254d62ed27a1bd0b01d949a5186e29",
-      "kind": "sell",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "1500000",
-      "decimals": 0,
-      "timestamp": 1792769620829
-    },
-    {
-      "txId": "0c926fcd63f268a471609850ea7b4d5da110ceb3b797d8370781dd5d381b7378",
-      "kind": "sell",
+      "txId": "5db17b7f4482b409e07df556912c875df78dc5e5242461981649feb15356755e",
+      "kind": "buy",
       "ticker": "PEPE",
       "name": "The Ultimate test",
-      "amount": "19848844",
+      "amount": "11176043",
       "decimals": 0,
-      "timestamp": 1792767473367
+      "timestamp": 1792790374039
     },
     {
-      "txId": "9cb74ce41e7381c9527faf6f6d0c62acf2c87793240e36c56ce8b69de31174d6",
-      "kind": "sell",
+      "txId": "ffea057988b46cf15e1453a04f5749a8d9e924bd7d6936571e03efd002596a5b",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "173877",
+      "amount": "214232",
       "decimals": 0,
-      "timestamp": 1792767364713
+      "timestamp": 1792789708369
+    },
+    {
+      "txId": "a22430938746bf4a479c7993bf5cc4bfe85a813079884b60fad53d0a78ae838f",
+      "kind": "sell",
+      "ticker": "KASDIA",
+      "name": "Kaspa al Día",
+      "amount": "25430",
+      "decimals": 0,
+      "timestamp": 1792789632340
     }
   ]
 }
