@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-24T15:25:33.020Z",
+  "generatedAt": "2026-10-24T18:35:39.933Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "349d8e6667c3634066c915d167473a071137e38835e2a3b09cbb56d72eb2e16f",
-      "kind": "buy",
+      "txId": "97910ea7d413eaee3105c19efaf5ae85ccedff9b45f9e43f9f596642f31fb509",
+      "kind": "sell",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "13217280",
+      "decimals": 0,
+      "timestamp": 1792862628625
+    },
+    {
+      "txId": "e3f555db41b1dd0084c45250c20276af1f9e7aeca52a2606662bc194bacc3230",
+      "kind": "transfer",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "206786",
+      "amount": "10",
       "decimals": 0,
-      "timestamp": 1792854196464
+      "timestamp": 1792862501423
     },
     {
-      "txId": "bc33b1025ad2f632a5305cdb0a0431f9f7ce7871fe9fe9fa73bb32cbcccdcbe8",
+      "txId": "c106dc59554749067ed28547144fc693ed2af239802e14f73685b5e0ae122652",
       "kind": "sell",
-      "ticker": "PEEPS",
-      "name": "Pixel Peeps Game",
-      "amount": "659131",
+      "ticker": "TOCCA",
+      "name": "Tocca",
+      "amount": "73965",
       "decimals": 0,
-      "timestamp": 1792852269670
-    },
-    {
-      "txId": "257a243f44e5b94cc6a861ef5995a32ea15d61db343cd8cfd09bdfb64b312ea6",
-      "kind": "buy",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "27",
-      "decimals": 0,
-      "timestamp": 1792827595677
+      "timestamp": 1792856891870
     }
   ]
 }
