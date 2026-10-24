@@ -1,7 +1,25 @@
 {
-  "generatedAt": "2026-10-23T22:54:12.299Z",
+  "generatedAt": "2026-10-24T03:23:44.677Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "26b4d8c60bac5b6ad9189e7dec944e827ee8b56f932420b61bd2be111e2851c8",
+      "kind": "sell",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "5329",
+      "decimals": 0,
+      "timestamp": 1792811195174
+    },
+    {
+      "txId": "cfcf6090e83f49c37a9bb3570c773e86e413185099be8db531ceb8f30dbf11ad",
+      "kind": "buy",
+      "ticker": "KKDAG",
+      "name": "Kas Knight",
+      "amount": "1982",
+      "decimals": 0,
+      "timestamp": 1792808980207
+    },
     {
       "txId": "5db17b7f4482b409e07df556912c875df78dc5e5242461981649feb15356755e",
       "kind": "buy",
@@ -10,24 +28,6 @@
       "amount": "11176043",
       "decimals": 0,
       "timestamp": 1792790374039
-    },
-    {
-      "txId": "ffea057988b46cf15e1453a04f5749a8d9e924bd7d6936571e03efd002596a5b",
-      "kind": "buy",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "214232",
-      "decimals": 0,
-      "timestamp": 1792789708369
-    },
-    {
-      "txId": "a22430938746bf4a479c7993bf5cc4bfe85a813079884b60fad53d0a78ae838f",
-      "kind": "sell",
-      "ticker": "KASDIA",
-      "name": "Kaspa al Día",
-      "amount": "25430",
-      "decimals": 0,
-      "timestamp": 1792789632340
     }
   ]
 }
