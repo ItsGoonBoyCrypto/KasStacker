@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-24T18:35:39.933Z",
+  "generatedAt": "2026-10-24T22:15:00.343Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "97910ea7d413eaee3105c19efaf5ae85ccedff9b45f9e43f9f596642f31fb509",
+      "txId": "a7c5da17b0789d60cba893c7bbe70868f60aa61483b3fe4b175d317179d0a3e5",
       "kind": "sell",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "2680133",
+      "decimals": 0,
+      "timestamp": 1792879452169
+    },
+    {
+      "txId": "40d6a51d8302526d043ba3d5b24e48b029d76d1018d789d36eb82f15cf64ac9b",
+      "kind": "transfer",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "811300",
+      "decimals": 0,
+      "timestamp": 1792876200708
+    },
+    {
+      "txId": "71e444bcfbaaf4d9f30de8d88f7f4eb73c1c38aadbe51330c74781cdd985df66",
+      "kind": "buy",
       "ticker": "DNBT",
       "name": "dont buy this is test",
-      "amount": "13217280",
+      "amount": "5084795",
       "decimals": 0,
-      "timestamp": 1792862628625
-    },
-    {
-      "txId": "e3f555db41b1dd0084c45250c20276af1f9e7aeca52a2606662bc194bacc3230",
-      "kind": "transfer",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "10",
-      "decimals": 0,
-      "timestamp": 1792862501423
-    },
-    {
-      "txId": "c106dc59554749067ed28547144fc693ed2af239802e14f73685b5e0ae122652",
-      "kind": "sell",
-      "ticker": "TOCCA",
-      "name": "Tocca",
-      "amount": "73965",
-      "decimals": 0,
-      "timestamp": 1792856891870
+      "timestamp": 1792873919346
     }
   ]
 }
