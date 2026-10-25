@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-25T08:57:39.831Z",
+  "generatedAt": "2026-10-25T15:35:54.078Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "8dc4f3e32bf79ebe1575412a4c7fd37ebbeecfebb8a76d83689fddf820d874cc",
+      "txId": "2810c5e56a79371dbd79398177591d231c85003007ad90799ebf4770172b095e",
       "kind": "sell",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "22051278",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "860657",
       "decimals": 0,
-      "timestamp": 1792902530694
+      "timestamp": 1792937821585
     },
     {
-      "txId": "e72b333d9a7ed80d85299a2c193db31b2e37f0fceeb20927af0fdfbbadf048b0",
-      "kind": "buy",
-      "ticker": "PEEPS",
-      "name": "Pixel Peeps Game",
-      "amount": "748247",
+      "txId": "8ad0999edcc96eae655c068a90d4c871fa71b2a8e9bab6d0f9df66ba63e7fa6c",
+      "kind": "sell",
+      "ticker": "KASPI",
+      "name": "ꓘΛSρɪ",
+      "amount": "54772",
       "decimals": 0,
-      "timestamp": 1792893455464
+      "timestamp": 1792936792438
     },
     {
-      "txId": "cc8d761fc6485916e73372fa0bb142dc904ad1d30701d7395042c6ca39b4ff23",
-      "kind": "buy",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "311234",
+      "txId": "b86d3818858e6dd54af1aa1283f26ebde0543349de7037d3b684410964705468",
+      "kind": "sell",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "328264",
       "decimals": 0,
-      "timestamp": 1792892805019
+      "timestamp": 1792935781693
     }
   ]
 }
