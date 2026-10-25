@@ -1,7 +1,25 @@
 {
-  "generatedAt": "2026-10-24T22:15:00.343Z",
+  "generatedAt": "2026-10-25T03:18:46.563Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "e72b333d9a7ed80d85299a2c193db31b2e37f0fceeb20927af0fdfbbadf048b0",
+      "kind": "buy",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "748247",
+      "decimals": 0,
+      "timestamp": 1792893455464
+    },
+    {
+      "txId": "cc8d761fc6485916e73372fa0bb142dc904ad1d30701d7395042c6ca39b4ff23",
+      "kind": "buy",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "311234",
+      "decimals": 0,
+      "timestamp": 1792892805019
+    },
     {
       "txId": "a7c5da17b0789d60cba893c7bbe70868f60aa61483b3fe4b175d317179d0a3e5",
       "kind": "sell",
@@ -10,24 +28,6 @@
       "amount": "2680133",
       "decimals": 0,
       "timestamp": 1792879452169
-    },
-    {
-      "txId": "40d6a51d8302526d043ba3d5b24e48b029d76d1018d789d36eb82f15cf64ac9b",
-      "kind": "transfer",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "811300",
-      "decimals": 0,
-      "timestamp": 1792876200708
-    },
-    {
-      "txId": "71e444bcfbaaf4d9f30de8d88f7f4eb73c1c38aadbe51330c74781cdd985df66",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "5084795",
-      "decimals": 0,
-      "timestamp": 1792873919346
     }
   ]
 }
