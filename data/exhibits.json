@@ -1,15 +1,24 @@
 {
-  "generatedAt": "2026-10-25T18:44:17.069Z",
+  "generatedAt": "2026-10-25T22:18:32.858Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "50d97550b13e61377b0543e2e43ab85babb553d3bdbd29efaf1a0936a19fcf7d",
+      "txId": "3163e448804b5555b4cf184ffdaff65101854ec2ffe6b09cbab86d867edde871",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "584272",
+      "amount": "190468",
       "decimals": 0,
-      "timestamp": 1792953269571
+      "timestamp": 1792966495498
+    },
+    {
+      "txId": "628309ca140cc492b7263a64bede1ef1b334b3edce171405f9eb2e979a2acb8d",
+      "kind": "sell",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "16538459",
+      "decimals": 0,
+      "timestamp": 1792964869212
     },
     {
       "txId": "bb2f6d9e2156e0a7446f3938677cda23b66284d459de4730237a7e5cf4c36fd4",
@@ -19,15 +28,6 @@
       "amount": "1492",
       "decimals": 0,
       "timestamp": 1792953253526
-    },
-    {
-      "txId": "048d70549ce6b38715757d239743e08eec91fef16410b28343d5a5a5071a44fd",
-      "kind": "sell",
-      "ticker": "TOCCA",
-      "name": "Tocca",
-      "amount": "117850",
-      "decimals": 0,
-      "timestamp": 1792943197336
     }
   ]
 }
