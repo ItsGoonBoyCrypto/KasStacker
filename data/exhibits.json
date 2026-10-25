@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-25T15:35:54.078Z",
+  "generatedAt": "2026-10-25T18:44:17.069Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "2810c5e56a79371dbd79398177591d231c85003007ad90799ebf4770172b095e",
+      "txId": "50d97550b13e61377b0543e2e43ab85babb553d3bdbd29efaf1a0936a19fcf7d",
       "kind": "sell",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "860657",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "584272",
       "decimals": 0,
-      "timestamp": 1792937821585
+      "timestamp": 1792953269571
     },
     {
-      "txId": "8ad0999edcc96eae655c068a90d4c871fa71b2a8e9bab6d0f9df66ba63e7fa6c",
+      "txId": "bb2f6d9e2156e0a7446f3938677cda23b66284d459de4730237a7e5cf4c36fd4",
       "kind": "sell",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "54772",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "1492",
       "decimals": 0,
-      "timestamp": 1792936792438
+      "timestamp": 1792953253526
     },
     {
-      "txId": "b86d3818858e6dd54af1aa1283f26ebde0543349de7037d3b684410964705468",
+      "txId": "048d70549ce6b38715757d239743e08eec91fef16410b28343d5a5a5071a44fd",
       "kind": "sell",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "328264",
+      "ticker": "TOCCA",
+      "name": "Tocca",
+      "amount": "117850",
       "decimals": 0,
-      "timestamp": 1792935781693
+      "timestamp": 1792943197336
     }
   ]
 }
