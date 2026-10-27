@@ -1,7 +1,25 @@
 {
-  "generatedAt": "2026-10-27T03:48:44.211Z",
+  "generatedAt": "2026-10-27T09:37:11.952Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "1ddd44656e74db159443522dff85fea6b7bbecd4e7588598ca702d0ff74b485e",
+      "kind": "sell",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "143770",
+      "decimals": 0,
+      "timestamp": 1793089246523
+    },
+    {
+      "txId": "03f00de330307e477ce1f159cbe5db760bad12b1053acaf349fdfaf974bbf336",
+      "kind": "sell",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "14387",
+      "decimals": 0,
+      "timestamp": 1793086505128
+    },
     {
       "txId": "1ee9eb89959ef42457696448e273b78fcab0da0b23e9ca19ff4005e2a40018bd",
       "kind": "buy",
@@ -10,24 +28,6 @@
       "amount": "1046292",
       "decimals": 0,
       "timestamp": 1793056541444
-    },
-    {
-      "txId": "d3cbf82d2355318d8ba17646b59ebec6516ec9f317f5e1fdc724182d20dd7e46",
-      "kind": "buy",
-      "ticker": "PEEPS",
-      "name": "Pixel Peeps Game",
-      "amount": "1493729",
-      "decimals": 0,
-      "timestamp": 1793054590315
-    },
-    {
-      "txId": "41e05341a5cdeee77eb19ba761df27fe64074cdaf10de9522320efcb212067f1",
-      "kind": "buy",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "246290",
-      "decimals": 0,
-      "timestamp": 1793054408040
     }
   ]
 }
