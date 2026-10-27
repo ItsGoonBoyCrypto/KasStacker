@@ -6,7 +6,7 @@ const { maturity } = Astro.props;
 // Rule (STP-KAS review, 2026-09-15): 'production' requires a tagged
 // spec/release in the feed data — a live-on-mainnet component with no tag is
 // at most 'draft'.
-const known = ['roadmap', 'experimental', 'draft', 'last-call', 'testnet', 'pre-audit', 'audited', 'production', 'legacy'];
+const known = ['roadmap', 'experimental', 'draft', 'last-call', 'testnet', 'pre-audit', 'audited', 'final', 'production', 'legacy'];
 const m = maturity && known.includes(maturity) ? maturity : null;
 const cls = m ? `b-${m.replace('-', '')}` : 'b-unverified';
 ---
@@ -27,6 +27,7 @@ const cls = m ? `b-${m.replace('-', '')}` : 'b-unverified';
   .b-experimental { color: var(--m-experimental); border-color: var(--m-experimental); }
   .b-draft { color: var(--m-testnet); border-color: var(--m-testnet); border-style: dashed; }
   .b-lastcall { color: var(--m-testnet); border-color: var(--m-testnet); }
+  .b-final { color: var(--m-audited); border-color: var(--m-audited); background: color-mix(in srgb, var(--m-audited) 12%, transparent); }
   .b-testnet { color: var(--m-testnet); border-color: var(--m-testnet); }
   .b-preaudit { color: var(--m-preaudit); border-color: var(--m-preaudit); }
   .b-audited { color: var(--m-audited); border-color: var(--m-audited); }

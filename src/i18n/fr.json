@@ -157,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Des tokens construits comme des covenants : les règles d'émission et de transfert sont vérifiées par le consensus de Kaspa lui-même — aucun comptable off-chain à croire sur parole. En production et échangés sur le mainnet, et le standard écrit est entré en Last Call le 07/10/2026 — la fenêtre de relecture finale avant Final.",
+        "plain": "Des tokens construits comme des covenants : les règles d'émission et de transfert sont vérifiées par le consensus de Kaspa lui-même — aucun comptable off-chain à croire sur parole. En production sur le mainnet, et le standard écrit est Final depuis le 21/10/2026 — une convention Kaspa finalisée.",
         "analogy": "Des tokens dont le règlement est usiné dans la porte du coffre — personne en dehors de la chaîne ne tient les comptes."
       },
       "vprogs": {
@@ -249,7 +249,7 @@
       },
       {
         "q": "KCC-20, en une ligne ?",
-        "a": "Des tokens dont l'offre et les règles de transfert sont vérifiées par le consensus Kaspa lui-même — aucun comptable hors chaîne à qui faire confiance. Ils sont actifs et échangés sur le mainnet pendant que le standard écrit est encore en cours de consolidation."
+        "a": "Des tokens dont les règles d'émission et de transfert sont vérifiées par le consensus de Kaspa lui-même — aucun comptable off-chain à croire sur parole. En production et échangés sur le mainnet, et depuis le 21/10/2026 le standard écrit est Final."
       },
       {
         "q": "Que sont les vProgs, et puis-je les utiliser ?",

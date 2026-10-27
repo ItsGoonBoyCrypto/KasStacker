@@ -157,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Tokens gebouwd als covenants: de supply- en overdrachtsregels worden door de Kaspa-consensus zelf gecontroleerd — geen off-chain boekhouder om te vertrouwen. Live en verhandelbaar op mainnet, en de geschreven standaard is op 07-10-2026 in Last Call gegaan — het laatste reviewvenster vóór Final.",
+        "plain": "Tokens gebouwd als covenants: de supply- en overdrachtsregels worden door de Kaspa-consensus zelf gecontroleerd — geen off-chain boekhouder om te vertrouwen. Live op mainnet, en de geschreven standaard is sinds 21-10-2026 Final — een gefinaliseerde Kaspa-conventie.",
         "analogy": "Tokens waarvan het regelboek in de kluisdeur is gefreesd — niemand buiten de chain houdt de stand bij."
       },
       "vprogs": {
@@ -249,7 +249,7 @@
       },
       {
         "q": "Wat is KCC-20, in één regel?",
-        "a": "Tokens waarvan de supply- en overdrachtsregels door de Kaspa-consensus zelf worden gecontroleerd — geen off-chain boekhouder om te vertrouwen. Ze zijn live en worden verhandeld op mainnet, terwijl de geschreven standaard nog wordt samengevoegd."
+        "a": "Tokens waarvan de supply- en overdrachtsregels door de Kaspa-consensus zelf worden gecontroleerd — geen off-chain boekhouder om te vertrouwen. Live en verhandelbaar op mainnet, en sinds 21-10-2026 is de geschreven standaard Final."
       },
       {
         "q": "Wat zijn vProgs, en kan ik ze gebruiken?",

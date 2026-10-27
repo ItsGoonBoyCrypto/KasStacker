@@ -84,12 +84,12 @@
     "name": "KCC-20",
     "layer": "token-standard",
     "tagline": "Covenant-native tokens — the chain itself enforces the rules",
-    "plain": "Tokens built as covenants, so supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper has to be trusted. Live and traded on mainnet, and the written standard entered Last Call on 2026-10-07 — the final review window before Final.",
+    "plain": "Tokens built as covenants, so supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper has to be trusted. Live on mainnet, and the written standard is Final as of 2026-10-21 — a finalized Kaspa convention.",
     "analogy": "Tokens whose rulebook is machined into the vault door — nobody outside the chain keeps the score.",
     "repo": "kaspanet/kccs",
     "docs": "https://kccs.dev",
     "playground": "https://kascov.io",
-    "maturity": "last-call",
+    "maturity": "final",
     "stateModel": "covenant UTXO",
     "composability": "covenant-id ownership",
     "tokenSupport": null,
@@ -98,10 +98,10 @@
       "trust-minimized supply logic"
     ],
     "notFor": [
-      "anything needing a finalized spec today — Last Call is the last stop before Final, not Final"
+      "assuming Final means audited software — the standard is final; implementations still carry their own maturity"
     ],
     "network": "L1",
-    "since": null,
+    "since": "standard Final 2026-10-21",
     "mainnet": true
   },
   {

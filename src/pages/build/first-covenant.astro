@@ -61,7 +61,7 @@ cargo run -p silverscript-lang --bin silverc -- simple.sil --constructor-args ar
 
     <h2>Step through it</h2>
     <p>The repo ships a CLI debugger that runs entries against arguments so you can watch a rule pass or fail:</p>
-    <pre><code>cargo run -p cli-debugger -- silverscript-lang/tests/examples/if_statement.sil \
+    <pre><code>cargo run -p silverscript-cli-debugger -- silverscript-lang/tests/examples/if_statement.sil \
   --function hello --ctor-arg 3 --ctor-arg 10 --arg 1 --arg 2</code></pre>
     <p>Point it at your own <code>simple.sil</code> and an entry once you've compiled it.</p>
 

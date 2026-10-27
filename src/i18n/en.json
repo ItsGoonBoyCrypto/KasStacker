@@ -157,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Tokens built as covenants, so supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper has to be trusted. Live and traded on mainnet, and the written standard entered Last Call on 2026-10-07 — the final review window before Final.",
+        "plain": "Tokens built as covenants, so supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper has to be trusted. Live on mainnet, and the written standard is Final as of 2026-10-21 — a finalized Kaspa convention.",
         "analogy": "Tokens whose rulebook is machined into the vault door — nobody outside the chain keeps the score."
       },
       "vprogs": {
@@ -249,7 +249,7 @@
       },
       {
         "q": "What is KCC-20, in one line?",
-        "a": "Tokens whose supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper to trust. They are live and traded on mainnet while the written standard is still being consolidated."
+        "a": "Tokens whose supply and transfer rules are checked by Kaspa consensus itself — no off-chain bookkeeper to trust. Live and traded on mainnet, and since 2026-10-21 the written standard is Final."
       },
       {
         "q": "What are vProgs, and can I use them?",

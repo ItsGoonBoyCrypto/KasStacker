@@ -60,7 +60,7 @@ jobs:
       - name: Run the CLI debugger example
         working-directory: silverscript
         run: |
-          cargo run -p cli-debugger -- silverscript-lang/tests/examples/if_statement.sil \
+          cargo run -p silverscript-cli-debugger -- silverscript-lang/tests/examples/if_statement.sil \
             --function hello --ctor-arg 3 --ctor-arg 10 --arg 1 --arg 2
 
   argent:

@@ -157,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Tokens, die als Covenants gebaut sind: Angebots- und Transferregeln prüft der Kaspa-Konsens selbst — kein Off-Chain-Buchhalter, dem man vertrauen muss. Live und handelbar im Mainnet, und der schriftliche Standard ist seit dem 07.10.2026 im Last Call — dem letzten Review-Fenster vor Final.",
+        "plain": "Tokens, die als Covenants gebaut sind: Angebots- und Transferregeln prüft der Kaspa-Konsens selbst — kein Off-Chain-Buchhalter, dem man vertrauen muss. Live im Mainnet, und der schriftliche Standard ist seit dem 21.10.2026 Final — eine finalisierte Kaspa-Konvention.",
         "analogy": "Tokens, deren Regelwerk in die Tresortür eingefräst ist — niemand außerhalb der Chain führt die Bücher."
       },
       "vprogs": {
@@ -249,7 +249,7 @@
       },
       {
         "q": "Was ist KCC-20, in einem Satz?",
-        "a": "Tokens, deren Angebots- und Transferregeln vom Kaspa-Konsens selbst geprüft werden — kein Buchhalter außerhalb der Chain, dem man vertrauen muss. Sie sind live und werden auf dem mainnet gehandelt, während der schriftliche Standard noch konsolidiert wird."
+        "a": "Tokens, deren Angebots- und Transferregeln der Kaspa-Konsens selbst prüft — kein Off-Chain-Buchhalter, dem man vertrauen muss. Live und handelbar im Mainnet, und seit dem 21.10.2026 ist der schriftliche Standard Final."
       },
       {
         "q": "Was sind vProgs, und kann ich sie nutzen?",

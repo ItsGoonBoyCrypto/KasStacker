@@ -157,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Covenant olarak inşa edilmiş tokenlar: arz ve transfer kurallarını Kaspa konsensüsünün kendisi denetler — güvenilmesi gereken zincir dışı bir defterdar yok. Mainnet'te canlı ve işlem görüyor; yazılı standart 2026-10-07'de Last Call'a girdi — Final öncesindeki son inceleme penceresi.",
+        "plain": "Covenant olarak inşa edilmiş tokenlar: arz ve transfer kurallarını Kaspa konsensüsünün kendisi denetler — güvenilmesi gereken zincir dışı bir defterdar yok. Mainnet'te canlı; yazılı standart 2026-10-21'den beri Final — sonuçlandırılmış bir Kaspa konvansiyonu.",
         "analogy": "Kural kitabı kasa kapısına işlenmiş token'lar — skoru zincirin dışında kimse tutmuyor."
       },
       "vprogs": {
@@ -249,7 +249,7 @@
       },
       {
         "q": "KCC-20 nedir, tek cümleyle?",
-        "a": "Arz ve transfer kuralları bizzat Kaspa konsensüsü tarafından denetlenen token'lar — güvenmen gereken zincir dışı bir defterci yok. Mainnet'te canlı ve işlem görüyorlar; yazılı standart ise hâlâ derlenip toparlanıyor."
+        "a": "Arz ve transfer kurallarını Kaspa konsensüsünün kendisi denetleyen tokenlar — güvenilecek zincir dışı bir defterdar yok. Mainnet'te canlı ve işlem görüyor; yazılı standart 2026-10-21'den beri Final."
       },
       {
         "q": "vProgs nedir, kullanabilir miyim?",

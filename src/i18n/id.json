@@ -157,7 +157,7 @@
       },
       "kcc-20": {
         "name": "KCC-20",
-        "plain": "Token yang dibangun sebagai covenant: aturan pasokan dan transfer diperiksa langsung oleh konsensus Kaspa — tanpa pembukuan off-chain yang harus dipercaya. Sudah live dan diperdagangkan di mainnet, dan standar tertulisnya memasuki Last Call pada 2026-10-07 — jendela tinjauan terakhir sebelum Final.",
+        "plain": "Token yang dibangun sebagai covenant: aturan pasokan dan transfer diperiksa langsung oleh konsensus Kaspa — tanpa pembukuan off-chain yang harus dipercaya. Live di mainnet, dan standar tertulisnya berstatus Final sejak 2026-10-21 — konvensi Kaspa yang telah difinalkan.",
         "analogy": "Token yang buku aturannya terpahat di pintu brankas — tidak ada siapa pun di luar chain yang memegang catatannya."
       },
       "vprogs": {
@@ -249,7 +249,7 @@
       },
       {
         "q": "Apa itu KCC-20, dalam satu kalimat?",
-        "a": "Token yang aturan pasokan dan transfernya diperiksa langsung oleh konsensus Kaspa — tidak ada pembukuan off-chain yang harus dipercaya. Sudah aktif dan diperdagangkan di mainnet sementara standar tertulisnya masih dikonsolidasikan."
+        "a": "Token yang aturan pasokan dan transfernya diperiksa langsung oleh konsensus Kaspa — tanpa pembukuan off-chain yang harus dipercaya. Live dan diperdagangkan di mainnet, dan sejak 2026-10-21 standar tertulisnya Final."
       },
       {
         "q": "Apa itu vProgs, dan bisakah saya memakainya?",

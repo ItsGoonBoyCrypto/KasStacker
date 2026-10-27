@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T17:30:08.774Z",
+  "generatedAt": "2026-10-27T20:19:32.923Z",
   "items": [
     {
       "label": "KCC-12 — common wallet provider API + PSKB",
@@ -11,24 +11,6 @@
       "commits": 9
     },
     {
-      "label": "KCC-23 — MJ, JSON metadata bound to a covenant ID",
-      "note": "now the metadata track: the rival KCC-21 proposal was closed as superseded on 2026-09-25, and a follow-up defining name/ticker/decimals/image fields is planned on top of KCC-23",
-      "url": "https://github.com/kaspanet/kccs/pull/26",
-      "status": "merged",
-      "updated": "2026-10-14T13:11:39Z",
-      "reviewComments": 6,
-      "commits": 14
-    },
-    {
-      "label": "KCC-20 — KCC-0 compliance + advancement to Last Call",
-      "note": "MERGED 2026-10-07 — KCC-20 is in Last Call, the final review window (typically 14 days per KCC-0) before Final; it needs conformance vectors and reverts to Review if normative changes surface",
-      "url": "https://github.com/kaspanet/kccs/pull/31",
-      "status": "merged",
-      "updated": "2026-10-07T20:38:09Z",
-      "reviewComments": 8,
-      "commits": 13
-    },
-    {
       "label": "Reputation, bond and identity registry covenant KCCs",
       "note": "a new proposal domain beyond tokens — registries as covenants; early draft",
       "url": "https://github.com/kaspanet/kccs/pull/29",
@@ -38,15 +20,6 @@
       "commits": 1
     },
     {
-      "label": "Argent KCC-20 reference implementation",
-      "note": "MERGED 2026-10-07 — the first official Argent KCC-20 reference implementation (token actor + admin-keyless public mint) landed the same day KCC-20 entered Last Call",
-      "url": "https://github.com/argent-lang/kcc20-reference/pull/1",
-      "status": "merged",
-      "updated": "2026-10-07T19:50:09Z",
-      "reviewComments": 10,
-      "commits": 20
-    },
-    {
       "label": "Mobile wallet session & pairing API (draft, unnumbered)",
       "note": "companion territory to KCC-12's provider API — how a mobile wallet pairs with a dApp session; early draft",
       "url": "https://github.com/kaspanet/kccs/pull/35",
@@ -54,6 +27,24 @@
       "updated": "2026-10-02T21:43:02Z",
       "reviewComments": 0,
       "commits": 1
+    },
+    {
+      "label": "KCC-3 — segregated hierarchy for HD wallets",
+      "note": "new draft: how HD wallets derive and segregate covenant-related keys",
+      "url": "https://github.com/kaspanet/kccs/pull/38",
+      "status": "open",
+      "updated": "2026-10-21T21:41:08Z",
+      "reviewComments": 5,
+      "commits": 1
+    },
+    {
+      "label": "Pay-to-Public-Key-Hash via P2SH",
+      "note": "new draft: a P2PKH convention built on P2SH",
+      "url": "https://github.com/kaspanet/kccs/pull/37",
+      "status": "open",
+      "updated": "2026-10-19T16:10:05Z",
+      "reviewComments": 0,
+      "commits": 2
     }
   ]
 }

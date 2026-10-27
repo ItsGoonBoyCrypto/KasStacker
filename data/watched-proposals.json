@@ -7,32 +7,26 @@
   },
   {
     "repo": "kaspanet/kccs",
-    "pr": 26,
-    "label": "KCC-23 — MJ, JSON metadata bound to a covenant ID",
-    "note": "now the metadata track: the rival KCC-21 proposal was closed as superseded on 2026-09-25, and a follow-up defining name/ticker/decimals/image fields is planned on top of KCC-23"
-  },
-  {
-    "repo": "kaspanet/kccs",
-    "pr": 31,
-    "label": "KCC-20 — KCC-0 compliance + advancement to Last Call",
-    "note": "MERGED 2026-10-07 — KCC-20 is in Last Call, the final review window (typically 14 days per KCC-0) before Final; it needs conformance vectors and reverts to Review if normative changes surface"
-  },
-  {
-    "repo": "kaspanet/kccs",
     "pr": 29,
     "label": "Reputation, bond and identity registry covenant KCCs",
     "note": "a new proposal domain beyond tokens — registries as covenants; early draft"
-  },
-  {
-    "repo": "argent-lang/kcc20-reference",
-    "pr": 1,
-    "label": "Argent KCC-20 reference implementation",
-    "note": "MERGED 2026-10-07 — the first official Argent KCC-20 reference implementation (token actor + admin-keyless public mint) landed the same day KCC-20 entered Last Call"
   },
   {
     "repo": "kaspanet/kccs",
     "pr": 35,
     "label": "Mobile wallet session & pairing API (draft, unnumbered)",
     "note": "companion territory to KCC-12's provider API — how a mobile wallet pairs with a dApp session; early draft"
+  },
+  {
+    "repo": "kaspanet/kccs",
+    "pr": 38,
+    "label": "KCC-3 — segregated hierarchy for HD wallets",
+    "note": "new draft: how HD wallets derive and segregate covenant-related keys"
+  },
+  {
+    "repo": "kaspanet/kccs",
+    "pr": 37,
+    "label": "Pay-to-Public-Key-Hash via P2SH",
+    "note": "new draft: a P2PKH convention built on P2SH"
   }
 ]

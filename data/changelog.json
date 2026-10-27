@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-27",
+    "kind": "stack",
+    "title": "KCC-20 is FINAL. The covenant token standard is done.",
+    "body": "Verified at source: on 2026-10-21, KCC-20 — the standard behind every covenant token on Kaspa — advanced to Status: Final, together with KCC-1 (covenant definition and ABI) and KCC-2 (authority schemes). With KCC-0 that makes four finalized Kaspa conventions: the process, the foundation, the authorities, and the token standard itself. Final means the ecosystem convergence point — the document only changes for errata now; implementations still carry their own maturity, which is why this site's software badges are unchanged. Also in this sweep: KCC-23 (covenant metadata) merged as a numbered draft on 2026-10-14, two fresh drafts entered the pipeline (KCC-3 HD-wallet hierarchy, and P2PKH-via-P2SH), and an upstream crate rename briefly broke the CLI-debugger command our build pages teach — our daily container CI caught it the same day, and the pages now show the renamed crate."
+  },
+  {
     "date": "2026-10-12",
     "kind": "site",
     "title": "Live data now refreshes every 4 hours",
