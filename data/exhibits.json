@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-27T23:29:57.810Z",
+  "generatedAt": "2026-10-28T04:07:20.039Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "bbd95c9cb824f92818d0f39be55fd8ac39dba4ac19be55edfe781452e6583cb2",
-      "kind": "buy",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "6081152",
+      "txId": "caa6f1d7f680e2f53835392703d26df10f2376de8b768da60aa2fdaaec8e454c",
+      "kind": "sell",
+      "ticker": "KASBOY",
+      "name": "KASPA BOYS",
+      "amount": "1796",
       "decimals": 0,
-      "timestamp": 1793138022278
+      "timestamp": 1793159838914
     },
     {
-      "txId": "181a3d5d76b1005e118abc46f9084863631a49b9c6cbe394daed7e81fa3c5c4f",
-      "kind": "buy",
-      "ticker": "ANSEM",
-      "name": "The Black Bull",
-      "amount": "2792862",
+      "txId": "0705235ad6e4b2090d4c9db597fd66517dda368f305e6ef1d1439b7589a7e5ef",
+      "kind": "sell",
+      "ticker": "ZKFROG",
+      "name": "Zero-Knowledge Frog",
+      "amount": "539",
       "decimals": 0,
-      "timestamp": 1793136420665
+      "timestamp": 1793159040218
     },
     {
-      "txId": "8dd27327db1875ce8f4dadf2b05bb2829f5a910feadbbe1225de6853de0d76d7",
+      "txId": "60b78a54b18ba51efec20c48e4bb6ab7af17a71fa771b2277e41be7c80cf1fed",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "509985",
+      "amount": "21121",
       "decimals": 0,
-      "timestamp": 1793130787942
+      "timestamp": 1793157791142
     }
   ]
 }
