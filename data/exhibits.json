@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-28T14:51:57.879Z",
+  "generatedAt": "2026-10-28T20:47:14.409Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "add14447eba219f9f1993e48a2c3c9ead4ff844f8241a2e6effd66d5760ed4c6",
+      "txId": "46df302e472b80de13419c092895641665012b685aff65c2a69cb7404a5c23c8",
+      "kind": "buy",
+      "ticker": "KBTC",
+      "name": "Bitcoin on Kaspa",
+      "amount": "6199",
+      "decimals": 0,
+      "timestamp": 1793218813293
+    },
+    {
+      "txId": "73e5c92b155953e76868b7ddd5289be0da73f9cf4fe85b867345ec5390b4f47d",
+      "kind": "buy",
+      "ticker": "KASPI",
+      "name": "ꓘΛSρɪ",
+      "amount": "9021",
+      "decimals": 0,
+      "timestamp": 1793218482866
+    },
+    {
+      "txId": "5e0fa4d52a5131d08ccbd3770f2ebe093e3d9e0b49e5febc3ffd8fb2f9cca1e5",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "12279",
+      "amount": "67481",
       "decimals": 0,
-      "timestamp": 1793190828382
-    },
-    {
-      "txId": "4af843002f3e7cbd9048ea2828834f3f6c58a27871190c6779fe897b42751f81",
-      "kind": "sell",
-      "ticker": "ANSEM",
-      "name": "The Black Bull",
-      "amount": "222222",
-      "decimals": 0,
-      "timestamp": 1793188366051
-    },
-    {
-      "txId": "0fff21c9befdf67571e8904d52860a55137dbac57b676b0a629619b1acf39009",
-      "kind": "sell",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "4000",
-      "decimals": 0,
-      "timestamp": 1793182422927
+      "timestamp": 1793215476738
     }
   ]
 }
