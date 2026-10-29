@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-29T14:57:37.434Z",
+  "generatedAt": "2026-10-29T20:52:43.046Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "f9894a45d89e00c2939ac6d2555d527e41d9a1741e3d06278fbd6f6f19f963e8",
-      "kind": "sell",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "9920286",
+      "txId": "674bf716cbe75d3d0dc22602ed3a0ce5084eb22e13f1c7d8625d76a1adc1e747",
+      "kind": "transfer",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "332",
       "decimals": 0,
-      "timestamp": 1793284622576
+      "timestamp": 1793302860816
     },
     {
-      "txId": "d2afb051773ef89bf0241863f44ef3a9dd6d39b081b60a56885dfe3a451461a6",
+      "txId": "81fb89809904955c47004fc0e56e02459b7f0c1520cdbda651d7c44499f3407a",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "4812",
+      "amount": "19508",
       "decimals": 0,
-      "timestamp": 1793283700397
+      "timestamp": 1793300301958
     },
     {
-      "txId": "b9b1942bef5eb6633466d886d57b6d0ee3a41b633baaabb584cb9982391ea804",
-      "kind": "buy",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "101348",
+      "txId": "40ac1f94c2e659083ecb392e7e10416a3b0d3d7322b089f1a57dd5137853745f",
+      "kind": "sell",
+      "ticker": "PEEPS",
+      "name": "Pixel Peeps Game",
+      "amount": "2480793",
       "decimals": 0,
-      "timestamp": 1793272522926
+      "timestamp": 1793292996625
     }
   ]
 }
