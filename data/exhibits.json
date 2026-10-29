@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-29T04:29:53.857Z",
+  "generatedAt": "2026-10-29T14:57:37.434Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "02112af5f74a7f5b4ecde784cd3c28ebffc1d2c1c58625f1f50bcfd0caa9ea74",
+      "txId": "f9894a45d89e00c2939ac6d2555d527e41d9a1741e3d06278fbd6f6f19f963e8",
+      "kind": "sell",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "9920286",
+      "decimals": 0,
+      "timestamp": 1793284622576
+    },
+    {
+      "txId": "d2afb051773ef89bf0241863f44ef3a9dd6d39b081b60a56885dfe3a451461a6",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "553932",
+      "amount": "4812",
       "decimals": 0,
-      "timestamp": 1793229514850
+      "timestamp": 1793283700397
     },
     {
-      "txId": "0fe69395d717a9cfe1dbda31de1f8b5a37f6d30990bceccb561e1d36b2ec2aed",
+      "txId": "b9b1942bef5eb6633466d886d57b6d0ee3a41b633baaabb584cb9982391ea804",
       "kind": "buy",
-      "ticker": "PEPE",
-      "name": "The Ultimate test",
-      "amount": "4270758",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "101348",
       "decimals": 0,
-      "timestamp": 1793223788131
-    },
-    {
-      "txId": "294dad9d1678e87a5168847fd3f4ac5510e955dbc694274292cbe7b72c464f27",
-      "kind": "buy",
-      "ticker": "ANSEM",
-      "name": "The Black Bull",
-      "amount": "3440780",
-      "decimals": 0,
-      "timestamp": 1793223564045
+      "timestamp": 1793272522926
     }
   ]
 }
