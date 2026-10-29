@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-28T20:47:14.409Z",
+  "generatedAt": "2026-10-29T04:29:53.857Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "46df302e472b80de13419c092895641665012b685aff65c2a69cb7404a5c23c8",
+      "txId": "02112af5f74a7f5b4ecde784cd3c28ebffc1d2c1c58625f1f50bcfd0caa9ea74",
       "kind": "buy",
-      "ticker": "KBTC",
-      "name": "Bitcoin on Kaspa",
-      "amount": "6199",
-      "decimals": 0,
-      "timestamp": 1793218813293
-    },
-    {
-      "txId": "73e5c92b155953e76868b7ddd5289be0da73f9cf4fe85b867345ec5390b4f47d",
-      "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "9021",
-      "decimals": 0,
-      "timestamp": 1793218482866
-    },
-    {
-      "txId": "5e0fa4d52a5131d08ccbd3770f2ebe093e3d9e0b49e5febc3ffd8fb2f9cca1e5",
-      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "67481",
+      "amount": "553932",
       "decimals": 0,
-      "timestamp": 1793215476738
+      "timestamp": 1793229514850
+    },
+    {
+      "txId": "0fe69395d717a9cfe1dbda31de1f8b5a37f6d30990bceccb561e1d36b2ec2aed",
+      "kind": "buy",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "4270758",
+      "decimals": 0,
+      "timestamp": 1793223788131
+    },
+    {
+      "txId": "294dad9d1678e87a5168847fd3f4ac5510e955dbc694274292cbe7b72c464f27",
+      "kind": "buy",
+      "ticker": "ANSEM",
+      "name": "The Black Bull",
+      "amount": "3440780",
+      "decimals": 0,
+      "timestamp": 1793223564045
     }
   ]
 }
