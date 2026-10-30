@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-30T04:29:53.158Z",
+  "generatedAt": "2026-10-30T20:25:34.093Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "272132320faf8affa6c697cdaa7f5919e91dae083b2cd4b9c9cb131e7d0f6156",
+      "txId": "bc25be9fb6070fc66a28401dc029e9b705c110b2da9e27eb355e40a89abe4d07",
+      "kind": "buy",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "637821",
+      "decimals": 0,
+      "timestamp": 1793390586328
+    },
+    {
+      "txId": "e2d8525504eeba6c1e6164a3b1faeb672a102c03b2a8b32177ff34a5968abb71",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "59340",
+      "amount": "31630",
       "decimals": 0,
-      "timestamp": 1793326580327
+      "timestamp": 1793389013006
     },
     {
-      "txId": "a85a5a241d3131f15ec98427324598978c48939a0822c43894e5e0fbca80e16a",
-      "kind": "buy",
+      "txId": "f166edcc216b7ccc3d8278f5e02ade5c0a985bd7881e3564d7d75bc829b9d0a6",
+      "kind": "transfer",
       "ticker": "QUAK",
       "name": "The alpha duck has landed.",
       "amount": "1510",
       "decimals": 0,
-      "timestamp": 1793326289719
-    },
-    {
-      "txId": "81a41cd96f647a3ac93210faf0483188ab4ca9206b34940e051061624e9c8b59",
-      "kind": "sell",
-      "ticker": "PEEPS",
-      "name": "Pixel Peeps Game",
-      "amount": "10823749",
-      "decimals": 0,
-      "timestamp": 1793324382816
+      "timestamp": 1793380373652
     }
   ]
 }
