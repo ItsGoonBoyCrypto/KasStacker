@@ -24,7 +24,7 @@ jobs:
       - name: Check repos
         run: |
           SILVERC="$PWD/silverscript/target/debug/silverc"
-          LISTED="La-Gauffre/KaspaRocket-Silverscript-Contract volkanglm/toccata-covenant-tools"
+          LISTED="La-Gauffre/KaspaRocket-Silverscript-Contract volkanglm/toccata-covenant-tools Pump-Forge/forgevault-contracts"
           WATCH="trillskillz/OpenSilver ko-sign/kosign K100bet/contracts Knitser/kasmelt-snapshot"
           check_repo() { # $1 repo slug; echoes "compiled parsed failed total"
             dir="cand/$(echo "$1" | tr '/' '_')"

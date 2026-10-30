@@ -206,6 +206,37 @@
         }
       ],
       "note": "in active development · source not yet public"
+    },
+    {
+      "name": "ForgeVault",
+      "url": "https://vault.pumpforge.tech",
+      "icon": "🔏",
+      "layer": "Silverscript · KCC-20 · locks",
+      "tagline": "Token locks & vesting, enforced by script",
+      "shows": "Lock or vest any KCC-20 token: the tokens sit at a P2SH script address and move only with the beneficiary's signature after the unlock point — no server or admin key can release them early. Their own docs say it straight: a plain script, not a covenant, and not independently audited.",
+      "origin": "community",
+      "featured": false,
+      "checks": [
+        {
+          "type": "compile",
+          "date": "daily",
+          "what": "contracts parse-checked against silverc v1.0.0 in CI"
+        },
+        {
+          "type": "onchain",
+          "date": "2026-10-30",
+          "what": "mainnet lock transaction verified"
+        },
+        {
+          "type": "source",
+          "date": "2026-10-30"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-10-30"
+        }
+      ],
+      "note": "the first listing to arrive through the public issue flow — suggested and verified the same day"
     }
   ],
   "venues": [

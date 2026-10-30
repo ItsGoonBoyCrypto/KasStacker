@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-30",
+    "kind": "ecosystem",
+    "title": "ForgeVault: token locks and vesting — the listing flow works",
+    "body": "The first project to arrive through this site's public issue flow, verified and listed the same day. ForgeVault (by the KasForge team) locks or vests any KCC-20 token behind a P2SH script that releases only to the beneficiary after the unlock point. Every check passed: the contracts parse and compile against silverc v1.0.0 (now re-proven daily in this site's CI), the claimed mainnet lock transaction is real, the repository is public — and their own documentation honestly states what it is and isn't: a plain script rather than a covenant, and not independently audited. Suggest a project the same way: open an issue on the site's repository."
+  },
+  {
     "date": "2026-10-27",
     "kind": "stack",
     "title": "KCC-20 is FINAL. The covenant token standard is done.",
