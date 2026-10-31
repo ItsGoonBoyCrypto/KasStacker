@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-30T20:25:34.093Z",
+  "generatedAt": "2026-10-31T04:11:20.140Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "bc25be9fb6070fc66a28401dc029e9b705c110b2da9e27eb355e40a89abe4d07",
-      "kind": "buy",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "637821",
+      "txId": "c72d2029d29ae192b5d759616c8211045495632458e9d520e502475c3ad272b8",
+      "kind": "sell",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "136",
       "decimals": 0,
-      "timestamp": 1793390586328
+      "timestamp": 1793419723319
     },
     {
-      "txId": "e2d8525504eeba6c1e6164a3b1faeb672a102c03b2a8b32177ff34a5968abb71",
-      "kind": "buy",
+      "txId": "db3c2fe30fab26b26a90f59cdabcf7062f8210678b6c33e39dfe94fed3b20d9c",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "31630",
+      "amount": "13324",
       "decimals": 0,
-      "timestamp": 1793389013006
+      "timestamp": 1793419664745
     },
     {
-      "txId": "f166edcc216b7ccc3d8278f5e02ade5c0a985bd7881e3564d7d75bc829b9d0a6",
-      "kind": "transfer",
-      "ticker": "QUAK",
-      "name": "The alpha duck has landed.",
-      "amount": "1510",
+      "txId": "b54aacf448d3b5b8eb59d56ee0380a10da4949a28194e80cf73da5f21b97f66e",
+      "kind": "buy",
+      "ticker": "PEPE",
+      "name": "The Ultimate test",
+      "amount": "4035702",
       "decimals": 0,
-      "timestamp": 1793380373652
+      "timestamp": 1793411433900
     }
   ]
 }
