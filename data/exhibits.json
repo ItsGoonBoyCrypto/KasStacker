@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-02T04:34:14.653Z",
+  "generatedAt": "2026-11-02T17:50:02.967Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "ebc3573951cd8b48797ecc7c2d81452cf42e6f93663a7d2faedeeb72d70ed696",
-      "kind": "transfer",
-      "ticker": "HEVY",
-      "name": "Heavy Kas Polar Bear",
-      "amount": "19",
-      "decimals": 0,
-      "timestamp": 1793586242269
-    },
-    {
-      "txId": "ea4aa912cd46255a4e0f161c964b69c512f075691bb3d2b096434b915c948be8",
-      "kind": "transfer",
-      "ticker": "SJGSM",
-      "name": "S.J.G.S.M.",
-      "amount": "72",
-      "decimals": 0,
-      "timestamp": 1793586204333
-    },
-    {
-      "txId": "a389a028b3886be1699b8cf7888a474b59eb120f2d3ae7f8fe645c324e0df2e5",
+      "txId": "679954971675f7bb1f41e2bef08787e5723b9ba6e3864e64fefd97c78f114cb3",
       "kind": "buy",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "31809",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "57",
       "decimals": 0,
-      "timestamp": 1793580912014
+      "timestamp": 1793640265955
+    },
+    {
+      "txId": "a73b78afd2956f6738b8cbb5e12cc9382fe57cc40650893045b8f9c169e408fc",
+      "kind": "buy",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "68138",
+      "decimals": 0,
+      "timestamp": 1793628823497
+    },
+    {
+      "txId": "cdf3bbc699b83a4712d9000acb3d24a68c4a46990f73da3d1df93d2ca6cb9cd5",
+      "kind": "sell",
+      "ticker": "MACH",
+      "name": "Mach Coin",
+      "amount": "13329",
+      "decimals": 0,
+      "timestamp": 1793626783099
     }
   ]
 }
