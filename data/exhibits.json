@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-01T20:12:24.948Z",
+  "generatedAt": "2026-11-02T04:34:14.653Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "e22c3c5e21717fc1ea6eb61b9d6051ef9a2e0bfcef2b55b55406c5bb461e437e",
-      "kind": "buy",
-      "ticker": "DNBT",
-      "name": "dont buy this is test",
-      "amount": "7392391",
-      "decimals": 0,
-      "timestamp": 1793562862008
-    },
-    {
-      "txId": "1271a9684e67e59ab5624fd452a9b0196f69846d01ae4346613a715add644b92",
+      "txId": "ebc3573951cd8b48797ecc7c2d81452cf42e6f93663a7d2faedeeb72d70ed696",
       "kind": "transfer",
-      "ticker": "KRON",
-      "name": "Kron Token",
-      "amount": "100",
+      "ticker": "HEVY",
+      "name": "Heavy Kas Polar Bear",
+      "amount": "19",
       "decimals": 0,
-      "timestamp": 1793557411018
+      "timestamp": 1793586242269
     },
     {
-      "txId": "393fc2b928fcdd192c52f75967c18d643963fa6b97e05b180f1261db79cbce58",
-      "kind": "sell",
-      "ticker": "IFWEN",
-      "name": "NOT IF BUT WEN",
-      "amount": "16774",
+      "txId": "ea4aa912cd46255a4e0f161c964b69c512f075691bb3d2b096434b915c948be8",
+      "kind": "transfer",
+      "ticker": "SJGSM",
+      "name": "S.J.G.S.M.",
+      "amount": "72",
       "decimals": 0,
-      "timestamp": 1793556738063
+      "timestamp": 1793586204333
+    },
+    {
+      "txId": "a389a028b3886be1699b8cf7888a474b59eb120f2d3ae7f8fe645c324e0df2e5",
+      "kind": "buy",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "31809",
+      "decimals": 0,
+      "timestamp": 1793580912014
     }
   ]
 }
