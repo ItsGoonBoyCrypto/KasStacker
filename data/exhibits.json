@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-11-03T11:38:08.223Z",
+  "generatedAt": "2026-11-03T19:05:09.123Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "7a96131000600bd8d7a2a817e29d1407b22a06c50e798c1b3903c20e1e42bfe4",
-      "kind": "sell",
+      "txId": "214c872e1539c4c8b31e1331b89bee1192809d6e2c13e288985167a7afbaf0fa",
+      "kind": "buy",
       "ticker": "KASCOV",
       "name": "kascov",
-      "amount": "343",
+      "amount": "8",
       "decimals": 0,
-      "timestamp": 1793704611197
+      "timestamp": 1793732032936
     },
     {
-      "txId": "c12c23c2f2ea5a090b16e4b0f4b70374d1d2a7101633d4b6481959b0a771af2e",
-      "kind": "sell",
+      "txId": "17a69163d5d175e727af5528d4363de76c5ae48f41d3842a93b20c9b33cede64",
+      "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "130845",
+      "amount": "50125",
       "decimals": 0,
-      "timestamp": 1793704490914
+      "timestamp": 1793717808802
     },
     {
       "txId": "0e8f6d1ef8fea41c07c2d4fda97373663297d063db1024dceb1efb8634fc78e6",
