@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-02T17:50:02.967Z",
+  "generatedAt": "2026-11-03T02:00:22.949Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "679954971675f7bb1f41e2bef08787e5723b9ba6e3864e64fefd97c78f114cb3",
+      "txId": "397f83b8e66a5591ae4b35f0f5384f0b4eaa37e220d935671b23c57ecc22ad23",
       "kind": "buy",
       "ticker": "KASCOV",
       "name": "kascov",
-      "amount": "57",
+      "amount": "462",
       "decimals": 0,
-      "timestamp": 1793640265955
+      "timestamp": 1793670030417
     },
     {
-      "txId": "a73b78afd2956f6738b8cbb5e12cc9382fe57cc40650893045b8f9c169e408fc",
+      "txId": "9b95e2200e70278f0b32183a17a4fa37cc7519e85671dc128d8e0d5e568743d0",
+      "kind": "buy",
+      "ticker": "WHALE",
+      "name": "Broke Whale",
+      "amount": "128156",
+      "decimals": 0,
+      "timestamp": 1793663934960
+    },
+    {
+      "txId": "9552a9f9077376e2f2364d85afeddb6144699a7ce29d7ac69e3962a0b0bd20da",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "68138",
+      "amount": "23010",
       "decimals": 0,
-      "timestamp": 1793628823497
-    },
-    {
-      "txId": "cdf3bbc699b83a4712d9000acb3d24a68c4a46990f73da3d1df93d2ca6cb9cd5",
-      "kind": "sell",
-      "ticker": "MACH",
-      "name": "Mach Coin",
-      "amount": "13329",
-      "decimals": 0,
-      "timestamp": 1793626783099
+      "timestamp": 1793661825552
     }
   ]
 }
