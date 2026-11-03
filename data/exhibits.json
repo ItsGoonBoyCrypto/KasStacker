@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-03T02:00:22.949Z",
+  "generatedAt": "2026-11-03T11:38:08.223Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "397f83b8e66a5591ae4b35f0f5384f0b4eaa37e220d935671b23c57ecc22ad23",
-      "kind": "buy",
+      "txId": "7a96131000600bd8d7a2a817e29d1407b22a06c50e798c1b3903c20e1e42bfe4",
+      "kind": "sell",
       "ticker": "KASCOV",
       "name": "kascov",
-      "amount": "462",
+      "amount": "343",
       "decimals": 0,
-      "timestamp": 1793670030417
+      "timestamp": 1793704611197
     },
     {
-      "txId": "9b95e2200e70278f0b32183a17a4fa37cc7519e85671dc128d8e0d5e568743d0",
-      "kind": "buy",
-      "ticker": "WHALE",
-      "name": "Broke Whale",
-      "amount": "128156",
-      "decimals": 0,
-      "timestamp": 1793663934960
-    },
-    {
-      "txId": "9552a9f9077376e2f2364d85afeddb6144699a7ce29d7ac69e3962a0b0bd20da",
-      "kind": "buy",
+      "txId": "c12c23c2f2ea5a090b16e4b0f4b70374d1d2a7101633d4b6481959b0a771af2e",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "23010",
+      "amount": "130845",
       "decimals": 0,
-      "timestamp": 1793661825552
+      "timestamp": 1793704490914
+    },
+    {
+      "txId": "0e8f6d1ef8fea41c07c2d4fda97373663297d063db1024dceb1efb8634fc78e6",
+      "kind": "sell",
+      "ticker": "NACHO",
+      "name": "NACHO",
+      "amount": "694513",
+      "decimals": 0,
+      "timestamp": 1793701492283
     }
   ]
 }
