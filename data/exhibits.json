@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-04T11:51:39.221Z",
+  "generatedAt": "2026-11-04T19:23:27.134Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "47afc144911446909460d49720fb389aa7d44cff7b97818ff4050682afefad6e",
-      "kind": "sell",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "265314",
-      "decimals": 0,
-      "timestamp": 1793789853846
-    },
-    {
-      "txId": "ed9b8f3229679c42b201f7e5af26634ee95904bb39911b9fde25399e0a738701",
+      "txId": "e90d6db55f40ba1846b9704519116bc0a610e9a21c7f8d6be01727dd6c2adb34",
       "kind": "buy",
       "ticker": "KASCOV",
       "name": "kascov",
-      "amount": "888",
+      "amount": "5",
       "decimals": 0,
-      "timestamp": 1793765247625
+      "timestamp": 1793820192372
     },
     {
-      "txId": "37b6b08e55a1719d49d3aae155a8e5590eeb7249227c1e9bf687c677fb17c2de",
-      "kind": "buy",
+      "txId": "77b2b5ae695411915239b58a7d97e50aa81cf1099683ff492a5422e7d638f672",
+      "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "14116",
+      "amount": "1118",
       "decimals": 0,
-      "timestamp": 1793764786628
+      "timestamp": 1793820142869
+    },
+    {
+      "txId": "92286aa2690dcdb1875cddb14d7675c20dd312ef7b9938a702382f01d19373b4",
+      "kind": "sell",
+      "ticker": "SUTTON",
+      "name": "Michael Sutton",
+      "amount": "287649",
+      "decimals": 0,
+      "timestamp": 1793796483766
     }
   ]
 }
