@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-04T00:23:23.446Z",
+  "generatedAt": "2026-11-04T11:51:39.221Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "ff1effb3a91c5f281a1e9beeaf9aab47bfffe9e8fb51400fc5123310fb579002",
-      "kind": "transfer",
-      "ticker": "KKDAG",
-      "name": "Kas Knight",
-      "amount": "11",
-      "decimals": 0,
-      "timestamp": 1793751268941
-    },
-    {
-      "txId": "aad6d634a6da1d68099082766dc8d6248ec4851e31ac224461691cc8292d44ba",
-      "kind": "buy",
-      "ticker": "ANSEM",
-      "name": "The Black Bull",
-      "amount": "3399423",
-      "decimals": 0,
-      "timestamp": 1793750679521
-    },
-    {
-      "txId": "79ca3bd3ea90df15e204997777b5ca85c03d9f45facca4161abaf2dd47e0cda5",
+      "txId": "47afc144911446909460d49720fb389aa7d44cff7b97818ff4050682afefad6e",
       "kind": "sell",
       "ticker": "NACHO",
       "name": "NACHO",
-      "amount": "21327",
+      "amount": "265314",
       "decimals": 0,
-      "timestamp": 1793749509991
+      "timestamp": 1793789853846
+    },
+    {
+      "txId": "ed9b8f3229679c42b201f7e5af26634ee95904bb39911b9fde25399e0a738701",
+      "kind": "buy",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "888",
+      "decimals": 0,
+      "timestamp": 1793765247625
+    },
+    {
+      "txId": "37b6b08e55a1719d49d3aae155a8e5590eeb7249227c1e9bf687c677fb17c2de",
+      "kind": "buy",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "14116",
+      "decimals": 0,
+      "timestamp": 1793764786628
     }
   ]
 }
