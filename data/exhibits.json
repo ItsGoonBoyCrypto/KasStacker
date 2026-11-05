@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-05T00:44:08.609Z",
+  "generatedAt": "2026-11-05T11:52:31.097Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "6ccad472df5f4be2aa2d95bddf84ea83a4a106d6bd06b199256bebddf4c63610",
-      "kind": "buy",
-      "ticker": "KASPI",
-      "name": "ꓘΛSρɪ",
-      "amount": "44553",
+      "txId": "e7f10167fbe630b65f1b40d38bf8dee91ff3beb23714f5f71c32798e7b0e8e9f",
+      "kind": "sell",
+      "ticker": "DNBT",
+      "name": "dont buy this is test",
+      "amount": "1327347",
       "decimals": 0,
-      "timestamp": 1793825369942
+      "timestamp": 1793874205253
     },
     {
-      "txId": "e90d6db55f40ba1846b9704519116bc0a610e9a21c7f8d6be01727dd6c2adb34",
-      "kind": "buy",
-      "ticker": "KASCOV",
-      "name": "kascov",
-      "amount": "5",
+      "txId": "b26fed485dd7aac932d9342d9205da896cd80c95e36b74272d59888ac621d361",
+      "kind": "sell",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "952115",
       "decimals": 0,
-      "timestamp": 1793820192372
+      "timestamp": 1793872866920
     },
     {
-      "txId": "77b2b5ae695411915239b58a7d97e50aa81cf1099683ff492a5422e7d638f672",
+      "txId": "876432300f9a1aca50c969e306f69ccd1b52e701d2b2f157862e23b54dcfba65",
       "kind": "sell",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "1118",
+      "amount": "104935",
       "decimals": 0,
-      "timestamp": 1793820142869
+      "timestamp": 1793872811606
     }
   ]
 }
