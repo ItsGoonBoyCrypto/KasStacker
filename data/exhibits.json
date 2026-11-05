@@ -1,7 +1,16 @@
 {
-  "generatedAt": "2026-11-04T19:23:27.134Z",
+  "generatedAt": "2026-11-05T00:44:08.609Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "6ccad472df5f4be2aa2d95bddf84ea83a4a106d6bd06b199256bebddf4c63610",
+      "kind": "buy",
+      "ticker": "KASPI",
+      "name": "ꓘΛSρɪ",
+      "amount": "44553",
+      "decimals": 0,
+      "timestamp": 1793825369942
+    },
     {
       "txId": "e90d6db55f40ba1846b9704519116bc0a610e9a21c7f8d6be01727dd6c2adb34",
       "kind": "buy",
@@ -19,15 +28,6 @@
       "amount": "1118",
       "decimals": 0,
       "timestamp": 1793820142869
-    },
-    {
-      "txId": "92286aa2690dcdb1875cddb14d7675c20dd312ef7b9938a702382f01d19373b4",
-      "kind": "sell",
-      "ticker": "SUTTON",
-      "name": "Michael Sutton",
-      "amount": "287649",
-      "decimals": 0,
-      "timestamp": 1793796483766
     }
   ]
 }
