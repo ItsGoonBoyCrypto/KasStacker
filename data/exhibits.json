@@ -1,7 +1,25 @@
 {
-  "generatedAt": "2026-11-06T18:54:51.473Z",
+  "generatedAt": "2026-11-06T23:57:34.570Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
+    {
+      "txId": "678e9536d413b3eb65749f7d16a9fa812f78d865bfcb70e41bc0634f0e02e491",
+      "kind": "buy",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "27762",
+      "decimals": 0,
+      "timestamp": 1794006697201
+    },
+    {
+      "txId": "78375ffd164759fe01655498abc8441c4eb31874240d33077c1cdba8d2db26f6",
+      "kind": "buy",
+      "ticker": "KASCOV",
+      "name": "kascov",
+      "amount": "95",
+      "decimals": 0,
+      "timestamp": 1793994275887
+    },
     {
       "txId": "64167be792d1ef2c663cba39f9ce3cc14ec4776fb9eadea3b604045f7975aebf",
       "kind": "sell",
@@ -10,24 +28,6 @@
       "amount": "19706",
       "decimals": 0,
       "timestamp": 1793990239067
-    },
-    {
-      "txId": "a61de4b6e16dddeb6e0e7feb830dd0e02ff2a229e4c0c65ad12424ce2384dfc9",
-      "kind": "sell",
-      "ticker": "YELLO",
-      "name": "Yonatello",
-      "amount": "45000",
-      "decimals": 0,
-      "timestamp": 1793988503391
-    },
-    {
-      "txId": "d7d1212e324290f22a1e94f4563503814e54173917b60922d0610f5d6883aaf0",
-      "kind": "sell",
-      "ticker": "WHALE",
-      "name": "Broke Whale",
-      "amount": "25000",
-      "decimals": 0,
-      "timestamp": 1793988454754
     }
   ]
 }
