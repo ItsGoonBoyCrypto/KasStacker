@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-05T19:31:34.131Z",
+  "generatedAt": "2026-11-06T00:45:43.104Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "2ddfd53256bbd911066622111ecb236842bae002e2e4af952d0a2235b834e399",
-      "kind": "buy",
+      "txId": "ec795c84416fa10f55c00eaf9b9d8225870b1cffa2a90913f312775c5c2e86d2",
+      "kind": "sell",
       "ticker": "KKDAG",
       "name": "Kas Knight",
-      "amount": "3266",
+      "amount": "17279",
       "decimals": 0,
-      "timestamp": 1793905204203
+      "timestamp": 1793915817832
     },
     {
-      "txId": "7db5f18d24298a7bad7652e5e10b2e0b252f6f18eda3d2be5ff699758082821b",
+      "txId": "434348a866bd687d67b4015074e3c01a88a4771616263382026f1351c189de90",
+      "kind": "sell",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "24332830",
+      "decimals": 0,
+      "timestamp": 1793912953055
+    },
+    {
+      "txId": "0cc21e40315ee2da3a8781955962d2d5d7be129fe2bc54a97133f66818207b4f",
       "kind": "buy",
       "ticker": "NACHO",
       "name": "NACHO",
-      "amount": "19706",
+      "amount": "115639",
       "decimals": 0,
-      "timestamp": 1793897017366
-    },
-    {
-      "txId": "982d854e539bafc1855ff32e6996cf4319dba5ba4f1896266cf8be734ec763f0",
-      "kind": "sell",
-      "ticker": "ANSEM",
-      "name": "The Black Bull",
-      "amount": "381025",
-      "decimals": 0,
-      "timestamp": 1793890124566
+      "timestamp": 1793912410685
     }
   ]
 }
