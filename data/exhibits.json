@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-11-06T00:45:43.104Z",
+  "generatedAt": "2026-11-06T11:50:17.869Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "ec795c84416fa10f55c00eaf9b9d8225870b1cffa2a90913f312775c5c2e86d2",
-      "kind": "sell",
-      "ticker": "KKDAG",
-      "name": "Kas Knight",
-      "amount": "17279",
+      "txId": "a215d79416dc70eb6677f9d0f3dfc99d9ce64b8645e91001088512d4d5a9dd68",
+      "kind": "transfer",
+      "ticker": "WHALE",
+      "name": "Broke Whale",
+      "amount": "155",
       "decimals": 0,
-      "timestamp": 1793915817832
+      "timestamp": 1793957832183
     },
     {
-      "txId": "434348a866bd687d67b4015074e3c01a88a4771616263382026f1351c189de90",
-      "kind": "sell",
+      "txId": "a492f22e65666363df04fd823291b2152e0715393a81f0e96004b39b359cd3c8",
+      "kind": "buy",
+      "ticker": "KRON",
+      "name": "Kron Token",
+      "amount": "8366",
+      "decimals": 0,
+      "timestamp": 1793950922632
+    },
+    {
+      "txId": "25db7e54acb268dadbaf50e182895ed1387531a0202ff90541fcfeea458307ff",
+      "kind": "buy",
       "ticker": "IFWEN",
       "name": "NOT IF BUT WEN",
-      "amount": "24332830",
+      "amount": "533233",
       "decimals": 0,
-      "timestamp": 1793912953055
-    },
-    {
-      "txId": "0cc21e40315ee2da3a8781955962d2d5d7be129fe2bc54a97133f66818207b4f",
-      "kind": "buy",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "115639",
-      "decimals": 0,
-      "timestamp": 1793912410685
+      "timestamp": 1793926379108
     }
   ]
 }
