@@ -16,7 +16,7 @@
           "what": "in-browser compiler exercised — the welcome contract compiled to 56 bytes"
         }
       ],
-      "note": "deploy/deposit/withdraw are the site's own claims, not yet independently tested · no public source found · was unreachable on 2026-09-24, back up since",
+      "note": "deploy/deposit/withdraw are the site's own claims, not yet independently tested · no public source found · was unreachable on 2026-09-24, back up since · by Kaspero Labs (confirmed on their site)",
       "isNew": true
     },
     {
@@ -237,6 +237,108 @@
         }
       ],
       "note": "the first listing to arrive through the public issue flow — suggested and verified the same day"
+    },
+    {
+      "name": "KasWare",
+      "url": "https://www.kasware.xyz",
+      "icon": "🧳",
+      "layer": "Wallet · KCC-20",
+      "tagline": "The wallet with a documented KCC-20 API",
+      "shows": "Browser and mobile wallet exposing signKcc20Deploy / Mint / Transfer over PSKT for dApps — and its vault covenants are the single biggest covenant family on mainnet.",
+      "origin": "community",
+      "featured": false,
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-11-06",
+          "what": "KasWare vault covenant templates named on mainnet by the kascov indexer (180k+ instances)"
+        },
+        {
+          "type": "source",
+          "date": "2026-11-06"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "name": "dotK",
+      "url": "https://dotk.name",
+      "icon": "🏷️",
+      "layer": "Covenants · names",
+      "tagline": ".k names enforced by consensus",
+      "shows": "A name registry where each .k name is a covenant deed UTXO and uniqueness is enforced by the chain itself — owner schemes follow KCC-2.",
+      "origin": "community",
+      "featured": false,
+      "checks": [
+        {
+          "type": "source",
+          "date": "2026-11-06",
+          "what": "supertypo/dotk-covenants"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "name": "Kaspa Kii — Impulse",
+      "url": "https://kaspa-kii.org",
+      "icon": "🤝",
+      "layer": "Covenants · settlement",
+      "tagline": "Atomic delivery-versus-payment",
+      "shows": "Open-source DvP settlement: both legs of a trade settle in one transaction, or each side gets refunded — no escrow agent in the loop.",
+      "origin": "community",
+      "featured": false,
+      "checks": [
+        {
+          "type": "source",
+          "date": "2026-11-06",
+          "what": "KaspaKii/impulse"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        }
+      ],
+      "note": "mainnet deployment is the project’s own report (v0.4.0) — not yet independently verified on chain by this site"
+    },
+    {
+      "name": "Kaspero Labs",
+      "url": "https://kasperolabs.com",
+      "icon": "🛡️",
+      "layer": "Security · tooling",
+      "tagline": "Red-team tools for covenant builders",
+      "shows": "kaspa-redteam for attacking and testing Silverscript contracts, KCC-20 wallet-hardening guidance, and a covenant bridge experiment verifying Ethereum finality with RISC Zero proofs.",
+      "origin": "community",
+      "featured": false,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        }
+      ],
+      "note": "also the team behind SilverScript Studio"
+    },
+    {
+      "name": "Karat",
+      "url": "https://karatscan.space",
+      "icon": "💎",
+      "layer": "KCC-20 · scanner",
+      "tagline": "Recompiles every token, grades what the chain proves",
+      "shows": "Recompiles each KCC-20 contract with silverc, byte-matches it against a template registry, and grades mint authority, supply and ownership from 24K down to Counterfeit.",
+      "origin": "community",
+      "featured": false,
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        }
+      ],
+      "note": "the grades are its own methodology, not an audit; its public API is marked coming soon"
     }
   ],
   "venues": [
@@ -257,7 +359,8 @@
           "type": "homepage",
           "date": "2026-09-12"
         }
-      ]
+      ],
+      "note": "covenants audited by Hashlock (Sept 2026, rated Secure: 24 findings, 20 fixed and re-verified) — the scope excludes the standard KCC-20 family and vesting; full report + SHA-256 at kron.technology/audit"
     },
     {
       "name": "KaspaRocket",
@@ -308,37 +411,44 @@
       "icon": "⚒️",
       "layer": "Covenants · KCC-20",
       "tagline": "Forge a token, watch it graduate",
-      "shows": "A launchpad and DEX built entirely from Kaspa covenants — the script holding the funds enforces the price.",
+      "shows": "A launchpad and DEX built entirely from Kaspa covenants — the script holding the funds enforces the price. Now live on mainnet.",
       "checks": [
         {
           "type": "onchain",
-          "date": "2026-09-12",
-          "what": "trades on testnet-10"
+          "date": "2026-11-04",
+          "what": "mainnet trades executed and verified via the Dagger integration"
         },
         {
           "type": "homepage",
-          "date": "2026-09-12"
+          "date": "2026-11-06"
         }
-      ]
+      ],
+      "note": "kascov’s venue feed has not yet named it — that attribution check is pending"
     },
     {
-      "name": "KaspaKaha",
-      "url": "https://kaspakaha.com",
-      "icon": "🌀",
-      "layer": "Covenants · KCC-20",
-      "tagline": "The covenant AMM",
-      "shows": "Pool-based AMM swaps where the covenant itself is the market maker — build a trade, sign it, the pool enforces the price.",
+      "name": "Braid (formerly KaspaKaha)",
+      "url": "https://braidswap.com",
+      "icon": "🪢",
+      "layer": "Covenants · KCC-20 · aggregator",
+      "tagline": "Best-price swaps across the L1 venues",
+      "shows": "A swap aggregator that routes across KRON, KaspaRocket and KasSeal through an on-chain router — you get your minimum or a refund. The team’s open-source KCC-20 reference build and AMM remain on testnet-10.",
       "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        },
         {
           "type": "onchain",
           "date": "2026-09-09",
-          "what": "buy + sell on testnet-10"
+          "what": "buy + sell proven on testnet-10, as KaspaKaha"
         },
         {
-          "type": "homepage",
-          "date": "2026-09-12"
+          "type": "source",
+          "date": "2026-11-06",
+          "what": "the KCC-20 reference build (KaspaKaha/KCC20) — no public repo for the Braid router itself"
         }
-      ]
+      ],
+      "note": "rebranded from KaspaKaha in mid-October; the mainnet router itself is not yet independently verified on chain by this site"
     },
     {
       "name": "KaspaCom",
@@ -352,6 +462,30 @@
           "type": "homepage",
           "date": "2026-09-12",
           "what": "KCC20 marketplace live on mainnet, observed"
+        }
+      ]
+    },
+    {
+      "name": "KasSeal",
+      "url": "https://app.kasseal.com",
+      "icon": "🦭",
+      "layer": "Covenants · KCC-20",
+      "tagline": "Fixed-supply launches on a linear curve",
+      "shows": "Every token launches as 1.2B fixed-supply KCC-20 — 800M on a linear curve, 400M reserved for the pool it graduates into.",
+      "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-11-06",
+          "what": "named as a mainnet venue by the kascov indexer’s venue feed"
+        },
+        {
+          "type": "source",
+          "date": "2026-11-06",
+          "what": "open-source TypeScript SDK (Sealkaspa/kasseal-sdk)"
+        },
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
         }
       ]
     }
@@ -399,7 +533,22 @@
           "date": "2026-09-12"
         }
       ],
-      "note": "in constant use — the site's mainnet numbers come from its API, refreshed every 4 hours"
+      "note": "in constant use — the site’s mainnet numbers come from its API, refreshed every 4 hours; community reports point to Kasvio as its successor, and this site’s feed will migrate if it degrades"
+    },
+    {
+      "name": "Kasvio",
+      "url": "https://kasvio.network",
+      "icon": "🔬",
+      "layer": "Covenants · explorer",
+      "tagline": "Covenant explorer for the whole network",
+      "shows": "Explores all covenant activity (not only KCC-20), with token pages, alerts and token-to-token swap views.",
+      "checks": [
+        {
+          "type": "homepage",
+          "date": "2026-11-06"
+        }
+      ],
+      "note": "community reports name it the successor to kcc20.info — unconfirmed by this site"
     }
   ],
   "underReview": [
@@ -418,6 +567,22 @@
     {
       "name": "Portrait",
       "why": "pattern library with its own covenant language — checking its emitted Silverscript next"
+    },
+    {
+      "name": "KOB — Kaspa Order Book (RossKU/kob)",
+      "why": "open-source covenant order book shipped as an Argent app, testnet-10 — listed when a mainnet deployment or a clean compile check against the current toolchain is confirmed"
+    },
+    {
+      "name": "KA$H covenant stablecoin (KASperience)",
+      "why": "lock-KAS-to-mint stablecoin with a stability pool, testnet-10 by its own account — listed on mainnet evidence"
+    },
+    {
+      "name": "Kastle wallet",
+      "why": "live wallet with covenant-based .k name support; KCC-20 support is in development per its own repo — listed when it lands"
+    },
+    {
+      "name": "HardKAS (KasLabDevs)",
+      "why": "local-first covenant dev framework (simulator, replay, visual IDE) in hardened alpha — listed when it stabilises or sees adoption"
     }
   ]
 }

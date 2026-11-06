@@ -2,6 +2,12 @@
   {
     "date": "2026-11-06",
     "kind": "ecosystem",
+    "title": "The big ecosystem sweep: an audit, two new mainnet venues, and six new cards",
+    "body": "A community-compiled directory pointed at builders this board was missing; every claim below was re-verified first-hand today. The headline: KRON’s covenants carry the ecosystem’s first published security audit — Hashlock, September 2026, rated Secure, 24 findings with 20 fixed and re-verified, full report and hash published (scope excludes the standard KCC-20 family and vesting). Venues: KasSeal joins the board, named a mainnet venue by kascov’s attribution feed with an open-source SDK; KForge moves to mainnet (trades verified via the Dagger integration — kascov attribution still pending); and KaspaKaha’s card becomes Braid, the mainnet swap aggregator it rebranded into, its testnet KCC-20 reference work preserved. New cards: KasWare (the wallet whose vault covenants are mainnet’s biggest covenant family), dotK (.k names as covenant deeds), Kaspa Kii’s Impulse (atomic delivery-versus-payment), Kaspero Labs (red-team tooling — and, confirmed on their own site, the team behind SilverScript Studio), Karat (a recompile-and-grade token scanner, its grades its own methodology), and the Kasvio explorer. Under review: KOB’s covenant order book, the KA$H stablecoin, Kastle’s pending KCC-20 support, and HardKAS. Infrastructure note: rusty-kaspa merged an optional node-level covenant index (--covenant-index) on November 3 — wallets still lean on third-party indexers until it ships by default."
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "ecosystem",
     "title": "KaspaRocket is on mainnet — says the chain itself",
     "body": "The best kind of upgrade: not an announcement, an attribution. The kascov indexer's mainnet template list now names KaspaRocket directly — 180 lp-amm covenants, all 180 live — so the venue's card moves from testnet-proven to an on-chain mainnet check anyone can reproduce. Elsewhere this week the standards pipeline was quiet: the draft mobile-wallet pairing API was closed unmerged and leaves the watcher; KCC-3 (HD wallets), P2PKH-via-P2SH, KCC-12 and the registry covenants remain in review. Chain note: kascov also now tracks a 'reviewed KCC-20 build' template class — 336 covenants with 4,786 live states."
   },
