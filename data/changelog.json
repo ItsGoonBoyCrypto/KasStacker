@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-11-06",
+    "kind": "ecosystem",
+    "title": "KaspaRocket is on mainnet — says the chain itself",
+    "body": "The best kind of upgrade: not an announcement, an attribution. The kascov indexer's mainnet template list now names KaspaRocket directly — 180 lp-amm covenants, all 180 live — so the venue's card moves from testnet-proven to an on-chain mainnet check anyone can reproduce. Elsewhere this week the standards pipeline was quiet: the draft mobile-wallet pairing API was closed unmerged and leaves the watcher; KCC-3 (HD wallets), P2PKH-via-P2SH, KCC-12 and the registry covenants remain in review. Chain note: kascov also now tracks a 'reviewed KCC-20 build' template class — 336 covenants with 4,786 live states."
+  },
+  {
     "date": "2026-10-30",
     "kind": "ecosystem",
     "title": "ForgeVault: token locks and vesting — the listing flow works",

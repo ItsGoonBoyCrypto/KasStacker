@@ -265,8 +265,13 @@
       "icon": "🚀",
       "layer": "Silverscript · KCC-20",
       "tagline": "Fair-launch tokens on a curve",
-      "shows": "Tokens climb a dual-phase bonding curve, then graduate to a constant-product AMM — and the venue publishes its Silverscript contracts.",
+      "shows": "Tokens climb a dual-phase bonding curve, then graduate to a constant-product AMM — the venue publishes its Silverscript contracts, and its lp-amm covenants run on mainnet.",
       "checks": [
+        {
+          "type": "onchain",
+          "date": "2026-11-06",
+          "what": "180 KaspaRocket lp-amm covenants live on mainnet, attributed by the kascov indexer"
+        },
         {
           "type": "compile",
           "date": "daily",
@@ -274,10 +279,9 @@
         },
         {
           "type": "homepage",
-          "date": "2026-09-12"
+          "date": "2026-11-06"
         }
-      ],
-      "note": "L1 trading proven end-to-end on testnet-10"
+      ]
     },
     {
       "name": "Zealous Swap",

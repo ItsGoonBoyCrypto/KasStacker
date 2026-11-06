@@ -13,12 +13,6 @@
   },
   {
     "repo": "kaspanet/kccs",
-    "pr": 35,
-    "label": "Mobile wallet session & pairing API (draft, unnumbered)",
-    "note": "companion territory to KCC-12's provider API — how a mobile wallet pairs with a dApp session; early draft"
-  },
-  {
-    "repo": "kaspanet/kccs",
     "pr": 38,
     "label": "KCC-3 — segregated hierarchy for HD wallets",
     "note": "new draft: how HD wallets derive and segregate covenant-related keys"
