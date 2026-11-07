@@ -1,15 +1,24 @@
 {
-  "generatedAt": "2026-11-06T23:57:34.570Z",
+  "generatedAt": "2026-11-07T05:28:09.542Z",
   "source": "https://kcc20.info/v1/kcc/activity",
   "items": [
     {
-      "txId": "678e9536d413b3eb65749f7d16a9fa812f78d865bfcb70e41bc0634f0e02e491",
+      "txId": "ba950e139a9cfabb06a1f2e87be049b7dea13fdd372d25312bfc332c76440b14",
       "kind": "buy",
       "ticker": "KRON",
       "name": "Kron Token",
-      "amount": "27762",
+      "amount": "1708867",
       "decimals": 0,
-      "timestamp": 1794006697201
+      "timestamp": 1794028555636
+    },
+    {
+      "txId": "4cf1ab3deacd0698de8b17265781989563f025c1573a203d2e0fe007c57ec8c2",
+      "kind": "buy",
+      "ticker": "IFWEN",
+      "name": "NOT IF BUT WEN",
+      "amount": "1064121",
+      "decimals": 0,
+      "timestamp": 1794010806736
     },
     {
       "txId": "78375ffd164759fe01655498abc8441c4eb31874240d33077c1cdba8d2db26f6",
@@ -19,15 +28,6 @@
       "amount": "95",
       "decimals": 0,
       "timestamp": 1793994275887
-    },
-    {
-      "txId": "64167be792d1ef2c663cba39f9ce3cc14ec4776fb9eadea3b604045f7975aebf",
-      "kind": "sell",
-      "ticker": "NACHO",
-      "name": "NACHO",
-      "amount": "19706",
-      "decimals": 0,
-      "timestamp": 1793990239067
     }
   ]
 }
